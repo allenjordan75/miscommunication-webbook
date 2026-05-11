@@ -56,7 +56,7 @@
     width: min(var(--max), calc(100% - clamp(18px, 5vw, 72px)));
     margin: 0 auto;
     padding: clamp(28px, 4.4vw, 62px) clamp(16px, 3vw, 42px);
-    background: var(--paper);
+    background: transparent;
     box-shadow: 0 0 0 1px rgba(216, 201, 184, 0.65);
     overflow: visible;
   }
@@ -249,17 +249,46 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: clamp(30px, 5vw, 68px);
     align-items: start;
-    padding: clamp(18px, 3vw, 34px) 0 clamp(18px, 3vw, 30px);
-    border-top: 1px solid var(--tan);
-    border-bottom: 1px solid var(--tan);
   }
 
   .textbook-spread {
     display: block;
   }
 
-  .opening-spread {
-    margin-bottom: clamp(16px, 2.5vw, 26px);
+  .opening-spread,
+  .textbook-spread,
+  .recap,
+  .back-matter {
+    position: relative;
+    margin: 0 0 clamp(24px, 4.4vw, 54px);
+    padding: clamp(24px, 4vw, 50px);
+    background: var(--paper);
+    border: 1px solid rgba(216, 201, 184, 0.92);
+    box-shadow: 0 14px 34px rgba(21, 21, 21, 0.07);
+    overflow: visible;
+  }
+
+  .opening-spread::after,
+  .textbook-spread::after,
+  .recap::after,
+  .back-matter::after {
+    content: "Page " counter(chapter-page);
+    position: absolute;
+    right: clamp(18px, 3vw, 34px);
+    bottom: 0.85rem;
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .opening-spread,
+  .textbook-spread,
+  .recap,
+  .back-matter {
+    counter-increment: chapter-page;
   }
 
   .brush-label {
@@ -303,10 +332,6 @@
     font-weight: 900;
   }
 
-  .textbook-spread {
-    margin-bottom: 0;
-  }
-
   .reading-column {
     max-width: none;
   }
@@ -326,7 +351,7 @@
   }
 
   .book-surface {
-    counter-reset: chapter-section;
+    counter-reset: chapter-section chapter-page;
   }
 
   .section-number,
@@ -681,8 +706,6 @@
   }
 
   .recap {
-    margin-top: clamp(20px, 3.5vw, 34px);
-    padding-top: 1rem;
     border-top: 3px solid var(--tan);
   }
 
@@ -707,8 +730,6 @@
   }
 
   .back-matter {
-    margin-top: clamp(22px, 4vw, 38px);
-    padding-top: 1.05rem;
     border-top: 2px solid var(--tan);
   }
 
@@ -826,6 +847,15 @@
 
     .book-surface {
       padding: 22px 14px;
+    }
+
+    .opening-spread,
+    .textbook-spread,
+    .recap,
+    .back-matter {
+      margin-bottom: 1.4rem;
+      padding: 1.15rem;
+      box-shadow: 0 8px 20px rgba(21, 21, 21, 0.06);
     }
 
     .chapter-kicker {
