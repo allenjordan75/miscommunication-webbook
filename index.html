@@ -1,0 +1,549 @@
+<style>
+  :root {
+    --cream: #fff1dd;
+    --paper: #fffdf8;
+    --white: #ffffff;
+    --ink: #151515;
+    --muted: #5b514a;
+    --clay: #b85f32;
+    --clay-dark: #8f4525;
+    --orange: #ff8846;
+    --gold: #f5b94f;
+    --green: #34704c;
+    --sage-soft: #eef2e8;
+    --blue: #005f78;
+    --tan: #d8c9b8;
+    --note-red: #a92a1f;
+    --max: 1180px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .miscomm-home {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(17px, 1.08vw, 19px);
+    line-height: 1.64;
+  }
+
+  .miscomm-home a {
+    color: inherit;
+  }
+
+  .home-surface {
+    width: min(var(--max), calc(100% - clamp(18px, 5vw, 72px)));
+    margin: 0 auto;
+    padding: clamp(34px, 5.4vw, 82px) clamp(24px, 5vw, 72px);
+    background: var(--paper);
+    box-shadow: 0 0 0 1px rgba(216, 201, 184, 0.65);
+  }
+
+  .book-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: clamp(1.1rem, 3vw, 2rem);
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--tan);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .book-header-title {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+    font-weight: 900;
+    line-height: 1.22;
+  }
+
+  .book-header-author {
+    display: block;
+    margin-top: 0.18rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .book-header-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem 0.8rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+
+  .book-header-nav a {
+    text-decoration: none;
+  }
+
+  .book-header-nav a:hover,
+  .book-header-nav a:focus {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+    outline: none;
+  }
+
+  .home-kicker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: clamp(1.1rem, 3vw, 2rem);
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .home-kicker a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  .home-kicker a:hover,
+  .home-kicker a:focus {
+    color: var(--clay-dark);
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+  }
+
+  .home-hero {
+    position: relative;
+    margin: clamp(10px, 2vw, 18px) 0 clamp(54px, 8vw, 104px);
+    padding: clamp(22px, 3.8vw, 42px);
+    background: var(--paper);
+    border-top: 2px solid var(--tan);
+    border-bottom: 2px solid var(--tan);
+    overflow: hidden;
+  }
+
+  .home-hero::before {
+    content: "";
+    position: absolute;
+    inset: clamp(12px, 2vw, 22px) auto clamp(12px, 2vw, 22px) 0;
+    width: clamp(10px, 1.6vw, 18px);
+    background: var(--gold);
+  }
+
+  .home-hero::after {
+    content: "";
+    position: absolute;
+    left: clamp(22px, 4vw, 42px);
+    right: clamp(22px, 4vw, 42px);
+    bottom: clamp(12px, 2vw, 20px);
+    height: 4px;
+    background: var(--orange);
+  }
+
+  .home-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--tan);
+  }
+
+  .home-title-wrap {
+    padding: clamp(1.5rem, 4vw, 3rem) clamp(1.2rem, 4vw, 3rem);
+    background: var(--white);
+    text-align: center;
+  }
+
+  .home-title-wrap::before {
+    content: "";
+    display: block;
+    width: min(46%, 280px);
+    height: 6px;
+    margin-bottom: clamp(0.85rem, 2vw, 1.35rem);
+    margin-right: auto;
+    margin-left: auto;
+    background: var(--gold);
+  }
+
+  .book-logo {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.15rem, 5.6vw, 5.6rem);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+  }
+
+  .book-logo-main {
+    display: block;
+    color: var(--clay-dark);
+  }
+
+  .book-logo-sub {
+    display: block;
+    max-width: 18em;
+    margin: 0.48rem auto 0;
+    color: var(--ink);
+    font-size: 0.35em;
+    letter-spacing: 0;
+    line-height: 1.14;
+  }
+
+  .home-subtitle {
+    max-width: 42rem;
+    margin: 1rem 0 0;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.05rem, 1.7vw, 1.45rem);
+    font-weight: 800;
+    line-height: 1.22;
+  }
+
+  .home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.72rem 1rem;
+    background: var(--clay);
+    color: var(--white);
+    border: 2px solid var(--clay);
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-decoration: none;
+  }
+
+  .home-button.secondary {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .home-button:hover,
+  .home-button:focus {
+    background: var(--white);
+    color: var(--clay-dark);
+    outline: none;
+  }
+
+  .home-button.secondary:hover,
+  .home-button.secondary:focus {
+    color: var(--green);
+  }
+
+  .toc-jump {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1.15rem;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .toc-jump:hover,
+  .toc-jump:focus {
+    color: var(--clay-dark);
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+    outline: none;
+  }
+
+  .home-spread {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(42px, 7.5vw, 96px);
+    align-items: start;
+    margin-bottom: clamp(42px, 7vw, 84px);
+  }
+
+  .home-section {
+    margin-bottom: clamp(46px, 7vw, 90px);
+  }
+
+  .home-heading {
+    position: relative;
+    margin: 0 0 1.1rem;
+    padding-top: 0.75rem;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.6rem, 2.55vw, 2.35rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+
+  .home-heading::before {
+    content: "";
+    display: block;
+    width: 7rem;
+    height: 5px;
+    margin-bottom: 0.72rem;
+    background: var(--clay);
+  }
+
+  .home-subheading {
+    margin: 1.55rem 0 0.65rem;
+    color: var(--clay-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+    font-weight: 900;
+    line-height: 1.18;
+  }
+
+  .heading-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    margin-right: 0.65rem;
+    color: var(--white);
+    background: var(--clay);
+    border-radius: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1;
+    vertical-align: 0.08em;
+  }
+
+  .micro-heading {
+    display: block;
+    margin: 1.35rem 0 0.45rem;
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .chapter-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.4rem 0 0;
+  }
+
+  .chapter-link {
+    display: grid;
+    grid-template-columns: minmax(70px, 0.22fr) minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 0;
+    border-top: 1px solid var(--tan);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .chapter-link:last-child {
+    border-bottom: 1px solid var(--tan);
+  }
+
+  .chapter-link:hover,
+  .chapter-link:focus {
+    color: var(--blue);
+    outline: none;
+  }
+
+  .chapter-num {
+    color: var(--clay-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.55rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .chapter-link h3 {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+    font-weight: 900;
+    line-height: 1.18;
+  }
+
+  .chapter-link p {
+    margin: 0.35rem 0 0;
+    color: var(--muted);
+  }
+
+  .chapter-status {
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .feature-note {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--tan);
+  }
+
+  .feature-note strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .canvas-note {
+    padding: 1rem 1.1rem;
+    background: var(--sage-soft);
+    border-left: 4px solid var(--green);
+  }
+
+  .canvas-note strong {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .home-footer {
+    margin-top: clamp(36px, 6vw, 72px);
+    padding-top: 1.35rem;
+    border-top: 2px solid var(--tan);
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 980px) {
+    .home-surface {
+      width: min(100%, calc(100% - 22px));
+    }
+
+    .home-hero-inner,
+    .home-spread,
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .home-hero-inner {
+      border: 0;
+    }
+
+  }
+
+  @media (max-width: 720px) {
+    .miscomm-home {
+      font-size: 17px;
+    }
+
+    .home-surface {
+      padding: 22px 18px;
+    }
+
+    .home-kicker {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .book-header {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .book-header-nav {
+      justify-content: flex-start;
+    }
+
+    .home-hero {
+      padding: 1rem;
+    }
+
+    .home-hero::before,
+    .home-hero::after {
+      display: none;
+    }
+
+    .home-title-wrap {
+      padding: 1.2rem 0 0;
+      background: transparent;
+    }
+
+    .book-logo {
+      font-size: clamp(2rem, 12vw, 3.8rem);
+    }
+
+    .chapter-link {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+
+    .chapter-status {
+      justify-self: start;
+    }
+  }
+</style>
+
+<section class="miscomm-home">
+  <main class="home-surface">
+    <header class="book-header" aria-label="Book header">
+      <div>
+        <p class="book-header-title">(Mis)Communication: An (Un)Commonsense Approach to Interpersonal Communication</p>
+        <span class="book-header-author">Jordan Allen, Ph.D.</span>
+      </div>
+      <nav class="book-header-nav" aria-label="Book navigation">
+        <a href="#chapter-directory">Chapters</a>
+      </nav>
+    </header>
+
+    <header class="home-hero">
+      <div class="home-hero-inner">
+        <div class="home-title-wrap">
+          <h1 class="book-logo">
+            <span class="book-logo-main">(Mis)Communication</span>
+            <span class="book-logo-sub">An (Un)Commonsense Approach to Interpersonal Communication</span>
+          </h1>
+          <a class="toc-jump" href="#chapter-directory">View table of contents</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="chapter-directory" class="home-section" aria-labelledby="chapters-heading">
+      <h1 id="chapters-heading" class="home-heading">Table of Contents</h1>
+
+      <div class="chapter-list">
+        <a class="chapter-link" href="https://www.mis-communication.org/chapter-0-un-knowing-communication-a-case-for-knowing-less">
+          <span class="chapter-num">0</span>
+          <span>
+            <h3>(Mis)Communicating: Knowing vs. Understanding Interpersonal Communication</h3>
+          </span>
+          <span class="chapter-status">Available</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</section>
