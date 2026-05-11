@@ -55,9 +55,10 @@
   .book-surface {
     width: min(var(--max), calc(100% - clamp(18px, 5vw, 72px)));
     margin: 0 auto;
-    padding: clamp(34px, 5.4vw, 82px) clamp(24px, 5vw, 72px);
+    padding: clamp(28px, 4.4vw, 62px) clamp(16px, 3vw, 42px);
     background: var(--paper);
     box-shadow: 0 0 0 1px rgba(216, 201, 184, 0.65);
+    overflow: visible;
   }
 
   .book-header {
@@ -307,11 +308,17 @@
   }
 
   .reading-column {
-    max-width: 82ch;
+    max-width: none;
   }
 
   .reading-column + .reading-column {
     margin-top: 0;
+  }
+
+  .reading-column > p,
+  .reading-column > h2,
+  .reading-column > .subsubsection-heading {
+    max-width: 64ch;
   }
 
   .numbered-section {
@@ -521,20 +528,20 @@
 
   .callout {
     clear: both;
-    margin: 1.1rem 0;
-    padding: 1.35rem 1.5rem;
+    margin: 0.85rem 0;
+    padding: 0.95rem 1.05rem;
     background: rgba(255, 247, 239, 0.72);
-    border-left: 6px solid var(--clay);
-    font-size: clamp(1.2rem, 1.45vw, 1.34rem);
-    line-height: 1.5;
+    border-left: 5px solid var(--clay);
+    font-size: clamp(1rem, 1.08vw, 1.12rem);
+    line-height: 1.48;
   }
 
   .callout-label {
     display: block;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.45rem;
     color: var(--clay-dark);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(1.02rem, 1.15vw, 1.14rem);
+    font-size: clamp(0.78rem, 0.82vw, 0.9rem);
     font-weight: 900;
     letter-spacing: 0.06em;
     line-height: 1.2;
@@ -546,7 +553,7 @@
   }
 
   .callout p {
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.45rem;
   }
 
   .callout.uncommonsense,
@@ -579,33 +586,33 @@
 
   .callout.key-term {
     float: none;
-    width: min(100%, 820px);
-    margin: 1.1rem 0;
-    padding: 1.35rem 1.5rem;
+    width: min(100%, 640px);
+    margin: 0.85rem 0;
+    padding: 0.95rem 1.05rem;
   }
 
   .callout.commonsense,
   .callout.uncommonsense {
     float: none;
-    width: min(100%, 820px);
-    margin: 1.1rem 0;
-    padding: 1.35rem 1.5rem;
+    width: min(100%, 640px);
+    margin: 0.85rem 0;
+    padding: 0.95rem 1.05rem;
   }
 
   .callout.myth {
     float: none;
-    width: min(100%, 820px);
-    margin: 1.1rem 0;
-    padding: 1.35rem 1.5rem;
+    width: min(100%, 680px);
+    margin: 0.85rem 0;
+    padding: 1rem 1.1rem;
     background: #ffe8d7;
     border-left-color: var(--orange);
   }
 
   .callout.case {
     float: none;
-    width: min(100%, 820px);
-    margin: 1.1rem 0;
-    padding: 1.35rem 1.5rem;
+    width: min(100%, 680px);
+    margin: 0.85rem 0;
+    padding: 1rem 1.1rem;
   }
 
   .callout.myth .callout-label {
@@ -614,20 +621,54 @@
 
   .callout.pause {
     clear: both;
-    padding: 1.45rem 1.55rem;
+    padding: 1.15rem 1.25rem;
     background: var(--green);
     color: var(--white);
   }
 
   .callout.flatten {
     float: none;
-    width: min(100%, 820px);
-    margin: 1.1rem 0;
-    padding: 1.35rem 1.5rem;
+    width: min(100%, 680px);
+    margin: 0.85rem 0;
+    padding: 1rem 1.1rem;
   }
 
   .callout.pause .callout-label {
     color: #dfeadc;
+  }
+
+  @media (min-width: 900px) {
+    .callout.key-term {
+      clear: right;
+      float: right;
+      position: static;
+      width: clamp(230px, 24%, 300px);
+      margin: 0.15rem 0 0.85rem 1.35rem;
+      padding: 0.78rem 0.85rem;
+      font-size: clamp(0.9rem, 0.86vw, 1rem);
+      line-height: 1.42;
+    }
+
+    .callout.myth,
+    .callout.flatten {
+      clear: none;
+      float: right;
+      width: clamp(300px, 34%, 380px);
+      margin: 0.18rem 0 0.9rem 1.35rem;
+      padding: 0.88rem 0.95rem;
+      font-size: clamp(0.96rem, 0.95vw, 1.06rem);
+      line-height: 1.45;
+    }
+
+    .callout.case {
+      clear: none;
+      float: left;
+      width: clamp(300px, 34%, 380px);
+      margin: 0.18rem 1.25rem 0.9rem 0;
+      padding: 0.88rem 0.95rem;
+      font-size: clamp(0.96rem, 0.95vw, 1.06rem);
+      line-height: 1.45;
+    }
   }
 
   .pullquote {
@@ -758,6 +799,12 @@
   }
 
   @media (max-width: 900px) {
+    .reading-column > p,
+    .reading-column > h2,
+    .reading-column > .subsubsection-heading {
+      max-width: none;
+    }
+
     .textbook-figure.float-right,
     .callout.key-term,
     .callout.case,
@@ -765,6 +812,7 @@
     .callout.uncommonsense,
     .callout.myth,
     .callout.flatten {
+      position: static;
       float: none;
       width: 100%;
       margin: 0.9rem 0;
@@ -777,7 +825,7 @@
     }
 
     .book-surface {
-      padding: 24px 18px;
+      padding: 22px 14px;
     }
 
     .chapter-kicker {
@@ -828,8 +876,8 @@
     }
 
     .callout {
-      padding: 1.1rem;
-      font-size: 1.08rem;
+      padding: 0.95rem 1rem;
+      font-size: 1rem;
     }
 
     .recap-grid {
@@ -874,7 +922,7 @@
       <div>
         <h2 id="chapter-overview-heading" class="brush-label">Chapter Overview</h2>
         <p>In this opening chapter, Professor Allen introduces the strange problem at the center of the book: we have more communication advice, training, technology, and vocabulary than ever, yet communicating often still feels confusing, risky, and weirdly hard.</p>
-        <p>Students will preview two frameworks that shape the whole textbook. The knowing framework treats communication as information to collect, transfer, correct, or apply. The understanding framework treats communicating as contextual sense-making: figuring out how facts, people, relationships, histories, and meanings connect while interaction is still unfolding.</p>
+        <p>Students will preview two frameworks that shape the whole textbook. The <strong>knowing</strong> framework treats communication as information to collect, transfer, correct, or apply. The <strong>understanding</strong> framework treats communicating as contextual <strong>sense-making</strong>: figuring out how facts, people, relationships, histories, and meanings connect while interaction is still unfolding.</p>
 
       </div>
       <div>
@@ -911,7 +959,11 @@
         <p>We spend real money trying to get better at this. Training Magazine reported that U.S. training expenditures reached $102.8 billion in 2025, including $16 billion in outside products and services (Freifeld, 2025). Not all of that is communication training, obviously. Some of it is technical training, compliance training, safety training, and the kind of online module that makes employees stare at a screen wondering whether the &ldquo;next&rdquo; button will ever become available. But communication-adjacent training is everywhere in that world: leadership, feedback, teamwork, conflict, emotional intelligence, coaching, culture, customer service, professional writing, and now AI-assisted communication.</p>
 <p>And still, people do not exactly seem relaxed about communicating. Pew Research Center reported in 2025 that Americans trust one another less than they did a few decades ago, and in one 2025 survey, 61% of U.S. adults said their trust in other people had decreased in recent years (Pew Research Center, 2025). AXA&rsquo;s 2025 research found that 71% of UK young adults ages 18 to 28 said they struggle to maintain concentration during in-person conversations, and 63% said they struggle with real-life interaction (AXA UK, 2025).</p>
         <p>Together, those patterns point toward a tension worth taking seriously: we have more communication language, training, and tools than ever, while actual communicating still feels loaded, uncertain, and hard to trust.</p>
-        <p>That is the communication paradox: we spend massive amounts of time, money, education, training, technology, and cultural energy on communication, while many people still feel uncertain, anxious, stuck, or ineffective when they actually have to communicate.</p>
+        <p>That is the <strong>communication paradox</strong>: we spend massive amounts of time, money, education, training, technology, and cultural energy on communication, while many people still feel uncertain, anxious, stuck, or ineffective when they actually have to communicate.</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Communication Paradox</strong>
+<p><strong>Communication paradox:</strong> the tension between how much attention we give communication and how uncertain, anxious, or stuck people still feel when they actually communicate.</p>
+</aside>
         <p>In simpler language: we know more about communication than ever, but communicating does not feel easier.</p>
         <h2 class="section-heading secondary-heading"><span class="subsection-number">1.2</span>The Problem</h2>
         <p>So here is the problem: we have often been taught to treat communication as a knowing problem when it is also, and often more importantly, an understanding problem. Not because knowing is useless. Knowing is useful. It is just not enough for the kinds of messy, relational, half-clear, context-loaded moments where communicating actually lives.</p>
@@ -923,12 +975,20 @@
       <div class="reading-column">
         <h2 class="section-heading primary-heading"><span class="section-number">2</span>The Problem with Knowing: Brittle Certainty</h2>
         <p class="dropcap">If knowing helped us communicate, we all would be communication experts.</p>
-        <p>That line is not an insult to knowledge. It is a warning about what happens when knowing becomes the whole framework for communication. A framework is a way of seeing. It shapes what we notice, what we ignore, what counts as evidence, and what kind of response seems reasonable. Knowing gives us facts, vocabulary, definitions, categories, and shared reference points. It helps us correct mistakes. It helps us coordinate. It helps us say, &ldquo;The meeting starts at 10,&rdquo; &ldquo;The assignment is due Sunday,&rdquo; or &ldquo;Self-disclosure means revealing personal information about yourself.&rdquo;</p>
+        <p>That line is not an insult to knowledge. It is a warning about what happens when knowing becomes the whole <strong>framework</strong> for communication. A framework is a way of seeing. It shapes what we notice, what we ignore, what counts as evidence, and what kind of response seems reasonable. Knowing gives us facts, vocabulary, definitions, categories, and shared reference points. It helps us correct mistakes. It helps us coordinate. It helps us say, &ldquo;The meeting starts at 10,&rdquo; &ldquo;The assignment is due Sunday,&rdquo; or &ldquo;Self-disclosure means revealing personal information about yourself.&rdquo;</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Framework</strong>
+<p><strong>Framework:</strong> a way of seeing that shapes what we notice, what we ignore, what counts as evidence, and what response seems reasonable.</p>
+</aside>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Knowing</strong>
+<p><strong>Knowing:</strong> having accurate information you can state, recall, identify, or correct.</p>
+</aside>
         <p>But when knowing becomes the whole framework for communication, communication begins to look more stable, correctable, transferable, and rule-based than it really is. It starts to look like a thing we can master if we collect enough accurate pieces. That is where brittle certainty begins.</p>
       </div>
       <div class="reading-column">
         <h2 class="section-heading secondary-heading"><span class="subsection-number">2.1</span>Definition</h2>
-        <p>Jonathan Kvanvig helps us make this distinction because he argues that knowledge and understanding are not the same achievement. In his work, knowledge is often connected to propositional success. That phrase sounds like it was invented to make freshmen close the laptop, so let&rsquo;s translate it. Propositional success means succeeding with a claim: having a belief or statement that is accurate, reliable, and true.</p>
+        <p>Jonathan Kvanvig helps us make this distinction because he argues that knowledge and understanding are not the same achievement. In his work, knowledge is often connected to <strong>propositional success</strong>. That phrase sounds like it was invented to make freshmen close the laptop, so let&rsquo;s translate it. Propositional success means succeeding with a claim: having a belief or statement that is accurate, reliable, and true.</p>
         <p>Here are simple examples. If I say, &ldquo;The quiz opens at noon,&rdquo; and the quiz really does open at noon, that is propositional success. If you know your roommate said, &ldquo;I&rsquo;m fine,&rdquo; and those were the actual words they used, that is propositional success. If you know your friend canceled plans three times, and yes, the cancellations happened, that is propositional success. The claim matches the facts. Lovely. We love a fact that shows up to work on time.</p>
         <p>Kvanvig&rsquo;s point is not that knowledge is useless. It is that knowledge does not exhaust what we value when we say someone understands something (Kvanvig, 2003, 2009). You can know a fact without understanding the situation that makes the fact matter. You can know what someone said without understanding what they meant. You can know the rule without understanding when the rule should bend, pause, or be put down entirely.</p>
 <aside class="callout key-term">
@@ -943,7 +1003,7 @@
 </aside>
         <p>That transition matters because interpersonal communication usually does not fail only because someone lacks a fact. It often fails because someone has a fact and then treats that fact as the whole story.</p>
         <h2 class="section-heading secondary-heading"><span class="subsection-number">2.2</span>Monologic Thinking</h2>
-        <p>Once knowing becomes the whole frame, it often pulls us into monologic thinking. Monologic thinking is either/or thinking and one-answer thinking. It looks for one truth, one cause, one correct interpretation, one person who is right, and one person who is wrong.</p>
+        <p>Once knowing becomes the whole frame, it often pulls us into <strong>monologic thinking</strong>. Monologic thinking is either/or thinking and one-answer thinking. It looks for one truth, one cause, one correct interpretation, one person who is right, and one person who is wrong.</p>
 <aside class="callout key-term">
 <strong class="callout-label">Key Term: Monologic Thinking</strong>
 <p><strong>Monologic thinking:</strong> either/or thinking that searches for one truth, one correct interpretation, or one person who is right.</p>
@@ -956,7 +1016,11 @@
         <p>Take &ldquo;I was just being honest.&rdquo; A monologic reading might say, &ldquo;Honesty is good, so I did nothing wrong.&rdquo; But communicating is rarely that tidy. You can be honest and careless. You can tell the truth and choose a cruel time. You can say something accurate and still ignore the relationship it lands inside. This is why the true/false question is sometimes too small. The message may be true. The communicating may still be a hot mess.</p>
         <h2 class="section-heading secondary-heading"><span class="subsection-number">2.3</span>The Emotion of Certainty</h2>
         <p>The next problem is not just intellectual. It is emotional. Certainty feels good.</p>
-        <p>The certainty trap happens when the feeling that we know makes us stop asking questions. The knowing framework is especially vulnerable to this because propositional success can feel so clean. The claim is true. The fact is accurate. The rule is familiar. The advice is easy to repeat. Case closed.</p>
+        <p>The <strong>certainty trap</strong> happens when the feeling that we know makes us stop asking questions. The knowing framework is especially vulnerable to this because propositional success can feel so clean. The claim is true. The fact is accurate. The rule is familiar. The advice is easy to repeat. Case closed.</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Certainty Trap</strong>
+<p><strong>Certainty trap:</strong> the moment when feeling like we know makes us stop asking questions.</p>
+</aside>
         <p>Except, not always.</p>
         <p>Communication is messy. People are hard to read. Relationships change. Context matters. Timing matters. Power matters. Culture matters. History matters. The same words can mean different things depending on who says them, how they say them, and what happened before. That is a lot. So we reach for rules because rules feel like relief.</p>
         <p>Say this. Do that. Avoid this phrase. Use this script. Good communicators do this. Bad communicators do that. Certainty says, &ldquo;Do not worry. Here is the answer.&rdquo;</p>
@@ -971,7 +1035,11 @@
 <p><strong>Better question:</strong> What would I need to understand before more communication would help?</p>
 </aside>
         <p>This is where knowing can become brittle. If knowing is built around accurate pieces, then it can struggle when the pieces do not stay still. And in real communicating, the pieces almost never stay still. Tone shifts. Power matters. Timing matters. History shows up. The same sentence can land differently depending on who says it, how they say it, and what happened before.</p>
-        <p>Brittle knowledge is knowledge or advice that breaks when the context changes. It is brittle because it depends too much on the situation staying stable, complete, and exactly the way the rule imagined.</p>
+        <p><strong>Brittle knowledge</strong> is knowledge or advice that breaks when the context changes. It is brittle because it depends too much on the situation staying stable, complete, and exactly the way the rule imagined.</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Brittle Knowledge</strong>
+<p><strong>Brittle knowledge:</strong> knowledge or advice that breaks when the context changes.</p>
+</aside>
         <p>Take &ldquo;be direct.&rdquo; Useful? Sometimes, yes. If someone keeps interrupting you, directness might help: &ldquo;Hey, I want to finish my thought before we move on.&rdquo; Beautiful. Clear. Useful.</p>
 <aside class="callout case">
 <strong class="callout-label">Case in Point: Brittle Advice</strong>
@@ -983,7 +1051,7 @@
         <p>This is what rigid advice does. It takes one partial truth and tries to carry it everywhere. Sometimes it helps. Sometimes it breaks in your hands.</p>
         <h2 class="section-heading secondary-heading"><span class="subsection-number">2.5</span>Communication as Knowledge Transfer</h2>
         <p>This is how knowing shapes our view of communication. If knowing teaches us to value accurate pieces of information, then communication starts to look like the movement of those pieces from one person to another. In plain language, that means we imagine communication as information transfer. I know the quiz is due Sunday. I tell you the quiz is due Sunday. Now you know the quiz is due Sunday. Information moved. Tiny parade.</p>
-        <p>This way of thinking is often called the conduit framework because it treats communication like a pipe or channel. I put a message into words. The words travel to you. You receive the message. If the message does not arrive correctly, we assume something blocked the pipe: noise, distraction, unclear wording, bad listening.</p>
+        <p>This way of thinking is often called the <strong>conduit framework</strong> because it treats communication like a pipe or channel. I put a message into words. The words travel to you. You receive the message. If the message does not arrive correctly, we assume something blocked the pipe: noise, distraction, unclear wording, bad listening.</p>
 <aside class="callout key-term">
 <strong class="callout-label">Key Term: Conduit Model</strong>
 <p><strong>Conduit model:</strong> a way of imagining communication as messages moving through a channel from sender to receiver.</p>
@@ -1002,8 +1070,12 @@
       <div class="reading-column">
         <h2 class="section-heading primary-heading"><span class="section-number">3</span>Understanding as a Framework: Durable Flexibility</h2>
         <p class="dropcap">If the knowing framework gives us accurate pieces, the understanding framework helps us see the pattern those pieces make. This is the shift from brittle certainty to durable flexibility. Durable does not mean vague. Flexible does not mean &ldquo;anything goes.&rdquo; It means the framework can respond when the situation changes.</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Understanding</strong>
+<p><strong>Understanding:</strong> grasping how pieces of information connect so a person, situation, relationship, or interaction makes more sense.</p>
+</aside>
         <h2 class="section-heading secondary-heading"><span class="subsection-number">3.1</span>Definition</h2>
-        <p>Kvanvig calls one kind of understanding objectual understanding, which is a fancy way of saying we understand something when we grasp how its parts fit together (Kvanvig, 2003, 2009). He describes understanding as a kind of mastered grasp of connections: structural connections, explanatory connections, and relationships among pieces of information.</p>
+        <p>Kvanvig calls one kind of understanding <strong>objectual understanding</strong>, which is a fancy way of saying we understand something when we grasp how its parts fit together (Kvanvig, 2003, 2009). He describes understanding as a kind of mastered grasp of connections: structural connections, explanatory connections, and relationships among pieces of information.</p>
         <p>Okay, folks, let&rsquo;s translate. Objectual understanding means you understand the thing, situation, or subject as a connected whole. Not just one fact. Not just one sentence. The constellation.</p>
 <aside class="callout key-term">
 <strong class="callout-label">Key Term: Objectual Understanding</strong>
@@ -1015,13 +1087,17 @@
       </div>
       <div class="reading-column">
         <h2 class="section-heading secondary-heading"><span class="subsection-number">3.2</span>Dialectical Thinking</h2>
-        <p>If monologic thinking is one-answer thinking, dialectical thinking is both/and thinking. It means holding more than one truth at the same time, especially when those truths are in tension.</p>
+        <p>If monologic thinking is one-answer thinking, <strong>dialectical thinking</strong> is both/and thinking. It means holding more than one truth at the same time, especially when those truths are in tension.</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Dialectical Thinking</strong>
+<p><strong>Dialectical thinking:</strong> both/and thinking that holds more than one truth at the same time, especially when those truths are in tension.</p>
+</aside>
         <p>You can love someone and need space. You can be honest and still be incomplete. You can communicate clearly and still be misunderstood. You can have good intentions and still hurt someone. You can know someone well and still be surprised by them. A rule can be useful and incomplete. A person can be responsible for their impact even if their intent was good. That last one is a doozy.</p>
         <p>Dialectical thinking does not give us an easy answer. It gives us more room. And sometimes more room is what we need before we can understand what is happening.</p>
         <p>For example, a roommate might say, &ldquo;I don&rsquo;t care where we eat,&rdquo; and then seem annoyed at every option. A monologic reading might say: they lied. A dialectical reading makes more room: maybe they do not care in theory, but they are tired; maybe they want you to choose, but they also have preferences; maybe they are trying to be easygoing and discovering, inconveniently, that they are not actually easygoing today. Does that make sense? The point is not to excuse everything. The point is to keep the situation dimensional long enough to interpret it well.</p>
         <h2 class="section-heading secondary-heading"><span class="subsection-number">3.3</span>The Posture of Uncertainty</h2>
         <p>The knowing framework often reaches for certainty. The understanding framework asks us to tolerate uncertainty long enough to learn from it.</p>
-        <p>That is where productive confusion comes in. Productive confusion is the discomfort that happens when an old certainty stops working before a new understanding has fully formed. It is that irritated little moment when you think, &ldquo;Wait. I thought being direct was good. Now you are telling me directness can be helpful or harmful depending on context?&rdquo;</p>
+        <p>That is where <strong>productive confusion</strong> comes in. Productive confusion is the discomfort that happens when an old certainty stops working before a new understanding has fully formed. It is that irritated little moment when you think, &ldquo;Wait. I thought being direct was good. Now you are telling me directness can be helpful or harmful depending on context?&rdquo;</p>
 <aside class="callout key-term">
 <strong class="callout-label">Key Term: Productive Confusion</strong>
 <p><strong>Productive confusion:</strong> the discomfort that happens when an old certainty stops working before a new understanding has fully formed.</p>
@@ -1037,6 +1113,10 @@
         <p>Understanding asks you to adapt to the person&rsquo;s unique logic. What patterns do they have? What history shapes this? What is this behavior connected to? What else might be true? That kind of flexibility is not weakness. It is durability.</p>
         <h2 class="section-heading secondary-heading"><span class="subsection-number">3.5</span>Communication as Sense-making</h2>
         <p>The knowing framework treats communication as message transfer. The understanding framework treats communicating as sense-making: the process of figuring out what something means while you are still inside the interaction.</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Sense-making</strong>
+<p><strong>Sense-making:</strong> figuring out what something means while you are still inside the interaction.</p>
+</aside>
         <p>Let&rsquo;s take a tiny sentence: &ldquo;I&rsquo;m fine.&rdquo; The words are clear. The sentence is short. The message was sent. The message was received. So, if communication is just information transfer, we are done. They said they are fine. You now know they are fine. Pack it up. The humans have successfully exchanged language.</p>
 <p>Except, probably not.</p>
         <p>Because &ldquo;I&rsquo;m fine&rdquo; can mean many different things. It can mean &ldquo;I am actually fine.&rdquo; It can mean &ldquo;I am not fine, but I do not want to talk about it.&rdquo; It can mean &ldquo;I am not fine, and I desperately want you to notice.&rdquo; It can mean &ldquo;I am trying not to cry in this Chili&rsquo;s.&rdquo; It can mean &ldquo;I am angry, but I am not ready to say why.&rdquo; It can mean &ldquo;I want space.&rdquo; It can mean &ldquo;I want comfort.&rdquo; It can mean &ldquo;I want you to ask again, but differently.&rdquo;</p>
@@ -1058,7 +1138,7 @@
       </div>
       <div class="reading-column">
         <h2 class="section-heading secondary-heading"><span class="subsection-number">4.2</span>Parenthetical Disambiguation</h2>
-        <p>Parenthetical disambiguation is the practice of using parentheses to slow down a word that looks simple and ask what else it might mean. It is one of the ways this textbook practices both/and thinking on the page.</p>
+        <p><strong>Parenthetical disambiguation</strong> is the practice of using parentheses to slow down a word that looks simple and ask what else it might mean. It is one of the ways this textbook practices both/and thinking on the page.</p>
         <p>For example, when this book says clear (clear to whom?), direct (direct under what conditions?), professional (according to whose norms?), or effective (effective for what purpose?), the parentheses are not just decoration. They are a little pause button. They hold two things at once: the word people usually use and the complication the word hides.</p>
 <aside class="callout key-term">
 <strong class="callout-label">Key Term: Parenthetical Disambiguation</strong>
@@ -1066,15 +1146,27 @@
 </aside>
         <p>That is dialectical thinking in miniature. The word can be useful and incomplete. Familiar and slippery. Obvious and not obvious at all. The parentheses keep the thought from closing too quickly, which is exactly the work of understanding.</p>
         <h2 class="section-heading secondary-heading"><span class="subsection-number">4.3</span>Shifting from Advice to Heuristics</h2>
-        <p>Communication charlatans are people or platforms that sell communication certainty without communication judgment. They promise that one phrase, one script, one body-language trick, or one &ldquo;science-backed&rdquo; hack will let you read people, win arguments, control impressions, or fix relationships without doing the harder work of understanding the situation. In other words: airport-bookstore witchcraft wearing a blazer.</p>
+        <p><strong>Communication charlatans</strong> are people or platforms that sell communication certainty without communication judgment. They promise that one phrase, one script, one body-language trick, or one &ldquo;science-backed&rdquo; hack will let you read people, win arguments, control impressions, or fix relationships without doing the harder work of understanding the situation. In other words: airport-bookstore witchcraft wearing a blazer.</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Communication Charlatans</strong>
+<p><strong>Communication charlatans:</strong> people or platforms that sell easy communication certainty without the judgment needed to understand actual situations.</p>
+</aside>
 <aside class="callout myth">
 <strong class="callout-label">Communication Myth: Communication Charlatans</strong>
 <p>Communication charlatans sell certainty without judgment. They promise one phrase, script, body-language trick, or “science-backed” hack can replace understanding the situation.</p>
 </aside>
-        <p>This book will give you something different: heuristics. That is a fancy word for useful guides or tools for thinking. A heuristic is not a law. It is not a commandment. It is more like a flashlight. It helps you see, but it does not become the whole room.</p>
+        <p>This book will give you something different: <strong>heuristics</strong>. That is a fancy word for useful guides or tools for thinking. A heuristic is not a law. It is not a commandment. It is more like a flashlight. It helps you see, but it does not become the whole room.</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Heuristic</strong>
+<p><strong>Heuristic:</strong> a flexible guide or tool for thinking, not a universal rule or script.</p>
+</aside>
         <p>So when this book gives you a concept, do not ask only, &ldquo;How do I memorize this?&rdquo; Ask, &ldquo;What does this help me notice?&rdquo; When it gives you advice, do not ask only, &ldquo;Is this right or wrong?&rdquo; Ask, &ldquo;When would this help? When would it fail? What would I need to understand before using it well?&rdquo;</p>
         <h2 class="section-heading secondary-heading"><span class="subsection-number">4.4</span>Confronting Myths as Taken-for-Granted Knowledge</h2>
-        <p>Every chapter in this book will spend time with communication myths. But we are not just going to debunk them as if the goal is to replace one simple answer with another simple answer. That would be very on-brand for knowing, and we are trying not to accidentally redecorate the same room.</p>
+        <p>Every chapter in this book will spend time with <strong>communication myths</strong>. But we are not just going to debunk them as if the goal is to replace one simple answer with another simple answer. That would be very on-brand for knowing, and we are trying not to accidentally redecorate the same room.</p>
+<aside class="callout key-term">
+<strong class="callout-label">Key Term: Communication Myth</strong>
+<p><strong>Communication myth:</strong> a repeated communication belief that contains a partial truth but becomes misleading when treated as universal or complete.</p>
+</aside>
         <p>Instead, we will confront myths as taken-for-granted knowledge. We will ask what partial truth the myth contains, what cultural logic keeps it alive, what it helps us notice, and what it hides.</p>
         <p>&ldquo;Communication is 93% nonverbal,&rdquo; for example, is not just a random bad fact floating around. It survives because people have experienced moments where tone, face, gesture, and timing mattered more than words. The problem is not that nonverbal communication is unimportant. The problem is that a number can travel without its context, harden into certainty, and make people think they understand communication when they only know a slogan.</p>
 <aside class="callout flatten">
