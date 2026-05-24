@@ -1,0 +1,1542 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IPC 2110 Personal Chapter Drafting Template</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5e6972;
+      --paper: #fbf7f0;
+      --surface: #fffdfa;
+      --line: #ddd0c1;
+      --coral: #b94f43;
+      --coral-dark: #843a32;
+      --sage: #6f8067;
+      --sage-soft: #eef2e8;
+      --gold: #c8923e;
+      --blue: #243d5a;
+      --shadow: 0 18px 50px rgba(23, 33, 43, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 72px;
+      padding: 14px clamp(18px, 4vw, 56px);
+      background: rgba(251, 247, 240, 0.94);
+      border-bottom: 1px solid rgba(221, 208, 193, 0.82);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.98rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: inline-grid;
+      place-items: center;
+      min-width: 52px;
+      min-height: 36px;
+      padding: 0 8px;
+      color: var(--surface);
+      background: var(--coral-dark);
+      border-radius: 6px;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px 18px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .site-nav a,
+    .button {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus {
+      color: var(--coral-dark);
+      outline: none;
+    }
+
+    main {
+      padding: clamp(28px, 5vw, 72px) clamp(18px, 5vw, 72px) 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
+      gap: clamp(24px, 4vw, 58px);
+      align-items: center;
+      max-width: 1240px;
+      margin: 0 auto clamp(36px, 6vw, 72px);
+    }
+
+    .eyebrow,
+    .section-label,
+    .mini-label {
+      margin: 0 0 10px;
+      color: var(--coral-dark);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    label {
+      overflow-wrap: anywhere;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.08;
+    }
+
+    h1 {
+      max-width: 13ch;
+      color: var(--coral-dark);
+      font-size: clamp(2.85rem, 6vw, 5.9rem);
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 3.5vw, 3.2rem);
+    }
+
+    h3 {
+      font-size: 1.18rem;
+    }
+
+    .lede {
+      max-width: 66ch;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+    }
+
+    .hero-actions,
+    .toolbar,
+    .prompt-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .button,
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid var(--coral-dark);
+      border-radius: 6px;
+      color: var(--coral-dark);
+      background: transparent;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .button.primary,
+    button.primary {
+      color: var(--surface);
+      background: var(--coral-dark);
+    }
+
+    .button:hover,
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-media {
+      margin: 0;
+      padding: clamp(10px, 2vw, 18px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-media img {
+      width: 100%;
+      max-height: 760px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #f7efe2;
+    }
+
+    .hero-media figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .template-map {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: clamp(12px, 2vw, 18px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .map-row {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .map-row h3 {
+      color: var(--blue);
+    }
+
+    .map-row p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .map-num {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      color: #fff;
+      background: var(--sage);
+      border-radius: 50%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+    }
+
+    .map-row:nth-child(odd) .map-num {
+      background: var(--coral);
+    }
+
+    .section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: clamp(34px, 6vw, 72px) 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .section-heading p {
+      max-width: 76ch;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.98rem;
+    }
+
+    .grid,
+    .two-col,
+    .three-col {
+      display: grid;
+      gap: 16px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .three-col {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card,
+    .panel,
+    .step,
+    .prompt-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(23, 33, 43, 0.06);
+    }
+
+    .card,
+    .panel,
+    .prompt-card {
+      padding: clamp(16px, 2.4vw, 24px);
+    }
+
+    .panel.sage {
+      background: var(--sage-soft);
+      border-color: #c8d4c0;
+    }
+
+    .panel.gold {
+      background: #fff4d8;
+      border-color: #dfc37b;
+    }
+
+    .architecture {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr) minmax(220px, 0.42fr);
+      gap: 16px;
+      align-items: start;
+      padding: 16px;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: var(--surface);
+      background: var(--sage);
+      border-radius: 50%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+    }
+
+    .step:nth-child(2n + 1) .step-number {
+      background: var(--coral);
+    }
+
+    .step h3 {
+      color: var(--blue);
+    }
+
+    .step p,
+    .step ul,
+    .card p,
+    .card ul,
+    .prompt-card p {
+      margin: 8px 0 0;
+    }
+
+    .step-meta {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.2rem;
+    }
+
+    li + li {
+      margin-top: 0.28rem;
+    }
+
+    .worksheet {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: minmax(160px, 0.34fr) minmax(0, 0.66fr);
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .field-row label {
+      color: var(--blue);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+    }
+
+    .hint {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.86rem;
+      font-weight: 400;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid #cbbbab;
+      border-radius: 6px;
+      color: var(--ink);
+      background: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+    }
+
+    input,
+    select {
+      min-height: 42px;
+      padding: 9px 10px;
+    }
+
+    textarea {
+      min-height: 86px;
+      padding: 10px;
+      resize: vertical;
+    }
+
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .mini-table th,
+    .mini-table td {
+      padding: 11px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .mini-table th {
+      color: var(--surface);
+      background: var(--coral-dark);
+      font-weight: 900;
+    }
+
+    .mini-table tr:nth-child(even) td {
+      background: #fff7ee;
+    }
+
+    .mini-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .leap-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .leap-card {
+      display: grid;
+      grid-template-columns: 120px repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      padding: 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .leap-card h3 {
+      color: var(--coral-dark);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+    }
+
+    .leap-card label {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .prompt-card {
+      display: grid;
+      gap: 12px;
+    }
+
+    .prompt-card textarea {
+      min-height: 220px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+
+    .status-line {
+      min-height: 1.4em;
+      color: var(--sage);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .checklist {
+      columns: 2;
+      column-gap: 28px;
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .checklist li {
+      break-inside: avoid;
+      margin-bottom: 0.5rem;
+    }
+
+    .print-note {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .two-col,
+      .three-col,
+      .section-heading,
+      .step,
+      .leap-card {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        justify-content: flex-start;
+      }
+
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+
+      .checklist {
+        columns: 1;
+      }
+    }
+
+    @page {
+      size: letter portrait;
+      margin: 0.45in;
+    }
+
+    @media print {
+      :root {
+        --ink: #111;
+        --muted: #444;
+        --surface: #fff;
+        --paper: #fff;
+        --line: #999;
+      }
+
+      * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+
+      body {
+        background: #fff;
+        color: #111;
+        font-size: 9.5pt;
+        line-height: 1.28;
+      }
+
+      .site-header,
+      .site-nav,
+      .hero-actions,
+      .toolbar,
+      .prompt-actions,
+      .hero-media figcaption {
+        display: none;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      h1 {
+        max-width: none;
+        color: #111;
+        font-size: 24pt;
+        line-height: 1.02;
+      }
+
+      h2 {
+        font-size: 17pt;
+      }
+
+      h3 {
+        font-size: 11pt;
+      }
+
+      p,
+      li {
+        margin-top: 4px;
+      }
+
+      .hero,
+      .section {
+        display: block;
+        max-width: none;
+        margin: 0;
+        padding: 0.16in 0;
+        border-top: 1px solid #aaa;
+      }
+
+      .hero {
+        border-top: 0;
+        break-after: page;
+      }
+
+      .lede {
+        max-width: none;
+        color: #333;
+        font-size: 10pt;
+      }
+
+      .hero-media {
+        margin-top: 0.18in;
+        padding: 0;
+        border: 0;
+      }
+
+      .hero-media img {
+        width: auto;
+        max-width: 5.2in;
+        max-height: 7.25in;
+        margin: 0 auto;
+        object-fit: contain;
+      }
+
+      .template-map {
+        display: block;
+        margin-top: 0.18in;
+        padding: 0;
+        border: 0;
+      }
+
+      .map-row {
+        display: block;
+        margin-bottom: 8px;
+        padding: 8px;
+        border: 1px solid #aaa;
+        break-inside: avoid;
+      }
+
+      .map-num {
+        float: left;
+        width: 24px;
+        height: 24px;
+        margin: 0 8px 4px 0;
+        background: #555 !important;
+        font-size: 9pt;
+      }
+
+      .section-heading,
+      .two-col,
+      .three-col,
+      .step,
+      .leap-card,
+      .field-row {
+        display: block;
+      }
+
+      .section-heading {
+        margin-bottom: 8px;
+      }
+
+      .section-heading p {
+        max-width: none;
+        font-size: 8.8pt;
+      }
+
+      .section-label,
+      .eyebrow,
+      .mini-label {
+        margin-bottom: 4px;
+        color: #333;
+        font-size: 7.5pt;
+      }
+
+      .card,
+      .panel,
+      .field-row,
+      .step,
+      .leap-card,
+      .prompt-card {
+        margin-bottom: 8px;
+        padding: 8px;
+        background: #fff !important;
+        border: 1px solid #aaa;
+        border-radius: 0;
+        break-inside: avoid;
+      }
+
+      .step-number {
+        float: left;
+        width: 24px;
+        height: 24px;
+        margin: 0 8px 4px 0;
+        color: #fff;
+        background: #555 !important;
+        font-size: 9pt;
+      }
+
+      .step-meta {
+        color: #333;
+        font-size: 8.4pt;
+      }
+
+      .field-row label,
+      .leap-card label {
+        display: block;
+        margin-bottom: 4px;
+        color: #111;
+        font-size: 8.4pt;
+      }
+
+      .hint {
+        display: inline;
+        color: #555;
+        font-size: 8pt;
+      }
+
+      textarea,
+      input,
+      select {
+        min-height: 0;
+        padding: 4px;
+        border-color: #999;
+        border-radius: 0;
+        font-size: 8.5pt;
+        line-height: 1.2;
+      }
+
+      textarea {
+        min-height: 0.55in;
+      }
+
+      .prompt-card textarea {
+        min-height: 2.2in;
+        font-size: 8pt;
+      }
+
+      .mini-table {
+        display: block;
+        border: 0;
+        font-size: 8.2pt;
+      }
+
+      .mini-table thead {
+        display: none;
+      }
+
+      .mini-table tbody,
+      .mini-table tr,
+      .mini-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .mini-table tr {
+        margin-bottom: 8px;
+        border: 1px solid #aaa;
+        break-inside: avoid;
+      }
+
+      .mini-table td {
+        padding: 5px 7px;
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        background: #fff !important;
+      }
+
+      .mini-table td::before {
+        display: block;
+        margin-bottom: 2px;
+        color: #444;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 7pt;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .print-myth-table td:nth-child(1)::before {
+        content: "Myth level";
+      }
+
+      .print-myth-table td:nth-child(2)::before {
+        content: "Myth wording";
+      }
+
+      .print-myth-table td:nth-child(3)::before {
+        content: "Partial truth";
+      }
+
+      .print-myth-table td:nth-child(4)::before {
+        content: "What it hides";
+      }
+
+      .print-myth-table td:nth-child(5)::before {
+        content: "Where it appears";
+      }
+
+      .print-lock-table td:nth-child(1)::before {
+        content: "Section";
+      }
+
+      .print-lock-table td:nth-child(2)::before {
+        content: "Primary job";
+      }
+
+      .print-lock-table td:nth-child(3)::before {
+        content: "Fix";
+      }
+
+      .mini-table td:last-child {
+        border-bottom: 0;
+      }
+
+      .leap-card textarea {
+        min-height: 0.45in;
+      }
+
+      .checklist {
+        columns: 1;
+      }
+
+      .print-note {
+        display: block;
+        color: #555;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 8pt;
+      }
+
+      a[href]::after {
+        content: "";
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">IPC 2110</span>
+      <span>Chapter Drafting Template</span>
+    </a>
+    <nav class="site-nav" aria-label="Template navigation">
+      <a href="#worksheet">Worksheet</a>
+      <a href="#architecture">Chapter Flow</a>
+      <a href="#leaps">Three Leaps</a>
+      <a href="#prompts">Prompts</a>
+      <a href="#checks">Checks</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Writer-facing tool</p>
+        <h1 id="page-title">IPC 2110 Personal Chapter Drafting Template</h1>
+        <p class="lede">A GitHub-ready drafting workspace for building chapters around common sense as knowing and (un)common sense as understanding. Fill the worksheet, map the myths, draft the three leaps, copy targeted prompts, and check for redundancy before the chapter sprawls.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#worksheet">Start planning</a>
+          <a class="button" href="#prompts">Copy prompts</a>
+          <button type="button" id="printPage">Print or save PDF</button>
+        </div>
+      </div>
+      <div class="template-map" aria-label="Template outline at a glance">
+        <div class="map-row">
+          <span class="map-num">1</span>
+          <div>
+            <h3>Opening Story: The Myth in Motion</h3>
+            <p>Begin inside a concrete scene where the commonsense myth feels reasonable before it becomes incomplete.</p>
+          </div>
+        </div>
+        <div class="map-row">
+          <span class="map-num">2</span>
+          <div>
+            <h3>Overview of [Topic]</h3>
+            <p>Define the topic, explain why it matters, and teach only the foundations students need.</p>
+          </div>
+        </div>
+        <div class="map-row">
+          <span class="map-num">3</span>
+          <div>
+            <h3>Approaching [Topic]</h3>
+            <p>Compare common sense as knowing with (un)common sense as understanding.</p>
+          </div>
+        </div>
+        <div class="map-row">
+          <span class="map-num">4</span>
+          <div>
+            <h3>Three Discontinuous Leaps</h3>
+            <p>Develop the big shift through three distinct assumption changes, myth expressions, behaviors, and heuristics.</p>
+          </div>
+        </div>
+        <div class="map-row">
+          <span class="map-num">5</span>
+          <div>
+            <h3>Practice: Rules to Heuristics</h3>
+            <p>Translate the chapter's shifts into flexible practices students can use over time.</p>
+          </div>
+        </div>
+        <div class="map-row">
+          <span class="map-num">6</span>
+          <div>
+            <h3>What to Carry Forward</h3>
+            <p>Return to the anchor story and consolidate what students now notice, understand, and might try.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="core">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Core shift</p>
+          <h2>Keep the chapter's job visible</h2>
+          <p>Every major section should answer one question more strongly than the others. When one section tries to answer everything, redundancy appears.</p>
+        </div>
+      </div>
+      <div class="three-col">
+        <article class="panel sage">
+          <h3>Common sense as knowing</h3>
+          <p>Communication is treated as something solved by locating the right meaning, fact, rule, behavior, or interpretation. Useful, but incomplete.</p>
+        </article>
+        <article class="panel">
+          <h3>(Un)common sense as understanding</h3>
+          <p>Communication is treated as situated, relational, contextual, dialectical, and adaptive. Students practice noticing how meanings are made and changed.</p>
+        </article>
+        <article class="panel gold">
+          <h3>Rules to heuristics</h3>
+          <p>The practice move: shift from rigid communication rules toward flexible guides that help students notice, interpret, and respond across contexts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="worksheet">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Part 1</p>
+          <h2>Chapter Drafting Worksheet</h2>
+          <p>Fill this out before writing prose. Your notes autosave in this browser, and the prompt pack below can pull these answers into copy-ready prompts.</p>
+        </div>
+        <div class="toolbar">
+          <button type="button" id="exportMarkdown">Export notes</button>
+          <button type="button" id="clearSaved">Clear saved notes</button>
+        </div>
+      </div>
+
+      <form class="worksheet" id="chapterForm">
+        <div class="field-row">
+          <label for="topic">Topic <span class="hint">What communication topic is this chapter teaching?</span></label>
+          <input id="topic" name="topic" placeholder="Nonverbal communication">
+        </div>
+        <div class="field-row">
+          <label for="parenthetical">Parenthetical disambiguation <span class="hint">What familiar term or assumption needs to be slowed down?</span></label>
+          <input id="parenthetical" name="parenthetical" placeholder="bodies are not dictionaries">
+        </div>
+        <div class="field-row">
+          <label for="movement">Title movement <span class="hint">From what commonsense shortcut to what (un)commonsense understanding?</span></label>
+          <input id="movement" name="movement" placeholder="From reading to understanding">
+        </div>
+        <div class="field-row">
+          <label for="bigShift">One big shift <span class="hint">What is the overall movement from knowing to understanding?</span></label>
+          <textarea id="bigShift" name="bigShift"></textarea>
+        </div>
+        <div class="field-row">
+          <label for="studentCommonsense">What students think communication is <span class="hint">What will students likely assume before the chapter?</span></label>
+          <textarea id="studentCommonsense" name="studentCommonsense"></textarea>
+        </div>
+        <div class="field-row">
+          <label for="chapterArgument">What the chapter argues communication does <span class="hint">What does this chapter show communication actually doing?</span></label>
+          <textarea id="chapterArgument" name="chapterArgument"></textarea>
+        </div>
+        <div class="field-row">
+          <label for="notice">What students should notice differently <span class="hint">What patterns, contexts, tensions, relations, or histories become visible?</span></label>
+          <textarea id="notice" name="notice"></textarea>
+        </div>
+        <div class="field-row">
+          <label for="tryDifferently">What students should try differently <span class="hint">What flexible practices or heuristics should they leave with?</span></label>
+          <textarea id="tryDifferently" name="tryDifferently"></textarea>
+        </div>
+        <div class="field-row">
+          <label for="story">Opening anchor story <span class="hint">What story lets students feel the myth before you name it?</span></label>
+          <textarea id="story" name="story"></textarea>
+        </div>
+        <div class="field-row">
+          <label for="foundations">Foundations needed <span class="hint">What core information must students know before the approaches make sense?</span></label>
+          <textarea id="foundations" name="foundations" placeholder="Foundation 1:&#10;Foundation 2:&#10;Foundation 3:"></textarea>
+        </div>
+        <div class="field-row">
+          <label for="research">Research legitimacy <span class="hint">What research-based examples legitimize the (un)commonsense approach?</span></label>
+          <textarea id="research" name="research"></textarea>
+        </div>
+        <div class="field-row">
+          <label for="examples">Example range <span class="hint">Student life, family, friends, workplace, dating, media, history, AI, research cases.</span></label>
+          <textarea id="examples" name="examples"></textarea>
+        </div>
+      </form>
+      <p class="status-line" id="saveStatus" aria-live="polite"></p>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Part 2</p>
+          <h2>Chapter Architecture</h2>
+          <p>Use this as the default chapter order: Opening Story -> Overview -> Approaching -> Discontinuous Leaps -> Practice -> Closing.</p>
+        </div>
+      </div>
+
+      <div class="architecture">
+        <article class="step">
+          <span class="step-number">1</span>
+          <div>
+            <h3>Opening Story: The Myth in Motion</h3>
+            <p>Pull students into a vivid scene where the commonsense myth feels obvious before it becomes problematic. Make the myth felt before theory appears.</p>
+          </div>
+          <p class="step-meta">Target: 650-900 words. Avoid starting with definitions or research summaries.</p>
+        </article>
+        <article class="step">
+          <span class="step-number">2</span>
+          <div>
+            <h3>H1: Overview of [Topic]</h3>
+            <p>Define the topic, explain why it matters, and give students the foundations needed before comparing approaches.</p>
+          </div>
+          <p class="step-meta">Target: 1,200-1,800 words, variable. Avoid fully explaining the approaches or leaps.</p>
+        </article>
+        <article class="step">
+          <span class="step-number">3</span>
+          <div>
+            <h3>H1: Approaching [Topic]</h3>
+            <p>Compare common sense as knowing and (un)common sense as understanding. Name origins, appeal, limits, behaviors, and previewed assumptions.</p>
+          </div>
+          <p class="step-meta">Target: 1,000-1,500 words. Avoid doing the leap examples too early.</p>
+        </article>
+        <article class="step">
+          <span class="step-number">4</span>
+          <div>
+            <h3>H1: Discontinuous Leaps</h3>
+            <p>Develop one big shift through three specific assumption changes. Each leap changes what students notice and what they try.</p>
+          </div>
+          <p class="step-meta">Target: 3,200-4,800 words. Avoid three unrelated mini-chapters.</p>
+        </article>
+        <article class="step">
+          <span class="step-number">5</span>
+          <div>
+            <h3>H1: Practice: Rules to Heuristics</h3>
+            <p>Translate understanding into flexible practices students can try across contexts. This is practice, not more content.</p>
+          </div>
+          <p class="step-meta">Target: 1,100-1,700 words. Avoid scripts, rigid advice, or a new theory section.</p>
+        </article>
+        <article class="step">
+          <span class="step-number">6</span>
+          <div>
+            <h3>Closing: What to Carry Forward</h3>
+            <p>Return to the story, consolidate the big shift, name 4-6 key terms, ask reflection questions, and bridge to the next chapter.</p>
+          </div>
+          <p class="step-meta">Target: 300-500 words. Avoid a heading-by-heading summary.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="myths">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Myth map</p>
+          <h2>Three myth expressions</h2>
+          <p>Each leap names a distinct commonsense myth expression. Keep them related, but do not make one leap carry the whole chapter.</p>
+        </div>
+      </div>
+      <table class="mini-table print-myth-table">
+        <thead>
+          <tr>
+            <th>Myth level</th>
+            <th>Myth wording</th>
+            <th>Partial truth</th>
+            <th>What it hides</th>
+            <th>Where it appears</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Leap 1: myth expression 1</td>
+            <td><textarea name="myth1"></textarea></td>
+            <td><textarea name="truth1"></textarea></td>
+            <td><textarea name="hides1"></textarea></td>
+            <td>First discontinuous leap</td>
+          </tr>
+          <tr>
+            <td>Leap 2: myth expression 2</td>
+            <td><textarea name="myth2"></textarea></td>
+            <td><textarea name="truth2"></textarea></td>
+            <td><textarea name="hides2"></textarea></td>
+            <td>Second discontinuous leap</td>
+          </tr>
+          <tr>
+            <td>Leap 3: myth expression 3</td>
+            <td><textarea name="myth3"></textarea></td>
+            <td><textarea name="truth3"></textarea></td>
+            <td><textarea name="hides3"></textarea></td>
+            <td>Third discontinuous leap</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="leaps">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Three-leap planning map</p>
+          <h2>Turn the big shift into behavior</h2>
+          <p>Each leap should move from assumption -> myth -> behavior and then from assumption -> heuristic -> different behavior.</p>
+        </div>
+      </div>
+
+      <div class="leap-grid">
+        <article class="leap-card">
+          <h3>Leap 1</h3>
+          <label>From<textarea name="leap1From" placeholder="Common sense assumption"></textarea></label>
+          <label>Myth<textarea name="leap1Myth" placeholder="Myth expression 1"></textarea></label>
+          <label>To<textarea name="leap1To" placeholder="(Un)common sense assumption"></textarea></label>
+          <label>Heuristic<textarea name="leap1Heuristic"></textarea></label>
+          <label>Example source<textarea name="leap1Source"></textarea></label>
+        </article>
+        <article class="leap-card">
+          <h3>Leap 2</h3>
+          <label>From<textarea name="leap2From"></textarea></label>
+          <label>Myth<textarea name="leap2Myth" placeholder="Myth expression 2"></textarea></label>
+          <label>To<textarea name="leap2To"></textarea></label>
+          <label>Heuristic<textarea name="leap2Heuristic"></textarea></label>
+          <label>Example source<textarea name="leap2Source"></textarea></label>
+        </article>
+        <article class="leap-card">
+          <h3>Leap 3</h3>
+          <label>From<textarea name="leap3From"></textarea></label>
+          <label>Myth<textarea name="leap3Myth" placeholder="Myth expression 3"></textarea></label>
+          <label>To<textarea name="leap3To"></textarea></label>
+          <label>Heuristic<textarea name="leap3Heuristic"></textarea></label>
+          <label>Example source<textarea name="leap3Source"></textarea></label>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="prompts">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Part 4</p>
+          <h2>Reusable Prompt Pack</h2>
+          <p>Choose a prompt, generate it from your worksheet notes, then copy it into ChatGPT or another writing assistant.</p>
+        </div>
+        <div class="toolbar">
+          <select id="promptSelect" aria-label="Choose prompt">
+            <option value="blueprint">Master chapter blueprint</option>
+            <option value="opening">Opening story</option>
+            <option value="overview">Overview + foundations</option>
+            <option value="approaching">Approaching topic</option>
+            <option value="leap">Discontinuous leap</option>
+            <option value="practice">Practice section</option>
+            <option value="review">Anti-redundancy review</option>
+            <option value="research">Research integration</option>
+          </select>
+          <button type="button" id="buildPrompt" class="primary">Build prompt</button>
+        </div>
+      </div>
+      <article class="prompt-card">
+        <textarea id="promptOutput" aria-label="Generated prompt"></textarea>
+        <div class="prompt-actions">
+          <button type="button" id="copyPrompt">Copy prompt</button>
+          <span class="status-line" id="copyStatus" aria-live="polite"></span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="checks">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Part 3</p>
+          <h2>Anti-Redundancy Locks</h2>
+          <p>Use this map when a section starts doing another section's work.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="panel">
+          <table class="mini-table print-lock-table">
+            <thead>
+              <tr>
+                <th>Section</th>
+                <th>Primary job</th>
+                <th>Fix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Opening Story</td><td>Make students feel the commonsense myth.</td><td>Move definitions and research to Overview or Leaps.</td></tr>
+              <tr><td>Overview</td><td>Teach foundations.</td><td>Use only a light setup; save comparison for Approaching.</td></tr>
+              <tr><td>Approaching</td><td>Compare common sense and (un)common sense.</td><td>Preview assumptions only; do not develop them.</td></tr>
+              <tr><td>Discontinuous Leaps</td><td>Transform assumptions and behaviors.</td><td>Keep the three myth expressions distinct; do not repeat the same claim in each leap.</td></tr>
+              <tr><td>Practice</td><td>Translate understanding into flexible practices.</td><td>Use leaps as source material for heuristics, not recap headings.</td></tr>
+              <tr><td>Closing</td><td>Consolidate and transfer.</td><td>Return to the anchor story and ask what now looks different.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel gold">
+          <h3>Paragraph-level check</h3>
+          <ul>
+            <li>Cut if the paragraph only announces that something matters without showing an example, consequence, or question.</li>
+            <li>Move if the paragraph teaches a concept in Practice that belongs in Overview.</li>
+            <li>Merge if two paragraphs explain the same myth with different wording but no new consequence.</li>
+            <li>Split if one paragraph tries to define, compare, give research, and offer practice all at once.</li>
+            <li>Replace if the paragraph says common sense is wrong without preserving its partial truth.</li>
+            <li>Add if the section has three abstract paragraphs in a row. Add example -> consequence -> question.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="final-checklist">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Final chapter checklist</p>
+          <h2>Before calling the chapter drafted</h2>
+        </div>
+      </div>
+      <div class="panel sage">
+        <ul class="checklist">
+          <li>The title names both the topic and the movement from common sense to (un)common sense.</li>
+          <li>The opening story makes the commonsense myth felt before theory appears.</li>
+          <li>The Overview gives foundations but does not fully compare approaches.</li>
+          <li>The Approaching section answers the required questions for each approach.</li>
+          <li>The chapter has one big shift developed through three discontinuous leaps.</li>
+          <li>The chapter uses three distinct myth expressions, one for each leap.</li>
+          <li>Each leap includes common sense assumption -> myth -> behavior and (un)common sense assumption -> belief/heuristic -> different behavior.</li>
+          <li>Each leap uses a distinct research-based or everyday example.</li>
+          <li>The chapter prioritizes lived experience while using research to legitimize the (un)common sense approach.</li>
+          <li>The Practice section is titled "Practice: Rules to Heuristics."</li>
+          <li>Practice strategies are flexible heuristics, not scripts or universal rules.</li>
+          <li>The closing returns to the opening story and asks what students now notice, understand, and might try differently.</li>
+        </ul>
+      </div>
+      <p class="print-note">Printed from the IPC 2110 Personal Chapter Drafting Template.</p>
+    </section>
+  </main>
+
+  <script>
+    const storageKey = "ipc2110DraftingTemplate";
+    const form = document.getElementById("chapterForm");
+    const saveStatus = document.getElementById("saveStatus");
+    const allFields = Array.from(document.querySelectorAll("input[name], textarea[name], select[name]"));
+
+    function collectValues() {
+      return allFields.reduce((data, field) => {
+        data[field.name] = field.value;
+        return data;
+      }, {});
+    }
+
+    function getValue(name, fallback) {
+      const field = document.querySelector(`[name="${name}"]`);
+      return field && field.value.trim() ? field.value.trim() : fallback;
+    }
+
+    function saveValues() {
+      localStorage.setItem(storageKey, JSON.stringify(collectValues()));
+      saveStatus.textContent = "Saved in this browser.";
+      window.clearTimeout(saveValues.timer);
+      saveValues.timer = window.setTimeout(() => {
+        saveStatus.textContent = "";
+      }, 1800);
+    }
+
+    function restoreValues() {
+      const raw = localStorage.getItem(storageKey);
+      if (!raw) return;
+      try {
+        const data = JSON.parse(raw);
+        allFields.forEach((field) => {
+          if (Object.prototype.hasOwnProperty.call(data, field.name)) {
+            field.value = data[field.name];
+          }
+        });
+      } catch (error) {
+        console.warn("Saved template data could not be read.", error);
+      }
+    }
+
+    function leapSummary() {
+      return [1, 2, 3].map((n) => {
+        const from = getValue(`leap${n}From`, "[COMMONSENSE ASSUMPTION]");
+        const to = getValue(`leap${n}To`, "[UNCOMMONSENSE ASSUMPTION]");
+        const heuristic = getValue(`leap${n}Heuristic`, "[HEURISTIC]");
+        return `Leap ${n}: From ${from} to ${to}. Heuristic: ${heuristic}`;
+      }).join("\n");
+    }
+
+    const promptTemplates = {
+      blueprint: () => `You are helping me draft a full textbook chapter for IPC 2110, (Mis)Communication: An (Un)Commonsense Approach to Interpersonal Communication. The chapter must be organized around common sense as knowing and (un)common sense as understanding. Common sense practices monologic right/wrong thinking and tends toward rigid rules or algorithmic solutions. The (un)common sense approach practices dialectical understanding, flexibility, contextual awareness, and adaptive communicating.
+
+Use this structure:
+Opening Story: The Myth in Motion
+H1: Overview of [Topic]
+H1: Approaching [Topic]
+H1: Discontinuous Leaps
+H1: Practice: Rules to Heuristics
+Closing: What to Carry Forward
+
+My topic is: ${getValue("topic", "[TOPIC]")}
+Parenthetical disambiguation: ${getValue("parenthetical", "[PARENTHETICAL]")}
+Title movement: ${getValue("movement", "From [COMMONSENSE WORD] to [UNCOMMONSENSE WORD]")}
+One big shift: ${getValue("bigShift", "[ONE BIG SHIFT]")}
+Foundations students need: ${getValue("foundations", "[FOUNDATIONS]")}
+Research/examples I want to use: ${getValue("research", "[RESEARCH + EXAMPLES]")}
+Opening anchor story: ${getValue("story", "[STORY]")}
+
+Produce a chapter outline with section jobs, H1/H2 headings, question-style drafting prompts, paragraph-by-paragraph moves, and "do not repeat here" locks. Do not draft full prose yet. Avoid framing the section around correctness or universal best answers.`,
+      opening: () => `Draft the Opening Story: The Myth in Motion for this chapter.
+
+Topic: ${getValue("topic", "[TOPIC]")}
+Opening anchor story: ${getValue("story", "[STORY]")}
+What students think communication is: ${getValue("studentCommonsense", "[STUDENT COMMONSENSE]")}
+What the chapter argues communication does: ${getValue("chapterArgument", "[CHAPTER ARGUMENT]")}
+
+Use 6 paragraphs:
+1. Start inside a concrete scene.
+2. Let the myth appear in everyday language.
+3. Show why the myth feels useful or reasonable.
+4. Show where the myth starts to break.
+5. Name the central tension without over-explaining the theory.
+6. Roadmap the chapter: Overview, Approaching, three Discontinuous Leaps, and Practice: Rules to Heuristics.
+
+Do not define the whole topic. Do not summarize the literature. Do not introduce all three leap myths yet. Avoid framing the section around correctness or universal best answers.`,
+      overview: () => `Draft H1: Overview of ${getValue("topic", "[Topic]")}.
+
+The job of this section is to define the topic, explain why it matters in everyday communicating, and give students the foundations they need before comparing common sense and (un)common sense approaches.
+
+Topic: ${getValue("topic", "[TOPIC]")}
+Foundations: ${getValue("foundations", "[LIST FOUNDATIONS]")}
+Opening story to return to lightly: ${getValue("story", "[STORY]")}
+Student contexts to use: ${getValue("examples", "[STUDENT LIFE / FAMILY / FRIENDS / WORK / DATING / MEDIA / AI]")}
+Research/concepts to include lightly: ${getValue("research", "[RESEARCH]")}
+
+For each foundation, answer these questions:
+What is it?
+Where does it show up in everyday communicating?
+Why does it matter for the chapter?
+What research or concept legitimizes it without overwhelming students?
+How does it prepare students to understand the two approaches?
+
+Do not fully compare the approaches. Do not work through the three leaps. Do not give practice strategies yet. Avoid framing the section around correctness or universal best answers.`,
+      approaching: () => `Draft H1: Approaching ${getValue("topic", "[Topic]")} with two H2 sections:
+H2: Common Sense Approach to ${getValue("topic", "[Topic]")}
+H2: (Un)Common Sense Approach to ${getValue("topic", "[Topic]")}
+
+The job is to compare approaches, not to work through all three leaps.
+
+For the Common Sense Approach, answer:
+1. What does common sense assume about this topic?
+2. Where does that assumption come from culturally, personally, historically, technologically, or institutionally?
+3. Why does it feel useful, reasonable, or efficient?
+4. What problematic communication behaviors can it produce?
+5. Which assumptions and myth expressions will the Discontinuous Leaps section transform?
+
+For the (Un)Common Sense Approach, answer:
+1. What does it ask students to understand instead?
+2. Why does this approach better match everyday communicating?
+3. What does it help students notice that common sense misses?
+4. What are the benefits and limits of this approach?
+5. Which beliefs or heuristics will the Discontinuous Leaps section develop?
+
+Keep the tone student-facing and grounded in everyday communicating. Avoid jargon overload. Avoid framing the section around correctness or universal best answers.`,
+      leap: () => `Draft one H2 discontinuous leap for the chapter.
+
+H2 title: From ${getValue("leap1From", "[COMMONSENSE ASSUMPTION]")} to ${getValue("leap1To", "[UNCOMMONSENSE ASSUMPTION]")}
+Commonsense myth specified in this leap: ${getValue("leap1Myth", "[MYTH]")}
+Research-based example: ${getValue("leap1Source", "[RESEARCH/CASE]")}
+Everyday example context: ${getValue("examples", "[STUDENT LIFE / FAMILY / FRIENDS / WORK / DATING / MEDIA / HISTORY / AI]")}
+
+Use this order:
+1. Name the leap and why it matters.
+2. Give one compact research-based or everyday scene.
+3. Define the common sense assumption in student language.
+4. Name the myth expression it produces and explain its partial truth.
+5. Show the behavior the myth encourages.
+6. Explain where the behavior breaks down using the example and/or research.
+7. Define the (un)common sense assumption.
+8. Name the belief or heuristic it produces.
+9. Show how behavior changes when students practice from the heuristic.
+10. End with one Pause and Notice question.
+
+Do not redefine the whole topic. Do not repeat the entire common sense vs (un)common sense contrast. Do not write a universal script. Avoid framing the section around correctness or universal best answers.`,
+      practice: () => `Draft H1: Practice: Rules to Heuristics.
+
+Topic: ${getValue("topic", "[TOPIC]")}
+One big shift: ${getValue("bigShift", "[ONE BIG SHIFT]")}
+Three leaps:
+${leapSummary()}
+Opening story: ${getValue("story", "[STORY]")}
+Heuristics students should practice: ${getValue("tryDifferently", "[HEURISTICS]")}
+
+The job of this section is to translate understanding into flexible practices. Use this paragraph order:
+1. Explain why rigid rules feel tempting after learning this topic.
+2. Explain why everyday communicating requires heuristics instead of rules.
+3. Return to the opening story and show how rules would reproduce the myth.
+4. Introduce Heuristic 1 with an example and limitation.
+5. Introduce Heuristic 2 with an example and limitation.
+6. Introduce Heuristic 3 with an example and limitation.
+7. Work through one everyday example where the heuristics work together.
+8. End with a low-risk "try this week" activity.
+
+Do not introduce new theory. Do not repeat every leap. Do not use scripts. Avoid framing the section around correctness or universal best answers.`,
+      review: () => `Review the chapter draft for redundancy using this section-job map:
+Opening Story = make the commonsense myth felt.
+Overview = define the topic and teach foundations.
+Approaching = compare common sense as knowing and (un)common sense as understanding.
+Discontinuous Leaps = transform assumptions and behaviors.
+Practice: Rules to Heuristics = translate shifts into flexible practices.
+Closing = consolidate and transfer.
+
+For each paragraph, identify:
+1. Its section job.
+2. Whether it repeats another section's job.
+3. Whether it should stay, move, merge, cut, or be rewritten.
+4. What question or example would make it less redundant.
+
+Be direct but preserve the chapter's framework and student-facing tone. Avoid framing the revision around correctness or universal best answers unless that language appears in quoted source material.`,
+      research: () => `Help me integrate research into this section without overwhelming students with jargon.
+
+Section: [SECTION]
+Draft or notes: [PASTE]
+Research/concept/source: ${getValue("research", "[SOURCE]")}
+Everyday student experience I want to connect it to: ${getValue("examples", "[EXPERIENCE]")}
+
+Revise so the section moves lived experience -> research-based example/concept -> communication consequence -> question or heuristic. Keep technical vocabulary minimal and define terms in plain language before naming them. Do not turn the section into a literature review. Avoid framing the section around correctness or universal best answers.`
+    };
+
+    function buildPrompt() {
+      const selected = document.getElementById("promptSelect").value;
+      document.getElementById("promptOutput").value = promptTemplates[selected]();
+    }
+
+    function exportMarkdown() {
+      const values = collectValues();
+      const lines = ["# IPC 2110 Chapter Planning Notes", ""];
+      Object.entries(values).forEach(([key, value]) => {
+        if (!value.trim()) return;
+        const label = key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase());
+        lines.push(`## ${label}`, "", value.trim(), "");
+      });
+      const blob = new Blob([lines.join("\n")], { type: "text/markdown" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "ipc-2110-chapter-planning-notes.md";
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    restoreValues();
+    buildPrompt();
+
+    allFields.forEach((field) => field.addEventListener("input", saveValues));
+    document.getElementById("buildPrompt").addEventListener("click", buildPrompt);
+    document.getElementById("exportMarkdown").addEventListener("click", exportMarkdown);
+    document.getElementById("printPage").addEventListener("click", () => window.print());
+    document.getElementById("clearSaved").addEventListener("click", () => {
+      if (!window.confirm("Clear saved notes for this template in this browser?")) return;
+      localStorage.removeItem(storageKey);
+      allFields.forEach((field) => {
+        field.value = "";
+      });
+      buildPrompt();
+      saveStatus.textContent = "Saved notes cleared.";
+    });
+    document.getElementById("copyPrompt").addEventListener("click", async () => {
+      const output = document.getElementById("promptOutput");
+      output.select();
+      await navigator.clipboard.writeText(output.value);
+      document.getElementById("copyStatus").textContent = "Copied.";
+      window.setTimeout(() => {
+        document.getElementById("copyStatus").textContent = "";
+      }, 1600);
+    });
+  </script>
+</body>
+</html>
