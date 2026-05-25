@@ -436,13 +436,13 @@
             <ol>
               <li>Fill the chapter-level setup first, including the voice anchor and the big shift.</li>
               <li>For each chapter section, complete the framing, idea development, sources, bibliography, direct quotes, callout ideas, illustration ideas, and help request boxes.</li>
-              <li>Use the AI prompt for each section only after the boxes are filled; prompts focus on section goals, not rigid drafting sequences.</li>
+              <li>Use the master AI prompt when you want ChatGPT to draft the full chapter at once, or use the section prompts when you want to work one section at a time.</li>
               <li>Use the export buttons to create a Word, HTML, text, or Markdown planning file.</li>
             </ol>
           </div>
           <div class="actions">
             <a class="button primary" href="#chapter-setup">Start planning</a>
-            <a class="button" href="#prompts">Copy prompts</a>
+            <a class="button" href="#prompts">Copy master prompt</a>
             <button type="button" id="printPage">Print or save PDF</button>
           </div>
         </div>
@@ -748,11 +748,12 @@
       <div class="section-heading">
         <div>
           <p class="section-label">Prompt pack</p>
-          <h2>Reusable AI Drafting Prompts</h2>
-          <p>These prompts ask ChatGPT to achieve section goals rather than follow rigid prose formulas.</p>
+          <h2>Master and Reusable AI Drafting Prompts</h2>
+          <p>Use the master prompt to draft the whole chapter from all worksheet boxes and all section prompts at once.</p>
         </div>
         <div class="toolbar">
           <select id="promptSelect" aria-label="Choose prompt">
+            <option value="masterDraft">Master full-chapter draft</option>
             <option value="blueprint">Master chapter blueprint</option>
             <option value="sectionReview">Section goal review</option>
             <option value="repetition">Repetition check</option>
@@ -973,7 +974,49 @@
       popup.document.close();
     }
 
+    function worksheetAsPlainText() {
+      const values = collectValues();
+      const lines = [];
+      Object.entries(values).forEach(([key, value]) => {
+        const plain = htmlToText(value);
+        if (!plain.trim()) return;
+        lines.push(`${fieldLabel(key)}\n${plain.trim()}`);
+      });
+      return lines.length ? lines.join("\n\n") : "No worksheet notes have been entered yet.";
+    }
+
+    function embeddedSectionPrompts() {
+      return Array.from(document.querySelectorAll(".prompt-template")).map((prompt, index) => {
+        const section = prompt.closest("section");
+        const heading = section ? section.querySelector("h2") : null;
+        const title = heading ? heading.textContent.trim() : `Prompt ${index + 1}`;
+        return `${title}\n${prompt.value.trim()}`;
+      }).join("\n\n");
+    }
+
     const promptTemplates = {
+      masterDraft: () => `Draft the full IPC 2110 textbook chapter from my complete worksheet content. This is a master prompt that includes every section prompt, so do not ask me to run the prompts one at a time.
+
+Your task:
+- Draft the chapter in the existing heading order: Opening Story, Overview, Approaching the Topic, Discontinuous Leaps, Practice, and Closing.
+- Preserve the existing heading hierarchy exactly.
+- Use all worksheet boxes, including chapter setup, section goals, framing boxes, idea development boxes, annotated sources, annotated bibliographies, direct quotes, callout ideas, illustration ideas, comparative illustration notes, and specific help requests.
+- Achieve the learning outcome, rhetorical purpose, and argumentative move for each section instead of following a rigid paragraph formula.
+- Maintain my voice anchor and tone throughout.
+- Use clean transitions between all main points, sections, leaps, examples, and practice moves.
+- Use endnotes for all citations.
+- Place callout boxes and illustrations where they are most relevant in the chapter. When illustrations are needed, assume you will generate the images and provide concise alt text and accessibility guidance.
+- Include the structured comparative illustration contrasting Common Sense and (Un)Common Sense across definitions, assumptions, myths/beliefs, and how each shapes communication. Make the visual readable by screen readers and text accessibility tools.
+- Check for repetition across the whole chapter. Flag anything that should be moved, merged, cut, or reframed before or after the draft.
+- Confirm that each major section achieves its stated goal.
+
+Use these embedded section prompts as the drafting requirements:
+
+${embeddedSectionPrompts()}
+
+Use this completed worksheet content as the source material:
+
+${worksheetAsPlainText()}`,
       blueprint: () => `Create a chapter blueprint for my IPC 2110 textbook chapter. Use my topic, title movement, voice anchor, big shift, approach overview notes, leap boxes, practice bridge, sources, direct quotes, callout ideas, illustration ideas, and specific help requests. Do not prescribe a rigid prose sequence. Define the goal of each section, identify its rhetorical and learning purpose, suggest clean transitions, flag likely repetition across sections, and specify where endnotes, callouts, and generated illustrations should appear. Maintain my voice anchor throughout.`,
       sectionReview: () => `Review the chapter plan section by section. Confirm whether each section achieves its stated learning outcome, rhetorical goal, and argumentative move. Flag repetition, missing transitions, unsupported claims, missing endnote opportunities, voice drift, and places where callouts or illustrations would help.`,
       repetition: () => `Check this chapter plan for repetition across Opening Story, Overview, Approaches, Discontinuous Leaps, Practice, and Closing. Identify what should stay, move, merge, cut, or be reframed. Preserve my voice and the common sense/(un)common sense framework.`,
