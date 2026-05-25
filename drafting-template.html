@@ -329,6 +329,52 @@
 
     .standard-boxes { display: grid; gap: 12px; }
     .standard-boxes .field-row:last-child { margin-bottom: 0; }
+    .section-outline {
+      display: grid;
+      gap: 6px;
+      margin: 0 0 16px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--coral);
+      border-radius: 8px;
+      background: #fffaf3;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+    }
+    .section-outline strong { color: var(--ink); }
+    .fixed-goal textarea {
+      min-height: 96px;
+      background: #f9f4ea;
+    }
+    .main-idea-list { display: grid; gap: 14px; }
+    .main-idea-block {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .main-idea-block h3 { font-size: 1.05rem; color: var(--green); }
+    .prompt-choice-list {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-bottom: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .prompt-choice-list label {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 0.92rem;
+      line-height: 1.25;
+    }
     .subsection-block {
       margin-top: 18px;
       padding: 16px;
@@ -512,8 +558,9 @@
           <p>Begin the chapter with a scene that makes the commonsense myth plausible, consequential, and worth reconsidering.</p>
         </div>
       </div>
+      <div class="section-outline"><strong>Chapter location:</strong> Section 1 of 6. This is the first thing students read. It opens the chapter before any overview, terms, or explanation.</div>
       <div class="standard-boxes">
-        <div class="field-row"><label>Section goal <span class="hint">What learning outcome, rhetorical goal, or argumentative move must this section achieve?</span></label><textarea name="openingGoal" placeholder=""></textarea></div>
+        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="openingGoal" data-default-goal="Pull students in with a vivid, relatable story that makes the common sense myth feel plausible, shows its everyday cost, and previews the chapter's movement from knowing toward understanding.">Pull students in with a vivid, relatable story that makes the common sense myth feel plausible, shows its everyday cost, and previews the chapter's movement from knowing toward understanding.</textarea></div>
         <div class="field-row"><label>Framing box <span class="hint">One sentence defining the topic, claim, or purpose of this section.</span></label><textarea name="openingFrame" placeholder=""></textarea></div>
         <div class="field-row"><label>Idea development box <span class="hint">Elaborate the section idea in depth. Include the logic, stakes, student-facing explanation, and any tensions.</span></label><textarea name="openingDevelopment" placeholder=""></textarea></div>
         <div class="field-row"><label>Annotated sources box <span class="hint">For each source: summarize the source and explain how it relates to this section/topic.</span></label><textarea name="openingSources" placeholder=""></textarea></div>
@@ -537,15 +584,20 @@
           <p>Define the topic, establish its everyday importance, and prepare students for the contrast between approaches.</p>
         </div>
       </div>
+      <div class="section-outline"><strong>Chapter location:</strong> Section 2 of 6. This comes after the opening story and gives students the foundation they need before the two approaches are compared.</div>
       <div class="standard-boxes">
-        <div class="field-row"><label>Section goal <span class="hint">What learning outcome, rhetorical goal, or argumentative move must this section achieve?</span></label><textarea name="overviewGoal" placeholder=""></textarea></div>
-        <div class="field-row"><label>Framing box <span class="hint">One sentence defining the topic, claim, or purpose of this section.</span></label><textarea name="overviewFrame" placeholder=""></textarea></div>
-        <div class="field-row"><label>Idea development box <span class="hint">Elaborate the section idea in depth. Include the logic, stakes, student-facing explanation, and any tensions.</span></label><textarea name="overviewDevelopment" placeholder=""></textarea></div>
-        <div class="field-row"><label>Annotated sources box <span class="hint">For each source: summarize the source and explain how it relates to this section/topic.</span></label><textarea name="overviewSources" placeholder=""></textarea></div>
-        <div class="field-row"><label>Annotated bibliography box <span class="hint">Full citation entries ChatGPT should draw on when drafting. Citations should become endnotes in the chapter draft.</span></label><textarea name="overviewBibliography" placeholder=""></textarea></div>
+        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="overviewGoal" data-default-goal="Define the topic in everyday terms, explain why it matters to students now, introduce common sense and (un)common sense as two approaches to the same reality, and establish the main ideas students need before the chapter begins shifting their assumptions.">Define the topic in everyday terms, explain why it matters to students now, introduce common sense and (un)common sense as two approaches to the same reality, and establish the main ideas students need before the chapter begins shifting their assumptions.</textarea></div>
+        <div class="field-row"><label>Framing box: section claim <span class="hint">State the claim of the Overview section. This is where you introduce the main ideas the section will develop.</span></label><textarea name="overviewFrame" placeholder=""></textarea></div>
+        <div class="main-idea-list" data-dynamic-list="overview" data-label="Overview main idea">
+          <article class="main-idea-block" data-dynamic-item="overview">
+            <h3>Overview Main Idea 1</h3>
+            <div class="field-row"><label>Main idea box <span class="hint">Name the main idea students need to understand.</span></label><textarea name="overviewMainIdea1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Idea development + evidence box <span class="hint">Develop this main point in depth. Include evidence, examples, source notes, and the student-facing explanation.</span></label><textarea name="overviewMainDevelopment1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Callout idea box <span class="hint">Pull quote, sidebar, key term, reflection pause, example highlight, or visual callout connected to this main point.</span></label><textarea name="overviewMainCallout1" placeholder=""></textarea></div>
+          </article>
+        </div>
+        <button type="button" class="add-main-idea" data-add-main-idea="overview">Add overview main idea</button>
         <div class="field-row"><label>Direct quotes box <span class="hint">Important framing direct quotes. Include source and page/location when available.</span></label><textarea name="overviewQuotes" placeholder=""></textarea></div>
-        <div class="field-row"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, key terms, or short recurring motifs.</span></label><textarea name="overviewCallouts" placeholder=""></textarea></div>
-        <div class="field-row"><label>Illustration ideas <span class="hint">Diagrams, visuals, figures, image-generation ideas, accessibility notes, and where each belongs.</span></label><textarea name="overviewIllustrations" placeholder=""></textarea></div>
         <div class="field-row"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="overviewHelp" placeholder=""></textarea></div>
       </div>
       <article class="prompt-card">
@@ -557,8 +609,9 @@
 
     <section class="section drafting-section" id="approaching">
       <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>H1: Approaching [Topic]</h2><p>Define and compare the two approaches while preparing students for the three discontinuous leaps.</p></div></div>
+      <div class="section-outline"><strong>Chapter location:</strong> Section 3 of 6. This follows the Overview and names the two approaches before the three discontinuous leaps begin.</div>
       <div class="standard-boxes">
-        <div class="field-row"><label>Section goal <span class="hint">What learning outcome, rhetorical goal, or argumentative move must this section achieve?</span></label><textarea name="approachingGoal"></textarea></div>
+        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="approachingGoal" data-default-goal="Introduce the two approaches explicitly, answer the guiding questions for each approach, and help students see how common sense as knowing and (un)common sense as understanding begin from different assumptions, myths or beliefs, behaviors, and outcomes.">Introduce the two approaches explicitly, answer the guiding questions for each approach, and help students see how common sense as knowing and (un)common sense as understanding begin from different assumptions, myths or beliefs, behaviors, and outcomes.</textarea></div>
         <div class="field-row"><label>Framing box <span class="hint">One sentence defining the topic, claim, or purpose of this section.</span></label><textarea name="approachingFrame"></textarea></div>
         <div class="field-row"><label>Idea development box <span class="hint">Elaborate the comparison in depth. Explain the logic, stakes, appeal, limits, and student-facing consequences of each approach.</span></label><textarea name="approachingDevelopment"></textarea></div>
         <div class="field-row"><label>Annotated sources box <span class="hint">For each source: summarize the source and explain how it relates to the approach comparison.</span></label><textarea name="approachingSources"></textarea></div>
@@ -615,6 +668,8 @@
     </section>
     <section class="section" id="leaps">
       <div class="section-heading"><div><p class="section-label">Three discontinuous leaps</p><h2>H1: Discontinuous Leaps</h2><p>Each leap maps a common sense assumption into a myth and communication consequence, then shifts toward an (un)common sense assumption, belief, changed behavior, and examples.</p></div></div>
+      <div class="section-outline"><strong>Chapter location:</strong> Section 4 of 6. This is the core shift section. It comes after the approaches are defined and before students are asked to practice the shift.</div>
+      <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="leapsGoal" data-default-goal="Develop exactly three discontinuous leaps that move students from a common sense assumption and myth toward an (un)common sense belief and changed behavior. Each leap should make a smaller myth visible, show its communication consequences, and give students research-supported ways to notice and practice differently.">Develop exactly three discontinuous leaps that move students from a common sense assumption and myth toward an (un)common sense belief and changed behavior. Each leap should make a smaller myth visible, show its communication consequences, and give students research-supported ways to notice and practice differently.</textarea></div>
       <article class="subsection-block" id="leap-1">
         <h3>Leap 1</h3>
         <div class="field-row"><label>Framing box <span class="hint">One sentence naming the shift this leap makes.</span></label><textarea name="leap1Frame"></textarea></div>
@@ -699,15 +754,20 @@
     </section>
     <section class="section drafting-section" id="practice">
       <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>H1: Practice: Rules to Heuristics</h2><p>Bridge one communication skill from the common sense approach to one skill from the (un)common sense approach.</p></div></div>
+      <div class="section-outline"><strong>Chapter location:</strong> Section 5 of 6. This comes after the three leaps and turns the conceptual shift into something students can try.</div>
       <div class="standard-boxes">
-        <div class="field-row"><label>Section goal <span class="hint">What learning outcome, rhetorical goal, or argumentative move must this section achieve?</span></label><textarea name="practiceGoal" placeholder=""></textarea></div>
-        <div class="field-row"><label>Framing box <span class="hint">One sentence defining the topic, claim, or purpose of this section.</span></label><textarea name="practiceFrame" placeholder=""></textarea></div>
-        <div class="field-row"><label>Idea development box <span class="hint">Elaborate the section idea in depth. Include the logic, stakes, student-facing explanation, and any tensions.</span></label><textarea name="practiceDevelopment" placeholder=""></textarea></div>
-        <div class="field-row"><label>Annotated sources box <span class="hint">For each source: summarize the source and explain how it relates to this section/topic.</span></label><textarea name="practiceSources" placeholder=""></textarea></div>
-        <div class="field-row"><label>Annotated bibliography box <span class="hint">Full citation entries ChatGPT should draw on when drafting. Citations should become endnotes in the chapter draft.</span></label><textarea name="practiceBibliography" placeholder=""></textarea></div>
+        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="practiceGoal" data-default-goal="Translate the chapter's shift into practice by bridging one familiar common sense skill into a more flexible (un)common sense heuristic students can use across relationships, contexts, and constraints.">Translate the chapter's shift into practice by bridging one familiar common sense skill into a more flexible (un)common sense heuristic students can use across relationships, contexts, and constraints.</textarea></div>
+        <div class="field-row"><label>Framing box: section claim <span class="hint">State the claim of the Practice section. This is where you introduce the main ideas the practice section will develop.</span></label><textarea name="practiceFrame" placeholder=""></textarea></div>
+        <div class="main-idea-list" data-dynamic-list="practice" data-label="Practice main idea">
+          <article class="main-idea-block" data-dynamic-item="practice">
+            <h3>Practice Main Idea 1</h3>
+            <div class="field-row"><label>Main idea box <span class="hint">Name the practice idea, skill shift, or heuristic students should understand.</span></label><textarea name="practiceMainIdea1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Idea development + evidence box <span class="hint">Develop this practice point in depth. Include evidence, examples, source notes, and how the practice works in context.</span></label><textarea name="practiceMainDevelopment1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Callout idea box <span class="hint">Pull quote, sidebar, key term, reflection pause, example highlight, or visual callout connected to this practice point.</span></label><textarea name="practiceMainCallout1" placeholder=""></textarea></div>
+          </article>
+        </div>
+        <button type="button" class="add-main-idea" data-add-main-idea="practice">Add practice main idea</button>
         <div class="field-row"><label>Direct quotes box <span class="hint">Important framing direct quotes. Include source and page/location when available.</span></label><textarea name="practiceQuotes" placeholder=""></textarea></div>
-        <div class="field-row"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, key terms, or short recurring motifs.</span></label><textarea name="practiceCallouts" placeholder=""></textarea></div>
-        <div class="field-row"><label>Illustration ideas <span class="hint">Diagrams, visuals, figures, image-generation ideas, accessibility notes, and where each belongs.</span></label><textarea name="practiceIllustrations" placeholder=""></textarea></div>
         <div class="field-row"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="practiceHelp" placeholder=""></textarea></div>
       </div>
       <article class="prompt-card"><h3>AI drafting prompt for this section</h3><textarea class="prompt-template" readonly data-section="practice">Draft H1: Practice: Rules to Heuristics for my IPC 2110 textbook chapter using the content boxes for this section: section goal, framing, idea development, annotated sources, annotated bibliography, direct quotes, callout ideas, illustration ideas, and my specific help request. Do not follow a fixed fixed prose sequence. Instead, make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move. Maintain my voice anchor and tone. Use clean transitions between all main points and ideas. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant in the chapter; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea></article>
@@ -730,8 +790,9 @@
     </section>
     <section class="section drafting-section" id="closing">
       <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>Closing: What to Carry Forward</h2><p>Synthesize the chapter, return to the opening story, and help students transfer the shift into future communication situations.</p></div></div>
+      <div class="section-outline"><strong>Chapter location:</strong> Section 6 of 6. This closes the chapter after Practice by returning to the opening story and naming what students can carry forward.</div>
       <div class="standard-boxes">
-        <div class="field-row"><label>Section goal <span class="hint">What learning outcome, rhetorical goal, or argumentative move must this section achieve?</span></label><textarea name="closingGoal" placeholder=""></textarea></div>
+        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="closingGoal" data-default-goal="Return to the opening story, name the core myth again, summarize the big shift in one or two vivid sentences, and leave students with a question or challenge that motivates continued practice.">Return to the opening story, name the core myth again, summarize the big shift in one or two vivid sentences, and leave students with a question or challenge that motivates continued practice.</textarea></div>
         <div class="field-row"><label>Framing box <span class="hint">One sentence defining the topic, claim, or purpose of this section.</span></label><textarea name="closingFrame" placeholder=""></textarea></div>
         <div class="field-row"><label>Idea development box <span class="hint">Elaborate the section idea in depth. Include the logic, stakes, student-facing explanation, and any tensions.</span></label><textarea name="closingDevelopment" placeholder=""></textarea></div>
         <div class="field-row"><label>Annotated sources box <span class="hint">For each source: summarize the source and explain how it relates to this section/topic.</span></label><textarea name="closingSources" placeholder=""></textarea></div>
@@ -763,10 +824,22 @@
           <button type="button" id="buildPrompt" class="primary">Build prompt</button>
         </div>
       </div>
+      <div class="prompt-choice-list" aria-label="Choose prompts to combine">
+        <label><input type="checkbox" name="promptChoice" value="masterDraft" checked> Master full-chapter draft</label>
+        <label><input type="checkbox" name="promptChoice" value="blueprint"> Chapter blueprint</label>
+        <label><input type="checkbox" name="promptChoice" value="sectionReview"> Section goal review</label>
+        <label><input type="checkbox" name="promptChoice" value="repetition"> Repetition check</label>
+        <label><input type="checkbox" name="promptChoice" value="illustration"> Callout and illustration planning</label>
+        <label><input type="checkbox" name="promptChoice" value="endnotes"> Endnote integration</label>
+      </div>
+      <div class="toolbar">
+        <button type="button" id="buildSelectedPrompts" class="primary">Build selected prompts together</button>
+      </div>
       <article class="prompt-card">
         <textarea id="promptOutput" aria-label="Generated prompt"></textarea>
         <div class="prompt-actions"><button type="button" id="copyPrompt">Copy prompt</button><span class="status-line" id="copyStatus" aria-live="polite"></span></div>
       </article>
+      <div id="promptLibrary"></div>
     </section>
 
     <section class="section" id="checks">
@@ -774,14 +847,17 @@
       <div class="panel sage">
         <ul class="checklist">
           <li>The chapter begins with the opening story, not a front-matter overview.</li>
-          <li>Every section has framing, development, annotated sources, bibliography, direct quotes, callout ideas, illustration ideas, and a specific help request.</li>
+          <li>Every section has a fixed section goal that stays consistent across chapters.</li>
+          <li>Overview and Practice use a section claim plus expandable main idea boxes with evidence/development and callout ideas.</li>
+          <li>Every section keeps direct quotes and a specific help request box.</li>
           <li>Every AI prompt focuses on goals, outcomes, rhetorical moves, transitions, repetition checks, endnotes, voice, callouts, and illustrations.</li>
           <li>The two approach overview boxes define and narrate common sense and (un)common sense before the leaps begin.</li>
           <li>There are exactly three discontinuous leaps.</li>
           <li>Each leap includes common sense assumption, myth, communication impact, and potential examples.</li>
           <li>Each leap includes (un)common sense assumption, belief, and behavior change with examples.</li>
           <li>The Practice section bridges one common sense skill to one (un)common sense skill through a small example narrative.</li>
-          <li>The comparative illustration draws from the leaps and includes accessibility guidance for screen readers and text tools.</li>
+          <li>The comparative illustration appears near the end and draws from the leaps with accessibility guidance for screen readers and text tools.</li>
+          <li>The prompt pack at the bottom lets selected prompts run together and includes the voice anchor.</li>
           <li>Drafted citations appear as endnotes.</li>
         </ul>
       </div>
@@ -794,6 +870,17 @@
     const saveStatus = document.getElementById("saveStatus");
     const richEditors = [];
     let savedSelection = null;
+    const DEFAULT_VOICE_ANCHOR = `This Voice Anchor Resource Sheet defines the tone, rhythm, and persona for (Mis)Communicating: Knowing vs. Understanding. Use this as the "north star" to ensure the writing stays disruptive, human, and intellectually honest.
+
+The core persona is the relatable researcher: a communication researcher with 15 years of experience who is intellectually rigorous, warm, student-facing, and still comfortable being uncomfortable. Avoid detached textbook authority. Frame concepts as options and tools students can reach for in their specific lives, not as universal rules or "best" approaches.
+
+Start major sections with an opening shock that disrupts common sense. Use the incomplete turn: name what common sense gets partly right, then show why it is incomplete. Use communicating as a verb whenever possible. Use parenthetical disambiguation to clarify, complicate, or add a human side-note. Bold key terms when they help students track vocabulary without turning the prose into trivia.
+
+The rhythm should feel like office hours, not a lecture hall: short, punchy fragments mixed with longer reflective sentences. Avoid stiff academic fillers such as "Furthermore," "Moreover," "In conclusion," and "It is important to note." Do not sound corporate, motivational, or overly certain. Use phrases like "the research suggests," "one way to look at this is," and "this is not wrong, exactly, but it is incomplete."
+
+Let the human author remain visible. Validate irritation, confusion, and disagreement. Linger in paradox when the problem is genuinely knotty. Use everyday examples, pop culture, student life, relationships, family, work, AI, or technical analogies when they clarify the point. For technical students, knowing can be like knowing syntax; understanding is grasping how the whole system behaves in a specific context.
+
+Quick checklist for every draft: Does it shock? Does it move from brittle facts to resilient understanding? Can we hear a human author rather than an encyclopedia? Does it respect the student's specific relationship, moment, context, body, history, and constraint?`;
 
     function htmlToText(html) {
       const scratch = document.createElement("div");
@@ -805,7 +892,7 @@
     }
 
     function allFields() {
-      return Array.from(document.querySelectorAll("input[name], textarea[name], select[name]"));
+      return Array.from(document.querySelectorAll('input[name]:not([name="promptChoice"]), textarea[name], select[name]'));
     }
 
     function syncRichEditors() {
@@ -836,6 +923,10 @@
       return value ? value : fallback;
     }
 
+    function voiceAnchorText() {
+      return getValue("voiceAnchor", DEFAULT_VOICE_ANCHOR);
+    }
+
     function saveValues() {
       localStorage.setItem(storageKey, JSON.stringify(collectValues()));
       if (!saveStatus) return;
@@ -844,15 +935,101 @@
       saveValues.timer = window.setTimeout(() => { saveStatus.textContent = ""; }, 1600);
     }
 
+    function createMainIdeaBlock(type, index) {
+      const label = type === "overview" ? "Overview Main Idea" : "Practice Main Idea";
+      const ideaHint = type === "overview" ? "Name the main idea students need to understand." : "Name the practice idea, skill shift, or heuristic students should understand.";
+      const developmentHint = type === "overview" ? "Develop this main point in depth. Include evidence, examples, source notes, and the student-facing explanation." : "Develop this practice point in depth. Include evidence, examples, source notes, and how the practice works in context.";
+      const article = document.createElement("article");
+      article.className = "main-idea-block";
+      article.dataset.dynamicItem = type;
+      article.innerHTML = `<h3>${label} ${index}</h3>
+        <div class="field-row"><label>Main idea box <span class="hint">${ideaHint}</span></label><textarea name="${type}MainIdea${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Idea development + evidence box <span class="hint">${developmentHint}</span></label><textarea name="${type}MainDevelopment${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Callout idea box <span class="hint">Pull quote, sidebar, key term, reflection pause, example highlight, or visual callout connected to this main point.</span></label><textarea name="${type}MainCallout${index}" placeholder=""></textarea></div>`;
+      return article;
+    }
+
+    function addMainIdea(type) {
+      const list = document.querySelector(`[data-dynamic-list="${type}"]`);
+      if (!list) return;
+      const next = list.querySelectorAll(`[data-dynamic-item="${type}"]`).length + 1;
+      list.appendChild(createMainIdeaBlock(type, next));
+      initRichEditors();
+      syncRichEditors();
+      allFields().forEach((field) => field.removeEventListener("input", saveValues));
+      allFields().forEach((field) => field.addEventListener("input", saveValues));
+      saveValues();
+    }
+
+    function ensureDynamicItems(data) {
+      ["overview", "practice"].forEach((type) => {
+        const indexes = Object.keys(data || {}).map((key) => {
+          const match = key.match(new RegExp(`^${type}Main(?:Idea|Development|Callout)(\\d+)$`));
+          return match ? Number(match[1]) : 0;
+        });
+        const max = Math.max(1, ...indexes);
+        const list = document.querySelector(`[data-dynamic-list="${type}"]`);
+        if (!list) return;
+        while (list.querySelectorAll(`[data-dynamic-item="${type}"]`).length < max) {
+          const next = list.querySelectorAll(`[data-dynamic-item="${type}"]`).length + 1;
+          list.appendChild(createMainIdeaBlock(type, next));
+        }
+      });
+    }
+
+    function fillFixedDefaults() {
+      document.querySelectorAll("[data-default-goal]").forEach((field) => {
+        if (!field.value.trim()) field.value = field.dataset.defaultGoal;
+      });
+      const voice = document.querySelector('[name="voiceAnchor"]');
+      if (voice && !fieldPlainValue(voice)) voice.value = DEFAULT_VOICE_ANCHOR;
+    }
+
+    function moveComparativeIllustrationToEnd() {
+      const section = document.getElementById("comparative-illustration");
+      const prompts = document.getElementById("prompts");
+      if (section && prompts && section.nextElementSibling !== prompts) prompts.parentElement.insertBefore(section, prompts);
+    }
+
+    function movePromptPackToBottom() {
+      const prompts = document.getElementById("prompts");
+      if (prompts && prompts.nextElementSibling) prompts.parentElement.appendChild(prompts);
+    }
+
+    function moveSectionPromptsToBottom() {
+      const library = document.getElementById("promptLibrary");
+      const choices = document.querySelector(".prompt-choice-list");
+      if (!library || !choices) return;
+      Array.from(document.querySelectorAll(".prompt-card .prompt-template")).forEach((prompt, index) => {
+        const card = prompt.closest(".prompt-card");
+        if (!card || card.closest("#prompts")) return;
+        const section = card.closest("section");
+        const heading = section ? section.querySelector("h2") : null;
+        const cardTitle = card.querySelector("h3");
+        const title = `${heading ? heading.textContent.trim() : "Section"} - ${cardTitle ? cardTitle.textContent.trim() : `Prompt ${index + 1}`}`;
+        card.dataset.promptTitle = title;
+        prompt.dataset.promptId = `sectionPrompt${index + 1}`;
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="checkbox" name="promptChoice" value="${prompt.dataset.promptId}"> ${title}`;
+        choices.appendChild(label);
+        library.appendChild(card);
+      });
+    }
+
     function restoreValues() {
       const raw = localStorage.getItem(storageKey);
-      if (!raw) return;
+      if (!raw) { fillFixedDefaults(); return; }
       try {
         const data = JSON.parse(raw);
+        ensureDynamicItems(data);
         allFields().forEach((field) => {
           if (Object.prototype.hasOwnProperty.call(data, field.name)) field.value = data[field.name];
         });
-      } catch (error) { console.warn("Saved template data could not be read.", error); }
+        fillFixedDefaults();
+      } catch (error) {
+        console.warn("Saved template data could not be read.", error);
+        fillFixedDefaults();
+      }
     }
 
     function saveSelection() {
@@ -987,9 +1164,10 @@
 
     function embeddedSectionPrompts() {
       return Array.from(document.querySelectorAll(".prompt-template")).map((prompt, index) => {
+        const card = prompt.closest(".prompt-card");
         const section = prompt.closest("section");
         const heading = section ? section.querySelector("h2") : null;
-        const title = heading ? heading.textContent.trim() : `Prompt ${index + 1}`;
+        const title = card?.dataset.promptTitle || (heading ? heading.textContent.trim() : `Prompt ${index + 1}`);
         return `${title}\n${prompt.value.trim()}`;
       }).join("\n\n");
     }
@@ -1023,14 +1201,38 @@ ${worksheetAsPlainText()}`,
       illustration: () => `Plan callout boxes and generated illustrations for this chapter. Place each callout or illustration where it is most relevant. Include purpose, content, suggested caption, alt text, and accessibility notes. Ensure visuals are readable by screen readers and text accessibility tools.`,
       endnotes: () => `Review my annotated sources, annotated bibliography, and direct quotes. Recommend where endnotes should appear in the chapter draft. Use endnotes for citations, keep technical language student-facing, and flag any source that needs more context before drafting.`
     };
-    function buildPrompt() { document.getElementById("promptOutput").value = promptTemplates[document.getElementById("promptSelect").value](); }
+    function promptByChoice(value) {
+      if (promptTemplates[value]) return promptTemplates[value]();
+      const sectionPrompt = document.querySelector(`.prompt-template[data-prompt-id="${value}"]`);
+      if (!sectionPrompt) return "";
+      const card = sectionPrompt.closest(".prompt-card");
+      return `${card?.dataset.promptTitle || "Section prompt"}\n${sectionPrompt.value.trim()}`;
+    }
 
+    function withVoiceAnchor(promptText) {
+      return `VOICE ANCHOR FOR ALL DRAFTING\n${voiceAnchorText()}\n\n${promptText}`;
+    }
+
+    function buildPrompt() {
+      document.getElementById("promptOutput").value = withVoiceAnchor(promptTemplates[document.getElementById("promptSelect").value]());
+    }
+
+    function buildSelectedPrompts() {
+      const selected = Array.from(document.querySelectorAll('input[name="promptChoice"]:checked')).map((choice) => promptByChoice(choice.value)).filter(Boolean);
+      document.getElementById("promptOutput").value = withVoiceAnchor(selected.length ? selected.join("\n\n---\n\n") : promptTemplates.masterDraft());
+    }
+
+    movePromptPackToBottom();
+    moveComparativeIllustrationToEnd();
+    moveSectionPromptsToBottom();
     restoreValues();
     initRichEditors();
     syncRichEditors();
     buildPrompt();
     allFields().forEach((field) => field.addEventListener("input", saveValues));
+    document.querySelectorAll("[data-add-main-idea]").forEach((button) => button.addEventListener("click", () => addMainIdea(button.dataset.addMainIdea)));
     document.getElementById("buildPrompt").addEventListener("click", buildPrompt);
+    document.getElementById("buildSelectedPrompts").addEventListener("click", buildSelectedPrompts);
     document.getElementById("exportWord").addEventListener("click", exportWord);
     document.getElementById("exportHTML").addEventListener("click", exportHTML);
     document.getElementById("exportText").addEventListener("click", exportText);
