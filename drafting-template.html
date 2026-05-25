@@ -601,7 +601,7 @@
           <div class="directions">
             <h3>How to use this template</h3>
             <ol>
-              <li>Fill the chapter-level setup first, including the voice anchor and the big shift.</li>
+              <li>Fill the chapter-level setup first, including the voice anchor, the big shift, and the Common Sense / (Un)Common Sense framework for the topic.</li>
               <li>For each chapter section, complete the framing, idea development, sources, bibliography, direct quotes, callout ideas, illustration ideas, and help request boxes.</li>
               <li>Use the master AI prompt when you want ChatGPT to draft the full chapter at once, or use the section prompts when you want to work one section at a time.</li>
               <li>Use the export buttons to create a Word, HTML, text, or Markdown planning file.</li>
@@ -666,6 +666,26 @@
         <div class="field-row"><label for="movement">Title movement <span class="hint">From what commonsense shortcut to what (un)commonsense understanding?</span></label><input id="movement" name="movement" placeholder="From reading to understanding"></div>
         <div class="field-row"><label for="voiceAnchor">Voice anchor and tone <span class="hint">What should the prose sound like? Include rhythm, stance, level of warmth, and any style constraints.</span></label><textarea id="voiceAnchor" name="voiceAnchor"></textarea></div>
         <div class="field-row"><label for="bigShift">One big shift <span class="hint">What is the overall movement from knowing to understanding?</span></label><textarea id="bigShift" name="bigShift"></textarea></div>
+        <article class="panel gold">
+          <h3>Chapter Framework: Common Sense and (Un)Common Sense</h3>
+          <p>Use these boxes to define the two approaches to this topic before drafting the chapter. This framework should guide the opening story, overview, approaches section, leaps, practice section, comparative illustration, and closing.</p>
+          <div class="two-col">
+            <div>
+              <h3>Common Sense Approach to This Topic</h3>
+              <div class="field-row"><label for="commonDefinition">Definition of the approach <span class="hint">How does common sense as knowing define communication in this topic?</span></label><textarea id="commonDefinition" name="commonDefinition"></textarea></div>
+              <div class="field-row"><label for="commonProblem">What problem does common sense think it is solving? <span class="hint">What does this approach assume is broken, missing, unclear, inefficient, or in need of correction?</span></label><textarea id="commonProblem" name="commonProblem"></textarea></div>
+              <div class="field-row"><label for="commonNarrative">Overview narrative <span class="hint">How does this approach operate in everyday life? What does it ask students to locate, know, fix, control, predict, or prove?</span></label><textarea id="commonNarrative" name="commonNarrative"></textarea></div>
+              <div class="field-row"><label for="commonConsequences">Communication consequences <span class="hint">What does this approach help students do, and what does it cause them to miss, flatten, over-trust, or misread?</span></label><textarea id="commonConsequences" name="commonConsequences"></textarea></div>
+            </div>
+            <div>
+              <h3>(Un)Common Sense Approach to This Topic</h3>
+              <div class="field-row"><label for="uncommonDefinition">Definition of the approach <span class="hint">How does (un)common sense as understanding define communication in this topic?</span></label><textarea id="uncommonDefinition" name="uncommonDefinition"></textarea></div>
+              <div class="field-row"><label for="uncommonProblem">What problem does (un)common sense help students understand? <span class="hint">What complexity, relation, context, history, power dynamic, or tension becomes visible?</span></label><textarea id="uncommonProblem" name="uncommonProblem"></textarea></div>
+              <div class="field-row"><label for="uncommonNarrative">Overview narrative <span class="hint">How does this approach operate in everyday life? What does it ask students to notice, interpret, hold open, revise, test, or try?</span></label><textarea id="uncommonNarrative" name="uncommonNarrative"></textarea></div>
+              <div class="field-row"><label for="uncommonConsequences">Communication consequences <span class="hint">How does this approach change what students can notice, interpret, respond to, repair, or practice?</span></label><textarea id="uncommonConsequences" name="uncommonConsequences"></textarea></div>
+            </div>
+          </div>
+        </article>
         <div class="field-row"><label for="studentCommonsense">What students think communication is <span class="hint">What will students likely assume before the chapter?</span></label><textarea id="studentCommonsense" name="studentCommonsense"></textarea></div>
         <div class="field-row"><label for="chapterArgument">What the chapter argues communication does <span class="hint">What does this chapter show communication actually doing?</span></label><textarea id="chapterArgument" name="chapterArgument"></textarea></div>
         <div class="field-row"><label for="notice">What students should notice differently <span class="hint">What patterns, contexts, tensions, relations, or histories become visible?</span></label><textarea id="notice" name="notice"></textarea></div>
@@ -770,19 +790,17 @@
         <div>
           <p class="section-label">Approach overview notes</p>
           <h2>Common Sense and (Un)Common Sense Approach Overviews</h2>
-          <p>Complete these before drafting the Discontinuous Leaps. These boxes define each approach and narrate how each operates.</p>
+          <p>These approach notes are defined in Chapter Setup because they are the framework for the whole chapter. Use this section as a reminder to check that later drafting sections are still following that framework.</p>
         </div>
       </div>
       <div class="two-col">
         <article class="panel sage">
           <h3>Common Sense Approach Overview</h3>
-          <div class="field-row"><label>Definition of the approach <span class="hint">How does common sense as knowing define communication in this chapter?</span></label><textarea name="commonDefinition"></textarea></div>
-          <div class="field-row"><label>Overview narrative <span class="hint">How does this approach operate in everyday life? What does it ask students to locate, know, fix, control, or prove?</span></label><textarea name="commonNarrative"></textarea></div>
+          <p>Check the Chapter Setup framework. The Common Sense approach should name what this chapter treats as knowing: the rules, shortcuts, certainties, myths, fixes, or control strategies students are likely to bring with them.</p>
         </article>
         <article class="panel">
           <h3>(Un)Common Sense Approach Overview</h3>
-          <div class="field-row"><label>Definition of the approach <span class="hint">How does (un)common sense as understanding define communication in this chapter?</span></label><textarea name="uncommonDefinition"></textarea></div>
-          <div class="field-row"><label>Overview narrative <span class="hint">How does this approach operate in everyday life? What does it ask students to notice, interpret, hold open, revise, or try?</span></label><textarea name="uncommonNarrative"></textarea></div>
+          <p>Check the Chapter Setup framework. The (Un)Common Sense approach should name what this chapter treats as understanding: the context, relationships, tensions, constraints, histories, meanings, and flexible practices students can learn to work with.</p>
         </article>
       </div>
     </section>
@@ -1390,7 +1408,7 @@ Quick checklist for every draft: Does it shock? Does it move from brittle facts 
 Your task:
 - Draft the chapter in the existing heading order: Opening Story, Overview, Approaching the Topic, Discontinuous Leaps, Practice, and Closing.
 - Preserve the existing heading hierarchy exactly.
-- Use all worksheet boxes, including chapter setup, section goals, framing boxes, idea development boxes, annotated sources, annotated bibliographies, direct quotes, callout ideas, illustration ideas, comparative illustration notes, and specific help requests.
+- Use all worksheet boxes, including chapter setup, the Common Sense / (Un)Common Sense framework questions, section goals, framing boxes, idea development boxes, annotated sources, annotated bibliographies, direct quotes, callout ideas, illustration ideas, comparative illustration notes, and specific help requests.
 - Achieve the learning outcome, rhetorical purpose, and argumentative move for each section instead of following a rigid paragraph formula.
 - Maintain my voice anchor and tone throughout.
 - Use clean transitions between all main points, sections, leaps, examples, and practice moves.
@@ -1407,7 +1425,7 @@ ${embeddedSectionPrompts()}
 Use this completed worksheet content as the source material:
 
 ${worksheetAsPlainText()}`,
-      blueprint: () => `Create a chapter blueprint for my IPC 2110 textbook chapter. Use my topic, title movement, voice anchor, big shift, approach overview notes, leap boxes, practice bridge, sources, direct quotes, callout ideas, illustration ideas, and specific help requests. Do not prescribe a rigid prose sequence. Define the goal of each section, identify its rhetorical and learning purpose, suggest clean transitions, flag likely repetition across sections, and specify where endnotes, callouts, and generated illustrations should appear. Maintain my voice anchor throughout.`,
+      blueprint: () => `Create a chapter blueprint for my IPC 2110 textbook chapter. Use my topic, title movement, voice anchor, big shift, Common Sense / (Un)Common Sense framework questions, approach overview notes, leap boxes, practice bridge, sources, direct quotes, callout ideas, illustration ideas, and specific help requests. Do not prescribe a rigid prose sequence. Define the goal of each section, identify its rhetorical and learning purpose, suggest clean transitions, flag likely repetition across sections, and specify where endnotes, callouts, and generated illustrations should appear. Maintain my voice anchor throughout.`,
       sectionReview: () => `Review the chapter plan section by section. Confirm whether each section achieves its stated learning outcome, rhetorical goal, and argumentative move. Flag repetition, missing transitions, unsupported claims, missing endnote opportunities, voice drift, and places where callouts or illustrations would help.`,
       repetition: () => `Check this chapter plan for repetition across Opening Story, Overview, Approaches, Discontinuous Leaps, Practice, and Closing. Identify what should stay, move, merge, cut, or be reframed. Preserve my voice and the common sense/(un)common sense framework.`,
       illustration: () => `Plan callout boxes and generated illustrations for this chapter. Place each callout or illustration where it is most relevant. Include purpose, content, suggested caption, alt text, and accessibility notes. Ensure visuals are readable by screen readers and text accessibility tools.`,
