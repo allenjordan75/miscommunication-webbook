@@ -120,6 +120,12 @@
       letter-spacing: 0;
     }
     h2 { font-size: clamp(1.7rem, 3vw, 2.7rem); }
+    .worksheet-title {
+      max-width: 20ch;
+      color: var(--coral-dark);
+      font-size: clamp(1.95rem, 3.2vw, 3rem);
+      line-height: 1.05;
+    }
     h3 { font-size: 1.1rem; color: var(--blue); }
 
     .lede {
@@ -454,9 +460,9 @@
     <section class="section" id="chapter-setup">
       <div class="section-heading">
         <div>
-          <p class="section-label">Chapter level</p>
-          <h2>Chapter Setup</h2>
-          <p>Define the chapter's working materials before drafting any section. These boxes feed the section prompts and exports.</p>
+          <p class="section-label">Chapter worksheet</p>
+          <h2 class="worksheet-title">Chapter Drafting Worksheet</h2>
+          <p>Use these chapter-level boxes before drafting any section. They define the chapter's working materials and feed the section prompts and exports.</p>
         </div>
         <div class="toolbar">
           <button type="button" id="exportWord">Export Word file</button>
