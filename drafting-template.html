@@ -170,6 +170,59 @@
     }
     .map-row:nth-child(odd) .map-num { background: var(--coral); }
     .map-row p { margin: 5px 0 0; color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; }
+    .drafting-links {
+      margin-top: 12px;
+      padding: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--blue);
+      border-radius: 8px;
+    }
+    .drafting-links h3 {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .drafting-link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .drafting-link-grid a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 9px;
+      color: var(--coral-dark);
+      background: #fff7ef;
+      border: 1px solid #ead7c7;
+      border-radius: 6px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .drafting-link-grid a:nth-child(3n + 2) {
+      color: var(--sage);
+      background: var(--sage-soft);
+      border-color: #cfdbc8;
+    }
+    .drafting-link-grid a:nth-child(3n) {
+      color: var(--blue);
+      background: #edf3f6;
+      border-color: #c9d7df;
+    }
+    .drafting-link-grid a:hover,
+    .drafting-link-grid a:focus {
+      color: var(--surface);
+      background: var(--coral-dark);
+      border-color: var(--coral-dark);
+      outline: none;
+    }
 
     .actions, .toolbar, .prompt-actions {
       display: flex;
@@ -571,6 +624,22 @@
           <div class="map-row"><span class="map-num">4</span><div><h3>Three Discontinuous Leaps</h3><p>Map assumptions, myths, beliefs, behavior changes, evidence, examples, and visuals.</p></div></div>
           <div class="map-row"><span class="map-num">5</span><div><h3>Practice</h3><p>Bridge one common sense skill to an (un)common sense skill through a small example.</p></div></div>
           <div class="map-row"><span class="map-num">6</span><div><h3>Closing</h3><p>Return to the story and consolidate what students now notice, understand, and can try.</p></div></div>
+          <nav class="drafting-links" aria-label="Jump to drafting sections">
+            <h3>Drafting Sections</h3>
+            <div class="drafting-link-grid">
+              <a href="#chapter-setup">Chapter setup</a>
+              <a href="#architecture">Chapter flow</a>
+              <a href="#opening">Opening story</a>
+              <a href="#overview">Overview</a>
+              <a href="#approaching">Approaching topic</a>
+              <a href="#approaches">Approach overviews</a>
+              <a href="#leaps">Discontinuous leaps</a>
+              <a href="#practice">Practice</a>
+              <a href="#closing">Closing</a>
+              <a href="#comparative-illustration">Comparative visual</a>
+              <a href="#prompts">AI prompts</a>
+            </div>
+          </nav>
         </div>
       </div>
     </section>
