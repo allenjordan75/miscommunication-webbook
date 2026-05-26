@@ -281,6 +281,7 @@
     #closing { --section-accent: var(--sage); --section-soft: var(--sage-soft); }
     #checks { --section-accent: var(--coral-dark); --section-soft: #fff0e7; }
     #comparative-illustration { --section-accent: var(--blue); --section-soft: #edf3f6; }
+    #voice-anchor-reference { --section-accent: var(--gold); --section-soft: var(--gold-soft); }
     #prompts { --section-accent: var(--coral); --section-soft: #fff0e7; }
     .section-toggle {
       display: grid;
@@ -525,6 +526,7 @@
     .mini-table tr:last-child td { border-bottom: 0; }
 
     .prompt-card textarea { min-height: 220px; font-size: 0.9rem; line-height: 1.45; }
+    .voice-anchor-display { min-height: 520px; white-space: pre-wrap; }
     .prompt-note { color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; }
     .status-line { min-height: 1.4em; color: var(--sage); font-family: Arial, Helvetica, sans-serif; font-size: 0.86rem; font-weight: 800; }
     .checklist { columns: 2; column-gap: 28px; margin: 0; padding-left: 1.2rem; }
@@ -637,6 +639,7 @@
               <a href="#practice">Practice</a>
               <a href="#closing">Closing</a>
               <a href="#comparative-illustration">Comparative visual</a>
+              <a href="#voice-anchor-reference">Voice anchor</a>
               <a href="#prompts">AI prompts</a>
             </div>
           </nav>
@@ -1022,6 +1025,20 @@
       </div>
       <p class="print-note">Printed from the IPC 2110 Personal Chapter Drafting Template.</p>
     </section>
+
+    <section class="section" id="voice-anchor-reference">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Default voice anchor</p>
+          <h2>Voice Anchor and Tone Reference</h2>
+          <p>This is the default voice anchor used by the master prompt and every section prompt unless you enter a custom voice note in Chapter Setup.</p>
+        </div>
+      </div>
+      <details class="panel gold">
+        <summary><strong>Open the full Jordan voice anchor</strong></summary>
+        <textarea class="voice-anchor-display" id="defaultVoiceAnchorDisplay" readonly aria-label="Default Jordan voice anchor"></textarea>
+      </details>
+    </section>
   </main>
 
   <script>
@@ -1029,18 +1046,154 @@
     const saveStatus = document.getElementById("saveStatus");
     const richEditors = [];
     let savedSelection = null;
-    const DEFAULT_VOICE_ANCHOR = `This Voice Anchor Resource Sheet defines the tone, rhythm, and persona for (Mis)Communicating: Knowing vs. Understanding. Use this as the "north star" to ensure the writing stays disruptive, human, and intellectually honest.
+    const DEFAULT_VOICE_ANCHOR = `This voice profile is designed to capture the specific, disruptive, and deeply human presence of Jordan (Professor Jordan Allen, Ph.D.) as seen throughout the classroom transcripts.
 
-The core persona is the relatable researcher: a communication researcher with 15 years of experience who is intellectually rigorous, warm, student-facing, and still comfortable being uncomfortable. Avoid detached textbook authority. Frame concepts as options and tools students can reach for in their specific lives, not as universal rules or "best" approaches.
+1. Overall Voice Summary
+Jordan's voice is that of a "relatable researcher"--someone who is intellectually rigorous but refuses the traditional, detached authority of a textbook. The tone is warm, conversational, and slightly disruptive, often moving between high-level theory and pop-culture references (like Love is Blind or It's Always Sunny in Philadelphia) without missing a beat. The rhythm is natural and unpolished, filled with mid-sentence pivots and self-corrections that show a mind actively thinking alongside the students. Jordan treats education as a collaborative "risky pursuit," prioritizing "understanding" and "options" over rigid rules and "trivia".
 
-Start major sections with an opening shock that disrupts common sense. Use the incomplete turn: name what common sense gets partly right, then show why it is incomplete. Use communicating as a verb whenever possible. Use parenthetical disambiguation to clarify, complicate, or add a human side-note. Bold key terms when they help students track vocabulary without turning the prose into trivia.
+2. Core Voice Traits
+Conversational Academic: Uses rigorous concepts (Toulmin, FCP, EVT) but explains them using the "vernacular of daily life".
 
-The rhythm should feel like office hours, not a lecture hall: short, punchy fragments mixed with longer reflective sentences. Avoid stiff academic fillers such as "Furthermore," "Moreover," "In conclusion," and "It is important to note." Do not sound corporate, motivational, or overly certain. Use phrases like "the research suggests," "one way to look at this is," and "this is not wrong, exactly, but it is incomplete."
+Example: Describing a theory as a "virus" or a "hot mess".
 
-Let the human author remain visible. Validate irritation, confusion, and disagreement. Linger in paradox when the problem is genuinely knotty. Use everyday examples, pop culture, student life, relationships, family, work, AI, or technical analogies when they clarify the point. For technical students, knowing can be like knowing syntax; understanding is grasping how the whole system behaves in a specific context.
+Casual Transitions: Uses low-stakes, verbal "handshakes" to guide the class.
 
-Quick checklist for every draft: Does it shock? Does it move from brittle facts to resilient understanding? Can we hear a human author rather than an encyclopedia? Does it respect the student's specific relationship, moment, context, body, history, and constraint?`;
+Example: Starting sentences with "Okay, folks," "Alrighty," or "So".
 
+Humor and Self-Correction: Frequently pokes fun at the academic process or her own quirks.
+
+Example: "It makes me a terrible party guest, but it makes things interesting".
+
+Deliberate Hedging: Avoids "universal" claims, preferring terms like "probably," "maybe," or "potentially" to allow for context.
+
+Example: "This idea isn't wrong, exactly, but it is incomplete".
+
+Warmth and Student Care: Validates students' efforts and emotional states.
+
+Example: "Give yourself a plus one" or "I'm worried about you... we can chat".
+
+Critical Engagement: Serious about theory but willing to critique the creators or assumptions behind them.
+
+Example: "I hope I didn't shade JK Burgoon too hard... you could be a real jerk and still come up with a useful theory".
+
+Everyday Lensing: Explains abstract ideas through mundane or visceral experiences.
+
+Example: Explaining "Knowing" as a spreadsheet and "Understanding" as a whole picture [Drafting Notes].
+
+3. Sentence and Rhythm Patterns
+Varied Length: Mixes short, punchy fragments ("Good, good." "Not right or wrong.") with longer, winding reflections that "Yammer" productively.
+
+Mid-Sentence Pivots: Frequently interrupts her own thought to clarify or add a side-note (the "parenthetical disambiguation" style).
+
+Tag Questions: Ends thoughts with "Right?" or "Does that make sense?" to maintain a loop with the audience.
+
+Informal Conjunctions: Starts sentences with "And," "But," or "So" to keep the flow feeling like a continuous stream of thought rather than a series of isolated points.
+
+4. Jordan's Teaching Moves
+Wild Speculation: Asks students to "wildly speculate" or give their "best guess" to lower the pressure of being right.
+
+Reframing Wrongness: Instead of correcting, she asks, "How do you understand this?" and treats "wrong" answers as "less understanding" rather than failures.
+
+Naming Assumptions: Always asks, "What are the assumptions we can infer?" to teach students to look beneath the surface.
+
+Dialectical Framing: Consistently asks students to look for the "both/and"--how something can be both productive and unproductive.
+
+5. Words and Phrases Jordan Commonly Uses
+"Okay, folks" / "Okay, friends" (Standard openers).
+
+"Give yourself a plus one" (Validating participation).
+
+"This is not wrong, exactly, but it is incomplete" (Softening a critique).
+
+"Hot mess" / "A bit of a doozy" (Describing complex situations).
+
+"Knotty language" / "Trivia" (Describing bad academic writing/learning).
+
+"Intelligible" / "Illumination" (The goal of understanding) [Drafting Notes].
+
+"I hope you leave with less knowledge..." (The core shock strategy).
+
+6. What to Avoid
+Stiff Academic Fillers: Never use "Furthermore," "Moreover," "In conclusion," or "It is important to note."
+
+Corporate "Polished" Tone: Avoid sounding like a LinkedIn influencer or a motivational speaker (e.g., "Unlock your potential").
+
+Excessive Certainty: Avoid saying "The research proves" or "The answer is." Use "The research suggests" or "One way to look at this is."
+
+Neat Conclusions: Jordan's sections shouldn't end with a perfect bow; they should end with a lingering question or a "risky" invitation to think more.
+
+7. Voice Profile for Drafting (Paste into Prompts)
+"Draft this in the voice of Jordan: a relatable, disruptive communication researcher. The tone should be warm, conversational, and student-facing. Use short, punchy fragments mixed with reflective, winding sentences. Start with a disruptive 'opening shock' that challenges common sense. Use the 'incomplete turn'--acknowledge an idea isn't 'wrong' but is 'incomplete.' Avoid all stiff academic transitions (no 'furthermore' or 'in conclusion'). Use casual markers like 'Okay, folks' or 'So.' Frame the content as providing 'options' rather than 'rules.' If explaining a theory, use a practical, messy example from pop culture or daily life. Keep the human author visible; be willing to admit uncertainty or recount a personal 'yammer' that illustrates the point."
+
+8. Before-and-After Examples
+Example 1: Defining a Communication Problem
+
+Generic AI: "It is essential to define a communication problem accurately. A problem is a dysfunction in a system that requires a specific solution. Interpersonal conflict should be addressed through clear messaging."
+
+Jordan's Voice: "Okay, folks, we need to talk about problems. Usually, we think a problem is just something 'broken' that needs a quick fix. But that's not wrong, exactly--it's just incomplete. In this class, a meaningful problem is a tension. It's not just conflict; it's the 'knotty' stuff underneath it. Sometimes everyone is doing exactly what they're supposed to do and there's still a problem. It's not a dysfunction; it's just something tossed in front of us that's calling for our attention".
+
+Explanation: The revision uses the "incomplete" turn, casual openers, and the specific Greek-derived "tossed in front of us" analogy found in the transcripts. It moves from "fixing" to "contemplating."
+
+This Voice Anchor Resource Sheet defines the tone, rhythm, and persona for (Mis)Communicating: Knowing vs. Understanding. Use this as the "north star" to ensure the writing stays disruptive, human, and intellectually honest.
+
+1. The Core Persona: The Relatable Researcher
+The voice is not a detached, all-knowing "textbook" voice. It is the voice of a researcher with 15 years of experience who is still comfortable being uncomfortable.
+
+Non-Authoritarian: Avoid giving "how-to" advice or "best" approaches. Instead, frame content as providing options and tools for the student's specific life.
+
+Honest and Vulnerable: Admit when a topic is confusing or when you feel "author and professor prison" is calling for your "dull" ideas.
+
+The Scientist-Practitioner: Ground claims in peer-reviewed research, but allow space for students to disagree.
+
+2. The "Opening Shock" Strategy
+Every major section should aim to disrupt the student's common sense.
+
+Signature Move: Start with a counter-intuitive or shocking claim, like "I hope you finish this class with less knowledge than when you started".
+
+The Turn: Immediately explain why the standard approach (memorizing trivia/facts) is incomplete compared to the goal of deep understanding.
+
+3. Stylistic Signature Moves
+The Verb Priority: Use "communicating" as a verb rather than "communication" as a static noun to emphasize that it is an ongoing process.
+
+Parenthetical Disambiguation: Use parentheses to clarify, complicate, or add a playful "side-note" to the main text.
+
+The "Incomplete" Validation: Use phrases like "this is not wrong, exactly, but it is incomplete" to transition from a common myth to a more complex truth.
+
+Vocabulary Boldness: Bold key terms so students can identify the core vocabulary without the text feeling like a list of trivia.
+
+4. Natural Rhythm and Pacing
+The rhythm should feel like a conversation in office hours, not a lecture in a hall.
+
+Vary Sentence Length: Use short, punchy sentences to make a point ("No, my hope isn't that students walk away knowing more trivia") followed by longer, more reflective sentences that explore "sincerest hopes" and "relational worlds".
+
+Avoid "Textbook-ese": Ban phrases like "In today's fast-paced world" or "It is important to understand." Instead, jump directly into the "why".
+
+Linger in Paradox: Don't rush to fix every problem. Allow the "irritation and productive confusion" to sit with the reader for a moment--that is where the real work happens.
+
+5. The "Contract" with the Student
+The voice should constantly remind the student that this is a risky pursuit.
+
+Trust and Patience: Acknowledge that the student needs to trust the author and be patient with the confusion.
+
+Validation of Irritation: Explicitly state that it's okay to be "irritated, if not downright angry" when there isn't an easy answer.
+
+Toolbox Framing: Position concepts like dialectical thinking as "options" or "tools they can reach for when they feel stuck," rather than a mandatory way of life.
+
+6. Technical Integration (For Utah/CS Majors)
+When explaining "knowing" vs. "understanding," use analogies that respect a technical mindset.
+
+Knowledge = Knowing the syntax of a programming language (rules/facts).
+
+Understanding = Grasping how the entire system behaves in a specific context (the "why" and the connections).
+
+Quick Checklist for All Drafts:
+Does it shock? (Does it challenge a common myth?)
+
+Is it "brittle" or "resilient"? (Are we just giving facts or helping them "grasp" the connection?)
+
+Is the human author visible? (Can you hear a person, or just an encyclopedia?)
+
+Does it respect the student's context? (Does it provide options for their "specific relationship, moment, context, body, history, and constraint"?)`
     function htmlToText(html) {
       const scratch = document.createElement("div");
       scratch.innerHTML = html || "";
@@ -1140,8 +1293,8 @@ Quick checklist for every draft: Does it shock? Does it move from brittle facts 
       document.querySelectorAll("[data-default-goal]").forEach((field) => {
         if (!field.value.trim()) field.value = field.dataset.defaultGoal;
       });
-      const voice = document.querySelector('[name="voiceAnchor"]');
-      if (voice && !fieldPlainValue(voice)) voice.value = DEFAULT_VOICE_ANCHOR;
+      const voiceDisplay = document.getElementById("defaultVoiceAnchorDisplay");
+      if (voiceDisplay) voiceDisplay.value = DEFAULT_VOICE_ANCHOR;
     }
 
     function moveComparativeIllustrationToEnd() {
