@@ -277,7 +277,7 @@
     #overview { --section-accent: var(--sage); --section-soft: var(--sage-soft); }
     #approaching { --section-accent: var(--blue); --section-soft: #edf3f6; }
     #leaps { --section-accent: var(--gold); --section-soft: var(--gold-soft); }
-    #practice, #practice-bridge { --section-accent: #7d6240; --section-soft: #f7efe2; }
+    #practice { --section-accent: #7d6240; --section-soft: #f7efe2; }
     #closing { --section-accent: var(--sage); --section-soft: var(--sage-soft); }
     #videos { --section-accent: var(--blue); --section-soft: #edf3f6; }
     #images { --section-accent: var(--coral); --section-soft: #fff0e7; }
@@ -675,7 +675,9 @@
               <a href="#leap-3">Leap 3</a>
               <a href="#leaps">Discontinuous leaps</a>
               <a href="#practice">Practice</a>
-              <a href="#practice-main-1">Practice main idea 1</a>
+              <a href="#practice-narrative">Practice narrative</a>
+              <a href="#practice-common-reaction">Common Sense reaction</a>
+              <a href="#practice-uncommon-response">(Un)Common Sense response</a>
               <a href="#closing">Closing</a>
               <a href="#videos">Videos and embeds</a>
               <a href="#images">Images and captions</a>
@@ -749,7 +751,7 @@
         <article class="step"><span class="step-number">2</span><div><h3>H1: Overview of [Topic]</h3><p>Build the shared foundation students need before comparing the two approaches.</p></div><p class="step-meta">Section goal: define, ground, and prepare.</p></article>
         <article class="step"><span class="step-number">3</span><div><h3>H1: Approaching [Topic]</h3><p>Contrast common sense as knowing with (un)common sense as understanding through definitions and operating narratives.</p></div><p class="step-meta">Section goal: compare approaches without doing the leaps yet.</p></article>
         <article class="step"><span class="step-number">4</span><div><h3>H1: Discontinuous Leaps</h3><p>Develop three assumption shifts that change what students notice, believe, and do.</p></div><p class="step-meta">Section goal: transform assumptions into behavioral consequences.</p></article>
-        <article class="step"><span class="step-number">5</span><div><h3>H1: Practice: Rules to Heuristics</h3><p>Bridge one familiar common sense skill into a more flexible (un)common sense skill.</p></div><p class="step-meta">Section goal: make the conceptual shift practicable.</p></article>
+        <article class="step"><span class="step-number">5</span><div><h3>H1: Practice Bridge</h3><p>Bridge a Common Sense reaction into an (Un)Common Sense response.</p></div><p class="step-meta">Section goal: make the conceptual shift practicable.</p></article>
         <article class="step"><span class="step-number">6</span><div><h3>Closing: What to Carry Forward</h3><p>Return to the opening story and consolidate what students can now notice, understand, and try.</p></div><p class="step-meta">Section goal: synthesize, transfer, and motivate continued practice.</p></article>
       </div>
     </section>
@@ -937,42 +939,37 @@
       </article>
     </section>
     <section class="section drafting-section" id="practice">
-      <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>H1: Practice: Rules to Heuristics</h2><p>Bridge one communication skill from the common sense approach to one skill from the (un)common sense approach.</p></div></div>
-      <div class="section-outline"><strong>You are here:</strong> 5 of 6 - Practice</div>
+      <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>H1: Practice Bridge</h2><p>Use one narrative to show how Common Sense assumptions produce a reaction, then bridge toward an (Un)Common Sense response grounded in understanding, dialectical thinking, and curiosity.</p></div></div>
+      <div class="section-outline"><strong>You are here:</strong> 5 of 6 - Practice Bridge</div>
       <div class="standard-boxes">
-        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="practiceGoal" data-default-goal="Translate the chapter's shift into practice by bridging one familiar common sense skill into a more flexible (un)common sense heuristic students can use across relationships, contexts, and constraints.">Translate the chapter's shift into practice by bridging one familiar common sense skill into a more flexible (un)common sense heuristic students can use across relationships, contexts, and constraints.</textarea></div>
-        <div class="field-row"><label>Framing box: section claim <span class="hint">State the claim of the Practice section. This is where you introduce the main ideas the practice section will develop.</span></label><textarea name="practiceFrame" placeholder=""></textarea></div>
-        <div class="main-idea-list" data-dynamic-list="practice" data-label="Practice main idea">
-          <article class="main-idea-block" id="practice-main-1" data-dynamic-item="practice">
-            <h3>Practice Main Idea 1</h3>
-            <div class="field-row"><label>Main idea box <span class="hint">Name the practice idea, skill shift, or heuristic students should understand.</span></label><textarea name="practiceMainIdea1" placeholder=""></textarea></div>
-            <div class="field-row"><label>Idea development + evidence box <span class="hint">Develop this practice point in depth. Include evidence, examples, source notes, and how the practice works in context.</span></label><textarea name="practiceMainDevelopment1" placeholder=""></textarea></div>
-            <div class="field-row"><label>Annotated bibliography box <span class="hint">For each source connected to this practice idea: include the full citation, a short summary, and how it supports or complicates the practice move. Citations should become endnotes in the chapter draft. Long entries scroll inside this box.</span></label><textarea name="practiceMainBibliography1" placeholder=""></textarea></div>
-            <div class="field-row"><label>Callout idea box <span class="hint">Pull quote, sidebar, key term, reflection pause, example highlight, or visual callout connected to this practice point.</span></label><textarea name="practiceMainCallout1" placeholder=""></textarea></div>
-          </article>
-        </div>
-        <button type="button" class="add-main-idea" data-add-main-idea="practice">Add practice main idea</button>
-        <div class="field-row"><label>Direct quotes box <span class="hint">Important framing direct quotes. Include source and page/location when available.</span></label><textarea name="practiceQuotes" placeholder=""></textarea></div>
-        <div class="field-row"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="practiceHelp" placeholder=""></textarea></div>
+        <div class="field-row fixed-goal" id="practice-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="practiceGoal" data-default-goal="Translate the chapter's shift into practice by bridging one familiar common sense skill into a more flexible (un)common sense heuristic students can use across relationships, contexts, and constraints.">Translate the chapter's shift into practice by bridging one familiar common sense skill into a more flexible (un)common sense heuristic students can use across relationships, contexts, and constraints.</textarea></div>
+
+        <div class="field-row" id="practice-narrative"><label>Practice narrative box <span class="hint">A small example narrative used across the whole section to show common ways Common Sense shapes our communicating.</span></label><textarea name="practiceNarrative" placeholder="Draft the short scene, moment, or example that will carry the section."></textarea></div>
+
+        <div class="subsection-heading" id="practice-common-reaction"><h3>Common Sense Practice Reaction</h3><p>Show how people often behave when operating from common sense assumptions about communicating, monologic thinking, and certainty.</p></div>
+        <div class="field-row"><label>Common Sense reaction thesis <span class="hint">Use the word reaction. This is not usually a considered response; it is how we behave from Common Sense assumptions, monologic thinking, and certainty.</span></label><textarea name="practiceCommonReactionThesis" placeholder="When we operate from Common Sense assumptions about communicating, we often react by..."></textarea></div>
+        <div class="field-row"><label>Common Sense reaction thesis development <span class="hint">Develop the thesis. Explain the reaction, why it feels sensible, how it is shaped by knowing/certainty, and what it does to communicating.</span></label><textarea name="practiceCommonReactionDevelopment"></textarea></div>
+        <div class="field-row"><label>Common Sense reaction annotated bibliography <span class="hint">For each source: include the full citation, a short summary, and how it helps explain this reaction. Citations should become endnotes.</span></label><textarea name="practiceCommonReactionBibliography"></textarea></div>
+        <div class="field-row"><label>Common Sense reaction direct quotes <span class="hint">Important direct quotes for this reaction subsection. Include source and page/location when available.</span></label><textarea name="practiceCommonReactionQuotes"></textarea></div>
+        <div class="field-row"><label>Common Sense reaction illustration ideas <span class="hint">Visuals, diagrams, image ideas, or accessibility notes that inform this subsection.</span></label><textarea name="practiceCommonReactionIllustrations"></textarea></div>
+        <div class="field-row"><label>Common Sense reaction callout ideas <span class="hint">Pull quotes, sidebars, highlights, key terms, or reflection pauses that inform this subsection.</span></label><textarea name="practiceCommonReactionCallouts"></textarea></div>
+
+        <div class="subsection-heading" id="practice-uncommon-response"><h3>(Un)Common Sense Response</h3><p>Show the different way students can respond when they operate from understanding, dialectical thinking, and curiosity.</p></div>
+        <div class="field-row"><label>(Un)Common Sense response thesis <span class="hint">Name the alternative response made possible by understanding, dialectical thinking, and curiosity.</span></label><textarea name="practiceUncommonResponseThesis" placeholder="When we operate from understanding, dialectical thinking, and curiosity, we can respond by..."></textarea></div>
+        <div class="field-row"><label>(Un)Common Sense response thesis development <span class="hint">Develop the thesis. Explain how this response changes communicating and why it is more flexible than the Common Sense reaction.</span></label><textarea name="practiceUncommonResponseDevelopment"></textarea></div>
+        <div class="field-row"><label>Practical application box <span class="hint">Give concrete student-facing steps. These should be options/tools, not rigid rules.</span></label><textarea name="practiceUncommonApplication" placeholder="Step 1...
+Step 2...
+Step 3..."></textarea></div>
+        <div class="field-row"><label>(Un)Common Sense response annotated bibliography <span class="hint">For each source: include the full citation, a short summary, and how it helps explain this response or application. Citations should become endnotes.</span></label><textarea name="practiceUncommonResponseBibliography"></textarea></div>
+        <div class="field-row"><label>(Un)Common Sense response direct quotes <span class="hint">Important direct quotes for this response subsection. Include source and page/location when available.</span></label><textarea name="practiceUncommonResponseQuotes"></textarea></div>
+        <div class="field-row"><label>(Un)Common Sense response illustration ideas <span class="hint">Visuals, diagrams, image ideas, or accessibility notes that inform this subsection.</span></label><textarea name="practiceUncommonResponseIllustrations"></textarea></div>
+        <div class="field-row"><label>(Un)Common Sense response callout ideas <span class="hint">Pull quotes, sidebars, highlights, key terms, or reflection pauses that inform this subsection.</span></label><textarea name="practiceUncommonResponseCallouts"></textarea></div>
+
+        <div class="field-row" id="practice-help"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="practiceHelp"></textarea></div>
       </div>
-      <article class="prompt-card"><h3>AI drafting prompt for this section</h3><textarea class="prompt-template" readonly data-section="practice">Draft H1: Practice: Rules to Heuristics for my IPC 2110 textbook chapter using the content boxes for this section: section goal, framing, idea development, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the content. Do not follow a fixed prose sequence. Instead, make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move. Maintain my voice anchor and tone. Use clean transitions between all main points and ideas. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant in the chapter; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea></article>
+      <article class="prompt-card"><h3>AI drafting prompt for this section</h3><textarea class="prompt-template" readonly data-section="practice">Draft H1: Practice Bridge for my IPC 2110 textbook chapter using the content boxes for this section: section goal, practice narrative, Common Sense reaction thesis, Common Sense reaction thesis development, Common Sense reaction annotated bibliography, Common Sense reaction direct quotes, Common Sense reaction illustration ideas, Common Sense reaction callout ideas, (Un)Common Sense response thesis, (Un)Common Sense response thesis development, practical application steps, (Un)Common Sense response annotated bibliography, (Un)Common Sense response direct quotes, (Un)Common Sense response illustration ideas, (Un)Common Sense response callout ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the subsection. Use the word reaction for the Common Sense practice pattern because it is often not a considered response; it is how we behave when operating from Common Sense assumptions about communicating, monologic thinking, and certainty. Then show the (Un)Common Sense response as a different way to respond from understanding, dialectical thinking, and curiosity. Do not follow a fixed prose sequence. Make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move. Maintain my voice anchor and tone. Use clean transitions between the narrative, reaction, response, and application. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea></article>
     </section>
 
-    <section class="section" id="practice-bridge">
-      <div class="section-heading">
-        <div>
-          <p class="section-label">Practice bridge</p>
-          <h2>Practice Section Planning Boxes</h2>
-          <p>This section pulls one small example narrative through the entire Practice section while showing why and how students should shift skills.</p>
-        </div>
-      </div>
-      <div class="standard-boxes">
-        <div class="field-row"><label>Small example narrative <span class="hint">A short scene that will be pulled through the entire Practice section.</span></label><textarea name="practiceNarrative"></textarea></div>
-        <div class="field-row"><label>What the shift is <span class="hint">Name the common sense skill and the (un)common sense skill it should become.</span></label><textarea name="practiceShift"></textarea></div>
-        <div class="field-row"><label>How to make the shift <span class="hint">What should students notice, ask, delay, test, revise, or try?</span></label><textarea name="practiceHow"></textarea></div>
-        <div class="field-row"><label>Why we should make the change <span class="hint">What changes in communication when students practice this shift?</span></label><textarea name="practiceWhy"></textarea></div>
-      </div>
-    </section>
     <section class="section drafting-section" id="closing">
       <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>Closing: What to Carry Forward</h2><p>Synthesize the chapter, return to the opening story, and help students transfer the shift into future communication situations.</p></div></div>
       <div class="section-outline"><strong>You are here:</strong> 6 of 6 - Closing</div>
@@ -1333,7 +1330,7 @@ Does it respect the student's context? (Does it provide options for their "speci
     }
 
     function createMainIdeaBlock(type, index) {
-      const label = type === "overview" ? "Overview Main Idea" : "Practice Main Idea";
+      const label = type === "overview" ? "Overview Main Idea" : "Main Idea";
       const ideaHint = type === "overview" ? "Name the main idea students need to understand." : "Name the practice idea, skill shift, or heuristic students should understand.";
       const developmentHint = type === "overview" ? "Develop this main point in depth. Include evidence, examples, source notes, and the student-facing explanation." : "Develop this practice point in depth. Include evidence, examples, source notes, and how the practice works in context.";
       const article = document.createElement("article");
@@ -1728,10 +1725,10 @@ Does it respect the student's context? (Does it provide options for their "speci
       masterDraft: () => `Draft the full IPC 2110 textbook chapter from my complete worksheet content. This is a master prompt that includes every section prompt, so do not ask me to run the prompts one at a time.
 
 Your task:
-- Draft the chapter in the existing heading order: Opening Story, Overview, Approaching the Topic, Discontinuous Leaps, Practice, and Closing.
+- Draft the chapter in the existing heading order: Opening Story, Overview, Approaching the Topic, Discontinuous Leaps, Practice Bridge, and Closing.
 - Preserve the existing heading hierarchy exactly.
 - Use all worksheet boxes, including chapter setup, the Common Sense / (Un)Common Sense framework questions, section goals, framing boxes where present, idea development boxes where present, the Approaching approach-definition and approach-description boxes, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, image files/captions/placement notes, video/embed links and placement notes, comparative illustration notes, and specific help requests.
-- Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, or practice move.
+- Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, reaction, response, or practice move.
 - Achieve the learning outcome, rhetorical purpose, and argumentative move for each section instead of following a rigid paragraph formula.
 - Maintain my voice anchor and tone throughout.
 - Use clean transitions between all main points, sections, leaps, examples, and practice moves.
@@ -1748,11 +1745,11 @@ ${embeddedSectionPrompts()}
 Use this completed worksheet content as the source material:
 
 ${worksheetAsPlainText()}`,
-      blueprint: () => `Create a chapter blueprint for my IPC 2110 textbook chapter. Use my topic, title movement, voice anchor, big shift, Common Sense / (Un)Common Sense framework questions, approach overview notes, leap boxes, practice bridge, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, image files/captions/placement notes, video/embed links and placement notes, and specific help requests. Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, or practice move. Do not prescribe a rigid prose sequence. Define the goal of each section, identify its rhetorical and learning purpose, suggest clean transitions, flag likely repetition across sections, and specify where endnotes, callouts, generated illustrations, images, videos, and embeds should appear. Maintain my voice anchor throughout.`,
+      blueprint: () => `Create a chapter blueprint for my IPC 2110 textbook chapter. Use my topic, title movement, voice anchor, big shift, Common Sense / (Un)Common Sense framework questions, approach overview notes, leap boxes, practice bridge, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, image files/captions/placement notes, video/embed links and placement notes, and specific help requests. Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, reaction, response, or practice move. Do not prescribe a rigid prose sequence. Define the goal of each section, identify its rhetorical and learning purpose, suggest clean transitions, flag likely repetition across sections, and specify where endnotes, callouts, generated illustrations, images, videos, and embeds should appear. Maintain my voice anchor throughout.`,
       sectionReview: () => `Review the chapter plan section by section. Confirm whether each section achieves its stated learning outcome, rhetorical goal, and argumentative move. Flag repetition, missing transitions, unsupported claims, missing endnote opportunities, voice drift, and places where callouts, illustrations, images, captions, videos, or embeds would help.`,
       repetition: () => `Check this chapter plan for repetition across Opening Story, Overview, Approaches, Discontinuous Leaps, Practice, and Closing. Identify what should stay, move, merge, cut, or be reframed. Preserve my voice and the common sense/(un)common sense framework.`,
       illustration: () => `Plan callout boxes, generated illustrations, and existing images for this chapter. Place each callout, illustration, or image where it is most relevant. Include purpose, content, suggested or revised caption, file/path or URL when available, alt text, long-description needs, and accessibility notes. Ensure visuals are readable by screen readers and text accessibility tools.`,
-      endnotes: () => `Review my annotated bibliography entries and direct quotes. Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, or practice move. Recommend where endnotes should appear in the chapter draft. Use endnotes for citations, keep technical language student-facing, and flag any source that needs more context before drafting.`
+      endnotes: () => `Review my annotated bibliography entries and direct quotes. Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, reaction, response, or practice move. Recommend where endnotes should appear in the chapter draft. Use endnotes for citations, keep technical language student-facing, and flag any source that needs more context before drafting.`
     };
     function promptByChoice(value) {
       if (promptTemplates[value]) return promptTemplates[value]();
