@@ -1064,6 +1064,7 @@ Step 3..."></textarea></div>
             <option value="repetition">Repetition check</option>
             <option value="illustration">Callout and illustration planning</option>
             <option value="endnotes">Endnote integration</option>
+            <option value="codexHandoff">Codex GitHub handoff</option>
           </select>
           <button type="button" id="buildPrompt" class="primary">Build prompt</button>
         </div>
@@ -1075,6 +1076,7 @@ Step 3..."></textarea></div>
         <label><input type="checkbox" name="promptChoice" value="repetition"> Repetition check</label>
         <label><input type="checkbox" name="promptChoice" value="illustration"> Callout and illustration planning</label>
         <label><input type="checkbox" name="promptChoice" value="endnotes"> Endnote integration</label>
+        <label><input type="checkbox" name="promptChoice" value="codexHandoff"> Codex GitHub handoff</label>
       </div>
       <div class="toolbar">
         <button type="button" id="buildSelectedPrompts" class="primary">Build selected prompts together</button>
@@ -1104,6 +1106,7 @@ Step 3..."></textarea></div>
           <li>Videos and embeds include URLs or embed codes, exact placement notes, instructor notes, and accessibility/status notes.</li>
           <li>Images include file paths or URLs, captions, exact placement notes, instructor notes, and accessibility/status notes.</li>
           <li>The prompt pack at the bottom lets selected prompts run together and includes the voice anchor.</li>
+          <li>The master draft prompt asks for Word-ready output with editable titles, headers, endnotes, callout recommendations, and key-term callout boxes.</li>
           <li>Drafted citations appear as endnotes.</li>
         </ul>
       </div>
@@ -1736,9 +1739,12 @@ Your task:
 - Use clean transitions between all main points, sections, leaps, examples, the Common Sense reaction, the (Un)Common Sense response, and practical application steps.
 - Use endnotes for all citations.
 - Place callout boxes, illustrations, images, videos, and embeds where they are most relevant in the chapter. When illustrations are needed, assume you will generate the images and provide concise alt text and accessibility guidance. When existing images are included, preserve the file path or URL, use or improve the caption, and flag accessibility needs such as alt text, long descriptions, contrast, copyright/source status, or alternate options. When videos or embeds are included, preserve the URL/embed code, write concise student-facing context, and flag accessibility needs such as captions, transcripts, access limits, or alternate options.
+- Recommend callout boxes throughout the chapter when interesting, clarifying, or synthesizing material would help students pause and notice something important. This includes material such as synthesis in the organizing/organization section, attention and selection in the perception chapter, terms that need a quick student-facing definition, surprising research findings, common myths, productive tensions, and examples that make an invisible assumption visible.
+- At the end of the chapter, make sure every key term gets a callout box recommendation with the term, a student-facing definition, suggested placement, and a short note about why it belongs there.
 - Include the structured comparative illustration contrasting Common Sense and (Un)Common Sense across definitions, assumptions, myths/beliefs, and how each shapes communication. Make the visual readable by screen readers and text accessibility tools.
 - Check for repetition across the whole chapter. Flag anything that should be moved, merged, cut, or reframed before or after the draft.
 - Confirm that each major section achieves its stated goal.
+- Give me the finished draft as a Word document or Word-compatible document with clear title, H1/H2/H3 headers, editable body text, callout boxes clearly labeled, image/video placement notes preserved, and endnotes included. The document should be easy for me to correct before sending it to Codex for GitHub formatting.
 
 Use these embedded section prompts as the drafting requirements:
 
@@ -1751,7 +1757,22 @@ ${worksheetAsPlainText()}`,
       sectionReview: () => `Review the chapter plan section by section. Confirm whether each section achieves its stated learning outcome, rhetorical goal, and argumentative move. Flag repetition, missing transitions, unsupported claims, missing endnote opportunities, voice drift, and places where callouts, illustrations, images, captions, videos, or embeds would help.`,
       repetition: () => `Check this chapter plan for repetition across Opening Story, Overview, Approaches, Discontinuous Leaps, Practice Bridge, and Closing. Identify what should stay, move, merge, cut, or be reframed. Preserve my voice and the common sense/(un)common sense framework.`,
       illustration: () => `Plan callout boxes, generated illustrations, and existing images for this chapter. Place each callout, illustration, or image where it is most relevant. Include purpose, content, suggested or revised caption, file/path or URL when available, alt text, long-description needs, and accessibility notes. Ensure visuals are readable by screen readers and text accessibility tools.`,
-      endnotes: () => `Review my annotated bibliography entries and direct quotes. Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, reaction, response, or practical application. Recommend where endnotes should appear in the chapter draft. Use endnotes for citations, keep technical language student-facing, and flag any source that needs more context before drafting.`
+      endnotes: () => `Review my annotated bibliography entries and direct quotes. Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, reaction, response, or practical application. Recommend where endnotes should appear in the chapter draft. Use endnotes for citations, keep technical language student-facing, and flag any source that needs more context before drafting.`,
+      codexHandoff: () => `Prepare this chapter draft for Codex so Codex can format it consistently with the chapters already published on GitHub.
+
+Create a clean handoff packet with these labeled sections:
+1. Chapter title and subtitle, if any.
+2. Exact heading structure using H1, H2, and H3 labels.
+3. Full chapter draft text under each heading.
+4. Callout boxes, each labeled with type, suggested placement, title, body text, and whether it is a key-term callout, myth callout, research callout, example callout, or reflection/pause callout.
+5. Key terms list with each term, student-facing definition, suggested callout placement, and any linked concept-note title.
+6. Image and illustration list with file name or URL, caption, alt text, long-description needs, and exact placement in the draft.
+7. Video/embed list with URL or embed code, student-facing description, accessibility notes, and exact placement in the draft.
+8. Endnotes as a numbered list, with the in-text endnote number or marker clearly matched to the source.
+9. Instructor-resource notes or PowerPoint ideas that should not appear in the student-facing chapter.
+10. Any unresolved questions, missing sources, copyright/accessibility concerns, or places where Codex should be careful.
+
+Do not summarize the chapter instead of providing the draft. Do not collapse the headings. Do not remove callout, image, video, or endnote placement notes. Format the handoff in a clear copy/paste structure so I can give it directly to Codex and ask Codex to update the GitHub webbook chapter in the existing published style.`
     };
     function promptByChoice(value) {
       if (promptTemplates[value]) return promptTemplates[value]();
