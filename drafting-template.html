@@ -275,7 +275,7 @@
     #architecture { --section-accent: var(--blue); --section-soft: #edf3f6; }
     #opening { --section-accent: var(--coral); --section-soft: #fff0e7; }
     #overview { --section-accent: var(--sage); --section-soft: var(--sage-soft); }
-    #approaching, #approaches { --section-accent: var(--blue); --section-soft: #edf3f6; }
+    #approaching { --section-accent: var(--blue); --section-soft: #edf3f6; }
     #leaps { --section-accent: var(--gold); --section-soft: var(--gold-soft); }
     #practice, #practice-bridge { --section-accent: #7d6240; --section-soft: #f7efe2; }
     #closing { --section-accent: var(--sage); --section-soft: var(--sage-soft); }
@@ -610,8 +610,13 @@
     <nav class="site-nav" aria-label="Template navigation">
       <a href="#chapter-setup">Setup</a>
       <a href="#architecture">Flow</a>
-      <a href="#approaches">Approaches</a>
+      <a href="#approaching">Approaches</a>
+      <a href="#approaching-common">Common</a>
+      <a href="#approaching-uncommon">Uncommon</a>
       <a href="#leaps">Leaps</a>
+      <a href="#leap-1">Leap 1</a>
+      <a href="#leap-2">Leap 2</a>
+      <a href="#leap-3">Leap 3</a>
       <a href="#practice">Practice</a>
       <a href="#videos">Videos</a>
       <a href="#images">Images</a>
@@ -630,7 +635,7 @@
             <h3>How to use this template</h3>
             <ol>
               <li>Fill the chapter-level setup first, including the voice anchor, the big shift, and the Common Sense / (Un)Common Sense framework for the topic.</li>
-              <li>For each chapter section, complete the framing, idea development, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, media notes, and help request boxes.</li>
+              <li>For each chapter section, complete the relevant labeled boxes. In Approaching, use the approach-specific definition, description, and annotated bibliography boxes instead of a framing/development pair.</li>
               <li>Use the master AI prompt when you want ChatGPT to draft the full chapter at once, or use the section prompts when you want to work one section at a time.</li>
               <li>Use the export buttons to create a Word, HTML, text, or Markdown planning file.</li>
             </ol>
@@ -658,11 +663,19 @@
               <a href="#chapter-setup">Chapter setup</a>
               <a href="#architecture">Chapter flow</a>
               <a href="#opening">Opening story</a>
+              <a href="#opening">Opening story boxes</a>
               <a href="#overview">Overview</a>
+              <a href="#overview-main-1">Overview main idea 1</a>
               <a href="#approaching">Approaching topic</a>
-              <a href="#approaches">Approach overviews</a>
+              <a href="#approaching-common">Common Sense approach</a>
+              <a href="#approaching-uncommon">(Un)Common Sense approach</a>
+              <a href="#approaching-quotes">Approaching quotes</a>
+              <a href="#leap-1">Leap 1</a>
+              <a href="#leap-2">Leap 2</a>
+              <a href="#leap-3">Leap 3</a>
               <a href="#leaps">Discontinuous leaps</a>
               <a href="#practice">Practice</a>
+              <a href="#practice-main-1">Practice main idea 1</a>
               <a href="#closing">Closing</a>
               <a href="#videos">Videos and embeds</a>
               <a href="#images">Images and captions</a>
@@ -777,7 +790,7 @@
         <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="overviewGoal" data-default-goal="Define the topic in everyday terms, explain why it matters to students now, introduce common sense and (un)common sense as two approaches to the same reality, and establish the main ideas students need before the chapter begins shifting their assumptions.">Define the topic in everyday terms, explain why it matters to students now, introduce common sense and (un)common sense as two approaches to the same reality, and establish the main ideas students need before the chapter begins shifting their assumptions.</textarea></div>
         <div class="field-row"><label>Framing box: section claim <span class="hint">State the claim of the Overview section. This is where you introduce the main ideas the section will develop.</span></label><textarea name="overviewFrame" placeholder=""></textarea></div>
         <div class="main-idea-list" data-dynamic-list="overview" data-label="Overview main idea">
-          <article class="main-idea-block" data-dynamic-item="overview">
+          <article class="main-idea-block" id="overview-main-1" data-dynamic-item="overview">
             <h3>Overview Main Idea 1</h3>
             <div class="field-row"><label>Main idea box <span class="hint">Name the main idea students need to understand.</span></label><textarea name="overviewMainIdea1" placeholder=""></textarea></div>
             <div class="field-row"><label>Idea development + evidence box <span class="hint">Develop this main point in depth. Include evidence, examples, source notes, and the student-facing explanation.</span></label><textarea name="overviewMainDevelopment1" placeholder=""></textarea></div>
@@ -797,39 +810,27 @@
     </section>
 
     <section class="section drafting-section" id="approaching">
-      <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>H1: Approaching [Topic]</h2><p>Define and compare the two approaches while preparing students for the three discontinuous leaps.</p></div></div>
+      <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>H1: Approaching [Topic]</h2><p>Summarize the Common Sense and (Un)Common Sense approaches to the topic while preparing students for the three discontinuous leaps.</p></div></div>
       <div class="section-outline"><strong>You are here:</strong> 3 of 6 - Approaching the Topic</div>
       <div class="standard-boxes">
-        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="approachingGoal" data-default-goal="Introduce the two approaches explicitly, answer the guiding questions for each approach, and help students see how common sense as knowing and (un)common sense as understanding begin from different assumptions, myths or beliefs, behaviors, and outcomes.">Introduce the two approaches explicitly, answer the guiding questions for each approach, and help students see how common sense as knowing and (un)common sense as understanding begin from different assumptions, myths or beliefs, behaviors, and outcomes.</textarea></div>
-        <div class="field-row"><label>Framing box <span class="hint">One sentence defining the topic, claim, or purpose of this section.</span></label><textarea name="approachingFrame"></textarea></div>
-        <div class="field-row"><label>Idea development box <span class="hint">Elaborate the comparison in depth. Explain the logic, stakes, appeal, limits, and student-facing consequences of each approach.</span></label><textarea name="approachingDevelopment"></textarea></div>
-        <div class="field-row"><label>Annotated bibliography box <span class="hint">For each source: include the full citation, a short summary, and how it relates to the approach comparison. Citations should become endnotes in the chapter draft. Long entries scroll inside this box.</span></label><textarea name="approachingBibliography"></textarea></div>
-        <div class="field-row"><label>Direct quotes box <span class="hint">Important framing direct quotes. Include source and page/location when available.</span></label><textarea name="approachingQuotes"></textarea></div>
-        <div class="field-row"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, key terms, or short recurring motifs.</span></label><textarea name="approachingCallouts"></textarea></div>
-        <div class="field-row"><label>Illustration ideas <span class="hint">Diagrams, visuals, figures, image-generation ideas, accessibility notes, and where each belongs.</span></label><textarea name="approachingIllustrations"></textarea></div>
-        <div class="field-row"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="approachingHelp"></textarea></div>
-      </div>
-      <article class="prompt-card"><h3>AI drafting prompt for this section</h3><textarea class="prompt-template" readonly>Draft H1: Approaching [Topic] for my IPC 2110 textbook chapter using the content boxes for this section: section goal, framing, idea development, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, approach overview notes, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the content. Do not follow a fixed prose sequence. Make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move: defining and comparing common sense as knowing with (un)common sense as understanding while preparing students for the three discontinuous leaps. Maintain my voice anchor and tone. Use clean transitions between all main points and ideas. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant in the chapter; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea></article>
-    </section>
+        <div class="field-row fixed-goal" id="approaching-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="approachingGoal" data-default-goal="Introduce the two approaches explicitly, answer the guiding questions for each approach, and help students see how common sense as knowing and (un)common sense as understanding begin from different assumptions, myths or beliefs, behaviors, and outcomes.">Introduce the two approaches explicitly, answer the guiding questions for each approach, and help students see how common sense as knowing and (un)common sense as understanding begin from different assumptions, myths or beliefs, behaviors, and outcomes.</textarea></div>
 
-    <section class="section" id="approaches">
-      <div class="section-heading">
-        <div>
-          <p class="section-label">Approach overview notes</p>
-          <h2>Common Sense and (Un)Common Sense Approach Overviews</h2>
-          <p>These approach notes are defined in Chapter Setup because they are the framework for the whole chapter. Use this section as a reminder to check that later drafting sections are still following that framework.</p>
-        </div>
+        <div class="subsection-heading" id="approaching-common"><h3>Common Sense Approach to [Topic]</h3><p>Summarize how Common Sense treats this topic as a knowing problem.</p></div>
+        <div class="field-row"><label>Common Sense definition of perception <span class="hint">How does the Common Sense approach define or imply perception in this chapter?</span></label><textarea name="approachingCommonDefinition" placeholder="Example for perception: Perception is treated as a mostly accurate mental picture of reality that an individual can know, report, and defend."></textarea></div>
+        <div class="field-row"><label>Common Sense approach description <span class="hint">Describe how the approach operates. Integrate knowing and preview the assumptions students will meet in the leaps.</span></label><textarea name="approachingCommonDescription" placeholder="Explain what this approach asks students to know, locate, fix, prove, control, or defend. Preview the common sense assumptions without fully developing the leaps yet."></textarea></div>
+        <div class="field-row"><label>Common Sense annotated bibliography <span class="hint">For each source: include the full citation, a short summary, and how it helps explain the Common Sense approach. Citations should become endnotes in the chapter draft.</span></label><textarea name="approachingCommonBibliography"></textarea></div>
+
+        <div class="subsection-heading" id="approaching-uncommon"><h3>(Un)Common Sense Approach to [Topic]</h3><p>Summarize how (Un)Common Sense treats this topic as an understanding problem.</p></div>
+        <div class="field-row"><label>(Un)Common Sense definition of perception <span class="hint">How does the (Un)Common Sense approach define or imply perception in this chapter?</span></label><textarea name="approachingUncommonDefinition" placeholder="Example for perception: Perception is an active, selective, embodied, social, interpretive, and relational process that shapes communicating and is shaped by communicating."></textarea></div>
+        <div class="field-row"><label>(Un)Common Sense approach description <span class="hint">Describe how the approach operates. Integrate understanding and preview the assumptions students will meet in the leaps.</span></label><textarea name="approachingUncommonDescription" placeholder="Explain what this approach asks students to notice, interpret, hold open, revise, contextualize, or try. Preview the (un)common sense assumptions without fully developing the leaps yet."></textarea></div>
+        <div class="field-row"><label>(Un)Common Sense annotated bibliography <span class="hint">For each source: include the full citation, a short summary, and how it helps explain the (Un)Common Sense approach. Citations should become endnotes in the chapter draft.</span></label><textarea name="approachingUncommonBibliography"></textarea></div>
+
+        <div class="field-row" id="approaching-quotes"><label>Direct quotes box <span class="hint">Important framing direct quotes. Include source and page/location when available.</span></label><textarea name="approachingQuotes"></textarea></div>
+        <div class="field-row" id="approaching-callouts"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, key terms, or short recurring motifs.</span></label><textarea name="approachingCallouts"></textarea></div>
+        <div class="field-row" id="approaching-illustrations"><label>Illustration ideas <span class="hint">Diagrams, visuals, figures, image-generation ideas, accessibility notes, and where each belongs.</span></label><textarea name="approachingIllustrations"></textarea></div>
+        <div class="field-row" id="approaching-help"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="approachingHelp"></textarea></div>
       </div>
-      <div class="two-col">
-        <article class="panel sage">
-          <h3>Common Sense Approach Overview</h3>
-          <p>Check the Chapter Setup framework. The Common Sense approach should name what this chapter treats as knowing: the rules, shortcuts, certainties, myths, fixes, or control strategies students are likely to bring with them.</p>
-        </article>
-        <article class="panel">
-          <h3>(Un)Common Sense Approach Overview</h3>
-          <p>Check the Chapter Setup framework. The (Un)Common Sense approach should name what this chapter treats as understanding: the context, relationships, tensions, constraints, histories, meanings, and flexible practices students can learn to work with.</p>
-        </article>
-      </div>
+      <article class="prompt-card"><h3>AI drafting prompt for this section</h3><textarea class="prompt-template" readonly>Draft H1: Approaching [Topic] for my IPC 2110 textbook chapter using the content boxes for this section: section goal, the Common Sense definition of perception, Common Sense approach description, Common Sense annotated bibliography entries, the (Un)Common Sense definition of perception, (Un)Common Sense approach description, (Un)Common Sense annotated bibliography entries, direct quotes, callout ideas, illustration ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the approach. Do not follow a fixed prose sequence. Make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move: defining and comparing common sense as knowing with (un)common sense as understanding while preparing students for the three discontinuous leaps. Summarize the Common Sense and (Un)Common Sense approaches without fully developing the leaps yet. Maintain my voice anchor and tone. Use clean transitions between all main points and ideas. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant in the chapter; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea></article>
     </section>
 
     <section class="section" id="comparative-illustration">
@@ -942,7 +943,7 @@
         <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="practiceGoal" data-default-goal="Translate the chapter's shift into practice by bridging one familiar common sense skill into a more flexible (un)common sense heuristic students can use across relationships, contexts, and constraints.">Translate the chapter's shift into practice by bridging one familiar common sense skill into a more flexible (un)common sense heuristic students can use across relationships, contexts, and constraints.</textarea></div>
         <div class="field-row"><label>Framing box: section claim <span class="hint">State the claim of the Practice section. This is where you introduce the main ideas the practice section will develop.</span></label><textarea name="practiceFrame" placeholder=""></textarea></div>
         <div class="main-idea-list" data-dynamic-list="practice" data-label="Practice main idea">
-          <article class="main-idea-block" data-dynamic-item="practice">
+          <article class="main-idea-block" id="practice-main-1" data-dynamic-item="practice">
             <h3>Practice Main Idea 1</h3>
             <div class="field-row"><label>Main idea box <span class="hint">Name the practice idea, skill shift, or heuristic students should understand.</span></label><textarea name="practiceMainIdea1" placeholder=""></textarea></div>
             <div class="field-row"><label>Idea development + evidence box <span class="hint">Develop this practice point in depth. Include evidence, examples, source notes, and how the practice works in context.</span></label><textarea name="practiceMainDevelopment1" placeholder=""></textarea></div>
@@ -1729,7 +1730,7 @@ Does it respect the student's context? (Does it provide options for their "speci
 Your task:
 - Draft the chapter in the existing heading order: Opening Story, Overview, Approaching the Topic, Discontinuous Leaps, Practice, and Closing.
 - Preserve the existing heading hierarchy exactly.
-- Use all worksheet boxes, including chapter setup, the Common Sense / (Un)Common Sense framework questions, section goals, framing boxes, idea development boxes, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, image files/captions/placement notes, video/embed links and placement notes, comparative illustration notes, and specific help requests.
+- Use all worksheet boxes, including chapter setup, the Common Sense / (Un)Common Sense framework questions, section goals, framing boxes where present, idea development boxes where present, the Approaching approach-definition and approach-description boxes, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, image files/captions/placement notes, video/embed links and placement notes, comparative illustration notes, and specific help requests.
 - Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, or practice move.
 - Achieve the learning outcome, rhetorical purpose, and argumentative move for each section instead of following a rigid paragraph formula.
 - Maintain my voice anchor and tone throughout.
