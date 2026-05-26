@@ -279,6 +279,7 @@
     #leaps { --section-accent: var(--gold); --section-soft: var(--gold-soft); }
     #practice, #practice-bridge { --section-accent: #7d6240; --section-soft: #f7efe2; }
     #closing { --section-accent: var(--sage); --section-soft: var(--sage-soft); }
+    #videos { --section-accent: var(--blue); --section-soft: #edf3f6; }
     #checks { --section-accent: var(--coral-dark); --section-soft: #fff0e7; }
     #comparative-illustration { --section-accent: var(--blue); --section-soft: #edf3f6; }
     #voice-anchor-reference { --section-accent: var(--gold); --section-soft: var(--gold-soft); }
@@ -477,6 +478,18 @@
       background: var(--surface);
     }
     .main-idea-block h3 { font-size: 1.05rem; color: var(--green); }
+    .video-embed-list { display: grid; gap: 11px; }
+    .video-embed-block {
+      display: grid;
+      gap: 9px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--blue);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .video-embed-block h3 { color: var(--blue); }
+    .embed-code-box { min-height: 118px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86rem; }
     .prompt-choice-list {
       display: grid;
       gap: 8px;
@@ -589,6 +602,7 @@
       <a href="#approaches">Approaches</a>
       <a href="#leaps">Leaps</a>
       <a href="#practice">Practice</a>
+      <a href="#videos">Videos</a>
       <a href="#prompts">Prompts</a>
     </nav>
   </header>
@@ -604,7 +618,7 @@
             <h3>How to use this template</h3>
             <ol>
               <li>Fill the chapter-level setup first, including the voice anchor, the big shift, and the Common Sense / (Un)Common Sense framework for the topic.</li>
-              <li>For each chapter section, complete the framing, idea development, sources, bibliography, direct quotes, callout ideas, illustration ideas, and help request boxes.</li>
+              <li>For each chapter section, complete the framing, idea development, sources, bibliography, direct quotes, callout ideas, illustration ideas, media notes, and help request boxes.</li>
               <li>Use the master AI prompt when you want ChatGPT to draft the full chapter at once, or use the section prompts when you want to work one section at a time.</li>
               <li>Use the export buttons to create a Word, HTML, text, or Markdown planning file.</li>
             </ol>
@@ -638,6 +652,7 @@
               <a href="#leaps">Discontinuous leaps</a>
               <a href="#practice">Practice</a>
               <a href="#closing">Closing</a>
+              <a href="#videos">Videos and embeds</a>
               <a href="#comparative-illustration">Comparative visual</a>
               <a href="#voice-anchor-reference">Voice anchor</a>
               <a href="#prompts">AI prompts</a>
@@ -963,6 +978,36 @@
       <article class="prompt-card"><h3>AI drafting prompt for this section</h3><textarea class="prompt-template" readonly>Draft Closing: What to Carry Forward for my IPC 2110 textbook chapter using the content boxes for this section: section goal, framing, idea development, annotated sources, annotated bibliography, direct quotes, callout ideas, illustration ideas, and my specific help request. Do not follow a fixed fixed prose sequence. Instead, make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move. Maintain my voice anchor and tone. Use clean transitions between all main points and ideas. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant in the chapter; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea></article>
     </section>
 
+    <section class="section" id="videos">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Chapter media</p>
+          <h2>Videos and Embed Links</h2>
+          <p>Collect videos, iframe embed codes, links, captions, and placement notes that may belong in the textbook, Canvas, PowerPoint, assignments, activities, or instructor resources.</p>
+        </div>
+      </div>
+      <div class="section-outline"><strong>You are here:</strong> Chapter media - use anywhere in the draft</div>
+      <div class="standard-boxes">
+        <div class="video-embed-list" data-dynamic-list="video" data-label="Video or embed">
+          <article class="video-embed-block" data-dynamic-item="video">
+            <h3>Video / Embed 1</h3>
+            <div class="field-row"><label>Title or source <span class="hint">Name the video, creator, source, platform, or media item.</span></label><textarea name="videoTitle1" placeholder=""></textarea></div>
+            <div class="field-row"><label>URL <span class="hint">Paste the share link, YouTube/Vimeo link, Canvas link, or source URL.</span></label><textarea name="videoUrl1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Embed code <span class="hint">Paste iframe or embed code here when you have it.</span></label><textarea class="embed-code-box" name="videoEmbedCode1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Student-facing description <span class="hint">What should students know before or after watching?</span></label><textarea name="videoStudentDescription1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Placement notes <span class="hint">Where should this go in the textbook, Canvas, PowerPoint, activity, assignment, or instructor resource?</span></label><textarea name="videoPlacement1" placeholder="Textbook section or exact placement:\nCanvas placement or assignment:\nPowerPoint slide or section:\nActivity or discussion use:\nInstructor resource placement:"></textarea></div>
+            <div class="field-row"><label>Instructor notes <span class="hint">How should instructors use this video? Include timing, teaching purpose, or warnings.</span></label><textarea name="videoInstructorNotes1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Accessibility and status <span class="hint">Captions, transcript, content warning, access limits, alternate option, and review status.</span></label><textarea name="videoAccessibility1" placeholder=""></textarea></div>
+          </article>
+        </div>
+        <button type="button" class="add-video-embed" data-add-video-embed>Add another video/embed box</button>
+      </div>
+      <article class="prompt-card">
+        <h3>AI media placement prompt</h3>
+        <textarea class="prompt-template" readonly>Review the Videos and Embed Links section for this IPC 2110 chapter. Use the title/source, URL, embed code, student-facing description, placement notes, instructor notes, accessibility notes, and status for each media item. Recommend where each video or embed belongs in the textbook chapter, Canvas materials, PowerPoint outline, activities, assignments, and instructor resources. Make sure every recommendation supports the chapter's common sense/(un)common sense framework, avoids repetition, includes accessibility needs such as captions/transcripts/alt or fallback descriptions, and preserves my voice anchor and tone when writing student-facing or instructor-facing text.</textarea>
+      </article>
+    </section>
+
     <section class="section" id="prompts">
       <div class="section-heading">
         <div>
@@ -1008,13 +1053,14 @@
           <li>Every section has a fixed section goal that stays consistent across chapters.</li>
           <li>Overview and Practice use a section claim plus expandable main idea boxes with evidence/development and callout ideas.</li>
           <li>Every section keeps direct quotes and a specific help request box.</li>
-          <li>Every AI prompt focuses on goals, outcomes, rhetorical moves, transitions, repetition checks, endnotes, voice, callouts, and illustrations.</li>
+          <li>Every AI prompt focuses on goals, outcomes, rhetorical moves, transitions, repetition checks, endnotes, voice, callouts, illustrations, videos, and embeds.</li>
           <li>The two approach overview boxes define and narrate common sense and (un)common sense before the leaps begin.</li>
           <li>There are exactly three discontinuous leaps.</li>
           <li>Each leap includes common sense assumption, myth, communication impact, and potential examples.</li>
           <li>Each leap includes (un)common sense assumption, belief, and behavior change with examples.</li>
           <li>The Practice section bridges one common sense skill to one (un)common sense skill through a small example narrative.</li>
           <li>The comparative illustration appears near the end and draws from the leaps with accessibility guidance for screen readers and text tools.</li>
+          <li>Videos and embeds include URLs or embed codes, exact placement notes, instructor notes, and accessibility/status notes.</li>
           <li>The prompt pack at the bottom lets selected prompts run together and includes the voice anchor.</li>
           <li>Drafted citations appear as endnotes.</li>
         </ul>
@@ -1257,11 +1303,38 @@ Does it respect the student's context? (Does it provide options for their "speci
       return article;
     }
 
+    function createVideoEmbedBlock(index) {
+      const article = document.createElement("article");
+      article.className = "video-embed-block";
+      article.dataset.dynamicItem = "video";
+      article.innerHTML = `<h3>Video / Embed ${index}</h3>
+        <div class="field-row"><label>Title or source <span class="hint">Name the video, creator, source, platform, or media item.</span></label><textarea name="videoTitle${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>URL <span class="hint">Paste the share link, YouTube/Vimeo link, Canvas link, or source URL.</span></label><textarea name="videoUrl${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Embed code <span class="hint">Paste iframe or embed code here when you have it.</span></label><textarea class="embed-code-box" name="videoEmbedCode${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Student-facing description <span class="hint">What should students know before or after watching?</span></label><textarea name="videoStudentDescription${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Placement notes <span class="hint">Where should this go in the textbook, Canvas, PowerPoint, activity, assignment, or instructor resource?</span></label><textarea name="videoPlacement${index}" placeholder="Textbook section or exact placement:\nCanvas placement or assignment:\nPowerPoint slide or section:\nActivity or discussion use:\nInstructor resource placement:"></textarea></div>
+        <div class="field-row"><label>Instructor notes <span class="hint">How should instructors use this video? Include timing, teaching purpose, or warnings.</span></label><textarea name="videoInstructorNotes${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Accessibility and status <span class="hint">Captions, transcript, content warning, access limits, alternate option, and review status.</span></label><textarea name="videoAccessibility${index}" placeholder=""></textarea></div>`;
+      return article;
+    }
+
     function addMainIdea(type) {
       const list = document.querySelector(`[data-dynamic-list="${type}"]`);
       if (!list) return;
       const next = list.querySelectorAll(`[data-dynamic-item="${type}"]`).length + 1;
       list.appendChild(createMainIdeaBlock(type, next));
+      initRichEditors();
+      syncRichEditors();
+      allFields().forEach((field) => field.removeEventListener("input", saveValues));
+      allFields().forEach((field) => field.addEventListener("input", saveValues));
+      saveValues();
+    }
+
+    function addVideoEmbed() {
+      const list = document.querySelector('[data-dynamic-list="video"]');
+      if (!list) return;
+      const next = list.querySelectorAll('[data-dynamic-item="video"]').length + 1;
+      list.appendChild(createVideoEmbedBlock(next));
       initRichEditors();
       syncRichEditors();
       allFields().forEach((field) => field.removeEventListener("input", saveValues));
@@ -1283,6 +1356,18 @@ Does it respect the student's context? (Does it provide options for their "speci
           list.appendChild(createMainIdeaBlock(type, next));
         }
       });
+      const videoIndexes = Object.keys(data || {}).map((key) => {
+        const match = key.match(/^video(?:Title|Url|EmbedCode|StudentDescription|Placement|InstructorNotes|Accessibility)(\d+)$/);
+        return match ? Number(match[1]) : 0;
+      });
+      const videoMax = Math.max(1, ...videoIndexes);
+      const videoList = document.querySelector('[data-dynamic-list="video"]');
+      if (videoList) {
+        while (videoList.querySelectorAll('[data-dynamic-item="video"]').length < videoMax) {
+          const next = videoList.querySelectorAll('[data-dynamic-item="video"]').length + 1;
+          videoList.appendChild(createVideoEmbedBlock(next));
+        }
+      }
     }
 
     function fillFixedDefaults() {
@@ -1557,12 +1642,12 @@ Does it respect the student's context? (Does it provide options for their "speci
 Your task:
 - Draft the chapter in the existing heading order: Opening Story, Overview, Approaching the Topic, Discontinuous Leaps, Practice, and Closing.
 - Preserve the existing heading hierarchy exactly.
-- Use all worksheet boxes, including chapter setup, the Common Sense / (Un)Common Sense framework questions, section goals, framing boxes, idea development boxes, annotated sources, annotated bibliographies, direct quotes, callout ideas, illustration ideas, comparative illustration notes, and specific help requests.
+- Use all worksheet boxes, including chapter setup, the Common Sense / (Un)Common Sense framework questions, section goals, framing boxes, idea development boxes, annotated sources, annotated bibliographies, direct quotes, callout ideas, illustration ideas, video/embed links and placement notes, comparative illustration notes, and specific help requests.
 - Achieve the learning outcome, rhetorical purpose, and argumentative move for each section instead of following a rigid paragraph formula.
 - Maintain my voice anchor and tone throughout.
 - Use clean transitions between all main points, sections, leaps, examples, and practice moves.
 - Use endnotes for all citations.
-- Place callout boxes and illustrations where they are most relevant in the chapter. When illustrations are needed, assume you will generate the images and provide concise alt text and accessibility guidance.
+- Place callout boxes, illustrations, videos, and embeds where they are most relevant in the chapter. When illustrations are needed, assume you will generate the images and provide concise alt text and accessibility guidance. When videos or embeds are included, preserve the URL/embed code, write concise student-facing context, and flag accessibility needs such as captions, transcripts, access limits, or alternate options.
 - Include the structured comparative illustration contrasting Common Sense and (Un)Common Sense across definitions, assumptions, myths/beliefs, and how each shapes communication. Make the visual readable by screen readers and text accessibility tools.
 - Check for repetition across the whole chapter. Flag anything that should be moved, merged, cut, or reframed before or after the draft.
 - Confirm that each major section achieves its stated goal.
@@ -1574,8 +1659,8 @@ ${embeddedSectionPrompts()}
 Use this completed worksheet content as the source material:
 
 ${worksheetAsPlainText()}`,
-      blueprint: () => `Create a chapter blueprint for my IPC 2110 textbook chapter. Use my topic, title movement, voice anchor, big shift, Common Sense / (Un)Common Sense framework questions, approach overview notes, leap boxes, practice bridge, sources, direct quotes, callout ideas, illustration ideas, and specific help requests. Do not prescribe a rigid prose sequence. Define the goal of each section, identify its rhetorical and learning purpose, suggest clean transitions, flag likely repetition across sections, and specify where endnotes, callouts, and generated illustrations should appear. Maintain my voice anchor throughout.`,
-      sectionReview: () => `Review the chapter plan section by section. Confirm whether each section achieves its stated learning outcome, rhetorical goal, and argumentative move. Flag repetition, missing transitions, unsupported claims, missing endnote opportunities, voice drift, and places where callouts or illustrations would help.`,
+      blueprint: () => `Create a chapter blueprint for my IPC 2110 textbook chapter. Use my topic, title movement, voice anchor, big shift, Common Sense / (Un)Common Sense framework questions, approach overview notes, leap boxes, practice bridge, sources, direct quotes, callout ideas, illustration ideas, video/embed links and placement notes, and specific help requests. Do not prescribe a rigid prose sequence. Define the goal of each section, identify its rhetorical and learning purpose, suggest clean transitions, flag likely repetition across sections, and specify where endnotes, callouts, generated illustrations, videos, and embeds should appear. Maintain my voice anchor throughout.`,
+      sectionReview: () => `Review the chapter plan section by section. Confirm whether each section achieves its stated learning outcome, rhetorical goal, and argumentative move. Flag repetition, missing transitions, unsupported claims, missing endnote opportunities, voice drift, and places where callouts, illustrations, videos, or embeds would help.`,
       repetition: () => `Check this chapter plan for repetition across Opening Story, Overview, Approaches, Discontinuous Leaps, Practice, and Closing. Identify what should stay, move, merge, cut, or be reframed. Preserve my voice and the common sense/(un)common sense framework.`,
       illustration: () => `Plan callout boxes and generated illustrations for this chapter. Place each callout or illustration where it is most relevant. Include purpose, content, suggested caption, alt text, and accessibility notes. Ensure visuals are readable by screen readers and text accessibility tools.`,
       endnotes: () => `Review my annotated sources, annotated bibliography, and direct quotes. Recommend where endnotes should appear in the chapter draft. Use endnotes for citations, keep technical language student-facing, and flag any source that needs more context before drafting.`
@@ -1611,6 +1696,7 @@ ${worksheetAsPlainText()}`,
     buildPrompt();
     allFields().forEach((field) => field.addEventListener("input", saveValues));
     document.querySelectorAll("[data-add-main-idea]").forEach((button) => button.addEventListener("click", () => addMainIdea(button.dataset.addMainIdea)));
+    document.querySelectorAll("[data-add-video-embed]").forEach((button) => button.addEventListener("click", addVideoEmbed));
     document.getElementById("expandSections").addEventListener("click", () => setAllSections(true));
     document.getElementById("collapseSections").addEventListener("click", () => setAllSections(false));
     document.getElementById("buildPrompt").addEventListener("click", buildPrompt);
