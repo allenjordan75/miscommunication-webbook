@@ -1029,6 +1029,7 @@
       max-width: none;
     }
 
+    .textbook-figure,
     .textbook-figure.float-right,
     .callout.key-term,
     .callout.case,
@@ -1040,6 +1041,7 @@
       position: static;
       float: none;
       width: 100%;
+      max-width: none;
       margin: 0.9rem 0;
     }
 
@@ -1805,11 +1807,18 @@ The both/and matters. The issue is not that being alone is always bad. The issue
       image.setAttribute("aria-label", "Enlarge this illustration");
 
       const figure = image.closest(".textbook-figure");
+      const media = image.closest(".figure-media");
       const caption = figure ? figure.querySelector("figcaption") : null;
+      if (media && !media.querySelector(".media-enlarge-badge")) {
+        const badge = document.createElement("span");
+        badge.className = "media-enlarge-badge";
+        badge.textContent = "Click to enlarge";
+        media.appendChild(badge);
+      }
       if (caption && !caption.querySelector(".figure-zoom-hint")) {
         const hint = document.createElement("span");
         hint.className = "figure-zoom-hint";
-        hint.textContent = "Click image to enlarge";
+        hint.textContent = "Image enlarges on click";
         caption.appendChild(document.createTextNode(" "));
         caption.appendChild(hint);
       }
