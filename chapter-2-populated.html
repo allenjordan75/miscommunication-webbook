@@ -1117,6 +1117,45 @@
     border: 0;
   }
 
+  .review-media {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(260px, 1.05fr);
+    gap: clamp(14px, 2vw, 24px);
+    align-items: center;
+    margin: calc(clamp(14px, 2.2vw, 26px) * -1) 0 clamp(24px, 4vw, 42px);
+    padding: clamp(14px, 2.4vw, 22px);
+    background: var(--paper);
+    border: 1px solid rgba(216, 201, 184, 0.92);
+    border-left: 7px solid var(--blue);
+    box-shadow: 0 10px 24px rgba(21, 21, 21, 0.07);
+  }
+
+  .review-label {
+    margin: 0 0 0.4rem;
+    color: var(--clay-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .review-title {
+    margin: 0 0 0.55rem;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.12rem, 1.75vw, 1.45rem);
+    font-weight: 900;
+    line-height: 1.12;
+  }
+
+  .review-caption {
+    margin: 0;
+    color: var(--muted);
+    font-size: clamp(0.96rem, 1.02vw, 1.06rem);
+    line-height: 1.42;
+  }
+
   .endnotes-list {
     max-width: 78ch;
     margin: 0;
@@ -1145,6 +1184,11 @@
     .hero-title-wrap h1 {
       font-size: 2.6rem;
     }
+
+    .review-media {
+      grid-template-columns: 1fr;
+      margin-top: 0;
+    }
   }
 </style>
 <section class="miscomm-webbook"><main class="book-surface">
@@ -1154,6 +1198,15 @@
   </header>
   <div class="chapter-kicker"><span>Chapter 2</span><a href="index.html">Back to contents</a></div>
   <header class="brush-hero"><div class="brush-hero-inner"><div class="chapter-number"><span>Chapter</span>2</div><div class="hero-title-wrap"><h1>Perception (Mis)Perception</h1><p class="chapter-subtitle">From Accuracy to Sense-making</p></div></div></header>
+
+  <section class="review-media" aria-label="Review video before Chapter 2">
+    <div>
+      <p class="review-label">Review Before You Begin</p>
+      <h2 class="review-title">Before Chapter 2: Reviewing the Shift from Knowing to Understanding</h2>
+      <p class="review-caption">This short review revisits the earlier chapters so students can carry the common sense / (un)common sense framework into the perception chapter. Watch for the shift from treating communication as accurate knowing to treating communicating as situated understanding.</p>
+    </div>
+    <div class="video-frame"><iframe src="https://www.youtube.com/embed/wa2o1tpc6oQ?si=H1MLzt_9roFsLqxv" title="Review of earlier chapters: knowing, understanding, and (un)common sense" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  </section>
 
   <section class="opening-spread" aria-label="Chapter overview and learning objectives"><div><h2 class="section-heading">Chapter Overview</h2><p>The common sense approach to perception links perception to accurate knowing: if perception represents reality correctly, then "I know what happened because I perceived it." The (un)common sense approach to perception links perception to understanding: because perception takes shape from different positions, "I need to examine how my perception, and yours, became meaningful from where each of us stands." This movement draws on Chapter 0's distinction between knowing and understanding and Chapter 1's distinction between the common sense approach, the (un)common sense approach, and discontinuous leaps (Allen, Chapter 0; Allen, Chapter 1).</p><div class="chapter-note-card"><strong>Big idea:</strong> The common sense approach to perception and the (un)common sense approach to perception make different assumptions about the same perceptual work. The first approach asks whether perception accurately represents reality. The second asks how perception becomes meaningful from a body, history, relationship, culture, language, technology, and situation. Accuracy still matters. It just cannot carry the whole burden of understanding.</div></div><div><h2 class="section-heading">Learning Objectives</h2><ol class="objective-list"><li>Explain why The Dress is a perception problem, not only a color debate.</li><li>Define perception as selection, organization, interpretation, and storying.</li><li>Compare the common sense and (un)common sense approaches to perception.</li><li>Describe three discontinuous leaps: linear processing to recursive sense-making, private mind to collaborative sense-making, and bias as error to monitored blind spot.</li><li>Practice shifting from accuracy-only reactions toward perspective-taking, productive uncertainty, and more careful communication.</li></ol></div></section>
 
