@@ -88,6 +88,19 @@ Future Codex chats should read this file before formatting or publishing Chapter
 - Source or copyright note: AI-generated image supplied by Jordan, May 26, 2026. Verify historical framing before publication.
 - Status: published in chapter-2-populated.html
 
+### Image 7: Bias Is Like A Blind Spot
+
+- File name: `bias-blind-spot-monitor.png`
+- Working title: Bias Is Like a Blind Spot
+- Student-facing caption: Bias is not something we can eliminate by trying hard enough to be objective. The more responsible practice is to monitor it: seek multiple perspectives, question assumptions, invite feedback, and slow down long enough to notice context, emotion, and power.
+- Alt text: Infographic using a driving blind spot metaphor to compare the Common Sense myth of the bias-free observer with a responsible response that monitors bias through mirrors, assumption checks, feedback, context, emotion, and power dynamics.
+- Long description needed: Yes
+- Exact placement in Chapter 2: Place in Leap 3 after the paragraph explaining the car blind-spot metaphor and before the chapter names communication blind-spot checks.
+- Related section or concept: Leap 3; bias; bias blind spot; monitored perception; responsible sense-making.
+- Callout/figure type: figure / comparison visual
+- Source or copyright note: AI-generated image supplied by Jordan, May 26, 2026. Proofread embedded text and verify visible source references before publication.
+- Status: published in chapter-2-populated.html
+
 ## Blank Entry Template
 
 Copy this entry for each new image.
