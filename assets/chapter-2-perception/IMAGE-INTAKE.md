@@ -101,6 +101,19 @@ Future Codex chats should read this file before formatting or publishing Chapter
 - Source or copyright note: AI-generated image supplied by Jordan, May 26, 2026. Proofread embedded text and verify visible source references before publication.
 - Status: published in chapter-2-populated.html
 
+### Image 8: Muller-Lyer Illusion
+
+- File name: `muller-lyer-illusion.svg`
+- Working title: The Muller-Lyer Illusion
+- Student-facing caption: The Muller-Lyer illusion shows how organization shapes perception. The center lines are the same length, but the fins change how the lines are organized, so equal lengths can feel unequal.
+- Alt text: Two horizontal lines of identical length with different arrow fins. The top line has outward-facing fins and the bottom line has inward-facing fins, creating the illusion that the equal center lines are different lengths.
+- Long description needed: No
+- Exact placement in Chapter 2: Place in the Organization section immediately after the paragraph explaining the Muller-Lyer illusion and cross-cultural research on geometric illusions.
+- Related section or concept: Organization of perception; geometric illusions; Muller-Lyer illusion; learned perceptual environments.
+- Callout/figure type: figure / diagram
+- Source or copyright note: Custom SVG created for the webbook, May 28, 2026.
+- Status: published in chapter-2-populated.html
+
 ## Blank Entry Template
 
 Copy this entry for each new image.

@@ -23,6 +23,13 @@ Current saved video embed:
 - Suggested placement: Immediately after the Chapter 2 hero/title and before the chapter overview.
 - Student-facing caption: This short review revisits the earlier chapters so students can carry the common sense / (un)common sense framework into the perception chapter. Watch for the shift from treating communication as accurate knowing to treating communicating as situated understanding.
 
+- Title: The McGurk Effect
+- URL: https://www.youtube.com/watch?v=2k8fHR9jKVM
+- Embed source: `https://www.youtube.com/embed/2k8fHR9jKVM?si=wlsLakFP4S9Q9649`
+- Publication note: Embed next to the McGurk effect explanation in the Organization section.
+- Suggested placement: Immediately after the McGurk effect key-term callout.
+- Student-facing caption: This demonstration shows how visual speech cues can change what a person hears. The point is not that hearing fails. The point is that perception organizes multiple streams of information into one experience.
+
 - Title: The Color Of The Dress According To Science
 - URL: https://www.youtube.com/watch?v=I0OPNOpU6SY
 - Embed source: `https://www.youtube.com/embed/I0OPNOpU6SY`
