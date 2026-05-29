@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop>
+  <assessment ident="chapter_2_perception_quiz" title="Chapter 2: Perception (Mis)Perception Quiz">
+    <section ident="root_section">
+      <item ident="q1_the_dress" title="The Dress">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[In Chapter 2, what does The Dress controversy mainly reveal about perception?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[People usually lie when they disagree about what they see.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[Perception can feel obvious even when people honestly perceive the same thing differently.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[Color perception is unrelated to communication.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[Scientific explanations make perceptual disagreement disappear.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">B</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q2_perception_definition" title="Perception Definition">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[Which answer best matches the chapter’s definition of perception?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[A passive recording of objective reality.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[A fixed personality trait that determines whether people are accurate.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[The ongoing process of noticing, grouping, meaning-making, and storying experience from a particular position.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[The final step that happens only after communication is complete.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">C</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q3_selection" title="Selection">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[What is selection?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[The filtering process that makes some cues available for attention while other cues stay in the background.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[The decision to always ignore emotion and focus only on facts.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[The process of proving that one person’s view is objectively correct.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[The story people tell after an event is over.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">A</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q4_organization" title="Organization">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[In the chapter, organization refers to which perceptual process?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[Writing notes in alphabetical order.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[Linking selected cues into figures, wholes, categories, sequences, and relationships.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[Choosing the most persuasive argument before listening.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[Replacing interpretation with memorized definitions.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">B</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q5_mcgurk" title="McGurk Effect">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[Why does the chapter use the McGurk effect?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[To show that visual and auditory cues can be organized into one perceived experience.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[To prove that hearing is always more accurate than vision.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[To show that speech perception is unrelated to context.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[To argue that perception stops before communication begins.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">A</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q6_interpretation" title="Interpretation">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[Which example best illustrates interpretation?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[Noticing that a text message arrived at 10:42 p.m.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[Grouping three due dates under one Canvas heading.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[Deciding that “Fine” sounds angry, efficient, careful, or exhausted depending on the situation.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[Repeating a word until it starts to sound strange.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">C</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q7_storying" title="Storying">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[What does storying do in the perception process?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[It removes uncertainty by proving which person is right.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[It turns interpreted moments into larger accounts of what happened, who people are, and what the event says about a relationship or world.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[It keeps all cues separate so they cannot influence each other.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[It happens before anything is selected or noticed.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">B</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q8_common_sense" title="Common Sense Approach">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[How does the common sense approach to perception usually frame perception?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[As situated sense-making shaped by bodies, histories, relationships, cultures, and contexts.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[As an individual psychological process that should accurately represent objective reality.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[As a collective process that never involves accuracy.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[As a random process with no patterns or assumptions.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">B</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q9_uncommon_sense" title="(Un)common Sense Approach">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[Which question best fits the (un)common sense approach to perception?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[Who is biased, and how can we disqualify their perception?]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[How did this perception become meaningful from where each person stands?]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[Which perception should win the argument immediately?]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[How can we remove emotion from communicating completely?]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">B</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q10_leap_one" title="Leap 1">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[Leap 1 moves students away from the idea of perception as a simple pipeline. What does it move them toward?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[Perception as recursive sense-making that can be updated by new evidence, interaction, and perspective.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[Perception as a perfect recording device.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[Perception as something that matters only in visual communication.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[Perception as a private process that cannot be influenced by other people.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">A</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q11_bias_blind_spot" title="Bias Blind Spot">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[What is the chapter’s main point about bias?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[Good communicators can eliminate all bias if they try hard enough.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[Bias only matters when people are intentionally unfair.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[Bias is a structural part of perception, so the responsible practice is to monitor blind spots.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[Bias means perception should never be trusted at all.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">C</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+
+      <item ident="q12_bob_joan" title="Bob and Joan Practice">
+        <itemmetadata><qtimetadata><qtimetadatafield><fieldlabel>question_type</fieldlabel><fieldentry>multiple_choice_question</fieldentry></qtimetadatafield><qtimetadatafield><fieldlabel>points_possible</fieldlabel><fieldentry>1</fieldentry></qtimetadatafield></qtimetadata></itemmetadata>
+        <presentation><material><mattext texttype="text/html"><![CDATA[In the Bob and Joan example, what would be the strongest (un)common sense response?]]></mattext></material><response_lid ident="response1" rcardinality="Single"><render_choice>
+          <response_label ident="A"><material><mattext texttype="text/html"><![CDATA[Bob should prove that “never” is technically false and stop the conversation there.]]></mattext></material></response_label>
+          <response_label ident="B"><material><mattext texttype="text/html"><![CDATA[Bob should ignore accuracy completely and accept every word Joan says literally.]]></mattext></material></response_label>
+          <response_label ident="C"><material><mattext texttype="text/html"><![CDATA[Bob should hold accuracy and understanding together by noticing his reaction, hearing the pattern, and asking what holiday cleanup has felt like for Joan.]]></mattext></material></response_label>
+          <response_label ident="D"><material><mattext texttype="text/html"><![CDATA[Bob should withdraw because perception is too subjective to discuss.]]></mattext></material></response_label>
+        </render_choice></response_lid></presentation>
+        <resprocessing><outcomes><decvar varname="SCORE" vartype="Decimal" minvalue="0" maxvalue="1"/></outcomes><respcondition continue="No"><conditionvar><varequal respident="response1">C</varequal></conditionvar><setvar varname="SCORE" action="Set">1</setvar></respcondition></resprocessing>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>
