@@ -699,7 +699,7 @@
           <p>Use these chapter-level boxes before drafting any section. They define the chapter's working materials and feed the section prompts and exports.</p>
         </div>
         <div class="toolbar">
-          <button type="button" id="exportWord">Export Word file</button>
+          <button type="button" id="exportWord">Export Word file</button>          <button type="button" id="exportPDF">Export PDF</button>
           <button type="button" id="exportHTML">Export HTML</button>
           <button type="button" id="exportText">Export Text</button>
           <button type="button" id="exportMarkdown">Export Markdown</button>
@@ -1695,7 +1695,7 @@ Does it respect the student's context? (Does it provide options for their "speci
       downloadFile("ipc-2110-chapter-planning-notes.txt", lines.join("\n"), "text/plain");
     }
     function exportHTML() { downloadFile("ipc-2110-chapter-planning-notes.html", notesAsHTML(), "text/html"); }
-    function exportWord() { downloadFile("ipc-2110-chapter-planning-notes.doc", notesAsHTML().replace("<html>", '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">'), "application/msword"); }
+    function exportWord() { downloadFile("ipc-2110-chapter-planning-notes.doc", notesAsHTML().replace("<html>", '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">'), "application/msword"); } function exportPDF() { syncRichEditors(); const popup = window.open("", "_blank"); if (!popup) { window.print(); return; } popup.document.open(); popup.document.write(notesAsHTML()); popup.document.close(); popup.focus(); popup.addEventListener("load", () => popup.print(), { once: true }); }
     function openPrintNotes() {
       const popup = window.open("", "_blank");
       if (!popup) { exportHTML(); return; }
@@ -1815,7 +1815,7 @@ Do not summarize the chapter instead of providing the draft. Do not collapse the
     document.getElementById("collapseSections").addEventListener("click", () => setAllSections(false));
     document.getElementById("buildPrompt").addEventListener("click", buildPrompt);
     document.getElementById("buildSelectedPrompts").addEventListener("click", buildSelectedPrompts);
-    document.getElementById("exportWord").addEventListener("click", exportWord);
+    document.getElementById("exportWord").addEventListener("click", exportWord); document.getElementById("exportPDF").addEventListener("click", exportPDF);
     document.getElementById("exportHTML").addEventListener("click", exportHTML);
     document.getElementById("exportText").addEventListener("click", exportText);
     document.getElementById("exportMarkdown").addEventListener("click", exportMarkdown);
