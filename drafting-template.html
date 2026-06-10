@@ -1,0 +1,2031 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IPC 2110 Personal Chapter Drafting Template</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5e6972;
+      --paper: #fbf7f0;
+      --surface: #fffdfa;
+      --line: #ddd0c1;
+      --coral: #b94f43;
+      --coral-dark: #843a32;
+      --sage: #6f8067;
+      --sage-soft: #eef2e8;
+      --gold-soft: #fff4d8;
+      --gold: #b5791a;
+      --blue: #243d5a;
+      --shadow: 0 16px 40px rgba(23, 33, 43, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    button, input, textarea, select { font: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 68px;
+      padding: 12px clamp(18px, 4vw, 52px);
+      background: rgba(251, 247, 240, 0.95);
+      border-bottom: 1px solid rgba(221, 208, 193, 0.86);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: inline-grid;
+      place-items: center;
+      min-width: 52px;
+      min-height: 34px;
+      padding: 0 8px;
+      color: var(--surface);
+      background: var(--coral-dark);
+      border-radius: 6px;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px 16px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .site-nav a { text-decoration: none; }
+    .site-nav a:hover, .site-nav a:focus { color: var(--coral-dark); outline: none; }
+
+    main { padding: clamp(24px, 4vw, 56px) clamp(18px, 5vw, 72px) 72px; }
+
+    .hero {
+      max-width: 1240px;
+      margin: 0 auto clamp(32px, 5vw, 56px);
+      padding: clamp(22px, 4vw, 40px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
+      gap: clamp(24px, 4vw, 46px);
+      align-items: start;
+    }
+
+    .eyebrow, .section-label, .mini-label {
+      margin: 0 0 8px;
+      color: var(--coral-dark);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p, label { overflow-wrap: anywhere; }
+    h1, h2, h3 { margin: 0; line-height: 1.08; }
+    h1 {
+      max-width: 18ch;
+      color: var(--coral-dark);
+      font-size: clamp(2.2rem, 4.4vw, 4.2rem);
+      letter-spacing: 0;
+    }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.7rem); }
+    .worksheet-title {
+      max-width: 20ch;
+      color: var(--coral-dark);
+      font-size: clamp(1.95rem, 3.2vw, 3rem);
+      line-height: 1.05;
+    }
+    h3 { font-size: 1.1rem; color: var(--blue); }
+
+    .lede {
+      max-width: 68ch;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(1rem, 1.35vw, 1.16rem);
+    }
+
+    .directions {
+      margin-top: 18px;
+      padding: 16px;
+      background: var(--sage-soft);
+      border: 1px solid #c8d4c0;
+      border-radius: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .directions h3 { margin-bottom: 8px; font-size: 1rem; }
+    .directions ol { margin: 0; padding-left: 1.2rem; }
+
+    .template-map { display: grid; gap: 10px; }
+    .map-row {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 12px;
+      padding: 11px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .map-num {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      color: #fff;
+      background: var(--sage);
+      border-radius: 50%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+    }
+    .map-row:nth-child(odd) .map-num { background: var(--coral); }
+    .map-row p { margin: 5px 0 0; color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; }
+    .drafting-links {
+      margin-top: 12px;
+      padding: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--blue);
+      border-radius: 8px;
+    }
+    .drafting-links h3 {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .drafting-link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .drafting-link-grid a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 9px;
+      color: var(--coral-dark);
+      background: #fff7ef;
+      border: 1px solid #ead7c7;
+      border-radius: 6px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .drafting-link-grid a:nth-child(3n + 2) {
+      color: var(--sage);
+      background: var(--sage-soft);
+      border-color: #cfdbc8;
+    }
+    .drafting-link-grid a:nth-child(3n) {
+      color: var(--blue);
+      background: #edf3f6;
+      border-color: #c9d7df;
+    }
+    .drafting-link-grid a:hover,
+    .drafting-link-grid a:focus {
+      color: var(--surface);
+      background: var(--coral-dark);
+      border-color: var(--coral-dark);
+      outline: none;
+    }
+
+    .actions, .toolbar, .prompt-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .actions { margin-top: 18px; }
+    .quick-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .quick-controls button {
+      min-height: 34px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+    }
+
+    .button, button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 9px 13px;
+      border: 1px solid var(--coral-dark);
+      border-radius: 6px;
+      color: var(--coral-dark);
+      background: transparent;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .button.primary, button.primary { color: var(--surface); background: var(--coral-dark); }
+    .button:hover, button:hover { transform: translateY(-1px); }
+
+    .section {
+      --section-accent: var(--sage);
+      --section-soft: var(--sage-soft);
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: clamp(18px, 3vw, 34px) 0;
+      border-top: 1px solid var(--line);
+    }
+    #chapter-setup { --section-accent: var(--coral-dark); --section-soft: #fff0e7; }
+    #architecture { --section-accent: var(--blue); --section-soft: #edf3f6; }
+    #opening { --section-accent: var(--coral); --section-soft: #fff0e7; }
+    #overview { --section-accent: var(--sage); --section-soft: var(--sage-soft); }
+    #approaching { --section-accent: var(--blue); --section-soft: #edf3f6; }
+    #leaps { --section-accent: var(--gold); --section-soft: var(--gold-soft); }
+    #practice { --section-accent: #7d6240; --section-soft: #f7efe2; }
+    #closing { --section-accent: var(--sage); --section-soft: var(--sage-soft); }
+    #videos { --section-accent: var(--blue); --section-soft: #edf3f6; }
+    #images { --section-accent: var(--coral); --section-soft: #fff0e7; }
+    #checks { --section-accent: var(--coral-dark); --section-soft: #fff0e7; }
+    #comparative-illustration { --section-accent: var(--blue); --section-soft: #edf3f6; }
+    #voice-anchor-reference { --section-accent: var(--gold); --section-soft: var(--gold-soft); }
+    #prompts { --section-accent: var(--coral); --section-soft: #fff0e7; }
+    .section-toggle {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      width: 100%;
+      min-height: 0;
+      margin-bottom: 10px;
+      padding: 11px 14px;
+      color: var(--ink);
+      background: linear-gradient(90deg, var(--section-soft), #fffdfa);
+      border: 1px solid var(--line);
+      border-left: 7px solid var(--section-accent);
+      border-radius: 8px;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(23, 33, 43, 0.05);
+    }
+    .section-toggle:hover { transform: none; }
+    .section-toggle-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.08rem, 1.8vw, 1.35rem);
+      font-weight: 800;
+      line-height: 1.12;
+    }
+    .section-toggle-meta {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .section-toggle-icon {
+      color: var(--section-accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+    }
+    .section.is-collapsed .section-body { display: none; }
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 12px;
+    }
+    .section-heading p {
+      max-width: 78ch;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+    }
+
+    .panel, .field-row, .prompt-card, .mini-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(23, 33, 43, 0.05);
+    }
+    .panel, .prompt-card, .mini-card { padding: clamp(14px, 2vw, 20px); }
+    .panel.sage { background: var(--sage-soft); border-color: #c8d4c0; }
+    .panel.gold { background: var(--gold-soft); border-color: #dfc37b; }
+
+    .two-col, .three-col, .box-grid, .leap-pair {
+      display: grid;
+      gap: 12px;
+    }
+    .two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .three-col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .box-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .leap-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 12px; }
+
+    .chapter-flow { display: grid; gap: 10px; }
+    .step {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) minmax(220px, 0.45fr);
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      color: #fff;
+      background: var(--sage);
+      border-radius: 50%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+    }
+    .step:nth-child(odd) .step-number { background: var(--coral); }
+    .step p, .mini-card p, .panel p { margin: 7px 0 0; }
+    .step-meta { color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 0.88rem; }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: minmax(170px, 0.27fr) minmax(0, 0.73fr);
+      gap: 10px;
+      align-items: start;
+      padding: 10px;
+      margin-bottom: 9px;
+    }
+    .field-row label, .box-label {
+      color: var(--blue);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+    }
+    .hint {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 400;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid #cbbbab;
+      border-radius: 6px;
+      color: var(--ink);
+      background: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+    }
+    input, select { min-height: 40px; padding: 8px 10px; }
+    textarea { min-height: 82px; padding: 9px; resize: vertical; }
+    @media screen {
+      textarea[name*="Bibliography"] {
+        min-height: 126px;
+        max-height: 240px;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+      }
+    }
+    textarea.rich-source { display: none; }
+
+    .rich-box { overflow: hidden; background: #fff; border: 1px solid #cbbbab; border-radius: 6px; }
+    .rich-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      padding: 6px;
+      background: #f6efe6;
+      border-bottom: 1px solid #d8c9b8;
+    }
+    .rich-toolbar button {
+      min-height: 30px;
+      padding: 4px 8px;
+      border-color: #cbbbab;
+      color: var(--blue);
+      background: #fff;
+      font-size: 0.78rem;
+    }
+    .rich-editor {
+      min-height: 88px;
+      padding: 9px;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+      line-height: 1.45;
+      outline: none;
+    }
+    .rich-editor:empty::before { content: attr(data-placeholder); color: #8a7d70; }
+    .rich-editor ul, .rich-editor ol { margin: 0.35rem 0; padding-left: 1.35rem; }
+    .print-value { display: none; }
+    .box-guidance {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+    .field-upload {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 8px;
+      background: #fffaf3;
+      border-top: 1px solid #ead7c7;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+    .field-upload input[type="file"] {
+      width: auto;
+      max-width: 100%;
+      min-height: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font-size: 0.78rem;
+    }
+    .upload-status { color: var(--muted); }
+
+    .standard-boxes { display: grid; gap: 9px; }
+    .standard-boxes .field-row:last-child { margin-bottom: 0; }
+    .section-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      max-width: 100%;
+      margin: -4px 0 10px;
+      padding: 6px 10px;
+      border: 1px solid rgba(191, 84, 46, 0.28);
+      border-radius: 999px;
+      background: #fffaf3;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      line-height: 1.2;
+    }
+    .section-outline strong { color: var(--ink); }
+    .fixed-goal textarea {
+      min-height: 76px;
+      background: #f9f4ea;
+    }
+    .main-idea-list { display: grid; gap: 11px; }
+    .main-idea-block {
+      display: grid;
+      gap: 9px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .main-idea-block h3 { font-size: 1.05rem; color: var(--green); }
+    .video-embed-list, .image-asset-list { display: grid; gap: 11px; }
+    .video-embed-block, .image-asset-block {
+      display: grid;
+      gap: 9px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .video-embed-block { border-left: 6px solid var(--blue); }
+    .image-asset-block { border-left: 6px solid var(--coral); }
+    .video-embed-block h3 { color: var(--blue); }
+    .image-asset-block h3 { color: var(--coral-dark); }
+    .embed-code-box { min-height: 118px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.86rem; }
+    .prompt-choice-list {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-bottom: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .prompt-choice-list label {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      font-size: 0.92rem;
+      line-height: 1.25;
+    }
+    .subsection-block {
+      margin-top: 14px;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      border-left: 6px solid var(--section-accent);
+    }
+    .subsection-block > h3 { margin-bottom: 10px; }
+
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+    }
+    .mini-table th, .mini-table td {
+      padding: 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .mini-table th { color: #fff; background: var(--coral-dark); font-weight: 900; }
+    .mini-table tr:nth-child(even) td { background: #fff7ee; }
+    .mini-table tr:last-child td { border-bottom: 0; }
+
+    .prompt-card textarea { min-height: 220px; font-size: 0.9rem; line-height: 1.45; }
+    .voice-anchor-display { min-height: 520px; white-space: pre-wrap; }
+    .prompt-note { color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; }
+    .status-line { min-height: 1.4em; color: var(--sage); font-family: Arial, Helvetica, sans-serif; font-size: 0.86rem; font-weight: 800; }
+    .checklist { columns: 2; column-gap: 28px; margin: 0; padding-left: 1.2rem; }
+    .checklist li { break-inside: avoid; margin-bottom: 0.5rem; }
+    .print-note { display: none; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .two-col, .three-col, .box-grid, .leap-pair, .section-heading, .step, .field-row { grid-template-columns: 1fr; }
+      h1 { max-width: 100%; }
+    }
+    @media (max-width: 680px) {
+      .site-header { align-items: flex-start; flex-direction: column; }
+      .site-nav { justify-content: flex-start; }
+      .checklist { columns: 1; }
+    }
+
+    @page { size: letter portrait; margin: 0.45in; }
+    @media print {
+      :root { --ink:#111; --muted:#444; --surface:#fff; --paper:#fff; --line:#999; }
+      * { box-shadow: none !important; text-shadow: none !important; }
+      body { background:#fff; color:#111; font-size:9.3pt; line-height:1.26; }
+      .site-header, .actions, .toolbar, .prompt-actions, .rich-toolbar, .quick-controls, .section-toggle { display:none !important; }
+      main { padding:0; }
+      h1 { max-width:none; color:#111; font-size:22pt; }
+      h2 { font-size:16pt; }
+      h3 { font-size:10.5pt; }
+      .hero, .section { display:block; max-width:none; margin:0; padding:0.14in 0; border-top:1px solid #aaa; }
+      .section.is-collapsed .section-body, .section-body { display:block !important; }
+      .hero { border-top:0; break-after:page; }
+      .hero-grid, .two-col, .three-col, .box-grid, .leap-pair, .section-heading, .step, .field-row { display:block; }
+      .lede, .section-heading p, .map-row p { color:#333; font-size:8.8pt; }
+      .directions, .panel, .field-row, .step, .prompt-card, .mini-card, .subsection-block, .map-row {
+        margin-bottom:8px; padding:7px; background:#fff !important; border:1px solid #aaa; border-radius:0; break-inside:avoid;
+      }
+      .step-number, .map-num { float:left; width:24px; height:24px; margin:0 8px 4px 0; background:#555 !important; color:#fff; font-size:9pt; }
+      .field-row label { display:block; margin-bottom:4px; color:#111; font-size:8.4pt; }
+      .hint { display:inline; color:#555; font-size:8pt; }
+      input, textarea, select { padding:4px; border-color:#999; border-radius:0; font-size:8.5pt; line-height:1.2; }
+      textarea.rich-source { display:none; }
+      .rich-box { display:none; }
+      .print-value { display:block; min-height:0.55in; padding:4px; background:#fff; border:1px solid #999; font-family:Arial,Helvetica,sans-serif; font-size:8.5pt; line-height:1.24; }
+      .print-value:empty::before { content:""; }
+      .mini-table { display:block; border:0; font-size:8.1pt; }
+      .mini-table thead { display:none; }
+      .mini-table tbody, .mini-table tr, .mini-table td { display:block; width:100%; }
+      .mini-table tr { margin-bottom:8px; border:1px solid #aaa; break-inside:avoid; }
+      .mini-table td { padding:5px 7px; border:0; border-bottom:1px solid #ddd; background:#fff !important; }
+      .checklist { columns:1; }
+      .print-note { display:block; color:#555; font-family:Arial,Helvetica,sans-serif; font-size:8pt; }
+      a[href]::after { content:""; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">IPC 2110</span><span>Chapter Drafting Template</span></a>
+    <nav class="site-nav" aria-label="Template navigation">
+      <a href="#chapter-setup">Setup</a>
+      <a href="#architecture">Flow</a>
+      <a href="#approaching">Approaches</a>
+      <a href="#approaching-common">Common</a>
+      <a href="#approaching-uncommon">(un)common-sense</a>
+      <a href="#leaps">Leaps</a>
+      <a href="#leap-1">Leap 1</a>
+      <a href="#leap-2">Leap 2</a>
+      <a href="#leap-3">Leap 3</a>
+      <a href="#practice">Practice</a>
+      <a href="#videos">Videos</a>
+      <a href="#images">Images</a>
+      <a href="#clarifying-questions">Clarify</a>
+      <a href="#prompts">Prompts</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Writer-facing tool</p>
+          <h1 id="page-title">IPC 2110 Personal Chapter Drafting Template</h1>
+          <p class="lede">Use this template to plan a full textbook chapter that begins with an opening story, moves from the common-sense approach toward the (un)common-sense approach, and develops three discontinuous leaps supported by sources, quotes, callouts, illustrations, and endnote-ready citations.</p>
+          <div class="directions">
+            <h3>How to use this template</h3>
+            <ol>
+              <li>Fill the chapter-level setup first. Setup means the topic, the chapter's main movement, what students probably assume now, what the chapter will help them understand differently, and what they should be able to try by the end.</li>
+              <li>For each chapter section, complete the relevant labeled boxes. Progress means the section has enough goals, claims, examples, sources, callout ideas, and visual notes for AI to draft without guessing.</li>
+              <li>Use messy-thought boxes for raw voice notes, fragments, partial explanations, and half-formed examples. Use refined-language boxes for sentences or paragraphs you may want preserved closely.</li>
+              <li>Use annotated bibliography boxes only for sources: citation, summary, relevant concept, supported claim, limits, and citation/endnote notes.</li>
+              <li>Before building a drafting packet, run the clarifying-questions step so AI reviews the whole workflow and asks only necessary questions.</li>
+              <li>Use the master AI prompt when you want ChatGPT to draft the full chapter at once, or use the section prompts when you want to work one section at a time.</li>
+              <li>Use the export buttons to create a Word, HTML, text, or Markdown planning file.</li>
+            </ol>
+          </div>
+          <div class="directions">
+            <h3>Rules for source materials</h3>
+            <ol>
+              <li>Messy notes and voice notes are treated as author intent, possible examples, and conceptual raw material. AI should organize them, not quote them as polished prose unless you mark them as refined language.</li>
+              <li>Refined ideas and language are treated as preferred wording. AI should preserve phrasing where possible and ask before substantially changing key terms or signature sentences.</li>
+              <li>Annotated bibliographies are treated as evidence. AI should map each source to a claim, identify citation needs, avoid overstating findings, and flag unsupported claims.</li>
+              <li>Images and illustration ideas are treated as visual prompts and placement notes. AI should use them to propose figures, captions, alt text, and accessibility guidance.</li>
+              <li>Callout ideas are treated as optional teaching supports. AI should place them only where they clarify, complicate, define, or help students pause and notice.</li>
+            </ol>
+          </div>
+          <div class="actions">
+            <a class="button primary" href="#chapter-setup">Start planning</a>
+            <a class="button" href="#prompts">Copy master prompt</a>
+            <button type="button" id="printPage">Print or save PDF</button>
+          </div>
+          <div class="quick-controls" aria-label="Section display controls">
+            <button type="button" id="expandSections">Expand all sections</button>
+            <button type="button" id="collapseSections">Collapse all sections</button>
+          </div>
+        </div>
+        <div class="template-map" aria-label="Template outline at a glance">
+          <div class="map-row"><span class="map-num">1</span><div><h3>Opening Story</h3><p>Begin with a concrete scene that makes the common-sense myth feel plausible.</p></div></div>
+          <div class="map-row"><span class="map-num">2</span><div><h3>Overview</h3><p>Frame the topic and develop the foundations students need.</p></div></div>
+          <div class="map-row"><span class="map-num">3</span><div><h3>Approaches</h3><p>Define and narrate how the common-sense approach and the (un)common-sense approach operate.</p></div></div>
+          <div class="map-row"><span class="map-num">4</span><div><h3>Three Discontinuous Leaps</h3><p>Map assumptions, myths, beliefs, behavior changes, evidence, examples, and visuals.</p></div></div>
+          <div class="map-row"><span class="map-num">5</span><div><h3>Practice</h3><p>Bridge one common-sense practice to one (un)common-sense practice through a small example.</p></div></div>
+          <div class="map-row"><span class="map-num">6</span><div><h3>Closing</h3><p>Return to the story and consolidate what students now notice, understand, and can try.</p></div></div>
+          <div class="map-row"><span class="map-num">7</span><div><h3>Clarifying Questions</h3><p>Review the filled boxes and ask only the questions needed before building the drafting packet.</p></div></div>
+          <nav class="drafting-links" aria-label="Jump to drafting sections">
+            <h3>Drafting Sections</h3>
+            <div class="drafting-link-grid">
+              <a href="#chapter-setup">Chapter setup</a>
+              <a href="#architecture">Chapter flow</a>
+              <a href="#opening">Opening story</a>
+              <a href="#opening">Opening story boxes</a>
+              <a href="#overview">Overview</a>
+              <a href="#overview-main-1">Overview main idea 1</a>
+              <a href="#approaching">Approaching topic</a>
+              <a href="#approaching-common">common-sense approach</a>
+              <a href="#approaching-common-history">common-sense history</a>
+              <a href="#approaching-uncommon">(un)common-sense approach</a>
+              <a href="#approaching-quotes">Approaching quotes</a>
+              <a href="#leap-1">Leap 1</a>
+              <a href="#leap-2">Leap 2</a>
+              <a href="#leap-3">Leap 3</a>
+              <a href="#leaps">Discontinuous leaps</a>
+              <a href="#practice">Practice</a>
+              <a href="#practice-narrative">Practice narrative</a>
+              <a href="#practice-common-reaction">common-sense reaction</a>
+              <a href="#practice-uncommon-response">(un)common-sense response</a>
+              <a href="#closing">Closing</a>
+              <a href="#videos">Videos and embeds</a>
+              <a href="#images">Images and captions</a>
+              <a href="#clarifying-questions">Clarifying questions</a>
+              <a href="#comparative-illustration">Comparative visual</a>
+              <a href="#voice-anchor-reference">Voice anchor</a>
+              <a href="#prompts">AI prompts</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="chapter-setup">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Chapter worksheet</p>
+          <h2 class="worksheet-title">Chapter Drafting Worksheet</h2>
+          <p>Use these chapter-level boxes before drafting any section. They define the chapter's working materials and feed the section prompts and exports.</p>
+        </div>
+        <div class="toolbar">
+          <button type="button" id="exportWord">Export Word file</button>
+          <button type="button" id="exportHTML">Export HTML</button>
+          <button type="button" id="exportText">Export Text</button>
+          <button type="button" id="exportMarkdown">Export Markdown</button>
+          <button type="button" id="openPrintNotes">Open notes page</button>
+          <button type="button" id="clearSaved">Clear saved notes</button>
+        </div>
+      </div>
+      <form class="worksheet" id="chapterForm">
+        <div class="field-row"><label for="topic">Topic <span class="hint">What communication topic is this chapter teaching?</span></label><input id="topic" name="topic" placeholder="Nonverbal communication"></div>
+        <div class="field-row"><label for="parenthetical">Parenthetical disambiguation <span class="hint">What familiar term or assumption needs to be slowed down?</span></label><input id="parenthetical" name="parenthetical" placeholder="bodies are not dictionaries"></div>
+        <div class="field-row"><label for="movement">Title movement <span class="hint">From what common-sense shortcut to what (un)common-sense understanding?</span></label><input id="movement" name="movement" placeholder="From reading to understanding"></div>
+        <div class="field-row"><label for="bigShift">One big shift <span class="hint">What is the overall movement from knowing to understanding?</span></label><textarea id="bigShift" name="bigShift"></textarea></div>
+        <div class="field-row"><label for="masterAnnotatedBibliography">Master annotated bibliography <span class="hint">What sources shape the whole chapter before they are mapped into sections?</span></label><textarea id="masterAnnotatedBibliography" name="masterAnnotatedBibliography" placeholder="For each source: citation, 2-4 sentence summary, key concepts/findings, supported claim, limits, likely chapter section(s), and where it appeared if copied up from a section source box. If a source appears later in a section bibliography but is missing here, add it here too."></textarea></div>
+        <div class="field-row"><label for="studentCommonsense">What students think the topic is <span class="hint">What will students likely assume before the chapter?</span></label><textarea id="studentCommonsense" name="studentCommonsense"></textarea></div>
+        <div class="field-row"><label for="chapterArgument">What this chapter offers as an alternative <span class="hint">What does this chapter do to shift students away from their current assumptions, habits, or attitudes?</span></label><textarea id="chapterArgument" name="chapterArgument"></textarea></div>
+        <div class="field-row"><label for="notice">What students should notice differently <span class="hint">What patterns, contexts, tensions, relations, or histories become visible?</span></label><textarea id="notice" name="notice"></textarea></div>
+        <div class="field-row"><label for="tryDifferently">What students should try differently <span class="hint">What flexible practices or heuristics should they leave with?</span></label><textarea id="tryDifferently" name="tryDifferently"></textarea></div>
+        <article class="panel gold">
+          <h3>Chapter Framework: the common-sense approach and the (un)common-sense approach</h3>
+          <p>After the broad chapter questions are clear, use these boxes to define the two approaches to this topic more specifically. This framework should guide the opening story, overview, approaches section, leaps, practice section, comparative illustration, and closing.</p>
+          <div class="two-col">
+            <div>
+              <h3>The common-sense approach to this topic</h3>
+              <div class="field-row"><label for="commonDefinition">Definition of the approach <span class="hint">How does the common-sense approach as knowing define communication in this topic?</span></label><textarea id="commonDefinition" name="commonDefinition"></textarea></div>
+              <div class="field-row"><label for="commonNarrative">Overview narrative <span class="hint">How does this approach operate in everyday life? What does it ask students to locate, know, fix, control, predict, or prove?</span></label><textarea id="commonNarrative" name="commonNarrative"></textarea></div>
+              <div class="field-row"><label for="commonConsequences">Communication consequences <span class="hint">What does this approach help students do, and what does it cause them to miss, flatten, over-trust, or misread?</span></label><textarea id="commonConsequences" name="commonConsequences"></textarea></div>
+            </div>
+            <div>
+              <h3>The (un)common-sense approach to this topic</h3>
+              <div class="field-row"><label for="uncommonDefinition">Definition of the approach <span class="hint">How does the (un)common-sense approach as understanding define communication in this topic?</span></label><textarea id="uncommonDefinition" name="uncommonDefinition"></textarea></div>
+              <div class="field-row"><label for="uncommonProblem">What problem does the (un)common-sense approach help students understand? <span class="hint">What complexity, relation, context, history, power dynamic, or tension becomes visible?</span></label><textarea id="uncommonProblem" name="uncommonProblem"></textarea></div>
+              <div class="field-row"><label for="uncommonNarrative">Overview narrative <span class="hint">How does this approach operate in everyday life? What does it ask students to notice, interpret, hold open, revise, test, or try?</span></label><textarea id="uncommonNarrative" name="uncommonNarrative"></textarea></div>
+              <div class="field-row"><label for="uncommonConsequences">Communication consequences <span class="hint">How does this approach change what students can notice, interpret, respond to, repair, or practice?</span></label><textarea id="uncommonConsequences" name="uncommonConsequences"></textarea></div>
+            </div>
+          </div>
+        </article>
+      </form>
+      <p class="status-line" id="saveStatus" aria-live="polite"></p>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Chapter flow</p>
+          <h2>Chapter Architecture</h2>
+          <p>Use this as the default chapter order: Opening Story -> Overview -> Approaches -> Discontinuous Leaps -> Practice -> Closing.</p>
+        </div>
+      </div>
+      <div class="chapter-flow">
+        <article class="step"><span class="step-number">1</span><div><h3>Opening Story: The Myth in Motion</h3><p>Achieve curiosity, relevance, emotional stakes, and a concrete problem that students can recognize before concepts appear.</p></div><p class="step-meta">Section goal: make the common-sense myth felt without resolving it.</p></article>
+        <article class="step"><span class="step-number">2</span><div><h3>H1: Overview of [Topic]</h3><p>Build the shared foundation students need before comparing the two approaches.</p></div><p class="step-meta">Section goal: define, ground, and prepare.</p></article>
+        <article class="step"><span class="step-number">3</span><div><h3>H1: Approaching [Topic]</h3><p>Contrast the common-sense approach as knowing with the (un)common-sense approach as understanding through definitions and operating narratives.</p></div><p class="step-meta">Section goal: compare approaches without doing the leaps yet.</p></article>
+        <article class="step"><span class="step-number">4</span><div><h3>H1: Discontinuous Leaps</h3><p>Develop three assumption shifts that change what students notice, believe, and do.</p></div><p class="step-meta">Section goal: transform assumptions into behavioral consequences.</p></article>
+        <article class="step"><span class="step-number">5</span><div><h3>H1: Practice Bridge</h3><p>Bridge a common-sense reaction into an (un)common-sense response.</p></div><p class="step-meta">Section goal: make the conceptual shift practicable.</p></article>
+        <article class="step"><span class="step-number">6</span><div><h3>Closing: What to Carry Forward</h3><p>Return to the opening story and consolidate what students can now notice, understand, and try.</p></div><p class="step-meta">Section goal: synthesize, transfer, and motivate continued practice.</p></article>
+      </div>
+    </section>
+    <section class="section drafting-section" id="opening">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Drafting section</p>
+          <h2>Opening Story: The Myth in Motion</h2>
+          <p>Begin the chapter with a scene that makes the common-sense myth plausible, consequential, and worth reconsidering.</p>
+        </div>
+      </div>
+      <div class="section-outline"><strong>You are here:</strong> 1 of 6 - Opening Story</div>
+      <div class="standard-boxes">
+        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="openingGoal" data-default-goal="Pull students in with a vivid, relatable story that makes the common-sense myth feel plausible, shows its everyday cost, and previews the chapter's movement from knowing toward understanding.">Pull students in with a vivid, relatable story that makes the common-sense myth feel plausible, shows its everyday cost, and previews the chapter's movement from knowing toward understanding.</textarea></div>
+        <div class="field-row"><label>Purpose of the story <span class="hint">What should this story make students feel, notice, question, or recognize before concepts appear?</span></label><textarea name="openingStoryPurpose" placeholder=""></textarea></div>
+        <div class="field-row"><label>Place for the story <span class="hint">Draft or paste the opening story here. Let it be messy, vivid, and concrete.</span></label><textarea name="openingStoryDraft" placeholder=""></textarea></div>
+        <div class="field-row"><label>Annotated bibliography box <span class="hint">For each source: include the full citation, a short summary, and how it relates to this section. Citations should become endnotes in the chapter draft. Long entries scroll inside this box.</span></label><textarea name="openingBibliography" placeholder=""></textarea></div>
+        <div class="field-row"><label>Direct quotes box <span class="hint">Important framing direct quotes. Include source and page/location when available.</span></label><textarea name="openingQuotes" placeholder=""></textarea></div>
+        <div class="field-row"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, key terms, or short recurring motifs.</span></label><textarea name="openingCallouts" placeholder=""></textarea></div>
+        <div class="field-row"><label>Illustration ideas <span class="hint">Diagrams, visuals, figures, image-generation ideas, accessibility notes, and where each belongs.</span></label><textarea name="openingIllustrations" placeholder=""></textarea></div>
+      </div>
+      <article class="prompt-card">
+        <h3>AI drafting prompt for this section</h3>
+        <p class="prompt-note">This prompt asks for the story, its purpose, endnotes, repetition checks, callouts, and generated illustration placement.</p>
+        <textarea class="prompt-template" readonly data-section="opening">Draft Opening Story: The Myth in Motion for my IPC 2110 textbook chapter using only the content boxes for this section: section goal, story, purpose of the story, place for the story, annotated bibliography entries, direct quotes, callout ideas, and illustration ideas. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the content. Do not turn this into an overview or concept explanation. Make sure the story achieves its learning outcome, rhetorical purpose, and argumentative move: pulling students into a vivid everyday moment where the common-sense myth feels plausible, consequential, and worth reconsidering. Maintain my voice anchor and tone. Use clean transitions from the story into the chapter's larger movement. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the opening story achieves its stated goal.</textarea>
+      </article>
+    </section>
+    <section class="section drafting-section" id="overview">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Drafting section</p>
+          <h2>H1: Overview of [Topic]</h2>
+          <p>Define the topic, establish its everyday importance, and prepare students for the contrast between approaches.</p>
+        </div>
+      </div>
+      <div class="section-outline"><strong>You are here:</strong> 2 of 6 - Overview</div>
+      <div class="standard-boxes">
+        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="overviewGoal" data-default-goal="Define the topic in everyday terms, explain why it matters to students now, introduce the common-sense approach and the (un)common-sense approach as two approaches to the same reality, and establish the main ideas students need before the chapter begins shifting their assumptions.">Define the topic in everyday terms, explain why it matters to students now, introduce the common-sense approach and the (un)common-sense approach as two approaches to the same reality, and establish the main ideas students need before the chapter begins shifting their assumptions.</textarea></div>
+        <div class="field-row"><label>Framing box: section claim <span class="hint">State the claim of the Overview section. This is where you introduce the main ideas the section will develop.</span></label><textarea name="overviewFrame" placeholder=""></textarea></div>
+        <div class="main-idea-list" data-dynamic-list="overview" data-label="Overview main idea">
+          <article class="main-idea-block" id="overview-main-1" data-dynamic-item="overview">
+            <h3>Overview Main Idea 1</h3>
+            <div class="field-row"><label>Main idea box <span class="hint">Name the main idea students need to understand.</span></label><textarea name="overviewMainIdea1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Idea development + evidence box <span class="hint">Develop this main point in depth. Include evidence, examples, source notes, and the student-facing explanation.</span></label><textarea name="overviewMainDevelopment1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Annotated bibliography box <span class="hint">For each source connected to this main idea: include the full citation, a short summary, and how it supports or complicates this point. Citations should become endnotes in the chapter draft. Long entries scroll inside this box.</span></label><textarea name="overviewMainBibliography1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Callout idea box <span class="hint">Pull quote, sidebar, key term, reflection pause, example highlight, or visual callout connected to this main point.</span></label><textarea name="overviewMainCallout1" placeholder=""></textarea></div>
+          </article>
+        </div>
+        <button type="button" class="add-main-idea" data-add-main-idea="overview">Add overview main idea</button>
+        <div class="field-row"><label>Direct quotes box <span class="hint">Important framing direct quotes. Include source and page/location when available.</span></label><textarea name="overviewQuotes" placeholder=""></textarea></div>
+        <div class="field-row"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="overviewHelp" placeholder=""></textarea></div>
+      </div>
+      <article class="prompt-card">
+        <h3>AI drafting prompt for this section</h3>
+        <p class="prompt-note">This prompt asks for section goals, transitions, endnotes, repetition checks, callouts, and generated illustration placement.</p>
+        <textarea class="prompt-template" readonly data-section="overview">Draft H1: Overview of [Topic] for my IPC 2110 textbook chapter using the content boxes for this section: section goal, framing, idea development, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the content. Do not follow a fixed prose sequence. Instead, make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move. Maintain my voice anchor and tone. Use clean transitions between all main points and ideas. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant in the chapter; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea>
+      </article>
+    </section>
+
+    <section class="section drafting-section" id="approaching">
+      <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>H1: Approaching [Topic]</h2><p>Summarize the common-sense approach and the (un)common-sense approach to the topic while preparing students for the three discontinuous leaps.</p></div></div>
+      <div class="section-outline"><strong>You are here:</strong> 3 of 6 - Approaching the Topic</div>
+      <div class="standard-boxes">
+        <div class="field-row fixed-goal" id="approaching-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="approachingGoal" data-default-goal="Introduce the two approaches explicitly, answer the guiding questions for each approach, and help students see how the common-sense approach as knowing and the (un)common-sense approach as understanding begin from different assumptions, myths or beliefs, behaviors, and outcomes.">Introduce the two approaches explicitly, answer the guiding questions for each approach, and help students see how the common-sense approach as knowing and the (un)common-sense approach as understanding begin from different assumptions, myths or beliefs, behaviors, and outcomes.</textarea></div>
+
+        <div class="subsection-heading" id="approaching-common"><h3>The common-sense approach to [Topic]</h3><p>Summarize how the common-sense approach treats this topic as a knowing problem.</p></div>
+        <div class="field-row"><label>common-sense definition of perception <span class="hint">How does the common-sense approach define or imply perception in this chapter?</span></label><textarea name="approachingCommonDefinition" placeholder="Example for perception: Perception is treated as a mostly accurate mental picture of reality that an individual can know, report, and defend."></textarea></div>
+        <div class="field-row"><label>common-sense approach description <span class="hint">Describe how the approach operates. Integrate knowing and preview the assumptions students will meet in the leaps.</span></label><textarea name="approachingCommonDescription" placeholder="Explain what this approach asks students to know, locate, fix, prove, control, or defend. Preview the common-sense assumptions without fully developing the leaps yet."></textarea></div>
+        <div class="field-row" id="approaching-common-history"><label>common-sense history box <span class="hint">Explain how this approach emerged, why it became so engrained in U.S. normative culture, and how that history makes the invisible visible. Nothing comes from nowhere.</span></label><textarea name="approachingCommonHistory" placeholder="What historical, cultural, institutional, educational, technological, religious, scientific, political, or everyday habits made this common-sense approach feel normal, natural, or obvious in the United States?"></textarea></div>
+        <div class="field-row"><label>common-sense annotated bibliography <span class="hint">For each source: include the full citation, a short summary, and how it helps explain the common-sense approach. Citations should become endnotes in the chapter draft.</span></label><textarea name="approachingCommonBibliography"></textarea></div>
+
+        <div class="subsection-heading" id="approaching-uncommon"><h3>The (un)common-sense approach to [Topic]</h3><p>Summarize how the (un)common-sense approach treats this topic as an understanding problem.</p></div>
+        <div class="field-row"><label>(un)common-sense definition of perception <span class="hint">How does the (un)common-sense approach define or imply perception in this chapter?</span></label><textarea name="approachingUncommonDefinition" placeholder="Example for perception: Perception is an active, selective, embodied, social, interpretive, and relational process that shapes communicating and is shaped by communicating."></textarea></div>
+        <div class="field-row"><label>(un)common-sense approach description <span class="hint">Describe how the approach operates. Integrate understanding and preview the assumptions students will meet in the leaps.</span></label><textarea name="approachingUncommonDescription" placeholder="Explain what this approach asks students to notice, interpret, hold open, revise, contextualize, or try. Preview the (un)common-sense assumptions without fully developing the leaps yet."></textarea></div>
+        <div class="field-row"><label>(un)common-sense annotated bibliography <span class="hint">For each source: include the full citation, a short summary, and how it helps explain the (un)common-sense approach. Citations should become endnotes in the chapter draft.</span></label><textarea name="approachingUncommonBibliography"></textarea></div>
+
+        <div class="field-row" id="approaching-quotes"><label>Direct quotes box <span class="hint">Important framing direct quotes. Include source and page/location when available.</span></label><textarea name="approachingQuotes"></textarea></div>
+        <div class="field-row" id="approaching-callouts"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, key terms, or short recurring motifs.</span></label><textarea name="approachingCallouts"></textarea></div>
+        <div class="field-row" id="approaching-illustrations"><label>Illustration ideas <span class="hint">Diagrams, visuals, figures, image-generation ideas, accessibility notes, and where each belongs.</span></label><textarea name="approachingIllustrations"></textarea></div>
+        <div class="field-row" id="approaching-help"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="approachingHelp"></textarea></div>
+      </div>
+      <article class="prompt-card"><h3>AI drafting prompt for this section</h3><textarea class="prompt-template" readonly>Draft H1: Approaching [Topic] for my IPC 2110 textbook chapter using the content boxes for this section: section goal, the common-sense definition of perception, common-sense approach description, common-sense history box, common-sense annotated bibliography entries, the (un)common-sense definition of perception, (un)common-sense approach description, (un)common-sense annotated bibliography entries, direct quotes, callout ideas, illustration ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the approach. Do not follow a fixed prose sequence. Make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move: defining and comparing the common-sense approach as knowing with the (un)common-sense approach as understanding while preparing students for the three discontinuous leaps. Use the common-sense history box to explain how the common-sense approach emerged, why it became engrained in U.S. normative culture, and how that history makes the invisible visible; do not treat common sense as natural, timeless, or coming from nowhere. Summarize the common-sense approach and the (un)common-sense approach without fully developing the leaps yet. Maintain my voice anchor and tone. Use clean transitions between all main points and ideas. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant in the chapter; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea></article>
+    </section>
+
+    <section class="section" id="comparative-illustration">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Chapter-level visual</p>
+          <h2>Comparative Illustration</h2>
+          <p>Plan a structured visual that contrasts the two approaches. Draw this content directly from the Discontinuous Leaps section.</p>
+        </div>
+      </div>
+      <div class="standard-boxes">
+        <div class="field-row"><label>Definitions contrast <span class="hint">How should the visual contrast the definitions of each approach?</span></label><textarea name="comparisonDefinitions"></textarea></div>
+        <div class="field-row"><label>Assumptions contrast <span class="hint">Which assumptions from the leaps should appear in the visual?</span></label><textarea name="comparisonAssumptions"></textarea></div>
+        <div class="field-row"><label>Myths and beliefs contrast <span class="hint">Which common-sense myths and (un)common-sense beliefs should be paired?</span></label><textarea name="comparisonMythsBeliefs"></textarea></div>
+        <div class="field-row"><label>Communication effects contrast <span class="hint">How does each approach shape noticing, interpreting, responding, and practicing?</span></label><textarea name="comparisonEffects"></textarea></div>
+        <div class="field-row"><label>Accessibility plan <span class="hint">How should the visual remain readable by screen readers and text accessibility tools?</span></label><textarea name="comparisonAccessibility" placeholder="Include alt text, text-equivalent table, high contrast, clear labels, and no meaning conveyed by color alone."></textarea></div>
+      </div>
+      <article class="prompt-card">
+        <h3>AI illustration prompt</h3>
+        <textarea class="prompt-template" readonly>Design a structured comparative illustration for this chapter that contrasts the common-sense approach and the (un)common-sense approach across definitions, assumptions, myths/beliefs, and how each shapes communication. Draw the content directly from the Discontinuous Leaps section and the approach overview boxes. Make the visual readable by screen readers and text accessibility tools by including a text-equivalent table, concise alt text, clear labels, high contrast, logical reading order, and no meaning conveyed by color alone. Assume you will generate the image and specify where it should appear in the chapter. Also flag any repeated content that the visual would make redundant in the prose.</textarea>
+      </article>
+    </section>
+    <section class="section" id="leaps">
+      <div class="section-heading"><div><p class="section-label">Three discontinuous leaps</p><h2>H1: Discontinuous Leaps</h2><p>Each leap maps a common-sense assumption into a myth and communication consequence, then shifts toward an (un)common-sense assumption, belief, changed behavior, and examples.</p></div></div>
+      <div class="section-outline"><strong>You are here:</strong> 4 of 6 - Discontinuous Leaps</div>
+      <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="leapsGoal" data-default-goal="Develop exactly three discontinuous leaps that move students from a common-sense assumption and myth toward an (un)common-sense belief and changed behavior. Each leap should make a smaller myth visible, show its communication consequences, and give students research-supported ways to notice and practice differently.">Develop exactly three discontinuous leaps that move students from a common-sense assumption and myth toward an (un)common-sense belief and changed behavior. Each leap should make a smaller myth visible, show its communication consequences, and give students research-supported ways to notice and practice differently.</textarea></div>
+      <article class="subsection-block" id="leap-1">
+        <h3>Leap 1</h3>
+        <div class="field-row"><label>Framing box <span class="hint">One sentence naming the shift this leap makes.</span></label><textarea name="leap1Frame"></textarea></div>
+        <div class="leap-pair">
+          <div class="mini-card sage"><h3>common-sense Structure</h3>
+        <div class="field-row"><label>Assumption <span class="hint">What does common-sense assume?</span></label><textarea name="leap1CommonAssumption" placeholder=""></textarea></div>
+        <div class="field-row"><label>Myth <span class="hint">What myth does that assumption produce?</span></label><textarea name="leap1CommonMyth" placeholder=""></textarea></div>
+        <div class="field-row"><label>How it impacts communication <span class="hint">What does this assumption/myth make people notice, miss, do, avoid, over-trust, or misread?</span></label><textarea name="leap1CommonImpact" placeholder=""></textarea></div>
+        <div class="field-row"><label>Potential examples <span class="hint">Student life, family, friends, workplace, dating, media, history, AI, research cases.</span></label><textarea name="leap1CommonExamples" placeholder=""></textarea></div>
+          </div>
+          <div class="mini-card"><h3>(un)common-sense Structure</h3>
+        <div class="field-row"><label>Assumption <span class="hint">What does (un)common-sense ask students to understand instead?</span></label><textarea name="leap1UncommonAssumption" placeholder=""></textarea></div>
+        <div class="field-row"><label>Belief <span class="hint">What flexible belief or heuristic follows?</span></label><textarea name="leap1UncommonBelief" placeholder=""></textarea></div>
+        <div class="field-row"><label>How it changes our behavior <span class="hint">How does communication change when students practice from this belief?</span></label><textarea name="leap1UncommonBehavior" placeholder=""></textarea></div>
+        <div class="field-row"><label>(un)common-sense potential examples <span class="hint">Student life, family, friends, workplace, dating, media, history, AI, research cases, or other examples that show this changed behavior in context.</span></label><textarea name="leap1UncommonExamples" placeholder=""></textarea></div>
+          </div>
+        </div>
+        <div class="standard-boxes">
+        <div class="field-row"><label>Idea development box <span class="hint">Develop the leap in depth. Explain the shift, stakes, consequences, and student-facing takeaway.</span></label><textarea name="leap1Development" placeholder=""></textarea></div>
+        <div class="field-row"><label>Annotated bibliography box <span class="hint">For each source: include the full citation, a short summary, and how it supports or complicates this leap. Citations should become endnotes in the chapter draft. Long entries scroll inside this box.</span></label><textarea name="leap1Bibliography" placeholder=""></textarea></div>
+        <div class="field-row"><label>Direct quotes box <span class="hint">Important framing quotes for this leap.</span></label><textarea name="leap1Quotes" placeholder=""></textarea></div>
+        <div class="field-row"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, or key terms.</span></label><textarea name="leap1Callouts" placeholder=""></textarea></div>
+        <div class="field-row"><label>Illustration ideas <span class="hint">Visuals, figures, diagrams, or image-generation ideas; include accessibility notes.</span></label><textarea name="leap1Illustrations" placeholder=""></textarea></div>
+        <div class="field-row"><label>Specific help request box <span class="hint">What help do you want for this leap?</span></label><textarea name="leap1Help" placeholder=""></textarea></div>
+        </div>
+        <article class="prompt-card"><h3>AI drafting prompt for Leap 1</h3><textarea class="prompt-template" readonly>Draft Leap 1 for the Discontinuous Leaps section using every box in this leap: framing, common-sense assumption, myth, communication impact, examples, (un)common-sense assumption, belief, changed behavior, (un)common-sense potential examples, idea development, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the content. Do not prescribe or follow a fixed prose sequence. Achieve the leap's learning goal by making the assumption shift clear, showing why the common-sense myth is partially useful but insufficient, and demonstrating how the (un)common-sense belief changes communication practice through concrete examples. Maintain my voice anchor and tone. Use clean transitions, endnotes for citations, and place callouts and illustrations where they are most relevant. Assume you will generate any images and include alt text/accessibility guidance. Check for repetition across other leaps and sections, flag overlap, and confirm whether this leap achieves its stated goal.</textarea></article>
+      </article>
+      <article class="subsection-block" id="leap-2">
+        <h3>Leap 2</h3>
+        <div class="field-row"><label>Framing box <span class="hint">One sentence naming the shift this leap makes.</span></label><textarea name="leap2Frame"></textarea></div>
+        <div class="leap-pair">
+          <div class="mini-card sage"><h3>common-sense Structure</h3>
+        <div class="field-row"><label>Assumption <span class="hint">What does common-sense assume?</span></label><textarea name="leap2CommonAssumption" placeholder=""></textarea></div>
+        <div class="field-row"><label>Myth <span class="hint">What myth does that assumption produce?</span></label><textarea name="leap2CommonMyth" placeholder=""></textarea></div>
+        <div class="field-row"><label>How it impacts communication <span class="hint">What does this assumption/myth make people notice, miss, do, avoid, over-trust, or misread?</span></label><textarea name="leap2CommonImpact" placeholder=""></textarea></div>
+        <div class="field-row"><label>Potential examples <span class="hint">Student life, family, friends, workplace, dating, media, history, AI, research cases.</span></label><textarea name="leap2CommonExamples" placeholder=""></textarea></div>
+          </div>
+          <div class="mini-card"><h3>(un)common-sense Structure</h3>
+        <div class="field-row"><label>Assumption <span class="hint">What does (un)common-sense ask students to understand instead?</span></label><textarea name="leap2UncommonAssumption" placeholder=""></textarea></div>
+        <div class="field-row"><label>Belief <span class="hint">What flexible belief or heuristic follows?</span></label><textarea name="leap2UncommonBelief" placeholder=""></textarea></div>
+        <div class="field-row"><label>How it changes our behavior <span class="hint">How does communication change when students practice from this belief?</span></label><textarea name="leap2UncommonBehavior" placeholder=""></textarea></div>
+        <div class="field-row"><label>(un)common-sense potential examples <span class="hint">Student life, family, friends, workplace, dating, media, history, AI, research cases, or other examples that show this changed behavior in context.</span></label><textarea name="leap2UncommonExamples" placeholder=""></textarea></div>
+          </div>
+        </div>
+        <div class="standard-boxes">
+        <div class="field-row"><label>Idea development box <span class="hint">Develop the leap in depth. Explain the shift, stakes, consequences, and student-facing takeaway.</span></label><textarea name="leap2Development" placeholder=""></textarea></div>
+        <div class="field-row"><label>Annotated bibliography box <span class="hint">For each source: include the full citation, a short summary, and how it supports or complicates this leap. Citations should become endnotes in the chapter draft. Long entries scroll inside this box.</span></label><textarea name="leap2Bibliography" placeholder=""></textarea></div>
+        <div class="field-row"><label>Direct quotes box <span class="hint">Important framing quotes for this leap.</span></label><textarea name="leap2Quotes" placeholder=""></textarea></div>
+        <div class="field-row"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, or key terms.</span></label><textarea name="leap2Callouts" placeholder=""></textarea></div>
+        <div class="field-row"><label>Illustration ideas <span class="hint">Visuals, figures, diagrams, or image-generation ideas; include accessibility notes.</span></label><textarea name="leap2Illustrations" placeholder=""></textarea></div>
+        <div class="field-row"><label>Specific help request box <span class="hint">What help do you want for this leap?</span></label><textarea name="leap2Help" placeholder=""></textarea></div>
+        </div>
+        <article class="prompt-card"><h3>AI drafting prompt for Leap 2</h3><textarea class="prompt-template" readonly>Draft Leap 2 for the Discontinuous Leaps section using every box in this leap: framing, common-sense assumption, myth, communication impact, examples, (un)common-sense assumption, belief, changed behavior, (un)common-sense potential examples, idea development, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the content. Do not prescribe or follow a fixed prose sequence. Achieve the leap's learning goal by making the assumption shift clear, showing why the common-sense myth is partially useful but insufficient, and demonstrating how the (un)common-sense belief changes communication practice through concrete examples. Maintain my voice anchor and tone. Use clean transitions, endnotes for citations, and place callouts and illustrations where they are most relevant. Assume you will generate any images and include alt text/accessibility guidance. Check for repetition across other leaps and sections, flag overlap, and confirm whether this leap achieves its stated goal.</textarea></article>
+      </article>
+      <article class="subsection-block" id="leap-3">
+        <h3>Leap 3</h3>
+        <div class="field-row"><label>Framing box <span class="hint">One sentence naming the shift this leap makes.</span></label><textarea name="leap3Frame"></textarea></div>
+        <div class="leap-pair">
+          <div class="mini-card sage"><h3>common-sense Structure</h3>
+        <div class="field-row"><label>Assumption <span class="hint">What does common-sense assume?</span></label><textarea name="leap3CommonAssumption" placeholder=""></textarea></div>
+        <div class="field-row"><label>Myth <span class="hint">What myth does that assumption produce?</span></label><textarea name="leap3CommonMyth" placeholder=""></textarea></div>
+        <div class="field-row"><label>How it impacts communication <span class="hint">What does this assumption/myth make people notice, miss, do, avoid, over-trust, or misread?</span></label><textarea name="leap3CommonImpact" placeholder=""></textarea></div>
+        <div class="field-row"><label>Potential examples <span class="hint">Student life, family, friends, workplace, dating, media, history, AI, research cases.</span></label><textarea name="leap3CommonExamples" placeholder=""></textarea></div>
+          </div>
+          <div class="mini-card"><h3>(un)common-sense Structure</h3>
+        <div class="field-row"><label>Assumption <span class="hint">What does (un)common-sense ask students to understand instead?</span></label><textarea name="leap3UncommonAssumption" placeholder=""></textarea></div>
+        <div class="field-row"><label>Belief <span class="hint">What flexible belief or heuristic follows?</span></label><textarea name="leap3UncommonBelief" placeholder=""></textarea></div>
+        <div class="field-row"><label>How it changes our behavior <span class="hint">How does communication change when students practice from this belief?</span></label><textarea name="leap3UncommonBehavior" placeholder=""></textarea></div>
+        <div class="field-row"><label>(un)common-sense potential examples <span class="hint">Student life, family, friends, workplace, dating, media, history, AI, research cases, or other examples that show this changed behavior in context.</span></label><textarea name="leap3UncommonExamples" placeholder=""></textarea></div>
+          </div>
+        </div>
+        <div class="standard-boxes">
+        <div class="field-row"><label>Idea development box <span class="hint">Develop the leap in depth. Explain the shift, stakes, consequences, and student-facing takeaway.</span></label><textarea name="leap3Development" placeholder=""></textarea></div>
+        <div class="field-row"><label>Annotated bibliography box <span class="hint">For each source: include the full citation, a short summary, and how it supports or complicates this leap. Citations should become endnotes in the chapter draft. Long entries scroll inside this box.</span></label><textarea name="leap3Bibliography" placeholder=""></textarea></div>
+        <div class="field-row"><label>Direct quotes box <span class="hint">Important framing quotes for this leap.</span></label><textarea name="leap3Quotes" placeholder=""></textarea></div>
+        <div class="field-row"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, or key terms.</span></label><textarea name="leap3Callouts" placeholder=""></textarea></div>
+        <div class="field-row"><label>Illustration ideas <span class="hint">Visuals, figures, diagrams, or image-generation ideas; include accessibility notes.</span></label><textarea name="leap3Illustrations" placeholder=""></textarea></div>
+        <div class="field-row"><label>Specific help request box <span class="hint">What help do you want for this leap?</span></label><textarea name="leap3Help" placeholder=""></textarea></div>
+        </div>
+        <article class="prompt-card"><h3>AI drafting prompt for Leap 3</h3><textarea class="prompt-template" readonly>Draft Leap 3 for the Discontinuous Leaps section using every box in this leap: framing, common-sense assumption, myth, communication impact, examples, (un)common-sense assumption, belief, changed behavior, (un)common-sense potential examples, idea development, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the content. Do not prescribe or follow a fixed prose sequence. Achieve the leap's learning goal by making the assumption shift clear, showing why the common-sense myth is partially useful but insufficient, and demonstrating how the (un)common-sense belief changes communication practice through concrete examples. Maintain my voice anchor and tone. Use clean transitions, endnotes for citations, and place callouts and illustrations where they are most relevant. Assume you will generate any images and include alt text/accessibility guidance. Check for repetition across other leaps and sections, flag overlap, and confirm whether this leap achieves its stated goal.</textarea></article>
+      </article>
+    </section>
+    <section class="section drafting-section" id="practice">
+      <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>H1: Practice Bridge</h2><p>Use one narrative to show how common-sense assumptions produce a reaction, then bridge toward an (un)common-sense response grounded in understanding, dialectical thinking, and curiosity.</p></div></div>
+      <div class="section-outline"><strong>You are here:</strong> 5 of 6 - Practice Bridge</div>
+      <div class="standard-boxes">
+        <div class="field-row fixed-goal" id="practice-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="practiceGoal" data-default-goal="Translate the chapter's shift into practice by bridging one familiar common-sense practice into a more flexible (un)common-sense heuristic students can use across relationships, contexts, and constraints.">Translate the chapter's shift into practice by bridging one familiar common-sense practice into a more flexible (un)common-sense heuristic students can use across relationships, contexts, and constraints.</textarea></div>
+
+        <div class="field-row" id="practice-narrative"><label>Practice narrative box <span class="hint">A small example narrative used across the whole section to show common ways common-sense shapes our communicating.</span></label><textarea name="practiceNarrative" placeholder="Draft the short scene, moment, or example that will carry the section."></textarea></div>
+
+        <div class="subsection-heading" id="practice-common-reaction"><h3>common-sense Practice Reaction</h3><p>Show how people often behave when operating from common-sense assumptions about communicating, monologic thinking, and certainty.</p></div>
+        <div class="field-row"><label>common-sense reaction thesis <span class="hint">Use the word reaction. This is not usually a considered response; it is how we behave from common-sense assumptions, monologic thinking, and certainty.</span></label><textarea name="practiceCommonReactionThesis" placeholder="When we operate from common-sense assumptions about communicating, we often react by..."></textarea></div>
+        <div class="field-row"><label>common-sense reaction thesis development <span class="hint">Develop the thesis. Explain the reaction, why it feels sensible, how it is shaped by knowing/certainty, and what it does to communicating.</span></label><textarea name="practiceCommonReactionDevelopment"></textarea></div>
+        <div class="field-row"><label>common-sense reaction annotated bibliography <span class="hint">For each source: include the full citation, a short summary, and how it helps explain this reaction. Citations should become endnotes.</span></label><textarea name="practiceCommonReactionBibliography"></textarea></div>
+        <div class="field-row"><label>common-sense reaction direct quotes <span class="hint">Important direct quotes for this reaction subsection. Include source and page/location when available.</span></label><textarea name="practiceCommonReactionQuotes"></textarea></div>
+        <div class="field-row"><label>common-sense reaction illustration ideas <span class="hint">Visuals, diagrams, image ideas, or accessibility notes that inform this subsection.</span></label><textarea name="practiceCommonReactionIllustrations"></textarea></div>
+        <div class="field-row"><label>common-sense reaction callout ideas <span class="hint">Pull quotes, sidebars, highlights, key terms, or reflection pauses that inform this subsection.</span></label><textarea name="practiceCommonReactionCallouts"></textarea></div>
+
+        <div class="subsection-heading" id="practice-uncommon-response"><h3>(un)common-sense Response</h3><p>Show the different way students can respond when they operate from understanding, dialectical thinking, and curiosity.</p></div>
+        <div class="field-row"><label>(un)common-sense response thesis <span class="hint">Name the alternative response made possible by understanding, dialectical thinking, and curiosity.</span></label><textarea name="practiceUncommonResponseThesis" placeholder="When we operate from understanding, dialectical thinking, and curiosity, we can respond by..."></textarea></div>
+        <div class="field-row"><label>(un)common-sense response thesis development <span class="hint">Develop the thesis. Explain how this response changes communicating and why it is more flexible than the common-sense reaction.</span></label><textarea name="practiceUncommonResponseDevelopment"></textarea></div>
+        <div class="field-row"><label>Practical application box <span class="hint">Give concrete student-facing steps. These should be options/tools, not rigid rules.</span></label><textarea name="practiceUncommonApplication" placeholder="Step 1...
+Step 2...
+Step 3..."></textarea></div>
+        <div class="field-row"><label>(un)common-sense response annotated bibliography <span class="hint">For each source: include the full citation, a short summary, and how it helps explain this response or application. Citations should become endnotes.</span></label><textarea name="practiceUncommonResponseBibliography"></textarea></div>
+        <div class="field-row"><label>(un)common-sense response direct quotes <span class="hint">Important direct quotes for this response subsection. Include source and page/location when available.</span></label><textarea name="practiceUncommonResponseQuotes"></textarea></div>
+        <div class="field-row"><label>(un)common-sense response illustration ideas <span class="hint">Visuals, diagrams, image ideas, or accessibility notes that inform this subsection.</span></label><textarea name="practiceUncommonResponseIllustrations"></textarea></div>
+        <div class="field-row"><label>(un)common-sense response callout ideas <span class="hint">Pull quotes, sidebars, highlights, key terms, or reflection pauses that inform this subsection.</span></label><textarea name="practiceUncommonResponseCallouts"></textarea></div>
+
+        <div class="field-row" id="practice-help"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="practiceHelp"></textarea></div>
+      </div>
+      <article class="prompt-card"><h3>AI drafting prompt for this section</h3><textarea class="prompt-template" readonly data-section="practice">Draft H1: Practice Bridge for my IPC 2110 textbook chapter using the content boxes for this section: section goal, practice narrative, common-sense reaction thesis, common-sense reaction thesis development, common-sense reaction annotated bibliography, common-sense reaction direct quotes, common-sense reaction illustration ideas, common-sense reaction callout ideas, (un)common-sense response thesis, (un)common-sense response thesis development, practical application steps, (un)common-sense response annotated bibliography, (un)common-sense response direct quotes, (un)common-sense response illustration ideas, (un)common-sense response callout ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the subsection. Use the word reaction for the common-sense practice pattern because it is often not a considered response; it is how we behave when operating from common-sense assumptions about communicating, monologic thinking, and certainty. Then show the (un)common-sense response as a different way to respond from understanding, dialectical thinking, and curiosity. Do not follow a fixed prose sequence. Make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move. Maintain my voice anchor and tone. Use clean transitions between the narrative, reaction, response, and application. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea></article>
+    </section>
+
+    <section class="section drafting-section" id="closing">
+      <div class="section-heading"><div><p class="section-label">Drafting section</p><h2>Closing: What to Carry Forward</h2><p>Synthesize the chapter, return to the opening story, and help students transfer the shift into future communication situations.</p></div></div>
+      <div class="section-outline"><strong>You are here:</strong> 6 of 6 - Closing</div>
+      <div class="standard-boxes">
+        <div class="field-row fixed-goal"><label>Section goal <span class="hint">Same goal every time this chapter type is drafted.</span></label><textarea name="closingGoal" data-default-goal="Return to the opening story, name the core myth again, summarize the big shift in one or two vivid sentences, and leave students with a question or challenge that motivates continued practice.">Return to the opening story, name the core myth again, summarize the big shift in one or two vivid sentences, and leave students with a question or challenge that motivates continued practice.</textarea></div>
+        <div class="field-row"><label>Framing box <span class="hint">One sentence defining the topic, claim, or purpose of this section.</span></label><textarea name="closingFrame" placeholder=""></textarea></div>
+        <div class="field-row"><label>Idea development box <span class="hint">Elaborate the section idea in depth. Include the logic, stakes, student-facing explanation, and any tensions.</span></label><textarea name="closingDevelopment" placeholder=""></textarea></div>
+        <div class="field-row"><label>Annotated bibliography box <span class="hint">For each source: include the full citation, a short summary, and how it relates to this section/topic. Citations should become endnotes in the chapter draft. Long entries scroll inside this box.</span></label><textarea name="closingBibliography" placeholder=""></textarea></div>
+        <div class="field-row"><label>Direct quotes box <span class="hint">Important framing direct quotes. Include source and page/location when available.</span></label><textarea name="closingQuotes" placeholder=""></textarea></div>
+        <div class="field-row"><label>Callout box ideas <span class="hint">Pull quotes, sidebars, highlights, reflection pauses, key terms, or short recurring motifs.</span></label><textarea name="closingCallouts" placeholder=""></textarea></div>
+        <div class="field-row"><label>Illustration ideas <span class="hint">Diagrams, visuals, figures, image-generation ideas, accessibility notes, and where each belongs.</span></label><textarea name="closingIllustrations" placeholder=""></textarea></div>
+        <div class="field-row"><label>Specific help request box <span class="hint">What should ChatGPT pay special attention to, solve, avoid, revise, or explain for this section?</span></label><textarea name="closingHelp" placeholder=""></textarea></div>
+      </div>
+      <article class="prompt-card"><h3>AI drafting prompt for this section</h3><textarea class="prompt-template" readonly>Draft Closing: What to Carry Forward for my IPC 2110 textbook chapter using the content boxes for this section: section goal, framing, idea development, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, and my specific help request. Treat each annotated bibliography entry as containing the citation, source summary, and explanation of how the source relates to the content. Do not follow a fixed prose sequence. Instead, make sure the section achieves its learning outcome, rhetorical purpose, and argumentative move. Maintain my voice anchor and tone. Use clean transitions between all main points and ideas. Use endnotes for all citations. Place callout boxes and illustrations where they are most relevant in the chapter; when proposing illustrations, assume you will generate the images and include concise alt text/accessibility guidance. Check for repetition against the other chapter sections and flag anything that should be moved, merged, cut, or reframed. End by confirming whether the section achieves its stated goal.</textarea></article>
+    </section>
+
+    <section class="section" id="videos">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Chapter media</p>
+          <h2>Videos and Embed Links</h2>
+          <p>Collect videos, iframe embed codes, links, captions, and placement notes that may belong in the textbook, Canvas, PowerPoint, assignments, activities, or instructor resources.</p>
+        </div>
+      </div>
+      <div class="section-outline"><strong>You are here:</strong> Chapter media - use anywhere in the draft</div>
+      <div class="standard-boxes">
+        <div class="video-embed-list" data-dynamic-list="video" data-label="Video or embed">
+          <article class="video-embed-block" data-dynamic-item="video">
+            <h3>Video / Embed 1</h3>
+            <div class="field-row"><label>Title or source <span class="hint">Name the video, creator, source, platform, or media item.</span></label><textarea name="videoTitle1" placeholder=""></textarea></div>
+            <div class="field-row"><label>URL <span class="hint">Paste the share link, YouTube/Vimeo link, Canvas link, or source URL.</span></label><textarea name="videoUrl1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Embed code <span class="hint">Paste iframe or embed code here when you have it.</span></label><textarea class="embed-code-box" name="videoEmbedCode1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Student-facing description <span class="hint">What should students know before or after watching?</span></label><textarea name="videoStudentDescription1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Placement notes <span class="hint">Where should this go in the textbook, Canvas, PowerPoint, activity, assignment, or instructor resource?</span></label><textarea name="videoPlacement1" placeholder="Textbook section or exact placement:\nCanvas placement or assignment:\nPowerPoint slide or section:\nActivity or discussion use:\nInstructor resource placement:"></textarea></div>
+            <div class="field-row"><label>Instructor notes <span class="hint">How should instructors use this video? Include timing, teaching purpose, or warnings.</span></label><textarea name="videoInstructorNotes1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Accessibility and status <span class="hint">Captions, transcript, content warning, access limits, alternate option, and review status.</span></label><textarea name="videoAccessibility1" placeholder=""></textarea></div>
+          </article>
+        </div>
+        <button type="button" class="add-video-embed" data-add-video-embed>Add another video/embed box</button>
+      </div>
+      <article class="prompt-card">
+        <h3>AI media placement prompt</h3>
+        <textarea class="prompt-template" readonly>Review the Videos and Embed Links section for this IPC 2110 chapter. Use the title/source, URL, embed code, student-facing description, placement notes, instructor notes, accessibility notes, and status for each media item. Recommend where each video or embed belongs in the textbook chapter, Canvas materials, PowerPoint outline, activities, assignments, and instructor resources. Make sure every recommendation supports the chapter's common-sense approach/(un)common-sense approach framework, avoids repetition, includes accessibility needs such as captions/transcripts/alt or fallback descriptions, and preserves my voice anchor and tone when writing student-facing or instructor-facing text.</textarea>
+      </article>
+    </section>
+
+    <section class="section" id="images">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Chapter visuals</p>
+          <h2>Images, Captions, and Placement</h2>
+          <p>Collect image files, generated visual ideas, GitHub paths, captions, alt text, and placement notes for the textbook, Canvas, PowerPoint, assignments, activities, or instructor resources.</p>
+        </div>
+      </div>
+      <div class="section-outline"><strong>You are here:</strong> Chapter visuals - use anywhere in the draft</div>
+      <div class="standard-boxes">
+        <div class="image-asset-list" data-dynamic-list="image" data-label="Image or visual">
+          <article class="image-asset-block" data-dynamic-item="image">
+            <h3>Image / Visual 1</h3>
+            <div class="field-row"><label>Title or source <span class="hint">Name the image, figure, creator, source, generated visual, or screenshot.</span></label><textarea name="imageTitle1" placeholder=""></textarea></div>
+            <div class="field-row"><label>File name, GitHub path, or upload note <span class="hint">Paste the file name, local path, GitHub image path, or note where the image will be stored.</span></label><textarea name="imageFilePath1" placeholder=""></textarea></div>
+            <div class="field-row"><label>URL <span class="hint">Paste the source URL, GitHub raw URL, image link, or reference page when available.</span></label><textarea name="imageUrl1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Caption <span class="hint">Write the caption that should appear under or near the image in the textbook, PowerPoint, or instructor resource.</span></label><textarea name="imageCaption1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Student-facing description <span class="hint">What should students notice, compare, question, or understand from this image?</span></label><textarea name="imageStudentDescription1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Placement notes <span class="hint">Where should this image go in the textbook, Canvas, PowerPoint, activity, assignment, or instructor resource?</span></label><textarea name="imagePlacement1" placeholder="Textbook section or exact placement:\nCanvas placement or assignment:\nPowerPoint slide or section:\nActivity or discussion use:\nInstructor resource placement:"></textarea></div>
+            <div class="field-row"><label>Instructor notes <span class="hint">How should instructors use this image? Include teaching purpose, discussion use, timing, or cautions.</span></label><textarea name="imageInstructorNotes1" placeholder=""></textarea></div>
+            <div class="field-row"><label>Accessibility and status <span class="hint">Alt text, long description needs, contrast/readability notes, copyright/source status, and review status.</span></label><textarea name="imageAccessibility1" placeholder=""></textarea></div>
+          </article>
+        </div>
+        <button type="button" class="add-image-asset" data-add-image-asset>Add another image/caption box</button>
+      </div>
+      <article class="prompt-card">
+        <h3>AI image placement prompt</h3>
+        <textarea class="prompt-template" readonly>Review the Images, Captions, and Placement section for this IPC 2110 chapter. Use the title/source, file name or GitHub path, URL, caption, student-facing description, placement notes, instructor notes, accessibility notes, and status for each image or visual. Recommend where each image belongs in the textbook chapter, Canvas materials, PowerPoint outline, activities, assignments, and instructor resources. Preserve or improve the caption, provide concise alt text or long-description guidance, flag copyright/source or accessibility issues, avoid repetition, and make sure every image supports the chapter's common-sense approach/(un)common-sense approach framework and my voice anchor.</textarea>
+      </article>
+    </section>
+
+    <section class="section drafting-section" id="clarifying-questions">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Final workflow step</p>
+          <h2>Clarifying Questions Before Drafting Packet</h2>
+          <p>Use this after the chapter boxes are filled and before asking AI to build the drafting packet or draft prose. The goal is not more busywork; it is to catch missing information that would otherwise make AI guess.</p>
+        </div>
+      </div>
+      <div class="section-outline"><strong>You are here:</strong> Final review before packet construction</div>
+      <div class="standard-boxes">
+        <div class="field-row fixed-goal"><label>Step goal <span class="hint">What this workflow step must accomplish before drafting packet construction.</span></label><textarea name="clarifyingGoal" data-default-goal="Review every filled workflow box, identify only the missing or ambiguous information that would affect the drafting packet, and ask concise clarifying questions only when necessary. If the existing material is sufficient, say so and proceed to packet construction guidance.">Review every filled workflow box, identify only the missing or ambiguous information that would affect the drafting packet, and ask concise clarifying questions only when necessary. If the existing material is sufficient, say so and proceed to packet construction guidance.</textarea></div>
+        <div class="field-row"><label>AI review instructions <span class="hint">Tell AI what counts as necessary to ask. Use this to prevent over-questioning.</span></label><textarea name="clarifyingReviewInstructions" placeholder="Ask only if the answer changes the draft packet. Prioritize missing source support, unclear section purpose, contradictory terminology, uncertain framework salience, weak example placement, image/callout ambiguity, and places where the chapter might repeat Chapter 0 or Chapter 1 too heavily."></textarea></div>
+        <div class="field-row"><label>Questions AI asked <span class="hint">Paste the clarifying questions AI generated here, or use this box to keep track of what still needs your answer.</span></label><textarea name="clarifyingQuestionsAsked" placeholder="Question 1:&#10;Question 2:&#10;Question 3:"></textarea></div>
+        <div class="field-row"><label>Your answers or decisions <span class="hint">Answer only the necessary questions. These answers become instructions for the drafting packet.</span></label><textarea name="clarifyingAnswers" placeholder="Decision / answer:&#10;Section affected:&#10;How AI should use this answer:"></textarea></div>
+        <div class="field-row"><label>Ready for drafting packet? <span class="hint">Name what is ready, what is still missing, and whether AI should proceed, proceed with cautions, or pause.</span></label><textarea name="draftingPacketReadiness" placeholder="Proceed / proceed with cautions / pause:&#10;Ready sections:&#10;Missing or risky sections:&#10;Cautions for AI:"></textarea></div>
+      </div>
+      <article class="prompt-card">
+        <h3>AI clarification prompt</h3>
+        <textarea class="prompt-template" readonly data-section="clarifying">Review the full completed chapter worksheet before constructing the drafting packet. Use the existing chapter structure as the organizational structure. Use the conceptual framework only as an alignment layer. Do not draft prose yet. Review every workflow step and every filled box, including setup, section goals, messy thoughts, refined language, annotated bibliographies, examples, direct quotes, image ideas, callout ideas, videos, comparative visual notes, and specific help requests. Identify only the questions that are necessary before building the drafting packet. Ask a question only if the answer would change section purpose, source use, example placement, terminology, framework salience, image/callout placement, citation support, or whether AI should proceed. Do not ask generic preference questions. Do not ask for information that is already present in the worksheet. If the packet is ready, say no questions are necessary and list any cautions for drafting. If questions are necessary, group them by section and explain briefly why each answer matters.</textarea>
+      </article>
+    </section>
+
+    <section class="section" id="prompts">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Prompt pack</p>
+          <h2>Master and Reusable AI Drafting Prompts</h2>
+          <p>Use the master prompt to draft the whole chapter from all worksheet boxes and all section prompts at once.</p>
+        </div>
+        <div class="toolbar">
+          <select id="promptSelect" aria-label="Choose prompt">
+            <option value="clarifyingReview">Clarifying questions before drafting packet</option>
+            <option value="masterDraft">Master full-chapter draft</option>
+            <option value="blueprint">Master chapter blueprint</option>
+            <option value="sectionReview">Section goal review</option>
+            <option value="repetition">Repetition check</option>
+            <option value="illustration">Callout and illustration planning</option>
+            <option value="endnotes">Endnote integration</option>
+            <option value="codexHandoff">Codex GitHub handoff</option>
+          </select>
+          <button type="button" id="buildPrompt" class="primary">Build prompt</button>
+        </div>
+      </div>
+      <div class="prompt-choice-list" aria-label="Choose prompts to combine">
+        <label><input type="checkbox" name="promptChoice" value="clarifyingReview" checked> Clarifying questions before drafting packet</label>
+        <label><input type="checkbox" name="promptChoice" value="masterDraft"> Master full-chapter draft</label>
+        <label><input type="checkbox" name="promptChoice" value="blueprint"> Chapter blueprint</label>
+        <label><input type="checkbox" name="promptChoice" value="sectionReview"> Section goal review</label>
+        <label><input type="checkbox" name="promptChoice" value="repetition"> Repetition check</label>
+        <label><input type="checkbox" name="promptChoice" value="illustration"> Callout and illustration planning</label>
+        <label><input type="checkbox" name="promptChoice" value="endnotes"> Endnote integration</label>
+        <label><input type="checkbox" name="promptChoice" value="codexHandoff"> Codex GitHub handoff</label>
+      </div>
+      <div class="toolbar">
+        <button type="button" id="buildSelectedPrompts" class="primary">Build selected prompts together</button>
+      </div>
+      <article class="prompt-card">
+        <textarea id="promptOutput" aria-label="Generated prompt"></textarea>
+        <div class="prompt-actions"><button type="button" id="copyPrompt">Copy prompt</button><span class="status-line" id="copyStatus" aria-live="polite"></span></div>
+      </article>
+      <div id="promptLibrary"></div>
+    </section>
+
+    <section class="section" id="checks">
+      <div class="section-heading"><div><p class="section-label">Quality control</p><h2>Final Chapter Checks</h2><p>Use this list before drafting, revising, or asking ChatGPT to review the chapter.</p></div></div>
+      <div class="panel sage">
+        <ul class="checklist">
+          <li>The chapter begins with the opening story, not a front-matter overview.</li>
+          <li>Every section has a fixed section goal that stays consistent across chapters.</li>
+          <li>Overview and Practice use a section claim plus expandable main idea boxes with evidence/development and callout ideas.</li>
+          <li>Every section keeps direct quotes and a specific help request box.</li>
+          <li>Every AI prompt focuses on goals, outcomes, rhetorical moves, transitions, repetition checks, endnotes, voice, callouts, illustrations, images, captions, videos, and embeds.</li>
+          <li>The two approach overview boxes define and narrate the common-sense approach and the (un)common-sense approach before the leaps begin.</li>
+          <li>There are exactly three discontinuous leaps.</li>
+          <li>Each leap includes common-sense assumption, myth, communication impact, and potential examples.</li>
+          <li>Each leap includes (un)common-sense assumption, belief, behavior change, and potential examples.</li>
+          <li>The Practice section bridges one common-sense practice to one (un)common-sense practice through a small example narrative.</li>
+          <li>The comparative illustration appears near the end and draws from the leaps with accessibility guidance for screen readers and text tools.</li>
+          <li>Videos and embeds include URLs or embed codes, exact placement notes, instructor notes, and accessibility/status notes.</li>
+          <li>Images include file paths or URLs, captions, exact placement notes, instructor notes, and accessibility/status notes.</li>
+          <li>The prompt pack at the bottom lets selected prompts run together and includes the voice anchor.</li>
+          <li>The master draft prompt asks for Word-ready output with editable titles, headers, endnotes, callout recommendations, and key-term callout boxes.</li>
+          <li>Drafted citations appear as endnotes.</li>
+        </ul>
+      </div>
+      <p class="print-note">Printed from the IPC 2110 Personal Chapter Drafting Template.</p>
+    </section>
+
+    <section class="section" id="voice-anchor-reference">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Default voice anchor</p>
+          <h2>Voice Anchor and Tone Reference</h2>
+          <p>This is the default voice anchor used by the master prompt and every section prompt. It stays here so Chapter Setup can stay focused on chapter content.</p>
+        </div>
+      </div>
+      <details class="panel gold">
+        <summary><strong>Open the full Jordan voice anchor</strong></summary>
+        <textarea class="voice-anchor-display" id="defaultVoiceAnchorDisplay" readonly aria-label="Default Jordan voice anchor"></textarea>
+      </details>
+    </section>
+  </main>
+
+  <script>
+    const storageKey = "ipc2110DraftingTemplateV2";
+    const saveStatus = document.getElementById("saveStatus");
+    const richEditors = [];
+    let savedSelection = null;
+    const DEFAULT_VOICE_ANCHOR = `This voice profile is designed to capture the specific, disruptive, and deeply human presence of Jordan (Professor Jordan Allen, Ph.D.) as seen throughout the classroom transcripts.
+
+1. Overall Voice Summary
+Jordan's voice is that of a "relatable researcher"--someone who is intellectually rigorous but refuses the traditional, detached authority of a textbook. The tone is warm, conversational, and slightly disruptive, often moving between high-level theory and pop-culture references (like Love is Blind or It's Always Sunny in Philadelphia) without missing a beat. The rhythm is natural and unpolished, filled with mid-sentence pivots and self-corrections that show a mind actively thinking alongside the students. Jordan treats education as a collaborative "risky pursuit," prioritizing "understanding" and "options" over rigid rules and "trivia".
+
+2. Core Voice Traits
+Conversational Academic: Uses rigorous concepts (Toulmin, FCP, EVT) but explains them using the "vernacular of daily life".
+
+Example: Describing a theory as a "virus" or a "hot mess".
+
+Casual Transitions: Uses low-stakes, verbal "handshakes" to guide the class.
+
+Example: Starting sentences with "Okay, folks," "Alrighty," or "So".
+
+Humor and Self-Correction: Frequently pokes fun at the academic process or her own quirks.
+
+Example: "It makes me a terrible party guest, but it makes things interesting".
+
+Deliberate Hedging: Avoids "universal" claims, preferring terms like "probably," "maybe," or "potentially" to allow for context.
+
+Example: "This idea isn't wrong, exactly, but it is incomplete".
+
+Warmth and Student Care: Validates students' efforts and emotional states.
+
+Example: "Give yourself a plus one" or "I'm worried about you... we can chat".
+
+Critical Engagement: Serious about theory but willing to critique the creators or assumptions behind them.
+
+Example: "I hope I didn't shade JK Burgoon too hard... you could be a real jerk and still come up with a useful theory".
+
+Everyday Lensing: Explains abstract ideas through mundane or visceral experiences.
+
+Example: Explaining "Knowing" as a spreadsheet and "Understanding" as a whole picture [Drafting Notes].
+
+3. Sentence and Rhythm Patterns
+Varied Length: Mixes short, punchy fragments ("Good, good." "Not right or wrong.") with longer, winding reflections that "Yammer" productively.
+
+Mid-Sentence Pivots: Frequently interrupts her own thought to clarify or add a side-note (the "parenthetical disambiguation" style).
+
+Tag Questions: Ends thoughts with "Right?" or "Does that make sense?" to maintain a loop with the audience.
+
+Informal Conjunctions: Starts sentences with "And," "But," or "So" to keep the flow feeling like a continuous stream of thought rather than a series of isolated points.
+
+4. Jordan's Teaching Moves
+Wild Speculation: Asks students to "wildly speculate" or give their "best guess" to lower the pressure of being right.
+
+Reframing Wrongness: Instead of correcting, she asks, "How do you understand this?" and treats "wrong" answers as "less understanding" rather than failures.
+
+Naming Assumptions: Always asks, "What are the assumptions we can infer?" to teach students to look beneath the surface.
+
+Dialectical Framing: Consistently asks students to look for the "both/and"--how something can be both productive and unproductive.
+
+5. Words and Phrases Jordan Commonly Uses
+"Okay, folks" / "Okay, friends" (Standard openers).
+
+"Give yourself a plus one" (Validating participation).
+
+"This is not wrong, exactly, but it is incomplete" (Softening a critique).
+
+"Hot mess" / "A bit of a doozy" (Describing complex situations).
+
+"Knotty language" / "Trivia" (Describing bad academic writing/learning).
+
+"Intelligible" / "Illumination" (The goal of understanding) [Drafting Notes].
+
+"I hope you leave with less knowledge..." (The core shock strategy).
+
+6. What to Avoid
+Stiff Academic Fillers: Never use "Furthermore," "Moreover," "In conclusion," or "It is important to note."
+
+Corporate "Polished" Tone: Avoid sounding like a LinkedIn influencer or a motivational speaker (e.g., "Unlock your potential").
+
+Excessive Certainty: Avoid saying "The research proves" or "The answer is." Use "The research suggests" or "One way to look at this is."
+
+Neat Conclusions: Jordan's sections shouldn't end with a perfect bow; they should end with a lingering question or a "risky" invitation to think more.
+
+7. Voice Profile for Drafting (Paste into Prompts)
+"Draft this in the voice of Jordan: a relatable, disruptive communication researcher. The tone should be warm, conversational, and student-facing. Use short, punchy fragments mixed with reflective, winding sentences. Start with a disruptive 'opening shock' that challenges common-sense. Use the 'incomplete turn'--acknowledge an idea isn't 'wrong' but is 'incomplete.' Avoid all stiff academic transitions (no 'furthermore' or 'in conclusion'). Use casual markers like 'Okay, folks' or 'So.' Frame the content as providing 'options' rather than 'rules.' If explaining a theory, use a practical, messy example from pop culture or daily life. Keep the human author visible; be willing to admit uncertainty or recount a personal 'yammer' that illustrates the point."
+
+8. Before-and-After Examples
+Example 1: Defining a Communication Problem
+
+Generic AI: "It is essential to define a communication problem accurately. A problem is a dysfunction in a system that requires a specific solution. Interpersonal conflict should be addressed through clear messaging."
+
+Jordan's Voice: "Okay, folks, we need to talk about problems. Usually, we think a problem is just something 'broken' that needs a quick fix. But that's not wrong, exactly--it's just incomplete. In this class, a meaningful problem is a tension. It's not just conflict; it's the 'knotty' stuff underneath it. Sometimes everyone is doing exactly what they're supposed to do and there's still a problem. It's not a dysfunction; it's just something tossed in front of us that's calling for our attention".
+
+Explanation: The revision uses the "incomplete" turn, casual openers, and the specific Greek-derived "tossed in front of us" analogy found in the transcripts. It moves from "fixing" to "contemplating."
+
+This Voice Anchor Resource Sheet defines the tone, rhythm, and persona for (Mis)Communicating: Knowing vs. Understanding. Use this as the "north star" to ensure the writing stays disruptive, human, and intellectually honest.
+
+1. The Core Persona: The Relatable Researcher
+The voice is not a detached, all-knowing "textbook" voice. It is the voice of a researcher with 15 years of experience who is still comfortable being uncomfortable.
+
+Non-Authoritarian: Avoid giving "how-to" advice or "best" approaches. Instead, frame content as providing options and tools for the student's specific life.
+
+Honest and Vulnerable: Admit when a topic is confusing or when you feel "author and professor prison" is calling for your "dull" ideas.
+
+The Scientist-Practitioner: Ground claims in peer-reviewed research, but allow space for students to disagree.
+
+2. The "Opening Shock" Strategy
+Every major section should aim to disrupt the student's common-sense.
+
+Signature Move: Start with a counter-intuitive or shocking claim, like "I hope you finish this class with less knowledge than when you started".
+
+The Turn: Immediately explain why the standard approach (memorizing trivia/facts) is incomplete compared to the goal of deep understanding.
+
+3. Stylistic Signature Moves
+The Verb Priority: Use "communicating" as a verb rather than "communication" as a static noun to emphasize that it is an ongoing process.
+
+Parenthetical Disambiguation: Use parentheses to clarify, complicate, or add a playful "side-note" to the main text.
+
+The "Incomplete" Validation: Use phrases like "this is not wrong, exactly, but it is incomplete" to transition from a common myth to a more complex truth.
+
+Vocabulary Boldness: Bold key terms so students can identify the core vocabulary without the text feeling like a list of trivia.
+
+4. Natural Rhythm and Pacing
+The rhythm should feel like a conversation in office hours, not a lecture in a hall.
+
+Vary Sentence Length: Use short, punchy sentences to make a point ("No, my hope isn't that students walk away knowing more trivia") followed by longer, more reflective sentences that explore "sincerest hopes" and "relational worlds".
+
+Avoid "Textbook-ese": Ban phrases like "In today's fast-paced world" or "It is important to understand." Instead, jump directly into the "why".
+
+Linger in Paradox: Don't rush to fix every problem. Allow the "irritation and productive confusion" to sit with the reader for a moment--that is where the real work happens.
+
+5. The "Contract" with the Student
+The voice should constantly remind the student that this is a risky pursuit.
+
+Trust and Patience: Acknowledge that the student needs to trust the author and be patient with the confusion.
+
+Validation of Irritation: Explicitly state that it's okay to be "irritated, if not downright angry" when there isn't an easy answer.
+
+Toolbox Framing: Position concepts like dialectical thinking as "options" or "tools they can reach for when they feel stuck," rather than a mandatory way of life.
+
+6. Technical Integration (For Utah/CS Majors)
+When explaining "knowing" vs. "understanding," use analogies that respect a technical mindset.
+
+Knowledge = Knowing the syntax of a programming language (rules/facts).
+
+Understanding = Grasping how the entire system behaves in a specific context (the "why" and the connections).
+
+Quick Checklist for All Drafts:
+Does it shock? (Does it challenge a common myth?)
+
+Is it "brittle" or "resilient"? (Are we just giving facts or helping them "grasp" the connection?)
+
+Is the human author visible? (Can you hear a person, or just an encyclopedia?)
+
+Does it respect the student's context? (Does it provide options for their "specific relationship, moment, context, body, history, and constraint"?)`
+    function htmlToText(html) {
+      const scratch = document.createElement("div");
+      scratch.innerHTML = html || "";
+      scratch.querySelectorAll("br").forEach((br) => br.replaceWith("\n"));
+      scratch.querySelectorAll("li").forEach((li) => { li.prepend("- "); li.append("\n"); });
+      scratch.querySelectorAll("p, div, h1, h2, h3").forEach((block) => block.append("\n"));
+      return scratch.textContent.replace(/\n{3,}/g, "\n\n").trim();
+    }
+
+    function allFields() {
+      return Array.from(document.querySelectorAll('input[name]:not([name="promptChoice"]), textarea[name], select[name]'));
+    }
+
+    function syncRichEditors() {
+      richEditors.forEach(({ source, editor, printValue }) => {
+        source.value = editor.innerHTML.trim();
+        printValue.innerHTML = source.value || "";
+      });
+    }
+
+    function fieldPlainValue(field) {
+      if (!field) return "";
+      if (field.classList.contains("rich-source")) return htmlToText(field.value);
+      return field.value.trim();
+    }
+
+    function collectValues() {
+      syncRichEditors();
+      return allFields().reduce((data, field) => {
+        if (field.classList.contains("prompt-template") || field.id === "promptOutput") return data;
+        data[field.name] = field.value;
+        return data;
+      }, {});
+    }
+
+    function getValue(name, fallback) {
+      const field = document.querySelector(`[name="${name}"]`);
+      const value = fieldPlainValue(field);
+      return value ? value : fallback;
+    }
+
+    function voiceAnchorText() {
+      return getValue("voiceAnchor", DEFAULT_VOICE_ANCHOR);
+    }
+
+    function saveValues() {
+      localStorage.setItem(storageKey, JSON.stringify(collectValues()));
+      if (!saveStatus) return;
+      saveStatus.textContent = "Saved in this browser.";
+      window.clearTimeout(saveValues.timer);
+      saveValues.timer = window.setTimeout(() => { saveStatus.textContent = ""; }, 1600);
+    }
+
+    function createMainIdeaBlock(type, index) {
+      const label = type === "overview" ? "Overview Main Idea" : "Main Idea";
+      const ideaHint = type === "overview" ? "Name the main idea students need to understand." : "Name the practice idea, skill shift, or heuristic students should understand.";
+      const developmentHint = type === "overview" ? "Develop this main point in depth. Include evidence, examples, source notes, and the student-facing explanation." : "Develop this practice point in depth. Include evidence, examples, source notes, and how the practice works in context.";
+      const article = document.createElement("article");
+      article.className = "main-idea-block";
+      article.dataset.dynamicItem = type;
+      const bibliographyHint = type === "overview"
+        ? "For each source connected to this main idea: include the full citation, a short summary, and how it supports or complicates this point. Citations should become endnotes in the chapter draft. Long entries scroll inside this box."
+        : "For each source connected to this idea: include the full citation, a short summary, and how it supports, complicates, or contextualizes the point. Citations should become endnotes in the chapter draft. Long entries scroll inside this box.";
+      const bibliographyBox = `<div class="field-row"><label>Annotated bibliography box <span class="hint">${bibliographyHint}</span></label><textarea name="${type}MainBibliography${index}" placeholder=""></textarea></div>`;
+      article.innerHTML = `<h3>${label} ${index}</h3>
+        <div class="field-row"><label>Main idea box <span class="hint">${ideaHint}</span></label><textarea name="${type}MainIdea${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Idea development + evidence box <span class="hint">${developmentHint}</span></label><textarea name="${type}MainDevelopment${index}" placeholder=""></textarea></div>
+        ${bibliographyBox}
+        <div class="field-row"><label>Callout idea box <span class="hint">Pull quote, sidebar, key term, reflection pause, example highlight, or visual callout connected to this main point.</span></label><textarea name="${type}MainCallout${index}" placeholder=""></textarea></div>`;
+      return article;
+    }
+
+    function createVideoEmbedBlock(index) {
+      const article = document.createElement("article");
+      article.className = "video-embed-block";
+      article.dataset.dynamicItem = "video";
+      article.innerHTML = `<h3>Video / Embed ${index}</h3>
+        <div class="field-row"><label>Title or source <span class="hint">Name the video, creator, source, platform, or media item.</span></label><textarea name="videoTitle${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>URL <span class="hint">Paste the share link, YouTube/Vimeo link, Canvas link, or source URL.</span></label><textarea name="videoUrl${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Embed code <span class="hint">Paste iframe or embed code here when you have it.</span></label><textarea class="embed-code-box" name="videoEmbedCode${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Student-facing description <span class="hint">What should students know before or after watching?</span></label><textarea name="videoStudentDescription${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Placement notes <span class="hint">Where should this go in the textbook, Canvas, PowerPoint, activity, assignment, or instructor resource?</span></label><textarea name="videoPlacement${index}" placeholder="Textbook section or exact placement:\nCanvas placement or assignment:\nPowerPoint slide or section:\nActivity or discussion use:\nInstructor resource placement:"></textarea></div>
+        <div class="field-row"><label>Instructor notes <span class="hint">How should instructors use this video? Include timing, teaching purpose, or warnings.</span></label><textarea name="videoInstructorNotes${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Accessibility and status <span class="hint">Captions, transcript, content warning, access limits, alternate option, and review status.</span></label><textarea name="videoAccessibility${index}" placeholder=""></textarea></div>`;
+      return article;
+    }
+
+    function createImageAssetBlock(index) {
+      const article = document.createElement("article");
+      article.className = "image-asset-block";
+      article.dataset.dynamicItem = "image";
+      article.innerHTML = `<h3>Image / Visual ${index}</h3>
+        <div class="field-row"><label>Title or source <span class="hint">Name the image, figure, creator, source, generated visual, or screenshot.</span></label><textarea name="imageTitle${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>File name, GitHub path, or upload note <span class="hint">Paste the file name, local path, GitHub image path, or note where the image will be stored.</span></label><textarea name="imageFilePath${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>URL <span class="hint">Paste the source URL, GitHub raw URL, image link, or reference page when available.</span></label><textarea name="imageUrl${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Caption <span class="hint">Write the caption that should appear under or near the image in the textbook, PowerPoint, or instructor resource.</span></label><textarea name="imageCaption${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Student-facing description <span class="hint">What should students notice, compare, question, or understand from this image?</span></label><textarea name="imageStudentDescription${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Placement notes <span class="hint">Where should this image go in the textbook, Canvas, PowerPoint, activity, assignment, or instructor resource?</span></label><textarea name="imagePlacement${index}" placeholder="Textbook section or exact placement:\nCanvas placement or assignment:\nPowerPoint slide or section:\nActivity or discussion use:\nInstructor resource placement:"></textarea></div>
+        <div class="field-row"><label>Instructor notes <span class="hint">How should instructors use this image? Include teaching purpose, discussion use, timing, or cautions.</span></label><textarea name="imageInstructorNotes${index}" placeholder=""></textarea></div>
+        <div class="field-row"><label>Accessibility and status <span class="hint">Alt text, long description needs, contrast/readability notes, copyright/source status, and review status.</span></label><textarea name="imageAccessibility${index}" placeholder=""></textarea></div>`;
+      return article;
+    }
+
+    function addMainIdea(type) {
+      const list = document.querySelector(`[data-dynamic-list="${type}"]`);
+      if (!list) return;
+      const next = list.querySelectorAll(`[data-dynamic-item="${type}"]`).length + 1;
+      list.appendChild(createMainIdeaBlock(type, next));
+      initRichEditors();
+      syncRichEditors();
+      allFields().forEach((field) => field.removeEventListener("input", saveValues));
+      allFields().forEach((field) => field.addEventListener("input", saveValues));
+      saveValues();
+    }
+
+    function addVideoEmbed() {
+      const list = document.querySelector('[data-dynamic-list="video"]');
+      if (!list) return;
+      const next = list.querySelectorAll('[data-dynamic-item="video"]').length + 1;
+      list.appendChild(createVideoEmbedBlock(next));
+      initRichEditors();
+      syncRichEditors();
+      allFields().forEach((field) => field.removeEventListener("input", saveValues));
+      allFields().forEach((field) => field.addEventListener("input", saveValues));
+      saveValues();
+    }
+
+    function addImageAsset() {
+      const list = document.querySelector('[data-dynamic-list="image"]');
+      if (!list) return;
+      const next = list.querySelectorAll('[data-dynamic-item="image"]').length + 1;
+      list.appendChild(createImageAssetBlock(next));
+      initRichEditors();
+      syncRichEditors();
+      allFields().forEach((field) => field.removeEventListener("input", saveValues));
+      allFields().forEach((field) => field.addEventListener("input", saveValues));
+      saveValues();
+    }
+
+    function ensureDynamicItems(data) {
+      ["overview", "practice"].forEach((type) => {
+        const indexes = Object.keys(data || {}).map((key) => {
+          const match = key.match(new RegExp(`^${type}Main(?:Idea|Development|Bibliography|Callout)(\\d+)$`));
+          return match ? Number(match[1]) : 0;
+        });
+        const max = Math.max(1, ...indexes);
+        const list = document.querySelector(`[data-dynamic-list="${type}"]`);
+        if (!list) return;
+        while (list.querySelectorAll(`[data-dynamic-item="${type}"]`).length < max) {
+          const next = list.querySelectorAll(`[data-dynamic-item="${type}"]`).length + 1;
+          list.appendChild(createMainIdeaBlock(type, next));
+        }
+      });
+      const videoIndexes = Object.keys(data || {}).map((key) => {
+        const match = key.match(/^video(?:Title|Url|EmbedCode|StudentDescription|Placement|InstructorNotes|Accessibility)(\d+)$/);
+        return match ? Number(match[1]) : 0;
+      });
+      const videoMax = Math.max(1, ...videoIndexes);
+      const videoList = document.querySelector('[data-dynamic-list="video"]');
+      if (videoList) {
+        while (videoList.querySelectorAll('[data-dynamic-item="video"]').length < videoMax) {
+          const next = videoList.querySelectorAll('[data-dynamic-item="video"]').length + 1;
+          videoList.appendChild(createVideoEmbedBlock(next));
+        }
+      }
+      const imageIndexes = Object.keys(data || {}).map((key) => {
+        const match = key.match(/^image(?:Title|FilePath|Url|Caption|StudentDescription|Placement|InstructorNotes|Accessibility)(\d+)$/);
+        return match ? Number(match[1]) : 0;
+      });
+      const imageMax = Math.max(1, ...imageIndexes);
+      const imageList = document.querySelector('[data-dynamic-list="image"]');
+      if (imageList) {
+        while (imageList.querySelectorAll('[data-dynamic-item="image"]').length < imageMax) {
+          const next = imageList.querySelectorAll('[data-dynamic-item="image"]').length + 1;
+          imageList.appendChild(createImageAssetBlock(next));
+        }
+      }
+    }
+
+    function fillFixedDefaults() {
+      document.querySelectorAll("[data-default-goal]").forEach((field) => {
+        if (!field.value.trim()) field.value = field.dataset.defaultGoal;
+      });
+      const voiceDisplay = document.getElementById("defaultVoiceAnchorDisplay");
+      if (voiceDisplay) voiceDisplay.value = DEFAULT_VOICE_ANCHOR;
+    }
+
+    function moveComparativeIllustrationToEnd() {
+      const section = document.getElementById("comparative-illustration");
+      const clarifying = document.getElementById("clarifying-questions");
+      const prompts = document.getElementById("prompts");
+      const target = clarifying || prompts;
+      if (section && target && section.nextElementSibling !== target) target.parentElement.insertBefore(section, target);
+    }
+
+    function movePromptPackToBottom() {
+      const prompts = document.getElementById("prompts");
+      if (prompts && prompts.nextElementSibling) prompts.parentElement.appendChild(prompts);
+    }
+
+    function moveSectionPromptsToBottom() {
+      const library = document.getElementById("promptLibrary");
+      const choices = document.querySelector(".prompt-choice-list");
+      if (!library || !choices) return;
+      Array.from(document.querySelectorAll(".prompt-card .prompt-template")).forEach((prompt, index) => {
+        const card = prompt.closest(".prompt-card");
+        if (!card || card.closest("#prompts")) return;
+        const section = card.closest("section");
+        const heading = section ? section.querySelector("h2") : null;
+        const cardTitle = card.querySelector("h3");
+        const title = `${heading ? heading.textContent.trim() : "Section"} - ${cardTitle ? cardTitle.textContent.trim() : `Prompt ${index + 1}`}`;
+        card.dataset.promptTitle = title;
+        prompt.dataset.promptId = `sectionPrompt${index + 1}`;
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="checkbox" name="promptChoice" value="${prompt.dataset.promptId}"> ${title}`;
+        choices.appendChild(label);
+        library.appendChild(card);
+      });
+    }
+
+    function injectSectionIntakeBoxes() {
+      const configs = [
+        ["Accomplishment for AI", "What must this section accomplish before it can be drafted? Name the section purpose, learning outcome, argumentative move, and what students should understand or practice by the end.", "AI should use this as the success condition for the section."],
+        ["Messy thoughts / uploaded notes", "Paste raw voice notes, fragments, examples, questions, partial explanations, or upload documents connected to this section.", "Treat this as author intent and raw material. Organize it; do not treat it as polished prose."],
+        ["Refined ideas and language", "Paste sentences, phrases, paragraph drafts, definitions, transitions, or wording you may want preserved closely.", "Treat this as preferred language. Preserve the wording unless it creates a clarity, source, or terminology problem."],
+        ["Annotated bibliography for this section", "For each source, include citation, summary, relevant concept, claim supported, limits, and where the citation/endnote might belong.", "Treat this as evidence. Map it to claims, avoid overstating it, and flag unsupported claims."],
+        ["Image / illustration ideas", "Describe visual metaphors, image prompts, figures, diagrams, screenshots, placement ideas, captions, alt text, and accessibility notes.", "Treat this as visual planning material for generated or existing images, not as body prose."],
+        ["Callout box ideas", "List possible key term, myth, research check, case in point, pause and notice, author note, try this, or comparison callouts.", "Treat this as optional teaching support. Place it only where it helps the section teach."]
+      ];
+      document.querySelectorAll(".drafting-section").forEach((section) => {
+        const boxes = section.querySelector(".standard-boxes");
+        if (!boxes || boxes.querySelector(".section-intake-extra")) return;
+        const base = section.id.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "");
+        const wrapper = document.createElement("div");
+        wrapper.className = "section-intake-extra";
+        wrapper.innerHTML = configs.map(([label, hint, placeholder], index) => `
+          <div class="field-row">
+            <label>${label} <span class="hint">${hint}</span></label>
+            <textarea name="${base}Intake${index + 1}" placeholder="${placeholder}"></textarea>
+          </div>`).join("");
+        const fixedGoal = boxes.querySelector(".fixed-goal");
+        if (fixedGoal) fixedGoal.insertAdjacentElement("afterend", wrapper);
+        else boxes.prepend(wrapper);
+      });
+    }
+
+    function restoreValues() {
+      const raw = localStorage.getItem(storageKey);
+      if (!raw) { fillFixedDefaults(); return; }
+      try {
+        const data = JSON.parse(raw);
+        ensureDynamicItems(data);
+        allFields().forEach((field) => {
+          if (Object.prototype.hasOwnProperty.call(data, field.name)) field.value = data[field.name];
+        });
+        fillFixedDefaults();
+      } catch (error) {
+        console.warn("Saved template data could not be read.", error);
+        fillFixedDefaults();
+      }
+    }
+
+    function saveSelection() {
+      const selection = window.getSelection();
+      if (!selection || selection.rangeCount === 0) return;
+      const range = selection.getRangeAt(0);
+      const node = range.commonAncestorContainer.nodeType === Node.TEXT_NODE ? range.commonAncestorContainer.parentElement : range.commonAncestorContainer;
+      if (!node || !node.closest?.(".rich-editor")) return;
+      savedSelection = range.cloneRange();
+    }
+
+    function restoreSelection(editor) {
+      const selection = window.getSelection();
+      if (!selection) return;
+      selection.removeAllRanges();
+      if (savedSelection && editor.contains(savedSelection.commonAncestorContainer)) selection.addRange(savedSelection);
+    }
+
+    function escapeHTML(value) {
+      return String(value || "").replace(/[&<>"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[char]));
+    }
+
+    function fieldKind(source) {
+      const label = source.closest(".field-row")?.querySelector("label")?.textContent.toLowerCase() || "";
+      const name = source.name.toLowerCase();
+      if (name.includes("bibliography")) return "Annotated bibliography: citation, summary, supported claim, limits, and where the citation/endnote should appear.";
+      if (name.includes("quotes")) return "Direct quotes: exact wording only, with source and page/location when possible.";
+      if (name.includes("illustration") || name.includes("image")) return "Image or illustration material: visual idea, source/path, placement, caption, alt text, accessibility, and copyright/status notes.";
+      if (name.includes("callout")) return "Callout idea: optional teaching support, suggested type, placement, title, and what students should pause to notice.";
+      if (name.includes("goal")) return "Goal box: what this section must accomplish for students and for the chapter argument.";
+      if (name.includes("help")) return "Help request: what AI should solve, avoid, preserve, revise, or pay attention to.";
+      if (name.includes("development")) return "Development box: explanation, stakes, evidence, examples, and student-facing language.";
+      if (name.includes("example")) return "Example box: concrete scenes, student cases, family/workplace/friendship/dating/media examples, or research cases.";
+      if (label.includes("refined")) return "Refined language: wording you may want preserved closely in the draft.";
+      if (label.includes("story") || label.includes("narrative") || label.includes("messy")) return "Messy input: raw notes, voice-note text, fragments, scenes, and examples AI should organize without treating as final prose.";
+      if (name.includes("frame") || label.includes("claim")) return "Framing box: the section's main claim, purpose, or argumentative move.";
+      return "Planning box: paste or upload material that belongs in this specific section. AI should use it according to the box label, not flatten it into generic prose.";
+    }
+
+    function appendToSource(source, title, body) {
+      const addition = `<p><strong>${escapeHTML(title)}</strong></p><p>${escapeHTML(body).replace(/\n/g, "<br>")}</p>`;
+      const current = source.value.trim();
+      source.value = current ? `${current}<p><br></p>${addition}` : addition;
+      const rich = richEditors.find((item) => item.source === source);
+      if (rich) {
+        rich.editor.innerHTML = source.value;
+        rich.printValue.innerHTML = source.value;
+      }
+      source.dispatchEvent(new Event("input", { bubbles: true }));
+      saveValues();
+    }
+
+    function readUploadedFile(file, source, status) {
+      const textLike = /^(text\/|application\/(json|xml|csv))/i.test(file.type) || /\.(txt|md|csv|json|html?|xml|rtf)$/i.test(file.name);
+      const fileSummary = `${file.name} | ${file.type || "unknown type"} | ${Math.ceil(file.size / 1024)} KB`;
+      if (!textLike) {
+        appendToSource(source, `Uploaded file reference: ${file.name}`, `${fileSummary}\nTreatment rule: this file is attached as source material. Do not invent its contents; inspect or extract it before using it as evidence or polished prose.`);
+        status.textContent = `Added file reference: ${file.name}`;
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        appendToSource(source, `Uploaded text: ${file.name}`, String(reader.result || ""));
+        status.textContent = `Added uploaded text: ${file.name}`;
+      };
+      reader.onerror = () => { status.textContent = `Could not read ${file.name}.`; };
+      reader.readAsText(file);
+    }
+
+    function createUploadControl(source) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "field-upload";
+      const label = document.createElement("span");
+      label.textContent = "Paste here or upload files:";
+      const input = document.createElement("input");
+      input.type = "file";
+      input.multiple = true;
+      input.accept = ".txt,.md,.csv,.json,.html,.htm,.rtf,.xml,.pdf,.doc,.docx,.png,.jpg,.jpeg,.webp,.gif";
+      const status = document.createElement("span");
+      status.className = "upload-status";
+      input.addEventListener("change", () => {
+        Array.from(input.files || []).forEach((file) => readUploadedFile(file, source, status));
+        input.value = "";
+      });
+      wrapper.append(label, input, status);
+      return wrapper;
+    }
+
+    function initRichEditors() {
+      document.querySelectorAll("textarea[name]").forEach((source) => {
+        if (source.id === "promptOutput" || source.classList.contains("prompt-template") || source.dataset.richReady === "true") return;
+        source.dataset.richReady = "true";
+        source.classList.add("rich-source");
+        const box = document.createElement("div");
+        box.className = "rich-box";
+        const toolbar = document.createElement("div");
+        toolbar.className = "rich-toolbar";
+        const controls = [["bold", "B"], ["italic", "I"], ["insertUnorderedList", "Bullets"], ["insertOrderedList", "Numbers"], ["removeFormat", "Clear"]];
+        const editor = document.createElement("div");
+        editor.className = "rich-editor";
+        editor.contentEditable = "true";
+        editor.dataset.placeholder = source.getAttribute("placeholder") || "";
+        editor.innerHTML = source.value || "";
+        const guidance = document.createElement("p");
+        guidance.className = "box-guidance";
+        guidance.textContent = fieldKind(source);
+        const printValue = document.createElement("div");
+        printValue.className = "print-value";
+        printValue.innerHTML = source.value || "";
+        controls.forEach(([command, label]) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = label;
+          button.addEventListener("click", () => {
+            editor.focus();
+            restoreSelection(editor);
+            document.execCommand(command, false, null);
+            source.value = editor.innerHTML.trim();
+            printValue.innerHTML = source.value || "";
+            saveValues();
+            saveSelection();
+          });
+          toolbar.appendChild(button);
+        });
+        editor.addEventListener("input", () => { source.value = editor.innerHTML.trim(); printValue.innerHTML = source.value || ""; saveValues(); });
+        editor.addEventListener("blur", () => { source.value = editor.innerHTML.trim(); printValue.innerHTML = source.value || ""; });
+        editor.addEventListener("keyup", saveSelection);
+        editor.addEventListener("mouseup", saveSelection);
+        editor.addEventListener("focus", saveSelection);
+        box.append(toolbar, editor, guidance, createUploadControl(source));
+        source.insertAdjacentElement("afterend", box);
+        box.insertAdjacentElement("afterend", printValue);
+        richEditors.push({ source, editor, printValue });
+      });
+    }
+
+    function sectionTitle(section) {
+      const heading = section.querySelector(".section-heading h2");
+      return heading ? heading.textContent.trim() : section.id.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+    }
+
+    function sectionMeta(section) {
+      const outline = section.querySelector(".section-outline");
+      if (outline) return outline.textContent.replace(/\s+/g, " ").trim();
+      const label = section.querySelector(".section-label");
+      return label ? label.textContent.trim() : "Worksheet section";
+    }
+
+    function initSectionDropdowns() {
+      document.querySelectorAll("main > .section").forEach((section, index) => {
+        if (section.dataset.dropdownReady === "true") return;
+        section.dataset.dropdownReady = "true";
+        const body = document.createElement("div");
+        body.className = "section-body";
+        while (section.firstChild) body.appendChild(section.firstChild);
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "section-toggle";
+        toggle.setAttribute("aria-expanded", "true");
+        toggle.innerHTML = `<span><span class="section-toggle-title">${sectionTitle(section)}</span><span class="section-toggle-meta">${sectionMeta(section)}</span></span><span class="section-toggle-icon">Collapse</span>`;
+        toggle.addEventListener("click", () => {
+          const collapsed = section.classList.toggle("is-collapsed");
+          toggle.setAttribute("aria-expanded", String(!collapsed));
+          toggle.querySelector(".section-toggle-icon").textContent = collapsed ? "Expand" : "Collapse";
+        });
+        section.append(toggle, body);
+        if (index > 1 && !["opening", "overview"].includes(section.id)) {
+          section.classList.add("is-collapsed");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.querySelector(".section-toggle-icon").textContent = "Expand";
+        }
+      });
+    }
+
+    function setAllSections(expanded) {
+      document.querySelectorAll("main > .section").forEach((section) => {
+        section.classList.toggle("is-collapsed", !expanded);
+        const toggle = section.querySelector(".section-toggle");
+        if (!toggle) return;
+        toggle.setAttribute("aria-expanded", String(expanded));
+        toggle.querySelector(".section-toggle-icon").textContent = expanded ? "Collapse" : "Expand";
+      });
+    }
+
+    function fieldLabel(name) {
+      const field = document.querySelector(`[name="${name}"]`);
+      const row = field ? field.closest(".field-row") : null;
+      const label = row ? row.querySelector("label") : null;
+      if (label) return label.childNodes[0].textContent.trim();
+      return name.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase());
+    }
+
+    function fieldGroup(field) {
+      const section = field.closest("section");
+      const sectionName = section ? sectionTitle(section) : "Chapter Notes";
+      const block = field.closest(".subsection-block, .main-idea-block, .mini-card, .panel");
+      const blockHeading = block ? block.querySelector("h3") : null;
+      const group = [sectionName];
+      if (blockHeading) group.push(blockHeading.textContent.trim());
+      return group.join(" / ");
+    }
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[char]));
+    }
+
+    function notesAsHTML() {
+      const values = collectValues();
+      const grouped = {};
+      Object.entries(values).forEach(([key, value]) => {
+        if (!htmlToText(value).trim()) return;
+        const field = document.querySelector(`[name="${key}"]`);
+        const groupName = field ? fieldGroup(field) : "Chapter Notes";
+        const body = field && field.classList.contains("rich-source") ? value : `<p>${String(value).replace(/[&<>]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[char])).replace(/\n/g, "<br>")}</p>`;
+        if (!grouped[groupName]) grouped[groupName] = [];
+        grouped[groupName].push(`<article class="note-box"><h3>${escapeHTML(fieldLabel(key))}</h3><div class="note-body">${body}</div></article>`);
+      });
+      const sections = Object.entries(grouped).map(([groupName, boxes]) => `<section><h2>${escapeHTML(groupName)}</h2>${boxes.join("\n")}</section>`).join("\n");
+      return `<!doctype html><html><head><meta charset="utf-8"><title>IPC 2110 Chapter Planning Notes</title><style>body{font-family:Arial,Helvetica,sans-serif;line-height:1.45;color:#17212b;max-width:820px;margin:36px auto;padding:0 24px;background:#fffdfa}h1{font-family:Georgia,"Times New Roman",serif;color:#843a32;border-bottom:3px solid #843a32;padding-bottom:10px}h2{margin-top:28px;padding:10px 12px;border-left:6px solid #b94f43;background:#fbf7f0;color:#243d5a;font-size:1.15rem}h3{margin:0 0 8px;color:#17212b;font-size:0.98rem}.note-box{margin:12px 0;padding:12px 14px;border:1px solid #ddd0c1;border-radius:8px;background:#fff;break-inside:avoid}.note-body{min-height:24px}.note-body p{margin:0 0 8px}section{break-inside:auto}@media print{body{margin:0;max-width:none;background:#fff;font-size:10pt}h2{break-after:avoid}.note-box{break-inside:avoid;border-color:#999;border-radius:0}}</style></head><body><h1>IPC 2110 Chapter Planning Notes</h1>${sections || "<p>No notes entered yet.</p>"}</body></html>`;
+    }
+
+    function downloadFile(filename, content, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportMarkdown() {
+      const values = collectValues();
+      const lines = ["# IPC 2110 Chapter Planning Notes", ""];
+      Object.entries(values).forEach(([key, value]) => {
+        const plain = htmlToText(value);
+        if (!plain.trim()) return;
+        lines.push(`## ${fieldLabel(key)}`, "", plain.trim(), "");
+      });
+      downloadFile("ipc-2110-chapter-planning-notes.md", lines.join("\n"), "text/markdown");
+    }
+    function exportText() {
+      const values = collectValues();
+      const lines = ["IPC 2110 Chapter Planning Notes", ""];
+      Object.entries(values).forEach(([key, value]) => {
+        const plain = htmlToText(value);
+        if (!plain.trim()) return;
+        lines.push(fieldLabel(key).toUpperCase(), plain.trim(), "");
+      });
+      downloadFile("ipc-2110-chapter-planning-notes.txt", lines.join("\n"), "text/plain");
+    }
+    function exportHTML() { downloadFile("ipc-2110-chapter-planning-notes.html", notesAsHTML(), "text/html"); }
+    function exportWord() { downloadFile("ipc-2110-chapter-planning-notes.doc", notesAsHTML().replace("<html>", '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">'), "application/msword"); }
+    function openPrintNotes() {
+      const popup = window.open("", "_blank");
+      if (!popup) { exportHTML(); return; }
+      popup.document.open();
+      popup.document.write(notesAsHTML());
+      popup.document.close();
+    }
+
+    function worksheetAsPlainText() {
+      const values = collectValues();
+      const groups = {};
+      Object.entries(values).forEach(([key, value]) => {
+        const plain = htmlToText(value);
+        if (!plain.trim()) return;
+        const field = document.querySelector(`[name="${key}"]`);
+        const group = field ? fieldGroup(field) : "Chapter Notes";
+        if (!groups[group]) groups[group] = [];
+        groups[group].push(`${fieldLabel(key)}\n${plain.trim()}`);
+      });
+      const lines = Object.entries(groups).map(([group, entries]) => `${group}\n${entries.join("\n\n")}`);
+      return lines.length ? lines.join("\n\n") : "No worksheet notes have been entered yet.";
+    }
+
+    function embeddedSectionPrompts() {
+      return Array.from(document.querySelectorAll(".prompt-template")).map((prompt, index) => {
+        const card = prompt.closest(".prompt-card");
+        const section = prompt.closest("section");
+        const heading = section ? section.querySelector("h2") : null;
+        const title = card?.dataset.promptTitle || (heading ? heading.textContent.trim() : `Prompt ${index + 1}`);
+        return `${title}\n${prompt.value.trim()}`;
+      }).join("\n\n");
+    }
+
+    const promptTemplates = {
+      clarifyingReview: () => `Review the complete worksheet before constructing the drafting packet. Use the existing chapter/template structure as the primary organization and use the conceptual framework only as an alignment layer.
+
+Your task:
+- Review every workflow step and filled box: chapter setup, section goals, messy thoughts, refined language, annotated bibliography entries, examples, direct quotes, image and illustration ideas, callout ideas, videos, comparative visual notes, final checks, and specific help requests.
+- Treat messy notes and voice-note material as author intent and raw material, not polished prose.
+- Treat refined language as preferred wording that should be preserved closely unless it conflicts with clarity, source support, or terminology.
+- Treat annotated bibliographies as evidence. Map sources to claims, identify citation needs, and flag unsupported or overstated claims.
+- Sync sources before building the drafting packet: compare all section-level annotated bibliography entries, direct quote boxes, uploaded source documents, and source-mapping notes against the Master Annotated Bibliography. If a source appears in a section but is missing from the master list, add or flag it for addition with where it appeared, what claim it supports, and what citation details are missing.
+- Treat image and illustration ideas as visual prompts plus placement/accessibility notes.
+- Treat callout ideas as optional teaching supports, not required interruptions.
+- Ask clarifying questions only when the answer would change the drafting packet.
+- Do not ask generic preference questions. Do not ask about information already present in the worksheet.
+- Prioritize questions about missing source support, unclear section purpose, weak or missing examples, terminology inconsistency, framework overuse, uncertain callout or visual placement, citation risk, and whether a recurring concept belongs in this chapter.
+- If no questions are necessary, say that clearly and give a short "ready to build the drafting packet" note with any cautions.
+
+Use this completed worksheet content:
+
+${worksheetAsPlainText()}`,
+      masterDraft: () => `Draft the full IPC 2110 textbook chapter from my complete worksheet content. This is a master prompt that includes every section prompt, so do not ask me to run the prompts one at a time.
+
+Your task:
+- Before drafting, review the Clarifying Questions Before Drafting Packet section. If unresolved necessary questions remain, stop and ask only those questions instead of drafting unsupported content.
+- Draft the chapter in the existing heading order: Opening Story, Overview, Approaching the Topic, Discontinuous Leaps, Practice Bridge, and Closing.
+- Preserve the existing heading hierarchy exactly.
+- Use all worksheet boxes, including chapter setup, the common-sense approach / the (un)common-sense approach framework questions, section goals, framing boxes where present, idea development boxes where present, the Approaching approach-definition, approach-description, and common-sense history boxes, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, image files/captions/placement notes, video/embed links and placement notes, comparative illustration notes, and specific help requests.
+- Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, reaction, response, or practical application.
+- Before drafting, sync sources: compare all section-level annotated bibliography entries, direct quote boxes, uploaded source documents, and source-mapping notes against the Master Annotated Bibliography. If a source appears in a section but is missing from the master list, add or flag it for addition with where it appeared, what claim it supports, and what citation details are missing.
+- Achieve the learning outcome, rhetorical purpose, and argumentative move for each section instead of following a rigid paragraph formula.
+- Maintain my voice anchor and tone throughout.
+- Use clean transitions between all main points, sections, leaps, examples, the common-sense reaction, the (un)common-sense response, and practical application steps.
+- Use endnotes for all citations.
+- Place callout boxes, illustrations, images, videos, and embeds where they are most relevant in the chapter. When illustrations are needed, assume you will generate the images and provide concise alt text and accessibility guidance. When existing images are included, preserve the file path or URL, use or improve the caption, and flag accessibility needs such as alt text, long descriptions, contrast, copyright/source status, or alternate options. When videos or embeds are included, preserve the URL/embed code, write concise student-facing context, and flag accessibility needs such as captions, transcripts, access limits, or alternate options.
+- Recommend callout boxes throughout the chapter when interesting, clarifying, or synthesizing material would help students pause and notice something important. This includes material such as synthesis in the organizing/organization section, attention and selection in the perception chapter, terms that need a quick student-facing definition, surprising research findings, common myths, productive tensions, and examples that make an invisible assumption visible.
+- At the end of the chapter, make sure every key term gets a callout box recommendation with the term, a student-facing definition, suggested placement, and a short note about why it belongs there.
+- Include the structured comparative illustration contrasting the common-sense approach and the (un)common-sense approach across definitions, assumptions, myths/beliefs, and how each shapes communication. Make the visual readable by screen readers and text accessibility tools.
+- Check for repetition across the whole chapter. Flag anything that should be moved, merged, cut, or reframed before or after the draft.
+- Confirm that each major section achieves its stated goal.
+- Give me the finished draft as a Word document or Word-compatible document with clear title, H1/H2/H3 headers, editable body text, callout boxes clearly labeled, image/video placement notes preserved, and endnotes included. The document should be easy for me to correct before sending it to Codex for GitHub formatting.
+
+Use these embedded section prompts as the drafting requirements:
+
+${embeddedSectionPrompts()}
+
+Use this completed worksheet content as the source material:
+
+${worksheetAsPlainText()}`,
+      blueprint: () => `Create a chapter blueprint for my IPC 2110 textbook chapter. Use my topic, title movement, voice anchor, big shift, the common-sense approach / the (un)common-sense approach framework questions, approach overview notes, the common-sense history box, leap boxes, practice bridge, annotated bibliography entries, direct quotes, callout ideas, illustration ideas, image files/captions/placement notes, video/embed links and placement notes, and specific help requests. Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, reaction, response, or practical application. Before building the blueprint, sync sources by comparing section-level annotated bibliography entries, direct quote boxes, uploaded source documents, and source-mapping notes against the Master Annotated Bibliography; add or flag any section source missing from the master list with where it appeared, what claim it supports, and what citation details are missing. In Approaching the Topic, explain how the common-sense approach emerged, why it became engrained in U.S. normative culture, and how that history makes the invisible visible; do not treat common-sense as natural, timeless, or coming from nowhere. Do not prescribe a rigid prose sequence. Define the goal of each section, identify its rhetorical and learning purpose, suggest clean transitions, flag likely repetition across sections, and specify where endnotes, callouts, generated illustrations, images, videos, and embeds should appear. Maintain my voice anchor throughout.`,
+      sectionReview: () => `Review the chapter plan section by section. Confirm whether each section achieves its stated learning outcome, rhetorical goal, and argumentative move. Flag repetition, missing transitions, unsupported claims, missing endnote opportunities, voice drift, and places where callouts, illustrations, images, captions, videos, or embeds would help.`,
+      repetition: () => `Check this chapter plan for repetition across Opening Story, Overview, Approaches, Discontinuous Leaps, Practice Bridge, and Closing. Identify what should stay, move, merge, cut, or be reframed. Preserve my voice and the common-sense approach/(un)common-sense approach framework.`,
+      illustration: () => `Plan callout boxes, generated illustrations, and existing images for this chapter. Place each callout, illustration, or image where it is most relevant. Include purpose, content, suggested or revised caption, file/path or URL when available, alt text, long-description needs, and accessibility notes. Ensure visuals are readable by screen readers and text accessibility tools.`,
+      endnotes: () => `Review my annotated bibliography entries and direct quotes. Treat each annotated bibliography entry as containing the full citation, a short source summary, and an explanation of how the source relates to the section, main idea, leap, reaction, response, or practical application. Before recommending endnotes, sync sources by comparing section-level annotated bibliography entries, direct quote boxes, uploaded source documents, and source-mapping notes against the Master Annotated Bibliography; add or flag any section source missing from the master list with where it appeared, what claim it supports, and what citation details are missing. Recommend where endnotes should appear in the chapter draft. Use endnotes for citations, keep technical language student-facing, and flag any source that needs more context before drafting.`,
+      codexHandoff: () => `Prepare this chapter draft for Codex so Codex can format it consistently with the chapters already published on GitHub.
+
+Create a clean handoff packet with these labeled sections:
+1. Chapter title and subtitle, if any.
+2. Exact heading structure using H1, H2, and H3 labels.
+3. Full chapter draft text under each heading.
+4. Callout boxes, each labeled with type, suggested placement, title, body text, and whether it is a key-term callout, myth callout, research callout, example callout, or reflection/pause callout.
+5. Key terms list with each term, student-facing definition, suggested callout placement, and any linked concept-note title.
+6. Image and illustration list with file name or URL, caption, alt text, long-description needs, and exact placement in the draft.
+7. Video/embed list with URL or embed code, student-facing description, accessibility notes, and exact placement in the draft.
+8. Endnotes as a numbered list, with the in-text endnote number or marker clearly matched to the source.
+9. Instructor-resource notes or PowerPoint ideas that should not appear in the student-facing chapter.
+10. Any unresolved questions, missing sources, copyright/accessibility concerns, or places where Codex should be careful.
+
+Do not summarize the chapter instead of providing the draft. Do not collapse the headings. Do not remove callout, image, video, or endnote placement notes. Format the handoff in a clear copy/paste structure so I can give it directly to Codex and ask Codex to update the GitHub webbook chapter in the existing published style.`
+    };
+    function promptByChoice(value) {
+      if (promptTemplates[value]) return promptTemplates[value]();
+      const sectionPrompt = document.querySelector(`.prompt-template[data-prompt-id="${value}"]`);
+      if (!sectionPrompt) return "";
+      const card = sectionPrompt.closest(".prompt-card");
+      return `${card?.dataset.promptTitle || "Section prompt"}\n${sectionPrompt.value.trim()}`;
+    }
+
+    function withVoiceAnchor(promptText) {
+      return `VOICE ANCHOR FOR ALL DRAFTING\n${voiceAnchorText()}\n\n${promptText}`;
+    }
+
+    function buildPrompt() {
+      document.getElementById("promptOutput").value = withVoiceAnchor(promptTemplates[document.getElementById("promptSelect").value]());
+    }
+
+    function buildSelectedPrompts() {
+      const selected = Array.from(document.querySelectorAll('input[name="promptChoice"]:checked')).map((choice) => promptByChoice(choice.value)).filter(Boolean);
+      document.getElementById("promptOutput").value = withVoiceAnchor(selected.length ? selected.join("\n\n---\n\n") : promptTemplates.masterDraft());
+    }
+
+    movePromptPackToBottom();
+    moveComparativeIllustrationToEnd();
+    moveSectionPromptsToBottom();
+    injectSectionIntakeBoxes();
+    initSectionDropdowns();
+    restoreValues();
+    initRichEditors();
+    syncRichEditors();
+    buildPrompt();
+    allFields().forEach((field) => field.addEventListener("input", saveValues));
+    document.querySelectorAll("[data-add-main-idea]").forEach((button) => button.addEventListener("click", () => addMainIdea(button.dataset.addMainIdea)));
+    document.querySelectorAll("[data-add-video-embed]").forEach((button) => button.addEventListener("click", addVideoEmbed));
+    document.querySelectorAll("[data-add-image-asset]").forEach((button) => button.addEventListener("click", addImageAsset));
+    document.getElementById("expandSections").addEventListener("click", () => setAllSections(true));
+    document.getElementById("collapseSections").addEventListener("click", () => setAllSections(false));
+    document.getElementById("buildPrompt").addEventListener("click", buildPrompt);
+    document.getElementById("buildSelectedPrompts").addEventListener("click", buildSelectedPrompts);
+    document.getElementById("exportWord").addEventListener("click", exportWord);
+    document.getElementById("exportHTML").addEventListener("click", exportHTML);
+    document.getElementById("exportText").addEventListener("click", exportText);
+    document.getElementById("exportMarkdown").addEventListener("click", exportMarkdown);
+    document.getElementById("openPrintNotes").addEventListener("click", openPrintNotes);
+    document.getElementById("printPage").addEventListener("click", () => window.print());
+    window.addEventListener("beforeprint", syncRichEditors);
+    document.getElementById("clearSaved").addEventListener("click", () => {
+      if (!window.confirm("Clear saved notes for this template in this browser?")) return;
+      localStorage.removeItem(storageKey);
+      allFields().forEach((field) => { if (!field.classList.contains("prompt-template") && field.id !== "promptOutput") field.value = ""; });
+      richEditors.forEach(({ source, editor, printValue }) => { source.value = ""; editor.innerHTML = ""; printValue.innerHTML = ""; });
+      buildPrompt();
+      if (saveStatus) saveStatus.textContent = "Saved notes cleared.";
+    });
+    document.getElementById("copyPrompt").addEventListener("click", async () => {
+      const output = document.getElementById("promptOutput");
+      output.select();
+      await navigator.clipboard.writeText(output.value);
+      document.getElementById("copyStatus").textContent = "Copied.";
+      window.setTimeout(() => { document.getElementById("copyStatus").textContent = ""; }, 1600);
+    });
+  </script>
+</body>
+</html>

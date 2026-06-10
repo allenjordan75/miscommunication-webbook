@@ -1,0 +1,386 @@
+<style>
+  :root {
+    --cream: #fff1dd;
+    --paper: #fffdf8;
+    --white: #ffffff;
+    --ink: #151515;
+    --muted: #5b514a;
+    --clay: #b85f32;
+    --clay-dark: #8f4525;
+    --orange: #ff8846;
+    --gold: #f5b94f;
+    --green: #34704c;
+    --sage-soft: #eef2e8;
+    --blue: #005f78;
+    --tan: #d8c9b8;
+    --max: 1060px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .editor-hub {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(17px, 1.08vw, 19px);
+    line-height: 1.58;
+  }
+
+  .editor-surface {
+    width: min(var(--max), calc(100% - clamp(18px, 5vw, 72px)));
+    margin: 0 auto;
+    padding: clamp(30px, 5vw, 70px) clamp(20px, 4.4vw, 58px);
+    background: var(--paper);
+    box-shadow: 0 0 0 1px rgba(216, 201, 184, 0.65);
+  }
+
+  .book-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: clamp(1.4rem, 3vw, 2.3rem);
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--tan);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .book-header-title {
+    margin: 0;
+    font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+    font-weight: 900;
+    line-height: 1.22;
+  }
+
+  .book-header-author {
+    display: block;
+    margin-top: 0.18rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .book-header-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem 0.8rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+
+  .book-header-nav a,
+  .editor-button {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .book-header-nav a:hover,
+  .book-header-nav a:focus {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+    outline: none;
+  }
+
+  .editor-hero {
+    margin: clamp(10px, 2vw, 18px) 0 clamp(28px, 4.5vw, 54px);
+    padding: clamp(24px, 4vw, 48px);
+    background: var(--white);
+    border-top: 2px solid var(--tan);
+    border-bottom: 2px solid var(--tan);
+  }
+
+  .editor-kicker {
+    margin: 0 0 0.6rem;
+    color: var(--clay-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .editor-title {
+    max-width: 11em;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.1rem, 5.4vw, 4.8rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 0.98;
+  }
+
+  .editor-intro {
+    max-width: 58rem;
+    margin: 1rem 0 0;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.05rem, 1.6vw, 1.32rem);
+    font-weight: 800;
+    line-height: 1.28;
+  }
+
+  .editor-section {
+    margin: 0 0 clamp(28px, 5vw, 58px);
+  }
+
+  .editor-heading {
+    margin: 0 0 0.85rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.45rem, 2.3vw, 2.15rem);
+    font-weight: 900;
+    line-height: 1.08;
+  }
+
+  .editor-heading::before {
+    content: "";
+    display: block;
+    width: 4.2rem;
+    height: 5px;
+    margin-bottom: 0.44rem;
+    background: var(--clay);
+  }
+
+  .editor-steps,
+  .editor-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .editor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .editor-card {
+    padding: 1rem;
+    background: var(--white);
+    border: 1px solid var(--tan);
+    border-top: 6px solid var(--gold);
+  }
+
+  .editor-card h3 {
+    margin: 0 0 0.35rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 900;
+    line-height: 1.18;
+  }
+
+  .editor-card p {
+    margin: 0 0 0.75rem;
+    color: var(--muted);
+  }
+
+  .editor-button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .editor-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.35rem;
+    padding: 0.55rem 0.78rem;
+    background: var(--clay);
+    color: var(--white);
+    border: 2px solid var(--clay-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .editor-button.secondary {
+    background: var(--paper);
+    color: var(--blue);
+    border-color: var(--tan);
+  }
+
+  .editor-note {
+    padding: 1rem 1.1rem;
+    background: var(--sage-soft);
+    border-left: 6px solid var(--green);
+  }
+
+  .editor-note p {
+    margin: 0;
+  }
+
+  @media (max-width: 760px) {
+    .book-header,
+    .editor-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .book-header-nav {
+      justify-content: flex-start;
+    }
+  }
+</style>
+
+<section class="editor-hub">
+  <main class="editor-surface">
+    <header class="book-header" aria-label="Book header">
+      <div>
+        <p class="book-header-title">(Mis)Communication: An (Un)Commonsense Approach to Interpersonal Communication</p>
+        <span class="book-header-author">Jordan Allen, Ph.D.</span>
+      </div>
+      <nav class="book-header-nav" aria-label="Book navigation">
+        <a href="index.html">Book Home</a>
+        <a href="https://github.com/allenjordan75/miscommunication-webbook">Repository</a>
+      </nav>
+    </header>
+
+    <header class="editor-hero">
+      <p class="editor-kicker">Textbook Editing Hub</p>
+      <h1 class="editor-title">Edit once. Publish once.</h1>
+      <p class="editor-intro">Use this page when you want to revise the live textbook without downloading anything. Each edit opens the file in GitHub. When you commit the change to <strong>main</strong>, the repository updates immediately and the published link updates through GitHub Pages.</p>
+    </header>
+
+    <section class="editor-section" aria-labelledby="workflow-heading">
+      <h2 id="workflow-heading" class="editor-heading">Basic Workflow</h2>
+      <div class="editor-steps">
+        <div class="editor-card">
+          <h3>1. Pick the page you want to change.</h3>
+          <p>Open the chapter or resource in GitHub's editor. Small fixes can be made directly in the browser.</p>
+        </div>
+        <div class="editor-card">
+          <h3>2. Edit the text carefully.</h3>
+          <p>Keep the exact textbook terms intact: <strong>the common-sense approach</strong> and <strong>the (un)commonsense approach</strong>.</p>
+        </div>
+        <div class="editor-card">
+          <h3>3. Commit to main.</h3>
+          <p>Use a plain commit message such as "Revise Chapter 1 examples" or "Fix Chapter 0 terminology".</p>
+        </div>
+        <div class="editor-card">
+          <h3>4. Check the published page.</h3>
+          <p>GitHub Pages usually republishes within a minute or two. Refresh the published page after the commit finishes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="editor-section" aria-labelledby="chapter-heading">
+      <h2 id="chapter-heading" class="editor-heading">Edit Published Pages</h2>
+      <div class="editor-grid">
+        <article class="editor-card">
+          <h3>Home / Table of Contents</h3>
+          <p>Use this for chapter links, titles, availability labels, and the book landing page.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/index.html">Edit in GitHub</a>
+            <a class="editor-button secondary" href="index.html">View page</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Chapter 0</h3>
+          <p>Use this for the knowing vs. understanding foundation chapter.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/chapter-0-populated.html">Edit in GitHub</a>
+            <a class="editor-button secondary" href="chapter-0-populated.html">View page</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Chapter 1</h3>
+          <p>Use this for the common-sense and (un)commonsense approach chapter.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/chapter-1-populated.html">Edit in GitHub</a>
+            <a class="editor-button secondary" href="chapter-1-populated.html">View page</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Reading Research Resource</h3>
+          <p>Use this for the research reading and note-taking insert.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/resource/reading-notetaking/index.html">Edit in GitHub</a>
+            <a class="editor-button secondary" href="resource/reading-notetaking/">View page</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="editor-section" aria-labelledby="drafting-heading">
+      <h2 id="drafting-heading" class="editor-heading">Draft Before Publishing</h2>
+      <div class="editor-grid">
+        <article class="editor-card">
+          <h3>Textbook Guide</h3>
+          <p>Use this as the project memory file: Chapter 0 voice, Chapter 2 structure, terminology, and salience rules.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/workflow/TEXTBOOK_GUIDE.md">Edit guide</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Chapter Intake Template</h3>
+          <p>Use this when turning voice notes, rough notes, sources, and examples into a Chapter 2-shaped packet.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/workflow/templates/chapter-intake-template.md">Edit template</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Full Drafting Worksheet</h3>
+          <p>Use this browser worksheet for the full chapter setup, source pool, section boxes, prompts, and exports.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="drafting-template.html">Open worksheet</a>
+            <a class="editor-button secondary" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/drafting-template.html">Edit in GitHub</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Future Chapter Canvas</h3>
+          <p>Use this Chapter 2-style structure for every subsequent chapter reading canvas.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/workflow/templates/future-chapter-reading-canvas-template.md">Edit template</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Section Drafting Template</h3>
+          <p>Use this when drafting one part of the Chapter 2 structure without letting the AI invent the chapter.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/workflow/templates/section-drafting-template.md">Edit template</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Source Map</h3>
+          <p>Use this to attach each source and example to a specific chapter job before drafting.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/workflow/templates/source-map-template.md">Edit template</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Consistency Checklist</h3>
+          <p>Use this before publishing to check structure, voice, terminology, support, and examples.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/workflow/templates/consistency-checklist.md">Edit checklist</a>
+          </div>
+        </article>
+
+        <article class="editor-card">
+          <h3>Drafting Prompt</h3>
+          <p>Use this prompt to turn a completed packet into a Chapter 2-style reading canvas.</p>
+          <div class="editor-button-row">
+            <a class="editor-button" href="https://github.com/allenjordan75/miscommunication-webbook/edit/main/workflow/prompts/draft-future-chapter-reading-canvas.md">Edit prompt</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="editor-note" aria-label="Important note">
+      <p><strong>Important:</strong> editing the HTML files changes the live textbook pages. For major chapter revisions, draft in the workflow templates first, then paste the approved section into the chapter page.</p>
+    </section>
+  </main>
+</section>
