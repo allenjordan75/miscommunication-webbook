@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3300" height="2550" viewBox="0 0 3300 2550" role="img" aria-labelledby="title desc">
+<title id="title">Anatomy of a Social Scientific Research Article</title>
+<desc id="desc">A full-page textbook illustration that maps the sections of a social scientific research article and compares quantitative and qualitative examples from two family communication articles.</desc>
+<defs>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#b85f32" flood-opacity="0.14"/>
+  </filter>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#b85f32"/>
+  </marker>
+  <style>
+    .label { font-family: Arial, Helvetica, sans-serif; }
+    .serif { font-family: Georgia, 'Times New Roman', serif; }
+    .hotspot { cursor: pointer; }
+    .hit { fill: transparent; pointer-events: all; }
+    .rowtitle { letter-spacing: -0.01em; }
+  </style>
+</defs>
+
+<rect x="0" y="0" width="3300" height="2550" rx="0" fill="#fff1dd" stroke="none" stroke-width="0" opacity="1" />
+<circle cx="3200" cy="60" r="210" fill="#b85f32" opacity="0.13" />
+<circle cx="3020" cy="170" r="42" fill="#5f7358" opacity="0.26" />
+<circle cx="3110" cy="280" r="20" fill="#d67a2e" opacity="0.45" />
+<circle cx="80" cy="2440" r="175" fill="#5f7358" opacity="0.12" />
+<circle cx="220" cy="2250" r="25" fill="#b85f32" opacity="0.25" />
+<rect x="95" y="75" width="3110" height="360" rx="65" fill="#ffffff" stroke="#b85f32" stroke-width="8" opacity="1" filter="url(#shadow)"/>
+<circle cx="3070" cy="100" r="115" fill="#b85f32" opacity="0.18" />
+<circle cx="2900" cy="145" r="25" fill="#5f7358" opacity="0.22" />
+<rect x="135" y="120" width="415" height="65" rx="999" fill="#34704c" stroke="none" stroke-width="0" opacity="1" />
+<text x="342" y="163" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" fill="#ffffff" ><tspan x="342" dy="0">READING RESEARCH · MAP</tspan></text>
+<text x="135" y="252" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="900" fill="#b85f32" ><tspan x="135" dy="0">Anatomy of a Social Scientific Research Article</tspan></text>
+<text x="140" y="335" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" fill="#1f1f1f" ><tspan x="140" dy="0">Read it like a map, not a novel: jump to the section that answers the question you have</tspan><tspan x="140" dy="43.199999999999996">right now.</tspan></text>
+<rect x="2060" y="150" width="1010" height="215" rx="38" fill="#d6e2cb" stroke="#5f7358" stroke-width="5" opacity="1" />
+<text x="2105" y="205" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" fill="#5f7358" ><tspan x="2105" dy="0">BIG IDEA</tspan></text>
+<text x="2105" y="265" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="850" fill="#1f1f1f" ><tspan x="2105" dy="0">Fast reading shows you what is there; slow reading</tspan><tspan x="2105" dy="38.279999999999994">helps you understand what it means.</tspan></text>
+<rect x="95" y="465" width="3110" height="255" rx="45" fill="#ffffff" stroke="#d8c9b8" stroke-width="4" opacity="1" filter="url(#shadow)"/>
+<text x="145" y="540" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="900" fill="#34704c" ><tspan x="145" dy="0">The skip-around route</tspan></text>
+<text x="145" y="605" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600" fill="#3b332d" ><tspan x="145" dy="0">First pass: get oriented. Second pass: slow down</tspan><tspan x="145" dy="35.4">where the evidence or logic gets dense.</tspan></text>
+<rect x="1040" y="543" width="260" height="62" rx="31.0" fill="#eef2e8" stroke="#5f7358" stroke-width="5" opacity="1" /><text x="1170.0" y="584.0" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" fill="#1f1f1f" ><tspan x="1170.0" dy="0">1 Abstract</tspan></text>
+<text x="1302" y="586" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#b85f32" ><tspan x="1302" dy="0">→</tspan></text>
+<rect x="1345" y="543" width="296" height="62" rx="31.0" fill="#ffe5d2" stroke="#b85f32" stroke-width="5" opacity="1" /><text x="1493.0" y="584.0" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" fill="#1f1f1f" ><tspan x="1493.0" dy="0">2 Discussion</tspan></text>
+<text x="1643" y="586" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#b85f32" ><tspan x="1643" dy="0">→</tspan></text>
+<rect x="1686" y="543" width="242" height="62" rx="31.0" fill="#fff0c9" stroke="#d67a2e" stroke-width="5" opacity="1" /><text x="1807.0" y="584.0" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" fill="#1f1f1f" ><tspan x="1807.0" dy="0">3 Methods</tspan></text>
+<text x="1930" y="586" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#b85f32" ><tspan x="1930" dy="0">→</tspan></text>
+<rect x="1973" y="543" width="242" height="62" rx="31.0" fill="#eef2e8" stroke="#5f7358" stroke-width="5" opacity="1" /><text x="2094.0" y="584.0" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" fill="#1f1f1f" ><tspan x="2094.0" dy="0">4 Results</tspan></text>
+<text x="2217" y="586" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#b85f32" ><tspan x="2217" dy="0">→</tspan></text>
+<rect x="2260" y="543" width="386" height="62" rx="31.0" fill="#ffe5d2" stroke="#b85f32" stroke-width="5" opacity="1" /><text x="2453.0" y="584.0" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" fill="#1f1f1f" ><tspan x="2453.0" dy="0">5 Rationale + Lit</tspan></text>
+<text x="2648" y="586" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#b85f32" ><tspan x="2648" dy="0">→</tspan></text>
+<rect x="2691" y="543" width="278" height="62" rx="31.0" fill="#d6e2cb" stroke="#5f7358" stroke-width="5" opacity="1" /><text x="2830.0" y="584.0" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="800" fill="#1f1f1f" ><tspan x="2830.0" dy="0">6 Slow read</tspan></text>
+<text x="1040" y="665" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="600" fill="#3b332d" ><tspan x="1040" dy="0">Use Skim → Scour → Scrawl → Seek → Synthesize when you return for a deeper read.</tspan></text>
+<rect x="95" y="755" width="3110" height="1480" rx="45" fill="#ffffff" stroke="#d8c9b8" stroke-width="4" opacity="1" filter="url(#shadow)"/>
+<rect x="130" y="800" width="700" height="100" rx="28" fill="#f1f3ec" stroke="#5f7358" stroke-width="4" opacity="1" />
+<text x="165" y="860" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#34704c" ><tspan x="165" dy="0">Article section</tspan></text>
+<rect x="855" y="800" width="640" height="100" rx="28" fill="#f1f3ec" stroke="#5f7358" stroke-width="4" opacity="1" />
+<text x="890" y="860" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#34704c" ><tspan x="890" dy="0">Reader question</tspan></text>
+<rect x="1520" y="800" width="800" height="100" rx="28" fill="#ffe5d2" stroke="#b85f32" stroke-width="4" opacity="1" />
+<text x="1560" y="840" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#b85f32" ><tspan x="1560" dy="0">Quant example</tspan></text>
+<text x="1562" y="881" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#3b332d" ><tspan x="1562" dy="0">Curran &amp; Allen</tspan></text>
+<rect x="2345" y="800" width="810" height="100" rx="28" fill="#eef2e8" stroke="#5f7358" stroke-width="4" opacity="1" />
+<text x="2385" y="840" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#34704c" ><tspan x="2385" dy="0">Qual example</tspan></text>
+<text x="2387" y="881" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" fill="#3b332d" ><tspan x="2387" dy="0">Allen, Allen &amp; Moore</tspan></text>
+<g id="hotspot-abstract" class="hotspot" data-section="abstract" role="button" tabindex="0" aria-label="Abstract section">
+<rect x="130" y="925" width="3025" height="178" rx="28" fill="#ffffff" stroke="#d8c9b8" stroke-width="2" opacity="1" />
+<rect x="130" y="925" width="18" height="178" rx="28" fill="#b85f32" stroke="none" stroke-width="0" opacity="1" />
+<circle cx="190" cy="980" r="36" fill="#b85f32" opacity="1" />
+<text x="190" y="993" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#ffffff" ><tspan x="190" dy="0">1</tspan></text>
+<text x="245" y="973" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#b85f32" ><tspan x="245" dy="0">Abstract</tspan></text>
+<text x="245" y="1045" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" fill="#3b332d" ><tspan x="245" dy="0">Start here for the whole map.</tspan></text>
+<text x="890" y="983" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1f1f1f" ><tspan x="890" dy="0">What is the article’s one-paragraph</tspan><tspan x="890" dy="32.199999999999996">elevator pitch?</tspan></text>
+<text x="1560" y="975" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="1560" dy="0">Mediator test: family communication patterns → direct</tspan><tspan x="1560" dy="28.749999999999996">personalization → self-esteem and depressive symptoms;</tspan><tspan x="1560" dy="28.749999999999996">N = 249 survey.</tspan></text>
+<text x="2385" y="975" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="2385" dy="0">Cultural approach: how 31 twins make sense of</tspan><tspan x="2385" dy="28.749999999999996">intimacy; introduces the “twintimacy” continuum.</tspan></text>
+<rect x="130" y="925" width="3025" height="178" rx="28" fill="transparent" stroke="none" stroke-width="0" opacity="1" id="hit-abstract" class="hit"/>
+</g>
+<g id="hotspot-rationale" class="hotspot" data-section="rationale" role="button" tabindex="0" aria-label="Rationale / Warrant section">
+<rect x="130" y="1117" width="3025" height="178" rx="28" fill="#fff8ee" stroke="#d8c9b8" stroke-width="2" opacity="1" />
+<rect x="130" y="1117" width="18" height="178" rx="28" fill="#b85f32" stroke="none" stroke-width="0" opacity="1" />
+<circle cx="190" cy="1172" r="36" fill="#b85f32" opacity="1" />
+<text x="190" y="1185" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#ffffff" ><tspan x="190" dy="0">2</tspan></text>
+<text x="245" y="1165" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#b85f32" ><tspan x="245" dy="0">Rationale / Warrant</tspan></text>
+<text x="245" y="1237" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" fill="#3b332d" ><tspan x="245" dy="0">Look for the “so what?” pressure.</tspan></text>
+<text x="890" y="1175" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1f1f1f" ><tspan x="890" dy="0">Why does this research question matter?</tspan></text>
+<text x="1560" y="1167" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="1560" dy="0">The link between family communication and</tspan><tspan x="1560" dy="28.749999999999996">psychological health is known, but the mechanism needs</tspan><tspan x="1560" dy="28.749999999999996">explaining.</tspan></text>
+<text x="2385" y="1167" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="2385" dy="0">Twin intimacy is treated as special and suspicious at</tspan><tspan x="2385" dy="28.749999999999996">the same time, creating a cultural double-bind.</tspan></text>
+<rect x="130" y="1117" width="3025" height="178" rx="28" fill="transparent" stroke="none" stroke-width="0" opacity="1" id="hit-rationale" class="hit"/>
+</g>
+<g id="hotspot-literature-review" class="hotspot" data-section="literature-review" role="button" tabindex="0" aria-label="Literature Review section">
+<rect x="130" y="1309" width="3025" height="178" rx="28" fill="#ffffff" stroke="#d8c9b8" stroke-width="2" opacity="1" />
+<rect x="130" y="1309" width="18" height="178" rx="28" fill="#5f7358" stroke="none" stroke-width="0" opacity="1" />
+<circle cx="190" cy="1364" r="36" fill="#5f7358" opacity="1" />
+<text x="190" y="1377" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#ffffff" ><tspan x="190" dy="0">3</tspan></text>
+<text x="245" y="1357" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#b85f32" ><tspan x="245" dy="0">Literature Review</tspan></text>
+<text x="245" y="1429" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" fill="#3b332d" ><tspan x="245" dy="0">Identify key terms before slow reading.</tspan></text>
+<text x="890" y="1367" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1f1f1f" ><tspan x="890" dy="0">What scholarly conversation is the</tspan><tspan x="890" dy="32.199999999999996">article entering?</tspan></text>
+<text x="1560" y="1359" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="1560" dy="0">Family communication patterns: conversation</tspan><tspan x="1560" dy="28.749999999999996">orientation, conformity orientation, conflict</tspan><tspan x="1560" dy="28.749999999999996">appraisals, mental health.</tspan></text>
+<text x="2385" y="1359" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="2385" dy="0">Twin studies approaches: comparative, twins-for-twins,</tspan><tspan x="2385" dy="28.749999999999996">cultural; plus a family intimacy framework.</tspan></text>
+<rect x="130" y="1309" width="3025" height="178" rx="28" fill="transparent" stroke="none" stroke-width="0" opacity="1" id="hit-literature-review" class="hit"/>
+</g>
+<g id="hotspot-methods" class="hotspot" data-section="methods" role="button" tabindex="0" aria-label="Methods section">
+<rect x="130" y="1501" width="3025" height="178" rx="28" fill="#fff8ee" stroke="#d8c9b8" stroke-width="2" opacity="1" />
+<rect x="130" y="1501" width="18" height="178" rx="28" fill="#5f7358" stroke="none" stroke-width="0" opacity="1" />
+<circle cx="190" cy="1556" r="36" fill="#5f7358" opacity="1" />
+<text x="190" y="1569" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#ffffff" ><tspan x="190" dy="0">4</tspan></text>
+<text x="245" y="1549" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#b85f32" ><tspan x="245" dy="0">Methods</tspan></text>
+<text x="245" y="1621" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" fill="#3b332d" ><tspan x="245" dy="0">This is where evidence type becomes clear.</tspan></text>
+<text x="890" y="1559" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1f1f1f" ><tspan x="890" dy="0">Who/what was studied, and how was</tspan><tspan x="890" dy="32.199999999999996">evidence collected?</tspan></text>
+<text x="1560" y="1551" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="1560" dy="0">249 adult children; online survey; Likert scales;</tspan><tspan x="1560" dy="28.749999999999996">reliability coefficients; PROCESS</tspan><tspan x="1560" dy="28.749999999999996">mediation/bootstrapping.</tspan></text>
+<text x="2385" y="1551" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="2385" dy="0">31 one-on-one interviews; purposeful sampling;</tspan><tspan x="2385" dy="28.749999999999996">thematic analysis; 492 transcript pages; data</tspan><tspan x="2385" dy="28.749999999999996">conferencing.</tspan></text>
+<rect x="130" y="1501" width="3025" height="178" rx="28" fill="transparent" stroke="none" stroke-width="0" opacity="1" id="hit-methods" class="hit"/>
+</g>
+<g id="hotspot-results" class="hotspot" data-section="results" role="button" tabindex="0" aria-label="Results / Findings section">
+<rect x="130" y="1693" width="3025" height="178" rx="28" fill="#ffffff" stroke="#d8c9b8" stroke-width="2" opacity="1" />
+<rect x="130" y="1693" width="18" height="178" rx="28" fill="#b85f32" stroke="none" stroke-width="0" opacity="1" />
+<circle cx="190" cy="1748" r="36" fill="#b85f32" opacity="1" />
+<text x="190" y="1761" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#ffffff" ><tspan x="190" dy="0">5</tspan></text>
+<text x="245" y="1741" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#b85f32" ><tspan x="245" dy="0">Results / Findings</tspan></text>
+<text x="245" y="1813" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" fill="#3b332d" ><tspan x="245" dy="0">Numbers or themes live here.</tspan></text>
+<text x="890" y="1751" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1f1f1f" ><tspan x="890" dy="0">What did the researchers find?</tspan></text>
+<text x="1560" y="1743" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="1560" dy="0">Conformity orientation showed indirect links to self-</tspan><tspan x="1560" dy="28.749999999999996">esteem and depressive symptoms through conflict</tspan><tspan x="1560" dy="28.749999999999996">personalization.</tspan></text>
+<text x="2385" y="1743" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="2385" dy="0">High twintimacy = presence, interdependence,</tspan><tspan x="2385" dy="28.749999999999996">positivity. Low = distance, independence, negativity.</tspan><tspan x="2385" dy="28.749999999999996">Most were mixed.</tspan></text>
+<rect x="130" y="1693" width="3025" height="178" rx="28" fill="transparent" stroke="none" stroke-width="0" opacity="1" id="hit-results" class="hit"/>
+</g>
+<g id="hotspot-discussion" class="hotspot" data-section="discussion" role="button" tabindex="0" aria-label="Discussion section">
+<rect x="130" y="1885" width="3025" height="178" rx="28" fill="#fff8ee" stroke="#d8c9b8" stroke-width="2" opacity="1" />
+<rect x="130" y="1885" width="18" height="178" rx="28" fill="#b85f32" stroke="none" stroke-width="0" opacity="1" />
+<circle cx="190" cy="1940" r="36" fill="#b85f32" opacity="1" />
+<text x="190" y="1953" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#ffffff" ><tspan x="190" dy="0">6</tspan></text>
+<text x="245" y="1933" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#b85f32" ><tspan x="245" dy="0">Discussion</tspan></text>
+<text x="245" y="2005" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" fill="#3b332d" ><tspan x="245" dy="0">Read before results if you need the big</tspan><tspan x="245" dy="27.599999999999998">takeaway.</tspan></text>
+<text x="890" y="1943" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1f1f1f" ><tspan x="890" dy="0">What do the findings mean?</tspan></text>
+<text x="1560" y="1935" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="1560" dy="0">Open, frequent family communication may help reduce</tspan><tspan x="1560" dy="28.749999999999996">personalizing conflict, which may matter for well-</tspan><tspan x="1560" dy="28.749999999999996">being.</tspan></text>
+<text x="2385" y="1935" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="2385" dy="0">There is no single ideal twinship; cultural</tspan><tspan x="2385" dy="28.749999999999996">expectations shape how twins explain closeness and</tspan><tspan x="2385" dy="28.749999999999996">individuality.</tspan></text>
+<rect x="130" y="1885" width="3025" height="178" rx="28" fill="transparent" stroke="none" stroke-width="0" opacity="1" id="hit-discussion" class="hit"/>
+</g>
+<g id="hotspot-conclusion" class="hotspot" data-section="conclusion" role="button" tabindex="0" aria-label="Conclusion / Limits section">
+<rect x="130" y="2077" width="3025" height="178" rx="28" fill="#ffffff" stroke="#d8c9b8" stroke-width="2" opacity="1" />
+<rect x="130" y="2077" width="18" height="178" rx="28" fill="#5f7358" stroke="none" stroke-width="0" opacity="1" />
+<circle cx="190" cy="2132" r="36" fill="#5f7358" opacity="1" />
+<text x="190" y="2145" class="" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#ffffff" ><tspan x="190" dy="0">7</tspan></text>
+<text x="245" y="2125" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="33" font-weight="900" fill="#b85f32" ><tspan x="245" dy="0">Conclusion / Limits</tspan></text>
+<text x="245" y="2197" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" fill="#3b332d" ><tspan x="245" dy="0">Finish by asking: what changed? what</tspan><tspan x="245" dy="27.599999999999998">remains open?</tspan></text>
+<text x="890" y="2135" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1f1f1f" ><tspan x="890" dy="0">What should readers remember, and what</tspan><tspan x="890" dy="32.199999999999996">should they not overclaim?</tspan></text>
+<text x="1560" y="2127" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="1560" dy="0">Useful implications, but no causal certainty: cross-</tspan><tspan x="1560" dy="28.749999999999996">sectional design and a mostly White, female college</tspan><tspan x="1560" dy="28.749999999999996">sample.</tspan></text>
+<text x="2385" y="2127" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="600" fill="#3b332d" ><tspan x="2385" dy="0">Twins are not a monolith; future work should include</tspan><tspan x="2385" dy="28.749999999999996">co-twin perspectives and more twins of color.</tspan></text>
+<rect x="130" y="2077" width="3025" height="178" rx="28" fill="transparent" stroke="none" stroke-width="0" opacity="1" id="hit-conclusion" class="hit"/>
+</g>
+<rect x="95" y="2270" width="990" height="205" rx="42" fill="#34704c" stroke="none" stroke-width="0" opacity="1" filter="url(#shadow)"/>
+<text x="140" y="2330" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="900" fill="#ffffff" ><tspan x="140" dy="0">Pause and notice</tspan></text>
+<text x="140" y="2390" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700" fill="#ffffff" ><tspan x="140" dy="0">Which section tells you the purpose, the method, the</tspan><tspan x="140" dy="33.349999999999994">findings, and the “so what”?</tspan></text>
+<rect x="1125" y="2270" width="980" height="205" rx="42" fill="#ffffff" stroke="#b85f32" stroke-width="5" opacity="1" filter="url(#shadow)"/>
+<text x="1175" y="2328" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#b85f32" ><tspan x="1175" dy="0">Quant clues</tspan></text>
+<text x="1175" y="2382" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="650" fill="#3b332d" ><tspan x="1175" dy="0">Look for N, scales, variables, reliability, statistical</tspan><tspan x="1175" dy="33.349999999999994">models, p-values, confidence intervals.</tspan></text>
+<rect x="2140" y="2270" width="1065" height="205" rx="42" fill="#ffffff" stroke="#5f7358" stroke-width="5" opacity="1" filter="url(#shadow)"/>
+<text x="2190" y="2328" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#34704c" ><tspan x="2190" dy="0">Qual clues</tspan></text>
+<text x="2190" y="2382" class="" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="650" fill="#3b332d" ><tspan x="2190" dy="0">Look for research questions, interviews, participant voices,</tspan><tspan x="2190" dy="33.349999999999994">themes, coding, and meaning-making.</tspan></text>
+</svg>

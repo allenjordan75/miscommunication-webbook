@@ -1,0 +1,231 @@
+<style>
+  :root {
+    --cream: #fff1dd;
+    --paper: #fffdf8;
+    --white: #ffffff;
+    --ink: #151515;
+    --muted: #5b514a;
+    --clay: #b85f32;
+    --clay-dark: #8f4525;
+    --orange: #ff8846;
+    --gold: #f5b94f;
+    --green: #34704c;
+    --sage-soft: #eef2e8;
+    --blue: #005f78;
+    --tan: #d8c9b8;
+    --max: 980px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .canvas-reading-page {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(18px, 1.1vw, 20px);
+    line-height: 1.62;
+  }
+
+  .reading-surface {
+    width: min(var(--max), calc(100% - clamp(18px, 5vw, 72px)));
+    margin: 0 auto;
+    padding: clamp(28px, 4.4vw, 62px) clamp(16px, 3vw, 42px);
+  }
+
+  .reading-header,
+  .reading-panel,
+  .reading-list-panel {
+    margin: 0 0 clamp(22px, 4vw, 44px);
+    padding: clamp(24px, 4vw, 46px);
+    background: var(--paper);
+    border: 1px solid rgba(216, 201, 184, 0.92);
+    box-shadow: 0 14px 34px rgba(21, 21, 21, 0.07);
+  }
+
+  .reading-header {
+    position: relative;
+    border-top: 2px solid var(--tan);
+    border-bottom: 2px solid var(--tan);
+    overflow: hidden;
+  }
+
+  .reading-header:before {
+    content: "";
+    position: absolute;
+    inset: 18px auto 18px 0;
+    width: 14px;
+    background: var(--gold);
+  }
+
+  .reading-kicker {
+    margin: 0 0 0.65rem;
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .reading-title {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.1rem, 4.8vw, 4.6rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 0.98;
+  }
+
+  .reading-subtitle {
+    max-width: 42rem;
+    margin: 1rem 0 0;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.15rem, 1.9vw, 1.55rem);
+    font-weight: 800;
+    line-height: 1.22;
+  }
+
+  .section-heading {
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.35rem, 2vw, 1.9rem);
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .section-heading:before {
+    content: "";
+    display: block;
+    width: 4.4rem;
+    height: 5px;
+    margin-bottom: 0.42rem;
+    background: var(--clay);
+  }
+
+  .reading-panel p,
+  .reading-list-panel p {
+    max-width: 68ch;
+    margin: 0 0 0.72em;
+  }
+
+  .big-idea {
+    margin: 1.1rem 0 0;
+    padding: 1rem 1.1rem;
+    background: var(--sage-soft);
+    border-left: 6px solid var(--green);
+  }
+
+  .big-idea strong,
+  .callout-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .task-list,
+  .term-list {
+    display: grid;
+    gap: 0.9rem;
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .task-list li,
+  .term-list li {
+    padding: 0.95rem 1rem;
+    background: var(--white);
+    border: 1px solid rgba(216, 201, 184, 0.95);
+    border-left: 7px solid var(--gold);
+  }
+
+  .task-list strong,
+  .term-list strong {
+    display: block;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+  }
+
+  .reading-note {
+    margin-top: 1.2rem;
+    padding: 1rem 1.1rem;
+    background: #fff7db;
+    border-left: 6px solid var(--gold);
+  }
+
+  @media (max-width: 700px) {
+    .reading-surface {
+      width: min(100%, calc(100% - 22px));
+    }
+  }
+</style>
+
+<section class="canvas-reading-page">
+  <main class="reading-surface">
+    <header class="reading-header">
+      <p class="reading-kicker">Chapter 2 Reading</p>
+      <h1 class="reading-title">Perception (Mis)Perception</h1>
+      <p class="reading-subtitle">From accuracy to sense-making</p>
+    </header>
+
+    <section class="reading-panel" aria-labelledby="reading-purpose-heading">
+      <h2 id="reading-purpose-heading" class="section-heading">Before You Read</h2>
+      <p>This chapter asks you to rethink perception. A common-sense approach often treats perception as accurate knowing: if I saw it, heard it, or felt it clearly, then I know what happened. The (un)commonsense approach asks a different question: how did this perception become meaningful from where someone stands?</p>
+      <div class="big-idea">
+        <strong>Big Idea</strong>
+        <p>Perception rarely arrives as raw reality. It takes shape through noticing, grouping, meaning-making, and story-building. Accuracy still matters, but it cannot carry the whole burden of understanding.</p>
+      </div>
+    </section>
+
+    <section class="reading-list-panel" aria-labelledby="reading-focus-heading">
+      <h2 id="reading-focus-heading" class="section-heading">Read For These Moves</h2>
+      <ul class="task-list">
+        <li><strong>The Dress</strong>Notice how a disagreement about color becomes a larger problem about certainty, reality, and how quickly perception can become proof.</li>
+        <li><strong>The perceptual loop</strong>Track how selection, organization, interpretation, and storying work together. The chapter treats perception as a living loop, not a clean pipeline.</li>
+        <li><strong>Common sense vs. (un)commonsense</strong>Watch how the common-sense model asks whether perception accurately represents reality, while the (un)commonsense model asks how perception becomes meaningful from a body, history, relationship, culture, language, technology, and situation.</li>
+        <li><strong>Relational responsibility</strong>Pay attention to what changes when perceptual difference is not automatically treated as error, irrationality, or bad faith.</li>
+      </ul>
+    </section>
+
+    <section class="reading-list-panel" aria-labelledby="leaps-heading">
+      <h2 id="leaps-heading" class="section-heading">The Three Named Leaps</h2>
+      <ul class="task-list">
+        <li><strong>Leap 1: From Linear Processing to Recursive Sense-Making</strong>Perception is not a simple input-processing-output machine. It is a loop where prior meanings shape what people notice next, while new evidence, interaction, and perspective can revise those meanings.</li>
+        <li><strong>Leap 2: From Private Mental Process to Collaborative Sense-Making</strong>Perception does not happen only inside isolated minds. People make sense through bodies, relationships, tools, shared attention, histories, and environments.</li>
+        <li><strong>Leap 3: From Bias as Error to Bias as Monitored Blind Spot</strong>Bias is not something only other people have. Every perceptual position has boundaries, so responsible communicating requires checking what our position makes easy and hard to see.</li>
+      </ul>
+    </section>
+
+    <section class="reading-list-panel" aria-labelledby="terms-heading">
+      <h2 id="terms-heading" class="section-heading">Key Terms To Track</h2>
+      <ul class="term-list">
+        <li><strong>Perception</strong>The ongoing process of noticing, grouping, meaning-making, and storying experience from a particular position so people can act, communicate, and understand.</li>
+        <li><strong>Selection</strong>The filtering process that makes some cues available for attention while other cues stay in the background.</li>
+        <li><strong>Organization</strong>The patterning process that links selected cues into figures, wholes, categories, sequences, or relationships.</li>
+        <li><strong>Interpretation</strong>The meaning-making process that explains what selected and organized cues suggest within a situation.</li>
+        <li><strong>Storying</strong>The narrative process that turns interpreted moments into larger accounts of what happened, who people are, and what the event says about a relationship or world.</li>
+        <li><strong>Naive realism</strong>The assumption that we perceive the world more or less as it really is and that reasonable people should see the same reality.</li>
+      </ul>
+    </section>
+
+    <section class="reading-panel" aria-labelledby="after-heading">
+      <h2 id="after-heading" class="section-heading">After You Read</h2>
+      <p>Before moving to the quiz, pause and identify one moment from the chapter where perception felt obvious to someone but was still shaped by position, history, expectation, or relationship.</p>
+      <div class="reading-note">
+        <strong class="callout-label">Quick Check</strong>
+        <p>Be ready to explain the difference between asking, "Whose perception is accurate?" and asking, "How did each perception become meaningful from where each person stands?"</p>
+      </div>
+    </section>
+  </main>
+</section>

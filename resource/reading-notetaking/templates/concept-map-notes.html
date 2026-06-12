@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Concept Map Notes Template</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      color: #151515;
+      background: #fffdf8;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    label {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 2rem;
+    }
+
+    .map {
+      position: relative;
+      min-height: 820px;
+      border: 2px solid #d8c9b8;
+      background:
+        linear-gradient(#f2eadf 1px, transparent 1px),
+        linear-gradient(90deg, #f2eadf 1px, transparent 1px),
+        #ffffff;
+      background-size: 34px 34px;
+    }
+
+    .node {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      min-height: 110px;
+      padding: 16px;
+      border: 2px solid #151515;
+      border-radius: 8px;
+      background: #fff7db;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .main {
+      top: 320px;
+      left: calc(50% - 150px);
+      width: 300px;
+      background: #eef2e8;
+      border-color: #34704c;
+    }
+
+    .a { top: 90px; left: 80px; width: 260px; }
+    .b { top: 90px; right: 80px; width: 260px; }
+    .c { bottom: 90px; left: 80px; width: 260px; }
+    .d { bottom: 90px; right: 80px; width: 260px; }
+
+    .line {
+      position: absolute;
+      height: 3px;
+      background: #b85f32;
+      transform-origin: left center;
+    }
+
+    .l1 { top: 284px; left: 280px; width: 320px; transform: rotate(32deg); }
+    .l2 { top: 284px; right: 280px; width: 320px; transform: rotate(148deg); }
+    .l3 { bottom: 284px; left: 280px; width: 320px; transform: rotate(-32deg); }
+    .l4 { bottom: 284px; right: 280px; width: 320px; transform: rotate(-148deg); }
+
+    @media print {
+      body {
+        padding: 0.45in;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Concept Map Notes</h1>
+  <section class="map" aria-label="Concept map template">
+    <div class="line l1"></div>
+    <div class="line l2"></div>
+    <div class="line l3"></div>
+    <div class="line l4"></div>
+    <div class="node main">Main idea</div>
+    <div class="node a">Key concept</div>
+    <div class="node b">Evidence</div>
+    <div class="node c">Question</div>
+    <div class="node d">Connection</div>
+  </section>
+</body>
+</html>

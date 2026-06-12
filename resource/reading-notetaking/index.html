@@ -1,0 +1,1460 @@
+<!doctype html>
+<!-- Future revisions should consult REVISION_SOURCE_BRIEF.md in this folder. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notes That Think: Reading Research in the Age of AI</title>
+  <style>
+    :root {
+      --ink: #202020;
+      --paper: #fffdf8;
+      --cream: #fff1dd;
+      --night: #17233a;
+      --blue: #245c73;
+      --green: #3f6f4f;
+      --clay: #b85f32;
+      --gold: #f2c969;
+      --rose: #f4d7cf;
+      --mint: #dcebdc;
+      --sky: #dceef3;
+      --line: rgba(32, 32, 32, 0.9);
+      --soft-line: rgba(32, 32, 32, 0.18);
+      --shadow: 9px 9px 0 rgba(32, 32, 32, 0.12);
+      --max: 1120px;
+      --radius: 8px;
+      --reading-progress: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(184, 95, 50, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36, 92, 115, 0.05) 1px, transparent 1px),
+        var(--cream);
+      background-size: 32px 32px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(17px, 1.05vw, 20px);
+      line-height: 1.62;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      height: 6px;
+      background: linear-gradient(90deg, var(--clay), var(--gold), var(--green));
+      transform: scaleX(var(--reading-progress));
+      transform-origin: left;
+      transition: transform 220ms ease;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus,
+    button:focus,
+    summary:focus {
+      outline: 4px solid rgba(242, 201, 105, 0.86);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .resource-page {
+      width: min(var(--max), calc(100% - clamp(18px, 5vw, 72px)));
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 54px) 0 clamp(48px, 7vw, 86px);
+    }
+
+    .book-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: clamp(1rem, 3vw, 1.8rem);
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(32, 32, 32, 0.22);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .book-header-title {
+      margin: 0;
+      font-size: 0.98rem;
+      font-weight: 900;
+      line-height: 1.22;
+    }
+
+    .book-header-author {
+      display: block;
+      margin-top: 0.18rem;
+      color: #61554c;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .book-header-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.45rem 0.8rem;
+      color: #4f4640;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .book-header-nav a,
+    .resource-button,
+    .template-link,
+    .map-card {
+      text-decoration: none;
+    }
+
+    .book-header-nav a:hover,
+    .book-header-nav a:focus {
+      color: var(--clay);
+      text-decoration: underline;
+      text-underline-offset: 0.22em;
+    }
+
+    .resource-header {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: clamp(20px, 3vw, 34px);
+      padding: clamp(34px, 6vw, 72px);
+      color: #fffaf0;
+      background:
+        radial-gradient(circle at 15% 18%, rgba(242, 201, 105, 0.28) 0 2px, transparent 3px),
+        radial-gradient(circle at 74% 22%, rgba(255, 250, 240, 0.22) 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 70%, rgba(242, 201, 105, 0.2) 0 2px, transparent 3px),
+        linear-gradient(135deg, var(--night), #101827 76%);
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      box-shadow: 10px 10px 0 rgba(32, 32, 32, 0.16);
+    }
+
+    .resource-header::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 9px;
+      background: linear-gradient(90deg, var(--clay), var(--gold), var(--green), var(--blue));
+    }
+
+    .resource-kicker,
+    .page-status,
+    .resource-button,
+    .method-label,
+    .figure-label,
+    .template-link span,
+    .map-number,
+    .truth-label,
+    .image-hint {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .resource-kicker {
+      margin: 0 0 0.85rem;
+      color: var(--gold);
+      font-size: 0.82rem;
+    }
+
+    .resource-title {
+      max-width: 11ch;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(2.5rem, 7vw, 5.8rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 0.95;
+    }
+
+    .resource-subtitle {
+      max-width: 54rem;
+      margin: 1rem 0 0;
+      color: #fff2d7;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(1.08rem, 2vw, 1.52rem);
+      font-weight: 800;
+      line-height: 1.28;
+    }
+
+    .resource-page-item {
+      display: none;
+    }
+
+    .resource-page-item.is-current {
+      display: block;
+    }
+
+    .resource-panel,
+    .research-panel,
+    .article-panel,
+    .method-panel,
+    .practice-panel,
+    .template-panel,
+    .endnotes,
+    .chapter-map-panel {
+      position: relative;
+      margin: 0 0 clamp(24px, 4vw, 48px);
+      padding: clamp(22px, 4vw, 46px);
+      background: var(--paper);
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      scroll-margin-top: 2rem;
+    }
+
+    .research-panel {
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(255, 253, 248, 0.96)),
+        var(--rose);
+    }
+
+    .chapter-map-panel {
+      color: #fffaf0;
+      background:
+        radial-gradient(circle at 12% 15%, rgba(242, 201, 105, 0.26) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 28%, rgba(255, 250, 240, 0.2) 0 2px, transparent 3px),
+        var(--night);
+      border-color: var(--night);
+      box-shadow: 10px 10px 0 rgba(36, 92, 115, 0.22);
+    }
+
+    .template-panel {
+      background: linear-gradient(180deg, rgba(220, 235, 220, 0.7), var(--paper));
+    }
+
+    .endnotes {
+      font-size: 0.95rem;
+    }
+
+    .section-heading {
+      margin: 0 0 0.85rem;
+      color: var(--night);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(1.75rem, 3.4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.04;
+    }
+
+    .chapter-map-panel .section-heading {
+      color: #fffaf0;
+    }
+
+    .section-heading::before {
+      content: "";
+      display: block;
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-bottom: 0.58rem;
+      background:
+        radial-gradient(circle at center, var(--gold) 0 30%, transparent 31%),
+        linear-gradient(90deg, transparent 0 45%, var(--clay) 45% 55%, transparent 55%),
+        linear-gradient(0deg, transparent 0 45%, var(--clay) 45% 55%, transparent 55%);
+      border-radius: 50%;
+    }
+
+    h3 {
+      margin: 0 0 0.55rem;
+      color: var(--night);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(1.08rem, 1.8vw, 1.42rem);
+      font-weight: 900;
+      line-height: 1.14;
+    }
+
+    .chapter-map-panel h3,
+    .chapter-map-panel p {
+      color: #fffaf0;
+    }
+
+    p {
+      margin: 0 0 0.78em;
+    }
+
+    .resource-panel > p,
+    .research-panel > p,
+    .article-panel > p,
+    .method-panel > p,
+    .practice-panel > p,
+    .template-panel > p {
+      max-width: 74ch;
+    }
+
+    .callout-box {
+      margin: 1.35rem 0;
+      padding: clamp(16px, 3vw, 26px);
+      background: var(--sky);
+      border: 2px solid var(--ink);
+      border-left: 12px solid var(--blue);
+      border-radius: var(--radius);
+      box-shadow: 7px 7px 0 rgba(36, 92, 115, 0.18);
+    }
+
+    .callout-box strong {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.08rem;
+      font-weight: 900;
+    }
+
+    .thesis-strip {
+      margin: 1.2rem 0;
+      padding: clamp(18px, 3vw, 28px);
+      color: var(--night);
+      background: var(--gold);
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      box-shadow: 7px 7px 0 rgba(184, 95, 50, 0.25);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: clamp(1.18rem, 2vw, 1.62rem);
+      font-weight: 900;
+      line-height: 1.22;
+    }
+
+    .move-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin: 1.15rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .move-strip li {
+      min-height: 100%;
+      margin: 0;
+      padding: 0.85rem;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      box-shadow: 5px 5px 0 rgba(32, 32, 32, 0.08);
+    }
+
+    .move-strip strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--clay);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 900;
+    }
+
+    .map-path {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 1.45rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .map-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.75rem;
+      min-height: 100%;
+      padding: 1rem;
+      color: var(--ink);
+      background: #fffaf0;
+      border: 2px solid rgba(255, 250, 240, 0.4);
+      border-left: 12px solid var(--gold);
+      border-radius: var(--radius);
+      box-shadow: 7px 7px 0 rgba(255, 250, 240, 0.12);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .map-card:hover,
+    .map-card:focus,
+    .map-card.is-active {
+      transform: translateY(-3px);
+      box-shadow: 9px 9px 0 rgba(242, 201, 105, 0.28);
+    }
+
+    .map-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 2.55rem;
+      width: 2.55rem;
+      height: 2.55rem;
+      color: var(--night);
+      background: var(--gold);
+      border: 2px solid var(--night);
+      border-radius: 50%;
+      font-size: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .map-card strong {
+      display: block;
+      color: var(--night);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      line-height: 1.12;
+    }
+
+    .map-card > span:not(.map-number),
+    .map-card strong + span {
+      display: block;
+      margin-top: 0.3rem;
+      color: #423a34;
+      font-size: 0.92rem;
+      line-height: 1.38;
+    }
+
+    .case-file,
+    .research-note,
+    .note-rules,
+    .example-move,
+    .practice-feedback {
+      margin: 1.1rem 0;
+      padding: 1rem;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      box-shadow: 6px 6px 0 rgba(32, 32, 32, 0.08);
+    }
+
+    .case-thread,
+    .split-grid,
+    .example-move-grid,
+    .before-after,
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: start;
+      margin-top: 1rem;
+    }
+
+    .case-thread p,
+    .note-rules p,
+    .example-move p {
+      margin: 0;
+      padding: 0.9rem;
+      background: var(--cream);
+      border-left: 8px solid var(--clay);
+      border-radius: var(--radius);
+    }
+
+    .video-frame {
+      overflow: hidden;
+      margin-top: 0.85rem;
+      background: #111;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+    }
+
+    .example-move {
+      border-left: 10px solid var(--blue);
+    }
+
+    .example-move strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--night);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111;
+    }
+
+    .image-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0.75rem 0;
+      padding: 0.55rem 0.72rem;
+      color: var(--night);
+      background: var(--gold);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      line-height: 1.12;
+    }
+
+    .image-hint::before {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 1.1rem;
+      height: 1.1rem;
+      color: #fff;
+      background: var(--night);
+      border-radius: 50%;
+      font-size: 0.9rem;
+    }
+
+    .article-card,
+    .example-card {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(18px, 4vw, 34px);
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .example-card.reverse {
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+    }
+
+    .example-copy {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.74);
+      border-left: 10px solid var(--green);
+      border-radius: var(--radius);
+    }
+
+    .image-button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      cursor: zoom-in;
+      background: transparent;
+      border: 0;
+    }
+
+    .image-button img {
+      width: 100%;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      box-shadow: 7px 7px 0 rgba(32, 32, 32, 0.12);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .image-button:hover img,
+    .image-button:focus img {
+      transform: translateY(-3px) rotate(-0.4deg);
+      box-shadow: 9px 9px 0 rgba(184, 95, 50, 0.22);
+    }
+
+    .figure-caption {
+      margin: 0.65rem 0 0;
+      color: #554b43;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .figure-label,
+    .method-label {
+      margin: 0 0 0.4rem;
+      color: var(--clay);
+      font-size: 0.72rem;
+    }
+
+    .resource-button,
+    .page-button,
+    .practice-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.7rem 0.95rem;
+      color: #fffaf0;
+      background: var(--night);
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      box-shadow: 4px 4px 0 rgba(32, 32, 32, 0.16);
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 900;
+      line-height: 1.12;
+      text-align: center;
+    }
+
+    .resource-button.secondary,
+    .page-button.secondary {
+      color: var(--night);
+      background: var(--gold);
+    }
+
+    .resource-button.ghost,
+    .page-button.ghost {
+      color: var(--night);
+      background: #fff;
+    }
+
+    .resource-button:hover,
+    .resource-button:focus,
+    .page-button:hover,
+    .page-button:focus,
+    .practice-button:hover,
+    .practice-button:focus {
+      transform: translateY(-2px);
+    }
+
+    .button-stack,
+    .page-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .page-shell {
+      margin-top: clamp(22px, 4vw, 38px);
+      padding-top: 1rem;
+      border-top: 2px dashed rgba(32, 32, 32, 0.28);
+    }
+
+    .page-status {
+      margin: 0 0 0.5rem;
+      color: var(--clay);
+      font-size: 0.74rem;
+    }
+
+    .next-preview {
+      margin: 0 0 0.8rem;
+      padding: 0.85rem;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-left: 10px solid var(--gold);
+      border-radius: var(--radius);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .next-preview strong {
+      display: block;
+      color: var(--clay);
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .template-link {
+      display: block;
+      min-height: 100%;
+      padding: 1rem;
+      color: var(--ink);
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-left: 10px solid var(--green);
+      border-radius: var(--radius);
+      box-shadow: 6px 6px 0 rgba(32, 32, 32, 0.08);
+    }
+
+    .template-link strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--night);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .template-link span {
+      display: block;
+      color: #554b43;
+      font-size: 0.72rem;
+      line-height: 1.34;
+    }
+
+    .truth-list {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1rem 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .truth-item {
+      margin: 0;
+      padding: 1rem;
+      background: #fff;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      box-shadow: 5px 5px 0 rgba(32, 32, 32, 0.08);
+    }
+
+    .truth-item label {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.7rem;
+      cursor: pointer;
+    }
+
+    .truth-item input {
+      width: 1.1rem;
+      height: 1.1rem;
+      margin-top: 0.3rem;
+      accent-color: var(--green);
+    }
+
+    .truth-label {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: var(--clay);
+      font-size: 0.72rem;
+    }
+
+    .practice-feedback {
+      min-height: 3rem;
+      color: var(--night);
+      background: var(--mint);
+      border-left: 10px solid var(--green);
+    }
+
+    details.research-note {
+      background: var(--sky);
+      border-left: 10px solid var(--blue);
+    }
+
+    details summary {
+      cursor: pointer;
+      color: var(--night);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+      line-height: 1.18;
+    }
+
+    details .note-body {
+      margin-top: 0.8rem;
+    }
+
+    .endnotes ol {
+      padding-left: 1.2rem;
+    }
+
+    .endnotes li {
+      margin-bottom: 0.7rem;
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      place-items: center;
+      padding: clamp(14px, 3vw, 36px);
+      background: rgba(14, 18, 26, 0.88);
+    }
+
+    .image-modal.is-open {
+      display: grid;
+    }
+
+    .modal-inner {
+      position: relative;
+      width: min(1440px, 98vw);
+      max-height: 96vh;
+      padding: clamp(10px, 2vw, 18px);
+      overflow: auto;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+    }
+
+    .modal-inner img {
+      width: auto;
+      max-width: none;
+      min-width: min(100%, 920px);
+      max-height: none;
+      object-fit: contain;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+    }
+
+    .modal-inner img.portrait {
+      width: min(100%, 980px);
+      min-width: min(100%, 760px);
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin: 0 0 0.5rem 0.5rem;
+      color: #fffaf0;
+      background: var(--clay);
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+    }
+
+    .modal-caption {
+      margin: 0.8rem 0 0;
+      color: var(--night);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .path-coach {
+      position: fixed;
+      right: clamp(12px, 2vw, 24px);
+      bottom: clamp(12px, 2vw, 24px);
+      z-index: 110;
+      width: min(320px, calc(100vw - 24px));
+      padding: 0.85rem;
+      color: #fffaf0;
+      background: rgba(23, 35, 58, 0.96);
+      border: 2px solid rgba(255, 250, 240, 0.32);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 26px rgba(32, 32, 32, 0.26);
+      transform: translateY(150%);
+      transition: transform 220ms ease;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.86rem;
+      line-height: 1.35;
+    }
+
+    .path-coach.is-visible {
+      transform: translateY(0);
+    }
+
+    .path-coach strong {
+      display: block;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 780px) {
+      .book-header,
+      .article-card,
+      .example-card,
+      .example-card.reverse,
+      .case-thread,
+      .split-grid,
+      .before-after,
+      .template-grid,
+      .map-path,
+      .move-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .book-header-nav {
+        justify-content: flex-start;
+      }
+
+      .resource-header,
+      .resource-panel,
+      .research-panel,
+      .article-panel,
+      .method-panel,
+      .practice-panel,
+      .template-panel,
+      .endnotes,
+      .chapter-map-panel {
+        padding: 20px;
+      }
+
+      .resource-title {
+        max-width: 9ch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="resource-page">
+    <header class="book-header" aria-label="Book navigation">
+      <p class="book-header-title">Miscommunication as a Starting Place <span class="book-header-author">Jordan Allen</span></p>
+      <nav class="book-header-nav" aria-label="Resource navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../../chapter-2-reading-canvas.html">Chapter 3 Reading Insert</a>
+        <a href="#resource-map">Resource Map</a>
+        <a href="#templates">Optional Templates</a>
+        <a href="#endnotes">Sources</a>
+      </nav>
+    </header>
+
+    <section class="resource-header">
+      <p class="resource-kicker">Resource: Reading and Research</p>
+      <h1 class="resource-title">Notes That Think</h1>
+      <p class="resource-subtitle">A field guide for reading research directly, using AI carefully, and turning notes into your own understanding.</p>
+    </section>
+
+    <section id="overview" class="resource-panel resource-page-item is-current" aria-labelledby="overview-heading" data-page-title="Overview: Why We Still Read" data-page-summary="Start with the purpose of the resource and learn how the buttons work.">
+      <h2 id="overview-heading" class="section-heading">Overview: Why We Still Read</h2>
+      <p>We live in a moment when AI can summarize almost anything in seconds. That sounds convenient, and sometimes it is. But polished language is not the same thing as understanding. A summary can leave out the method, flatten the evidence, miss the caution, or invent a source that never existed.</p>
+      <p>That is why we still read important sources directly. We do not take notes because we are trying to make reading harder. We take notes because notes keep the work of understanding attached to us. As we read, we decide what matters, put ideas in our own words, connect the article to what we already know, and leave ourselves a trail we can use later when we write a summary.</p>
+      <div class="thesis-strip">AI should help us spend deeper time with the sources that matter most, not give us a reason to stop reading them.</div>
+      <div class="callout-box">
+        <strong>How to move through this resource</strong>
+        <p>Use <strong>Next</strong> when you want the guided path. Each page tells you what the next page will do before you click. Use <strong>Previous</strong> when you want to go back one page. Use <strong>Open Resource Map</strong> when you want the whole resource at once and need to jump to a specific page. When a button says <strong>Open the article PDF</strong>, it opens the reading itself. When a button says <strong>Go to the note checklist</strong>, it takes you to the page that explains what your notes should include.</p>
+      </div>
+      <ul class="move-strip">
+        <li><strong>Get oriented</strong>Use AI, titles, abstracts, and headings to preview what you are about to read.</li>
+        <li><strong>Read directly</strong>Stay with the important source long enough to see how the claim is built.</li>
+        <li><strong>Take notes</strong>Choose, paraphrase, question, connect, and organize ideas for yourself.</li>
+        <li><strong>Write later</strong>Turn your notes into a summary that you can explain and defend.</li>
+      </ul>
+    </section>
+
+    <nav id="resource-map" class="chapter-map-panel resource-page-item" aria-labelledby="map-heading" data-page-title="Resource Map" data-page-summary="Jump to any page in the field guide.">
+      <h2 id="map-heading" class="section-heading">Resource Map: Choose Your Route</h2>
+      <p>This map is for you when you need to find a specific part of the resource again. If you are moving through the resource for the first time, start with the overview and use Next. If you are returning, choose the page you need.</p>
+      <ol class="map-path">
+        <li><a class="map-card" href="#overview"><span class="map-number">1</span><span><strong>Overview: Why We Still Read</strong><span>Start here. Learn the purpose and how the buttons work.</span></span></a></li>
+        <li><a class="map-card" href="#research"><span class="map-number">2</span><span><strong>AI Shortcuts Have Consequences</strong><span>See why verification and direct reading still matter.</span></span></a></li>
+        <li><a class="map-card" href="#example-article"><span class="map-number">3</span><span><strong>The Article We Use</strong><span>Open the Allen and Moore article behind every example.</span></span></a></li>
+        <li><a class="map-card" href="#what-to-capture"><span class="map-number">4</span><span><strong>What Your Notes Need To Catch</strong><span>Use this checklist so your notes can become a summary later.</span></span></a></li>
+        <li><a class="map-card" href="#handwritten-notes-page"><span class="map-number">5</span><span><strong>Handwritten Notes: Slow Down To Think</strong><span>See why handwriting can help learning and how to use it flexibly.</span></span></a></li>
+        <li><a class="map-card" href="#digital-notes-page"><span class="map-number">6</span><span><strong>Digital Notes: Organize And Revisit</strong><span>Use digital notes without letting speed become copying.</span></span></a></li>
+        <li><a class="map-card" href="#hand-annotation-heading"><span class="map-number">7</span><span><strong>Handwritten Annotations: Talk To The Page</strong><span>Write questions, paraphrases, and connections in the margins.</span></span></a></li>
+        <li><a class="map-card" href="#digital-annotation-heading"><span class="map-number">8</span><span><strong>Digital Annotations: Label Your Thinking</strong><span>Use comments and tags so your future self can find the point.</span></span></a></li>
+        <li><a class="map-card" href="#visual-methods"><span class="map-number">9</span><span><strong>Creative Notes: Build The Summary</strong><span>Use maps, charts, webs, and diagrams to organize ideas your way.</span></span></a></li>
+        <li><a class="map-card" href="#practice"><span class="map-number">10</span><span><strong>Quick Check: Annotation Myths</strong><span>Test what counts as useful annotation and note-taking.</span></span></a></li>
+        <li><a class="map-card" href="#templates"><span class="map-number">11</span><span><strong>Optional Templates</strong><span>Use a template only if it helps you think and write later.</span></span></a></li>
+        <li><a class="map-card" href="#endnotes"><span class="map-number">12</span><span><strong>Sources</strong><span>Review the research and examples used in this guide.</span></span></a></li>
+      </ol>
+    </nav>
+
+    <section id="research" class="research-panel resource-page-item" aria-labelledby="research-heading" data-page-title="AI Shortcuts Have Consequences" data-page-summary="Professional examples and learning research show why we still verify, read, and take notes.">
+      <h2 id="research-heading" class="section-heading">AI Shortcuts Have Consequences</h2>
+      <p>We do not have to be anti-AI to be honest about the risk. AI can take notes for us. It can summarize, outline, bullet, label, and reformat. What it cannot do is understand for us. Understanding happens when we connect new information to what we already know, test whether a claim makes sense, notice what confuses us, and decide what the evidence actually supports.</p>
+      <p>This connects back to the Chapter 0 difference between knowing and understanding. Knowing can sound like, "I have the answer." Understanding sounds more like, "I can explain how the pieces fit, why the claim matters, and where the limits are." AI can hand us a polished version of knowing. It cannot give us the lived mental work of building the pattern.</p>
+      <p>Lawyers have already learned this publicly. In <em>Mata v. Avianca</em>, attorneys filed legal cases generated by ChatGPT. The cases looked real enough to cite, but they were not real, and the court sanctioned the lawyers.<sup><a href="#note-8">8</a></sup> In Indiana, a lawyer faced a recommended $15,000 sanction after briefs included AI-generated citations that did not exist.<sup><a href="#note-9">9</a></sup> In New York, judges questioned attorneys on video after a brief cited fictitious cases and misrepresented others.<sup><a href="#note-10">10</a></sup></p>
+      <div class="case-file">
+        <h3>What We Should Learn From Those Cases</h3>
+        <div class="case-thread">
+          <p><strong>AI can sound official while being wrong.</strong> Fake citations can arrive in fluent language, polished formatting, and confident tone.</p>
+          <p><strong>Verification is still our job.</strong> If we repeat a claim, cite a source, or summarize an article, we need to know what the source actually says.</p>
+        </div>
+      </div>
+      <div class="video-frame" aria-label="Court video about fictitious AI-generated cases">
+        <video controls preload="metadata">
+          <source src="https://cmi.nycourts.gov/vod/WowzaPlayer/ad2/OA1779285484.mp4?ref=404media.co" type="video/mp4">
+          Your browser does not support embedded video. See the source note for the official court video.
+        </video>
+      </div>
+      <p>The learning research points in the same direction. Unguarded AI can help us complete a task while the tool is available but leave us weaker when we have to perform without it.<sup><a href="#note-11">11</a></sup> In a reading-comprehension study, note-taking alone and note-taking with an LLM supported comprehension and retention better than LLM use alone.<sup><a href="#note-12">12</a></sup> Convenience can feel like learning before it actually becomes learning.</p>
+      <details class="research-note">
+        <summary>Why this matters for us as readers</summary>
+        <div class="note-body">
+          <p>When we outsource the whole reading process, we also outsource the practice that builds judgment. AI can help us generate questions, preview terms, or test whether our summary makes sense. But if we never read the source and never make our own notes, we may end up with information we cannot explain.</p>
+          <p>A useful rule is this: let AI help around the reading, not replace the reading. We can ask it to define a term, give us questions to bring to the article, or compare our summary with the source after we have written one. But we still need to do the noticing, connecting, doubting, and explaining ourselves.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="example-article" class="article-panel resource-page-item" aria-labelledby="article-heading" data-page-title="The Article We Use" data-page-summary="Open the example article and see why all examples use the same reading.">
+      <h2 id="article-heading" class="section-heading">The Article We Use</h2>
+      <p>Every example in this resource uses Allen and Moore's article on functional family estrangement. Working from the same article lets us see how understanding evolves: first we notice passages, then we annotate them, then we organize notes, and eventually we write a summary.</p>
+      <p class="image-hint">Click the article image to enlarge it. Use the X to return.</p>
+      <div class="article-card">
+        <button class="image-button" type="button" data-full="../../assets/reading-notetaking/article-page-08-clean.png" data-caption="A page from the example article showing the results section and the functional/dysfunctional family binary.">
+          <img src="../../assets/reading-notetaking/article-page-08-clean.png" alt="A page from Allen and Moore's article showing the results section about the functional and dysfunctional family binary.">
+        </button>
+        <div class="example-copy">
+          <h3>Why this article works for practice</h3>
+          <p>The article asks us to question a familiar assumption: that family distance automatically signals dysfunction. The authors use participant accounts to show that estrangement can sometimes be described as functional, protective, or healthier than continued contact.</p>
+          <p>As we read, we will keep asking: What problem are the authors addressing? How did they study it? What did they find? What does the finding help us understand differently?</p>
+          <div class="button-stack">
+            <a class="resource-button" href="../../assets/reading-notetaking/allen-moore-functional-family-estrangement.pdf">Open the article PDF</a>
+            <a class="resource-button secondary" href="#what-to-capture">Go to the note checklist</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="what-to-capture" class="resource-panel resource-page-item" aria-labelledby="capture-heading" data-page-title="What Your Notes Need To Catch" data-page-summary="Use five questions to make notes that can turn into a summary.">
+      <h2 id="capture-heading" class="section-heading">What Your Notes Need To Catch</h2>
+      <p>Your notes are for you. They do not need to look formal, perfect, or identical to anyone else's. They need to help you explain the article later in your own words. That means your notes should catch the structure of the article, not just the sentences that sounded important.</p>
+      <div class="callout-box">
+        <strong>The five questions your notes should answer</strong>
+        <p>What is this article trying to understand? How did the authors study it? What did they find? What do the findings mean? What is still limited, confusing, or worth questioning?</p>
+      </div>
+      <div class="split-grid">
+        <div class="note-rules">
+          <h3>Write down the essentials</h3>
+          <p>Authors, title, year, purpose, research question, key concepts, method, participants or data, findings, interpretation, limitations, and your questions.</p>
+        </div>
+        <div class="note-rules">
+          <h3>Make the notes usable</h3>
+          <p>Paraphrase. Draw arrows. Ask questions. Connect the article to class ideas and your prior knowledge. The point is not to make pretty notes. The point is to make notes that help you write.</p>
+        </div>
+      </div>
+      <div class="example-move-grid">
+        <div class="example-move">
+          <h3>Paraphrasing means translating, not swapping words</h3>
+          <p><strong>Definition:</strong> Put the idea into your own language so you can tell whether you actually understand it. Example: "The authors are not saying estrangement is always good. They are saying distance can sometimes function as protection, safety, or self-preservation."</p>
+        </div>
+        <div class="example-move">
+          <h3>Arrows show relationships</h3>
+          <p><strong>Definition:</strong> Use arrows to show how one idea leads to, complicates, supports, or limits another. Example: "professional discourse -> assumes estrangement is dysfunctional -> participants complicate that assumption."</p>
+        </div>
+        <div class="example-move">
+          <h3>Conversing means talking back to the article</h3>
+          <p><strong>Definition:</strong> Your margin notes can sound like your mind at work: "I wonder if this is related to family boundaries," "I hate this assumption," "This reminds me of Chapter 0," or "Wait, who gets to define healthy?"</p>
+        </div>
+        <div class="example-move">
+          <h3>Personal engagement deepens understanding</h3>
+          <p><strong>Definition:</strong> When we react, connect, question, and argue with the reading, the brain has more ways to attach the new information to existing knowledge. The goal is not fake objectivity in the margins. The goal is an honest record of how your understanding is forming.</p>
+        </div>
+      </div>
+      <details class="research-note">
+        <summary>Why personal engagement is not just a vibe</summary>
+        <div class="note-body">
+          <p>The human brain learns by building connections. We remember and understand more when we actively select information, explain it, connect it to prior knowledge, and monitor confusion. That is why a note like "I wonder if this connects to boundaries" can be more useful than a perfect copied sentence. It gives your brain a relationship to work with.</p>
+          <p>Handwriting and annotation may also bring sensorimotor, spatial, and memory cues into the task. Neuroscience studies suggest that handwriting and paper-based work can involve richer patterns of brain activity and retrieval cues than simple keyboarding or screen-based recording, though these studies should not be overstated as proof that paper is always better.<sup><a href="#note-13">13</a></sup> The safest claim is still the most useful one: the method helps when it makes you think with the material.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="handwritten-notes-page" class="method-panel resource-page-item" aria-labelledby="handwritten-notes-heading" data-page-title="Handwritten Notes: Slow Down To Think" data-page-summary="See how handwritten notes can support learning when they make you choose and paraphrase.">
+      <h2 id="handwritten-notes-heading" class="section-heading">Handwritten Notes: Slow Down To Think</h2>
+      <p>Handwritten notes can help learning because they slow us down enough to choose, condense, and rephrase. The strongest research claim is not that paper has magic in it. The point is processing. When we write by hand, we usually cannot copy everything, so we have to decide what matters and translate it into our own words.<sup><a href="#note-7">7</a></sup></p>
+      <p>That is exactly what we need when reading Allen and Moore. We are not trying to preserve every sentence. We are trying to build a working explanation: the article challenges the assumption that estrangement automatically equals dysfunction, uses interviews and iterative analysis, and asks us to think about who gets to define a functional family.</p>
+      <p class="image-hint">Click the notes image to inspect the page.</p>
+      <div class="example-card">
+        <button class="image-button" type="button" data-full="../../assets/reading-notetaking/handwritten-notes-photo.png" data-caption="Photocopy-style handwritten notes about Allen and Moore's article. The notes identify purpose, research question, method, finding, so what, and summary path.">
+          <img src="../../assets/reading-notetaking/handwritten-notes-photo.png" alt="A realistic photocopy-style page of handwritten notes about Allen and Moore's article, with arrows, margin questions, key terms, and a short summary path.">
+        </button>
+        <div class="example-copy">
+          <h3>What to notice in this example</h3>
+          <p>The page is not trying to look like an assignment. It is trying to help the reader think. There are questions, arrows, rough phrases, and a short summary path. The notes are personal enough to be useful and organized enough to become a paragraph later.</p>
+          <p>Get creative here. Use columns, webs, sketches, color, boxes, arrows, or messy margin questions. If the structure helps you explain the article later, it belongs in your notes.</p>
+        </div>
+      </div>
+      <details class="research-note">
+        <summary>Research note: why handwriting often helps</summary>
+        <div class="note-body">
+          <p>Note-taking supports learning through encoding and storage: we learn while making the notes, and we benefit later when we review them.<sup><a href="#note-7">7</a></sup> Studies on handwritten versus typed notes suggest that handwriting can encourage deeper processing because it discourages verbatim transcription, though the evidence is mixed and the best claim is modest rather than absolute.<sup><a href="#note-7">7</a></sup> In other words: handwriting works best when it makes us select, paraphrase, organize, and review.</p>
+        </div>
+      </details>
+    </section>
+
+    <section id="digital-notes-page" class="method-panel resource-page-item" aria-labelledby="digital-notes-heading" data-page-title="Digital Notes: Organize And Revisit" data-page-summary="Use digital notes for search, tags, revision, and accessibility without just copying text.">
+      <h2 id="digital-notes-heading" class="section-heading">Digital Notes: Organize And Revisit</h2>
+      <p>Digital notes can work beautifully when we use them to organize thinking. They are searchable, easy to revise, accessible across devices, and useful when we want tags, links, or shared notes. The risk is speed. If we type too quickly, we may copy the article without actually processing it.</p>
+      <p>For this article, a good digital note does not just say, "functional family estrangement." It explains what the concept does: it challenges a common family norm by showing that distance can sometimes protect well-being.</p>
+      <p class="image-hint">Click the digital notes image to enlarge it.</p>
+      <div class="example-card reverse">
+        <div class="example-copy">
+          <h3>Use labels so the notes have a job</h3>
+          <p>Try labels such as <strong>purpose</strong>, <strong>method</strong>, <strong>finding</strong>, <strong>quote to revisit</strong>, <strong>my question</strong>, and <strong>summary sentence</strong>. Labels keep digital notes from becoming a giant pasteboard.</p>
+          <p>Digital notes are especially useful after reading. You can revise your first impressions, group related ideas, and turn scattered notes into a summary paragraph.</p>
+        </div>
+        <button class="image-button" type="button" data-full="../../assets/reading-notetaking/digital-notes.png" data-caption="Digital notes using Allen and Moore's article. The rows organize purpose, method, findings, interpretation, and a review question.">
+          <img src="../../assets/reading-notetaking/digital-notes.png" alt="A digital notes screen with tags and a claim tracker for Allen and Moore's article. Rows identify purpose, method, findings, interpretation, and a question for class.">
+        </button>
+      </div>
+    </section>
+
+    <section id="hand-annotation-heading" class="method-panel resource-page-item" aria-labelledby="hand-annotation-title" data-page-title="Handwritten Annotations: Talk To The Page" data-page-summary="Use handwritten margins to paraphrase, question, connect, and notice how your thinking changes.">
+      <h2 id="hand-annotation-title" class="section-heading">Handwritten Annotations: Talk To The Page</h2>
+      <p>Annotation is not just highlighting. Good annotation is a conversation with the text. We mark a phrase, then we say why it matters, what it makes us think of, what it connects to, or what we still do not understand.</p>
+      <p>Annotations do not have to sound formal. They should sound like thinking in motion: "This changes my assumption," "method clue," "connects to family norms," "is this about safety or avoidance?" Those notes matter because they connect your existing knowledge to the article you are reading now.</p>
+      <p class="image-hint">Click either page image to enlarge it. Use the X to return.</p>
+      <div class="before-after">
+        <figure>
+          <p class="figure-label">Before annotation</p>
+          <button class="image-button" type="button" data-full="../../assets/reading-notetaking/article-page-06-clean.png" data-caption="Unmarked article page from Allen and Moore. Use this to practice noticing method, participant findings, and the larger theoretical problem.">
+            <img src="../../assets/reading-notetaking/article-page-06-clean.png" alt="An unmarked page from Allen and Moore's article discussing iterative analysis and professional discourse about estrangement.">
+          </button>
+          <figcaption class="figure-caption">Before we annotate, the page is information. We have not yet left a trail of what we noticed.</figcaption>
+        </figure>
+        <figure>
+          <p class="figure-label">After annotation</p>
+          <button class="image-button" type="button" data-full="../../assets/reading-notetaking/handwritten-annotations.png" data-caption="Handwritten annotation example on Allen and Moore's article. Margin notes identify a method clue, a participant finding, and a question about distance as functional rather than failed communication.">
+            <img src="../../assets/reading-notetaking/handwritten-annotations.png" alt="The same article page with handwritten highlights and margin notes identifying a method clue, an important finding, and a question about estrangement as functional.">
+          </button>
+          <figcaption class="figure-caption">After annotation, we can see the reading moves: paraphrase, question, connect, and prepare to summarize.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="digital-annotation-heading" class="method-panel resource-page-item" aria-labelledby="digital-annotation-title" data-page-title="Digital Annotations: Label Your Thinking" data-page-summary="Use comments and tags to make digital annotation searchable, specific, and useful later.">
+      <h2 id="digital-annotation-title" class="section-heading">Digital Annotations: Label Your Thinking</h2>
+      <p>Digital annotation works best when every comment has a purpose. If every note says "important," future-you will not know what was important or why. Instead, name the move: claim, evidence, method clue, question, connection, confusion, or summary seed.</p>
+      <p>Digital annotation can also help us return to earlier thinking and revise it. Research on online annotation suggests that annotation becomes stronger when it supports review, questioning, summarizing, and sometimes collaboration.<sup><a href="#note-6">6</a></sup></p>
+      <p class="image-hint">Click either page image to enlarge it. Use the X to return.</p>
+      <div class="before-after">
+        <figure>
+          <p class="figure-label">Before annotation</p>
+          <button class="image-button" type="button" data-full="../../assets/reading-notetaking/article-page-06-clean.png" data-caption="Unmarked article page from Allen and Moore used for digital annotation practice.">
+            <img src="../../assets/reading-notetaking/article-page-06-clean.png" alt="An unmarked article page from Allen and Moore.">
+          </button>
+          <figcaption class="figure-caption">The page is ready for reading, but it does not yet show what we think, question, or connect.</figcaption>
+        </figure>
+        <figure>
+          <p class="figure-label">After annotation</p>
+          <button class="image-button" type="button" data-full="../../assets/reading-notetaking/digital-annotations.png" data-caption="Digital annotation example on Allen and Moore's article. Comment bubbles explain the method, turn a passage into a class question, and tag the big idea.">
+            <img src="../../assets/reading-notetaking/digital-annotations.png" alt="The article page with digital highlights and comment bubbles explaining method, asking a question, and tagging the big idea.">
+          </button>
+          <figcaption class="figure-caption">The comments label the work each note is doing, so the annotation becomes easier to review later.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="visual-methods" class="method-panel resource-page-item" aria-labelledby="visual-methods-heading" data-page-title="Creative Notes: Build The Summary" data-page-summary="Use visual notes to organize the article in a way that helps you write later.">
+      <h2 id="visual-methods-heading" class="section-heading">Creative Notes: Build The Summary</h2>
+      <p>Your notes are not the final product. They are the thinking space. You can use a concept map, mind map, two-column response chart, research flowchart, article anatomy diagram, key-term web, storyboard, or whatever structure helps you explain the article later.</p>
+      <p>Creative does not mean random. The structure should help you move from scattered ideas to a paragraph summary. You are trying to see how the purpose, method, finding, interpretation, and limits fit together.</p>
+      <p class="image-hint">Click the visual-to-paragraph image to enlarge it.</p>
+      <div class="example-card">
+        <button class="image-button" type="button" data-full="../../assets/reading-notetaking/visual-to-paragraph.png" data-caption="A visual-to-paragraph example showing a concept map becoming a short article summary paragraph.">
+          <img src="../../assets/reading-notetaking/visual-to-paragraph.png" alt="A desk scene showing a concept map about functional family estrangement, an arrow card, and a paragraph draft that turns visual notes into a summary.">
+        </button>
+        <div class="example-copy">
+          <h3>The visual-to-paragraph move</h3>
+          <p>First, we make the article visible: purpose, method, finding, so what, and limit. Then we choose the strongest pieces and turn them into sentences. A good paragraph does not list every note. It explains the article's logic.</p>
+          <p>Use the structure that helps you write. If a concept map helps, use it. If two messy columns help, use those. The notes belong to you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="practice" class="practice-panel resource-page-item" aria-labelledby="practice-heading" data-page-title="Quick Check: Annotation Myths" data-page-summary="Test what counts as useful annotation and note-taking.">
+      <h2 id="practice-heading" class="section-heading">Quick Check: Annotation Myths</h2>
+      <p>Use this quick check to separate visible marking from useful thinking. Choose the statements you think are true, then check your choices.</p>
+      <ul class="truth-list">
+        <li class="truth-item"><label><input type="checkbox" data-true="false"><span><span class="truth-label">Statement 1</span>Highlighting whole paragraphs is usually effective note-taking because it captures everything important.</span></label></li>
+        <li class="truth-item"><label><input type="checkbox" data-true="false"><span><span class="truth-label">Statement 2</span>Annotations should mostly be direct quotes from the article.</span></label></li>
+        <li class="truth-item"><label><input type="checkbox" data-true="true"><span><span class="truth-label">Statement 3</span>Strong annotations paraphrase, ask questions, and explain what the passage makes you think about.</span></label></li>
+        <li class="truth-item"><label><input type="checkbox" data-true="true"><span><span class="truth-label">Statement 4</span>Annotations can sound informal because they are a record of your thinking in progress.</span></label></li>
+        <li class="truth-item"><label><input type="checkbox" data-true="true"><span><span class="truth-label">Statement 5</span>Useful notes connect the article to what you already know and help you write a summary later.</span></label></li>
+      </ul>
+      <button class="practice-button" type="button" id="check-practice">Check my choices</button>
+      <div class="practice-feedback" id="practice-feedback" role="status" aria-live="polite">Choose the statements that describe useful annotation. Then check your choices.</div>
+    </section>
+
+    <section id="templates" class="template-panel resource-page-item" aria-labelledby="template-heading" data-page-title="Optional Templates" data-page-summary="Download templates only if they help you organize your thinking.">
+      <h2 id="template-heading" class="section-heading">Optional Templates</h2>
+      <p>Templates are optional. Use one when it helps you organize the article. Ignore it when your own layout works better. The goal is not to fill out a worksheet; the goal is to create notes you can use when you write.</p>
+      <div class="template-grid">
+        <a class="template-link" href="templates/cornell-reading-notes.html" download><strong>Cornell Reading Notes</strong><span>Use this when questions, notes, and summary help you focus.</span></a>
+        <a class="template-link" href="templates/annotation-code-sheet.html" download><strong>Annotation Code Sheet</strong><span>Use this when you want labels for claim, evidence, question, connection, and review.</span></a>
+        <a class="template-link" href="templates/digital-reading-notes.html" download><strong>Digital Notes Table</strong><span>Use this when you want searchable rows and tags.</span></a>
+        <a class="template-link" href="templates/concept-map-notes.html" download><strong>Concept Map Notes</strong><span>Use this when relationships among ideas matter most.</span></a>
+      </div>
+    </section>
+
+    <section id="endnotes" class="endnotes resource-page-item" aria-labelledby="endnotes-heading" data-page-title="Sources" data-page-summary="See the research and case examples behind the guide.">
+      <h2 id="endnotes-heading" class="section-heading">Sources: The Receipts Behind The Warning</h2>
+      <details class="research-note" open>
+        <summary>Your Brain Cannot Outsource Understanding</summary>
+        <div class="note-body">
+          <p>Research on note-taking, annotation, generative learning, and cognitive offloading all points toward the same practical warning: a tool can store information for us, but it cannot build our understanding for us. Understanding depends on mental work such as selecting what matters, connecting it to what we already know, checking confusion, paraphrasing, and deciding what evidence supports.</p>
+          <p>The neuroscience research is suggestive, not magical. Some studies find that handwriting or paper-based work may recruit richer visual, motor, spatial, and memory-related processes than typing or mobile-device recording.<sup><a href="#note-13">13</a></sup> But the point is not "paper good, digital bad." The point is that learning needs active engagement. If AI takes notes and we never do the thinking, the page may look finished while our understanding is still unfinished.</p>
+        </div>
+      </details>
+      <ol>
+        <li id="note-1"><p>Sego, S. A., &amp; Stuart, A. E. (2016). Learning to read empirical articles in general psychology. <em>Teaching of Psychology, 43</em>(1), 38-42.</p></li>
+        <li id="note-2"><p>Varnhagen, C. K., &amp; Digdon, N. (2002). Helping students read reports of empirical research. <em>Teaching of Psychology, 29</em>(2), 160-165.</p></li>
+        <li id="note-3"><p>Fiorella, L., &amp; Mayer, R. E. (2016). Eight ways to promote generative learning. <em>Educational Psychology Review, 28</em>(4), 717-741.</p></li>
+        <li id="note-4"><p>Mirandola, C., Ciriello, A., Gigli, M., &amp; Cornoldi, C. (2018). Metacognitive monitoring of text comprehension. <em>Frontiers in Psychology, 9</em>, Article 2253.</p></li>
+        <li id="note-5"><p>Allen, J., &amp; Moore, J. (2017). Troubling the functional/dysfunctional family binary through the articulation of functional family estrangement. <em>Western Journal of Communication, 81</em>(3), 281-299.</p></li>
+        <li id="note-6"><p>Yeh, H.-C., Hung, H.-T., &amp; Chiang, Y.-H. (2017). The use of online annotations in reading instruction and its impact on students' reading progress and processes. <em>ReCALL, 29</em>(1), 22-38; Chen, C.-M., &amp; Chen, F.-Y. (2014). Enhancing digital reading performance with a collaborative reading annotation system. <em>Computers &amp; Education, 77</em>, 67-81.</p></li>
+        <li id="note-7"><p>Kiewra, K. A. (1989). A review of note-taking: The encoding-storage paradigm and beyond. <em>Educational Psychology Review, 1</em>, 147-172; Mueller, P. A., &amp; Oppenheimer, D. M. (2014). The pen is mightier than the keyboard. <em>Psychological Science, 25</em>(6), 1159-1168; Morehead, K., Dunlosky, J., &amp; Rawson, K. A. (2019). How much mightier is the pen than the keyboard for note-taking? <em>Educational Psychology Review, 31</em>(3), 753-780; Flanigan, A. E., Wheeler, J., Colliot, T., Lu, J., &amp; Kiewra, K. A. (2024). Typed versus handwritten lecture notes and college student achievement: A meta-analysis. <em>Educational Psychology Review, 36</em>(3), Article 78.</p></li>
+        <li id="note-8"><p><em>Mata v. Avianca, Inc.</em>, No. 22-cv-1461 (S.D.N.Y. June 22, 2023); Ars Technica. (2023). Lawyers have real bad day in court after citing fake cases made up by ChatGPT.</p></li>
+        <li id="note-9"><p>Cole, S. (2025). Judges are fed up with lawyers using AI that hallucinate court cases. <em>404 Media</em>; Dinsmore, M. J. (2025). Report and recommendation regarding sanctions in filings containing AI-generated citations.</p></li>
+        <li id="note-10"><p>Cole, S. (2026). Watch these judges rip into lawyers for citing cases that don't exist. <em>404 Media</em>; New York State Unified Court System. (2026). Appellate Division oral argument video, May 20, 2026.</p></li>
+        <li id="note-11"><p>Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakci, O., &amp; Mariman, R. (2025). Generative AI without guardrails can harm learning. <em>Proceedings of the National Academy of Sciences, 122</em>(26), e2422633122.</p></li>
+        <li id="note-12"><p>Kreijkes, P., Kewenig, V., Kuvalja, M., Lee, M., Hofman, J. M., Vitello, S., Sellen, A., Rintel, S., Goldstein, D. G., Rothschild, D., Tankelevitch, L., &amp; Oates, T. (2025). Effects of LLM use and note-taking on reading comprehension and memory. <em>Computers &amp; Education</em>, 105514.</p></li>
+        <li id="note-13"><p>Van der Weel, F. R. R., &amp; Van der Meer, A. L. H. (2024). Handwriting but not typewriting leads to widespread brain connectivity. <em>Frontiers in Psychology, 14</em>, Article 1219945; Pinet, S., &amp; Longcamp, M. (2025). Commentary on handwriting and brain connectivity. <em>Frontiers in Psychology, 15</em>, Article 1517235; Umejima, K., Ibaraki, T., Yamazaki, T., &amp; Sakai, K. L. (2021). Paper notebooks vs. mobile devices: Brain activation differences during memory retrieval. <em>Frontiers in Behavioral Neuroscience, 15</em>, Article 634158.</p></li>
+      </ol>
+    </section>
+  </main>
+
+  <div class="image-modal" id="image-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-caption">
+    <div class="modal-inner">
+      <button class="modal-close" type="button" id="modal-close" aria-label="Close enlarged image">X</button>
+      <h2 id="modal-title" class="sr-only">Enlarged resource image</h2>
+      <img id="modal-image" src="" alt="">
+      <p class="modal-caption" id="modal-caption"></p>
+    </div>
+  </div>
+
+  <aside class="path-coach" id="path-coach" aria-live="polite">
+    <strong>Reader Move</strong>
+    <span id="path-coach-text">Use Next for the guided path or open the map to jump.</span>
+  </aside>
+
+  <script>
+    const practiceButton = document.querySelector("#check-practice");
+    const practiceFeedback = document.querySelector("#practice-feedback");
+    const modal = document.querySelector("#image-modal");
+    const modalImage = document.querySelector("#modal-image");
+    const modalCaption = document.querySelector("#modal-caption");
+    const modalClose = document.querySelector("#modal-close");
+    const pathCoach = document.querySelector("#path-coach");
+    const pathCoachText = document.querySelector("#path-coach-text");
+    const mapCards = [...document.querySelectorAll(".map-card")];
+    const pageItems = [...document.querySelectorAll(".resource-page-item")];
+    const contentPageItems = pageItems.filter((page) => page.id !== "resource-map");
+    const pageOrder = contentPageItems.map((page) => page.id);
+    const pageTitles = new Map(pageItems.map((page) => [page.id, {
+      title: page.dataset.pageTitle || page.id,
+      summary: page.dataset.pageSummary || ""
+    }]));
+    let currentPageIndex = 0;
+    let lastContentPageId = "overview";
+    let lastImageButton = null;
+    let coachTimer = null;
+
+    function updateProgress() {
+      const progress = pageOrder.length > 1 ? currentPageIndex / (pageOrder.length - 1) : 0;
+      document.documentElement.style.setProperty("--reading-progress", Math.min(1, Math.max(0, progress)));
+    }
+
+    function showCoach(message) {
+      pathCoachText.textContent = message;
+      pathCoach.classList.add("is-visible");
+      clearTimeout(coachTimer);
+      coachTimer = setTimeout(() => pathCoach.classList.remove("is-visible"), 4200);
+    }
+
+    function activateMapCard(id) {
+      mapCards.forEach((card) => {
+        const target = card.getAttribute("href").replace("#", "");
+        const active = target === id;
+        card.classList.toggle("is-active", active);
+        if (active) {
+          card.setAttribute("aria-current", "location");
+        } else {
+          card.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function getPageForTarget(targetId) {
+      if (targetId === "resource-map" || pageOrder.includes(targetId)) {
+        return targetId;
+      }
+      const target = document.getElementById(targetId);
+      const page = target ? target.closest(".resource-page-item") : null;
+      return page ? page.id : "overview";
+    }
+
+    function renderPageShell(page, index) {
+      const existing = page.querySelector(".page-shell");
+      if (existing) existing.remove();
+
+      if (page.id === "resource-map") {
+        const returnInfo = pageTitles.get(lastContentPageId) || pageTitles.get("overview");
+        const shell = document.createElement("div");
+        shell.className = "page-shell";
+
+        const status = document.createElement("p");
+        status.className = "page-status";
+        status.textContent = "Resource Map";
+        shell.append(status);
+
+        const preview = document.createElement("div");
+        preview.className = "next-preview";
+        preview.innerHTML = `<strong>Navigation hub</strong>Choose a page above, or return to ${returnInfo.title}.`;
+        shell.append(preview);
+
+        const actions = document.createElement("div");
+        actions.className = "page-actions";
+
+        const returnButton = document.createElement("button");
+        returnButton.type = "button";
+        returnButton.className = "page-button";
+        returnButton.textContent = `Return to ${returnInfo.title}`;
+        returnButton.addEventListener("click", () => showPage(lastContentPageId));
+        actions.append(returnButton);
+
+        const startButton = document.createElement("button");
+        startButton.type = "button";
+        startButton.className = "page-button secondary";
+        startButton.textContent = "Start at the overview";
+        startButton.addEventListener("click", () => showPage("overview"));
+        actions.append(startButton);
+
+        shell.append(actions);
+        page.append(shell);
+        return;
+      }
+
+      const previous = pageOrder[index - 1];
+      const next = pageOrder[index + 1];
+      const nextInfo = next ? pageTitles.get(next) : null;
+      const shell = document.createElement("div");
+      shell.className = "page-shell";
+
+      const status = document.createElement("p");
+      status.className = "page-status";
+      status.textContent = `Page ${index + 1} of ${pageOrder.length}`;
+      shell.append(status);
+
+      const preview = document.createElement("div");
+      preview.className = "next-preview";
+      if (nextInfo) {
+        preview.innerHTML = `<strong>Next page</strong>${nextInfo.title}: ${nextInfo.summary}`;
+      } else {
+        preview.innerHTML = "<strong>End of resource</strong>Return to the map, revisit a page, or open an optional template.";
+      }
+      shell.append(preview);
+
+      const actions = document.createElement("div");
+      actions.className = "page-actions";
+
+      if (previous) {
+        const prevButton = document.createElement("button");
+        prevButton.type = "button";
+        prevButton.className = "page-button secondary";
+        prevButton.textContent = "Previous page";
+        prevButton.addEventListener("click", () => showPage(previous));
+        actions.append(prevButton);
+      }
+
+      const mapButton = document.createElement("button");
+      mapButton.type = "button";
+      mapButton.className = "page-button ghost";
+      mapButton.textContent = "Open Resource Map";
+      mapButton.addEventListener("click", () => showPage("resource-map"));
+      actions.append(mapButton);
+
+      if (next) {
+        const nextButton = document.createElement("button");
+        nextButton.type = "button";
+        nextButton.className = "page-button";
+        nextButton.textContent = `Next page: ${nextInfo.title}`;
+        nextButton.addEventListener("click", () => showPage(next));
+        actions.append(nextButton);
+      }
+
+      shell.append(actions);
+      page.append(shell);
+    }
+
+    function showPage(id, targetId = null) {
+      const pageId = getPageForTarget(id);
+      const isMap = pageId === "resource-map";
+      const index = isMap ? currentPageIndex : Math.max(0, pageOrder.indexOf(pageId));
+      if (!isMap) {
+        currentPageIndex = index;
+        lastContentPageId = pageId;
+      }
+
+      pageItems.forEach((page) => {
+        const current = page.id === pageId;
+        page.classList.toggle("is-current", current);
+        page.toggleAttribute("hidden", !current);
+      });
+
+      const page = document.getElementById(pageId);
+      renderPageShell(page, index);
+      activateMapCard(isMap ? lastContentPageId : pageId);
+      updateProgress();
+
+      if (history.replaceState) {
+        history.replaceState(null, "", `#${targetId || pageId}`);
+      }
+
+      page.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      const info = pageTitles.get(pageId);
+      if (info) {
+        showCoach(pageId === "resource-map"
+          ? "Use the map to jump to the exact page you need."
+          : `${info.title}: use Next for the guided path or open the map to jump.`);
+      }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const targetId = link.getAttribute("href").replace("#", "");
+        if (!targetId) return;
+        event.preventDefault();
+        showPage(getPageForTarget(targetId), targetId);
+      });
+    });
+
+    document.querySelectorAll(".image-button").forEach((imageButton) => {
+      imageButton.addEventListener("click", () => {
+        lastImageButton = imageButton;
+        const image = imageButton.querySelector("img");
+        modalImage.src = imageButton.dataset.full || image.src;
+        modalImage.alt = image.alt;
+        modalImage.classList.remove("portrait");
+        if (image.naturalHeight > image.naturalWidth) {
+          modalImage.classList.add("portrait");
+        }
+        modalCaption.textContent = imageButton.dataset.caption || "";
+        modal.classList.add("is-open");
+        modalClose.focus();
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modalImage.src = "";
+      if (lastImageButton) lastImageButton.focus();
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+
+    if (practiceButton && practiceFeedback) {
+      practiceButton.addEventListener("click", () => {
+        const choices = [...document.querySelectorAll(".truth-item input")];
+        const missed = choices.filter((choice) => choice.checked !== (choice.dataset.true === "true"));
+        if (missed.length === 0) {
+          practiceFeedback.textContent = "Yes. Useful annotation is not copying or decorating. It is paraphrasing, questioning, connecting, and preparing yourself to explain the article later.";
+        } else {
+          practiceFeedback.textContent = "Almost. Recheck the difference between marking text and making meaning. Whole-paragraph highlighting and quote-only annotations usually leave too much thinking undone.";
+        }
+      });
+    }
+
+    const initialTarget = window.location.hash ? window.location.hash.replace("#", "") : "overview";
+    showPage(initialTarget, initialTarget);
+  </script>
+</body>
+</html>

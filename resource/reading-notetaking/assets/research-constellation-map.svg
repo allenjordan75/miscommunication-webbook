@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Constellation of research article sections</title>
+  <desc id="desc">A constellation diagram showing the non-linear reading path through a research article: Abstract, Rationale and Warrant, Discussion, Literature Review, Methods, Results, and Conclusion.</desc>
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="42%" r="72%">
+      <stop offset="0" stop-color="#263861"/>
+      <stop offset="1" stop-color="#18233a"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" rx="28" fill="url(#sky)"/>
+  <g opacity=".42" fill="#fff1dd">
+    <circle cx="78" cy="84" r="2"/><circle cx="205" cy="142" r="1.7"/><circle cx="338" cy="82" r="2.3"/><circle cx="1052" cy="92" r="2"/>
+    <circle cx="1110" cy="228" r="1.5"/><circle cx="974" cy="642" r="2.1"/><circle cx="178" cy="612" r="1.8"/><circle cx="548" cy="110" r="1.5"/>
+    <circle cx="742" cy="82" r="2"/><circle cx="864" cy="174" r="1.8"/><circle cx="468" cy="666" r="1.7"/><circle cx="704" cy="692" r="2.2"/>
+  </g>
+  <g fill="none" stroke="#f3c969" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".84">
+    <path d="M170 230 L342 168 L628 148 L908 254 L792 486 L522 574 L300 460 Z"/>
+    <path d="M342 168 L908 254"/>
+    <path d="M908 254 L522 574"/>
+    <path d="M628 148 L300 460"/>
+  </g>
+  <g fill="none" stroke="#fff1dd" stroke-width="1.4" opacity=".28">
+    <path d="M170 230 C300 320 330 414 300 460"/>
+    <path d="M342 168 C480 296 612 398 792 486"/>
+    <path d="M908 254 C960 388 920 508 792 486"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="900">
+    <g transform="translate(170 230)">
+      <circle r="31" fill="#f3c969" filter="url(#glow)"/><circle r="14" fill="#18233a"/>
+      <text x="-58" y="-50" fill="#fff1dd" font-size="28">Abstract</text>
+      <text x="-94" y="65" fill="#fff1dd" font-size="18">Start here: shape of the study</text>
+    </g>
+    <g transform="translate(342 168)">
+      <circle r="29" fill="#f3c969" filter="url(#glow)"/><circle r="13" fill="#18233a"/>
+      <text x="-90" y="-50" fill="#fff1dd" font-size="27">Rationale / Warrant</text>
+      <text x="-104" y="64" fill="#fff1dd" font-size="18">Why this study needs to exist</text>
+    </g>
+    <g transform="translate(908 254)">
+      <circle r="34" fill="#f3c969" filter="url(#glow)"/><circle r="15" fill="#18233a"/>
+      <text x="-72" y="-54" fill="#fff1dd" font-size="28">Discussion</text>
+      <text x="-112" y="68" fill="#fff1dd" font-size="18">Read early for meaning and stakes</text>
+    </g>
+    <g transform="translate(628 148)">
+      <circle r="30" fill="#f3c969" filter="url(#glow)"/><circle r="14" fill="#18233a"/>
+      <text x="-92" y="-52" fill="#fff1dd" font-size="28">Literature Review</text>
+      <text x="-116" y="66" fill="#fff1dd" font-size="18">The conversation and key terms</text>
+    </g>
+    <g transform="translate(300 460)">
+      <circle r="32" fill="#f3c969" filter="url(#glow)"/><circle r="15" fill="#18233a"/>
+      <text x="-56" y="-54" fill="#fff1dd" font-size="28">Methods</text>
+      <text x="-104" y="68" fill="#fff1dd" font-size="18">How the study was conducted</text>
+    </g>
+    <g transform="translate(522 574)">
+      <circle r="31" fill="#f3c969" filter="url(#glow)"/><circle r="14" fill="#18233a"/>
+      <text x="-48" y="72" fill="#fff1dd" font-size="28">Results</text>
+      <text x="-120" y="100" fill="#fff1dd" font-size="18">What the evidence showed</text>
+    </g>
+    <g transform="translate(792 486)">
+      <circle r="32" fill="#f3c969" filter="url(#glow)"/><circle r="15" fill="#18233a"/>
+      <text x="-70" y="72" fill="#fff1dd" font-size="28">Conclusion</text>
+      <text x="-132" y="100" fill="#fff1dd" font-size="18">What to carry forward carefully</text>
+    </g>
+  </g>
+  <g font-family="Georgia, 'Times New Roman', serif">
+    <rect x="74" y="644" width="1052" height="58" rx="12" fill="#fff1dd" opacity=".96"/>
+    <text x="103" y="681" fill="#18233a" font-size="25">The article may look linear on the page, but strong readers move through the constellation strategically.</text>
+  </g>
+</svg>

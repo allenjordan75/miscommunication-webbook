@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Reading Notes Template</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      color: #151515;
+      background: #fffdf8;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    th {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 2rem;
+    }
+
+    .meta,
+    .card,
+    table {
+      border: 2px solid #d8c9b8;
+      background: #ffffff;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 18px;
+    }
+
+    .line {
+      min-height: 28px;
+      border-bottom: 1px solid #151515;
+    }
+
+    label {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 14px;
+      border: 2px solid #d8c9b8;
+      vertical-align: top;
+    }
+
+    th {
+      color: #005f78;
+      text-align: left;
+    }
+
+    .blank {
+      min-height: 92px;
+      background-image: linear-gradient(to bottom, transparent 31px, rgba(21, 21, 21, 0.2) 32px);
+      background-size: 100% 32px;
+    }
+
+    @media print {
+      body {
+        padding: 0.45in;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Digital Reading Notes</h1>
+  <section class="meta" aria-label="Reading information">
+    <div><label>Reading</label><div class="line"></div></div>
+    <div><label>Date</label><div class="line"></div></div>
+    <div><label>Tags</label><div class="line"></div></div>
+  </section>
+  <table>
+    <thead>
+      <tr>
+        <th>Note Type</th>
+        <th>My Note</th>
+        <th>Review Move</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Claim</td><td><div class="blank"></div></td><td><div class="blank"></div></td></tr>
+      <tr><td>Evidence</td><td><div class="blank"></div></td><td><div class="blank"></div></td></tr>
+      <tr><td>Paraphrase</td><td><div class="blank"></div></td><td><div class="blank"></div></td></tr>
+      <tr><td>Question</td><td><div class="blank"></div></td><td><div class="blank"></div></td></tr>
+      <tr><td>Connection</td><td><div class="blank"></div></td><td><div class="blank"></div></td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

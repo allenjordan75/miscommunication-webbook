@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cornell Reading Notes Template</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px;
+      color: #151515;
+      background: #fffdf8;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    label {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 2rem;
+    }
+
+    .meta,
+    .grid,
+    .summary {
+      border: 2px solid #d8c9b8;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .line {
+      min-height: 28px;
+      border-bottom: 1px solid #151515;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 32% 68%;
+      min-height: 620px;
+    }
+
+    .cell {
+      padding: 18px;
+      border-right: 2px solid #d8c9b8;
+    }
+
+    .cell:last-child {
+      border-right: 0;
+    }
+
+    .ruled {
+      min-height: 540px;
+      background-image: linear-gradient(to bottom, transparent 31px, rgba(21, 21, 21, 0.22) 32px);
+      background-size: 100% 32px;
+    }
+
+    .summary {
+      min-height: 160px;
+      margin-top: 18px;
+      padding: 18px;
+      background-image: linear-gradient(to bottom, transparent 31px, rgba(21, 21, 21, 0.22) 32px);
+      background-size: 100% 32px;
+    }
+
+    @media print {
+      body {
+        padding: 0.45in;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Cornell Reading Notes</h1>
+  <section class="meta" aria-label="Reading information">
+    <div><label>Reading</label><div class="line"></div></div>
+    <div><label>Date</label><div class="line"></div></div>
+    <div><label>Purpose</label><div class="line"></div></div>
+  </section>
+  <section class="grid" aria-label="Cornell note-taking page">
+    <div class="cell">
+      <h2>Cues, Terms, Questions</h2>
+      <div class="ruled"></div>
+    </div>
+    <div class="cell">
+      <h2>Notes in Your Own Words</h2>
+      <div class="ruled"></div>
+    </div>
+  </section>
+  <section class="summary" aria-label="Summary">
+    <h2>Summary After Reading</h2>
+  </section>
+</body>
+</html>

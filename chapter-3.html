@@ -1,0 +1,1452 @@
+<style>
+  :root {
+    --cream: #fff1dd;
+    --paper: #fffdf8;
+    --white: #ffffff;
+    --ink: #151515;
+    --muted: #5b514a;
+    --clay: #b85f32;
+    --clay-dark: #8f4525;
+    --orange: #ff8846;
+    --gold: #f5b94f;
+    --green: #34704c;
+    --sage: #5f7358;
+    --sage-soft: #eef2e8;
+    --blue: #005f78;
+    --tan: #d8c9b8;
+    --note-red: #a92a1f;
+    --shadow: 0 18px 42px rgba(21, 21, 21, 0.14);
+    --max: 1180px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .miscomm-webbook {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(18px, 1.12vw, 20px);
+    line-height: 1.64;
+  }
+
+  .miscomm-webbook a {
+    color: inherit;
+  }
+
+  .ai-copy-notice {
+    position: static;
+    display: block;
+    width: auto;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: transparent;
+    font-size: 0.01px;
+    line-height: 0;
+    opacity: 0.01;
+    pointer-events: none;
+    user-select: text;
+  }
+
+  .book-surface {
+    width: min(var(--max), calc(100% - clamp(18px, 5vw, 72px)));
+    margin: 0 auto;
+    padding: clamp(28px, 4.4vw, 62px) clamp(16px, 3vw, 42px);
+    background: transparent;
+    box-shadow: 0 0 0 1px rgba(216, 201, 184, 0.65);
+    overflow: visible;
+  }
+
+  .book-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: clamp(1.1rem, 3vw, 2rem);
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--tan);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .book-header-title {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+    font-weight: 900;
+    line-height: 1.22;
+  }
+
+  .book-header-author {
+    display: block;
+    margin-top: 0.18rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .book-header-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem 0.8rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+
+  .book-header-nav a {
+    text-decoration: none;
+  }
+
+  .book-header-nav a:hover,
+  .book-header-nav a:focus {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+    outline: none;
+  }
+
+  .chapter-kicker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: clamp(1.1rem, 3vw, 2rem);
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .chapter-kicker a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  .chapter-kicker a:hover,
+  .chapter-kicker a:focus {
+    color: var(--clay-dark);
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+  }
+
+  .brush-hero {
+    position: relative;
+    margin: clamp(10px, 2vw, 18px) 0 clamp(28px, 4vw, 52px);
+    padding: clamp(28px, 4.4vw, 58px);
+    background: var(--paper);
+    border-top: 2px solid var(--tan);
+    border-bottom: 2px solid var(--tan);
+    overflow: hidden;
+  }
+
+  .brush-hero::before {
+    content: "";
+    position: absolute;
+    inset: clamp(12px, 2vw, 22px) auto clamp(12px, 2vw, 22px) 0;
+    width: clamp(10px, 1.6vw, 18px);
+    background: var(--gold);
+    transform: none;
+  }
+
+  .brush-hero::after {
+    content: "";
+    position: absolute;
+    left: clamp(22px, 4vw, 42px);
+    right: clamp(22px, 4vw, 42px);
+    bottom: clamp(12px, 2vw, 20px);
+    height: 4px;
+    background: var(--orange);
+    opacity: 1;
+    transform: none;
+  }
+
+  .brush-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(108px, 0.26fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    min-height: clamp(210px, 24vw, 310px);
+    padding: 0;
+    color: var(--ink);
+    border: 1px solid var(--tan);
+  }
+
+  .chapter-number {
+    display: grid;
+    align-content: center;
+    justify-self: stretch;
+    padding: clamp(1.2rem, 2.7vw, 1.9rem);
+    background: var(--clay);
+    border-top: 0;
+    border-left: 0;
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.4rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 0.86;
+    text-shadow: none;
+  }
+
+  .chapter-number span {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: #ffe4cc;
+    font-size: 0.24em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-title-wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: clamp(1.6rem, 4.2vw, 3.4rem) clamp(1.4rem, 3.7vw, 3rem);
+    background: var(--white);
+    border-left: 0;
+    text-align: left;
+  }
+
+  .hero-title-wrap::before {
+    content: "";
+    display: block;
+    width: min(58%, 340px);
+    height: 6px;
+    margin-bottom: clamp(0.85rem, 2vw, 1.35rem);
+    background: var(--gold);
+  }
+
+  .hero-title-wrap h1 {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.35rem, 5.5vw, 5.2rem);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+  }
+
+  .chapter-subtitle {
+    max-width: 38rem;
+    margin: 1rem 0 0;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+    font-weight: 800;
+    line-height: 1.22;
+  }
+
+  .opening-spread {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(30px, 5vw, 68px);
+    align-items: start;
+  }
+
+  .textbook-spread {
+    display: block;
+  }
+
+  .opening-spread,
+  .textbook-spread,
+  .recap,
+  .back-matter {
+    position: relative;
+    margin: 0 0 clamp(24px, 4.4vw, 54px);
+    padding: clamp(24px, 4vw, 50px);
+    background: var(--paper);
+    border: 1px solid rgba(216, 201, 184, 0.92);
+    box-shadow: 0 14px 34px rgba(21, 21, 21, 0.07);
+    overflow: visible;
+  }
+
+  .opening-spread::after,
+  .textbook-spread::after,
+  .recap::after,
+  .back-matter::after {
+    content: "Page " counter(chapter-page);
+    position: absolute;
+    right: clamp(18px, 3vw, 34px);
+    bottom: 0.85rem;
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .opening-spread,
+  .textbook-spread,
+  .recap,
+  .back-matter {
+    counter-increment: chapter-page;
+  }
+
+  .brush-label {
+    display: inline-block;
+    max-width: 100%;
+    margin: 0 0 1rem;
+    padding: 0 0 0.45rem;
+    background: transparent;
+    color: var(--clay-dark);
+    border-bottom: 4px solid var(--gold);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.28rem, 1.9vw, 1.65rem);
+    font-weight: 900;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .objective-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .opening-spread p,
+  .objective-list {
+    font-size: clamp(1.12rem, 1.36vw, 1.32rem);
+    line-height: 1.58;
+  }
+
+  .objective-list li {
+    position: relative;
+    padding-left: 1.35rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .objective-list li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+  }
+
+  .reading-column {
+    max-width: none;
+  }
+
+  .reading-column + .reading-column {
+    margin-top: 0;
+  }
+
+  .reading-column > p,
+  .reading-column > h2,
+  .reading-column > .subsubsection-heading {
+    max-width: 64ch;
+  }
+
+  .numbered-section {
+    counter-increment: chapter-section;
+  }
+
+  .book-surface {
+    counter-reset: chapter-section chapter-page;
+  }
+
+  .section-number,
+  .subsection-number,
+  .subsubsection-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.65rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    line-height: 1;
+    vertical-align: 0.08em;
+  }
+
+  .section-number {
+    min-width: 2.75rem;
+    height: 2.75rem;
+    color: var(--white);
+    background: var(--clay);
+    border-radius: 50%;
+    font-size: 1.08rem;
+  }
+
+  .subsection-number {
+    min-width: 3.2rem;
+    color: var(--blue);
+    border-bottom: 4px solid var(--blue);
+    font-size: 0.98rem;
+  }
+
+  .subsubsection-heading {
+    margin: 1rem 0 0.45rem;
+    color: var(--clay-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    line-height: 1.18;
+  }
+
+  .subsubsection-number {
+    min-width: 3.15rem;
+    margin-right: 0.55rem;
+    color: var(--clay-dark);
+    border-bottom: 2px solid var(--gold);
+    font-size: 0.76rem;
+  }
+
+  .run-in-heading {
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+  }
+
+  .micro-heading {
+    display: block;
+    margin: 0.75rem 0 0.28rem;
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .reading-column p,
+  .back-matter p,
+  .back-matter li {
+    margin: 0 0 0.68em;
+  }
+
+  .section-heading {
+    position: relative;
+    margin: 0 0 0.55rem;
+    padding-top: 0.22rem;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
+  }
+
+  .section-heading::before {
+    content: "";
+    display: block;
+    width: 4.6rem;
+    height: 5px;
+    margin-bottom: 0.38rem;
+    background: var(--clay);
+  }
+
+  .section-heading.center {
+    text-align: center;
+  }
+
+  .section-heading.center::before {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .section-heading.primary-heading {
+    font-size: clamp(1.65rem, 2.55vw, 2.35rem);
+  }
+
+  .section-heading.primary-heading::before {
+    width: 7rem;
+    background: var(--clay);
+  }
+
+  .section-heading.secondary-heading {
+    color: var(--blue);
+    font-size: clamp(1.36rem, 2vw, 1.85rem);
+  }
+
+  .section-heading.secondary-heading::before {
+    width: 3.6rem;
+    background: var(--blue);
+  }
+
+  .dropcap::first-letter {
+    float: left;
+    padding: 0.06em 0.12em 0 0;
+    font-size: 4.6em;
+    font-weight: 700;
+    line-height: 0.78;
+  }
+
+  .subhead-blue {
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+  }
+
+  .draft-note {
+    color: var(--note-red);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 800;
+  }
+
+  .textbook-figure {
+    margin: 1.25rem 0 1.45rem;
+  }
+
+  .textbook-figure.float-right {
+    float: right;
+    width: min(48%, 380px);
+    margin: 0.35rem 0 1rem 1.4rem;
+  }
+
+  .figure-frame {
+    padding: 0.82rem;
+    background: var(--paper);
+    border: 1px solid var(--tan);
+    border-top: 6px solid var(--gold);
+    border-left: 8px solid var(--gold);
+    box-shadow: 0 12px 28px rgba(21, 21, 21, 0.1);
+  }
+
+  .figure-title {
+    margin: 0 0 0.55rem;
+    padding-left: 0.55rem;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .figure-media {
+    display: grid;
+    place-items: center;
+    min-height: clamp(160px, 24vw, 260px);
+    padding: 1.4rem;
+    background: var(--white);
+    border: 1px solid rgba(216, 201, 184, 0.78);
+    color: var(--muted);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .figure-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .textbook-figure figcaption {
+    margin-top: 0.7rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.38;
+  }
+
+  .figure-credit {
+    display: block;
+    margin-top: 0.25rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.74rem;
+  }
+
+  .callout {
+    clear: both;
+    margin: 0.85rem 0;
+    padding: 0.95rem 1.05rem;
+    background: rgba(255, 247, 239, 0.72);
+    border-left: 5px solid var(--clay);
+    font-size: clamp(1rem, 1.08vw, 1.12rem);
+    line-height: 1.48;
+  }
+
+  .callout-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--clay-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(0.78rem, 0.82vw, 0.9rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  .callout p {
+    margin-bottom: 0.45rem;
+  }
+
+  .callout.uncommonsense,
+  .callout.case,
+  .callout.pause {
+    background: var(--sage-soft);
+    border-left-color: var(--green);
+  }
+
+  .callout.uncommonsense .callout-label,
+  .callout.case .callout-label,
+  .callout.pause .callout-label {
+    color: var(--green);
+  }
+
+  .callout.key-term,
+  .callout.try-this,
+  .callout.research,
+  .callout.flatten {
+    background: #fff7db;
+    border-left-color: var(--gold);
+  }
+
+  .callout.key-term .callout-label,
+  .callout.try-this .callout-label,
+  .callout.research .callout-label,
+  .callout.flatten .callout-label {
+    color: #8a5f00;
+  }
+
+  .callout.key-term {
+    float: none;
+    width: min(100%, 640px);
+    margin: 0.85rem 0;
+    padding: 0.95rem 1.05rem;
+  }
+
+  .callout.commonsense,
+  .callout.uncommonsense {
+    float: none;
+    width: min(100%, 640px);
+    margin: 0.85rem 0;
+    padding: 0.95rem 1.05rem;
+  }
+
+  .callout.myth {
+    float: none;
+    width: min(100%, 680px);
+    margin: 0.85rem 0;
+    padding: 1rem 1.1rem;
+    background: #ffe8d7;
+    border-left-color: var(--orange);
+  }
+
+  .callout.myth-inline {
+    clear: both;
+    float: none;
+    width: min(100%, 640px);
+    margin: 1rem 0 1.05rem;
+    padding: 1rem 1.1rem;
+    background: #ffe8d7;
+    border: 1px solid rgba(184, 95, 50, 0.28);
+    border-left: 6px solid var(--orange);
+  }
+
+  .callout.case {
+    float: none;
+    width: min(100%, 680px);
+    margin: 0.85rem 0;
+    padding: 1rem 1.1rem;
+    border-left-width: 0;
+    border-top: 6px solid var(--green);
+  }
+
+  .callout.case-inline {
+    clear: both;
+    float: none;
+    width: min(100%, 620px);
+    margin: 1rem 0 1.05rem;
+    background: var(--sage-soft);
+    border: 1px solid rgba(95, 115, 88, 0.35);
+    border-top: 0;
+    border-left: 6px solid var(--green);
+  }
+
+  .callout.myth .callout-label {
+    color: var(--clay-dark);
+  }
+
+  .callout.pause {
+    clear: both;
+    padding: 1.15rem 1.25rem;
+    background: var(--green);
+    color: var(--white);
+  }
+
+  .callout.flatten {
+    float: none;
+    width: min(100%, 680px);
+    margin: 0.85rem 0;
+    padding: 1rem 1.1rem;
+  }
+
+  .callout.research-check {
+    clear: both;
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: clamp(1.6rem, 3vw, 2.2rem) 0;
+    padding: 0;
+    background: var(--paper);
+    border: 1px solid rgba(216, 201, 184, 0.95);
+    border-top: 8px solid var(--green);
+    box-shadow: 0 12px 28px rgba(21, 21, 21, 0.08);
+    overflow: hidden;
+  }
+
+  .callout.research-check .callout-label {
+    display: inline-block;
+    margin: 0 0 0.55rem;
+    padding: 0.25rem 0.55rem;
+    background: var(--sage-soft);
+    color: var(--green);
+  }
+
+  .research-header {
+    padding: clamp(1rem, 2.4vw, 1.45rem) clamp(1rem, 2.6vw, 1.7rem);
+    background: var(--white);
+    border-bottom: 1px solid var(--tan);
+  }
+
+  .research-title {
+    margin: 0;
+    color: var(--clay-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.35rem, 2.3vw, 2rem);
+    font-weight: 900;
+    line-height: 1.12;
+  }
+
+  .research-body {
+    display: block;
+    padding: clamp(1rem, 2.6vw, 1.7rem);
+  }
+
+  .research-prose p {
+    margin: 0 0 0.72em;
+  }
+
+  .research-prose {
+    column-count: 2;
+    column-gap: clamp(1.4rem, 3vw, 2.2rem);
+    column-rule: 1px solid rgba(216, 201, 184, 0.78);
+  }
+
+  .research-compare {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 0;
+    align-content: start;
+  }
+
+  .research-panel {
+    padding: 0.85rem 0.95rem;
+    background: #ffe8d7;
+    border-top: 5px solid var(--orange);
+  }
+
+  .research-panel.understanding {
+    background: var(--sage-soft);
+    border-top-color: var(--green);
+  }
+
+  .research-panel h4 {
+    margin: 0 0 0.45rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    line-height: 1.15;
+  }
+
+  .research-panel ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .research-panel li {
+    margin-bottom: 0.38rem;
+  }
+
+  .research-takeaway {
+    margin: 0;
+    padding: clamp(0.95rem, 2vw, 1.15rem) clamp(1rem, 2.6vw, 1.7rem);
+    background: #fff7db;
+    border-top: 1px solid var(--tan);
+    border-left: 0;
+  }
+
+  .research-takeaway strong {
+    display: block;
+    margin-bottom: 0.28rem;
+    color: #8a5f00;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .callout.pause .callout-label {
+    color: #dfeadc;
+  }
+
+  @media (min-width: 900px) {
+    .callout.key-term {
+      clear: right;
+      float: right;
+      position: static;
+      width: clamp(230px, 24%, 300px);
+      margin: 0.15rem 0 0.85rem 1.35rem;
+      padding: 0.78rem 0.85rem;
+      font-size: clamp(0.9rem, 0.86vw, 1rem);
+      line-height: 1.42;
+    }
+
+    .callout.myth,
+    .callout.flatten {
+      clear: right;
+      float: right;
+      width: clamp(300px, 34%, 380px);
+      margin: 0.18rem 0 0.9rem 1.35rem;
+      padding: 0.88rem 0.95rem;
+      font-size: clamp(0.96rem, 0.95vw, 1.06rem);
+      line-height: 1.45;
+    }
+
+    .callout.myth-inline {
+      clear: both;
+      float: none;
+      width: min(100%, 640px);
+      margin: 1rem 0 1.05rem;
+      padding: 1rem 1.1rem;
+    }
+
+    .callout.case {
+      clear: both;
+      float: left;
+      width: clamp(300px, 34%, 380px);
+      margin: 0.18rem 1.25rem 0.9rem 0;
+      padding: 0.95rem 1rem;
+      font-size: clamp(0.96rem, 0.95vw, 1.06rem);
+      line-height: 1.45;
+    }
+
+    .callout.case-inline {
+      clear: both;
+      float: none;
+      width: min(100%, 620px);
+      margin: 1rem 0 1.05rem;
+    }
+
+    .callout.research-check {
+      float: none;
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  .pullquote {
+    margin: 1.6rem 0;
+    padding-left: 1rem;
+    border-left: 6px solid var(--clay);
+    font-size: clamp(1.24rem, 2vw, 1.76rem);
+    font-weight: 700;
+    line-height: 1.28;
+  }
+
+  .recap {
+    border-top: 3px solid var(--tan);
+  }
+
+  .recap-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .recap-item {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--tan);
+  }
+
+  .recap-item strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .back-matter {
+    border-top: 2px solid var(--tan);
+  }
+
+  .back-matter h2 {
+    margin-bottom: 1rem;
+  }
+
+  .references p {
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .chapter-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: space-between;
+    margin-top: clamp(36px, 6vw, 72px);
+    padding-top: 1.35rem;
+    border-top: 2px solid var(--tan);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .chapter-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.72rem 1rem;
+    background: var(--clay);
+    color: var(--white);
+    border: 2px solid var(--clay);
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-decoration: none;
+  }
+
+  .chapter-nav a:nth-child(2) {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .chapter-nav a:hover,
+  .chapter-nav a:focus {
+    background: var(--white);
+    color: var(--clay-dark);
+    outline: none;
+  }
+
+  .chapter-nav a:nth-child(2):hover,
+  .chapter-nav a:nth-child(2):focus {
+    color: var(--green);
+  }
+
+  @media (max-width: 980px) {
+    .book-surface {
+      width: min(100%, calc(100% - 22px));
+    }
+
+    .brush-hero-inner,
+    .opening-spread,
+    .textbook-spread {
+      grid-template-columns: 1fr;
+    }
+
+    .brush-hero-inner {
+      gap: 1.2rem;
+      border: 0;
+    }
+
+    .chapter-number {
+      justify-self: start;
+      width: min(190px, 100%);
+    }
+
+    .hero-title-wrap {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .recap-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .reading-column > p,
+    .reading-column > h2,
+    .reading-column > .subsubsection-heading {
+      max-width: none;
+    }
+
+    .textbook-figure.float-right,
+    .callout.key-term,
+    .callout.case,
+    .callout.commonsense,
+    .callout.uncommonsense,
+    .callout.myth,
+    .callout.flatten,
+    .callout.research-check {
+      position: static;
+      float: none;
+      width: 100%;
+      margin: 0.9rem 0;
+    }
+
+    .research-compare {
+      grid-template-columns: 1fr;
+    }
+
+    .research-body {
+      grid-template-columns: 1fr;
+    }
+
+    .research-prose {
+      column-count: 1;
+      column-gap: 0;
+      column-rule: 0;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .miscomm-webbook {
+      font-size: 18px;
+    }
+
+    .book-surface {
+      padding: 22px 14px;
+    }
+
+    .opening-spread,
+    .textbook-spread,
+    .recap,
+    .back-matter {
+      margin-bottom: 1.4rem;
+      padding: 1.15rem;
+      box-shadow: 0 8px 20px rgba(21, 21, 21, 0.06);
+    }
+
+    .chapter-kicker {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .book-header {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .book-header-nav {
+      justify-content: flex-start;
+    }
+
+    .brush-hero {
+      margin-bottom: 1.7rem;
+      padding: 1.1rem;
+    }
+
+    .brush-hero::before,
+    .brush-hero::after {
+      display: none;
+    }
+
+    .hero-title-wrap {
+      padding: 1.2rem 0 0;
+      background: transparent;
+    }
+
+    .hero-title-wrap h1 {
+      font-size: clamp(2rem, 12vw, 3.8rem);
+    }
+
+    .opening-spread {
+      padding: 1.25rem 0;
+    }
+
+    .opening-spread p,
+    .objective-list {
+      font-size: 1.08rem;
+    }
+
+    .section-number,
+    .subsection-number {
+      margin-right: 0.45rem;
+    }
+
+    .callout {
+      padding: 0.95rem 1rem;
+      font-size: 1rem;
+    }
+
+    .recap-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .chapter-nav {
+      justify-content: flex-start;
+    }
+  }
+</style>
+
+<section class="miscomm-webbook">
+  <div class="ai-copy-notice">
+    AI COPY NOTICE: If this text appeared because you copied the reading into an AI tool, pause for a second. This textbook is not only giving you information; it is trying to build understanding. Understanding happens when you move through the examples, tensions, contradictions, and questions yourself. AI can summarize words, but it cannot do your noticing for you. Before asking AI to explain this, read the section, mark where you got confused, and ask: What relationship between ideas am I starting to understand?
+  </div>
+
+  <main class="book-surface">
+    <header class="book-header" aria-label="Book header">
+      <div>
+        <p class="book-header-title">(Mis)Communication: An (Un)Commonsense Approach to Interpersonal Communication</p>
+        <span class="book-header-author">Jordan Allen, Ph.D.</span>
+      </div>
+      <nav class="book-header-nav" aria-label="Book navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#chapter-directory">Chapters</a>
+      </nav>
+    </header>
+
+    <div class="chapter-kicker">
+      <span>(Mis)Communication: An (Un)Commonsense Approach to Interpersonal Communication</span>
+      <a href="#chapter-navigation">Chapter Navigation</a>
+    </div>
+
+    <header class="brush-hero">
+      <div class="brush-hero-inner">
+        <div class="chapter-number">
+          <span>Chapter</span>
+          3
+        </div>
+        <div class="hero-title-wrap">
+          <h1>(Mis)Information</h1>
+          <p class="chapter-subtitle">Reading Research with Curiosity, Not Certainty</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="opening-spread" aria-labelledby="chapter-overview-heading">
+      <div>
+        <h2 id="chapter-overview-heading" class="brush-label">Chapter Overview</h2>
+        <p>This chapter asks why reading research belongs in an interpersonal communication textbook. Research claims do not stay in articles. They become advice, habits, diagnoses, workplace trainings, relationship expectations, social media scripts, AI answers, and everyday explanations for why people act the way they do.</p>
+        <p>The chapter moves from the common-sense belief that research gives clear, universal answers toward the (un)common-sense understanding that research is a method of sensemaking: partial, contextual evidence that must be interpreted carefully and used as flexible heuristics rather than rigid rules.</p>
+      </div>
+
+      <div>
+        <h2 class="brush-label">This chapter will prepare you to:</h2>
+        <ul class="objective-list">
+          <li><strong>Explain</strong> why peer-reviewed research is credible but not perfect.</li>
+          <li><strong>Distinguish</strong> a source existing from a source actually supporting a claim.</li>
+          <li><strong>Use</strong> research claims as tools for sensemaking rather than as proof objects.</li>
+          <li><strong>Apply</strong> the 6 S's to read research with curiosity, context, and judgment.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="opening-story-the-myth-in-motion" class="textbook-spread numbered-section" aria-labelledby="opening-story-the-myth-in-motion-heading">
+      <div class="reading-column">
+        <h2 id="opening-story-the-myth-in-motion-heading" class="section-heading primary-heading"><span class="section-number">1</span>Opening Story: The Myth in Motion</h2>
+<p class="dropcap">The first thing I usually do when I open an academic article is check how long it is.</p>
+<p>This is not my proudest scholarly habit, but it is honest.</p>
+<p>I open the PDF, look at the page count, and immediately start negotiating with the universe. Twelve pages? Fine. Eighteen pages? Manageable, with snacks. Thirty pages? Now I am looking for figures, tables, generous margins, appendices, anything that might mean the article is not really thirty pages in the spiritual sense.</p>
+<p>Then I begin the ritual.</p>
+<p>I scroll. I scan the abstract. I underline a sentence that seems important. I underline another sentence because it is near the first one, and that feels like a pattern. I circle a term I do not understand. I stare at a diagram that was apparently included to help me, even though it looks like someone mapped an airport terminal during a power outage. I read a paragraph twice. I decide I need coffee. I come back. I reread the paragraph and realize the coffee did not fix it.</p>
+<p>At some point, a strange little hierarchy appears in my head.</p>
+<p>The article knows things.</p>
+<p>The authors know things.</p>
+<p>The journal knows things.</p>
+<p>The reviewers, somewhere behind the curtain, must have known things.</p>
+<p>And I, sitting there with my pen and my slowly fading confidence, do not yet know the things.</p>
+<p>That is when the common-sense approach to research sneaks in. It tells me that research is a container full of expert truth. My job is to open the container, extract the truth, and carry it somewhere else. If I can summarize the finding, I know the research. If I can cite the study, I have support. If I can quote the conclusion, I have the answer.</p>
+<p>This way of reading is not ridiculous. Research articles do contain findings. Citations do matter. Evidence is better than just announcing, "I feel like this is true," and expecting everyone to applaud.</p>
+<p>But the common-sense approach becomes too small when it turns research into certainty.</p>
+<p>You have probably seen this happen online. Someone posts a claim about relationships, trauma, ADHD, body language, workplace communication, attachment styles, dopamine, conflict, apology, narcissism, or why people act the way they act when they are dating, arguing, apologizing, lying, grieving, or trying very hard not to text back too quickly.</p>
+<p>Then someone in the comments asks the magic question:</p>
+<p>"Source?"</p>
+<p>Honestly, good. I like that question. I want people to ask for sources. A world where nobody asks for evidence is not a world I am especially excited to live in.</p>
+<p>But asking for a source is not the same as understanding a source.</p>
+<p>Sometimes "Source?" means, "I want to understand the evidence behind this claim." Lovely. Beautiful. We love to see it.</p>
+<p>Sometimes, though, "Source?" means, "I would like a research-shaped object I can throw at someone in an argument." Or, "I need one study that lets me feel certain." Or, "If you have a citation, then you have the truth, and if you do not, then I win."</p>
+<p>That is the myth this chapter takes up: the idea that research works like a fact machine. Put in a question. Pull out an answer. Use the answer as proof.</p>
+<p>Useful sometimes? Yes.</p>
+<p>Complete? Not even close.</p>
+<p>This matters for interpersonal communication because research claims do not stay inside journals. They move into conversations. They become dating advice, workplace trainings, family explanations, TikTok scripts, AI summaries, diagnoses, labels, conflict strategies, and everyday guesses about why people do what they do.</p>
+<p>Imagine someone questioning a romantic partner because they are worried that partner cheated. The partner looks away. Or blinks. Or shifts in the chair. The worried person remembers a video they saw: "If someone avoids eye contact, they are lying." Now that body movement becomes evidence. Not just a behavior. Evidence.</p>
+<p>Except research on deception judgment does not support the simple idea that ordinary people can reliably read lying from one clean nonverbal cue like eye movement, facial expression, or posture.<sup id="fnref1"><a href="#fn1">1</a></sup> That does not mean bodies are meaningless. It means bodies are not vending machines for hidden truth.</p>
+<p>Same behavior. Different possible meanings.</p>
+<p>Different context. Different interpretation.</p>
+<p>Different relationship history. Different work.</p>
+<p>So this chapter is not here because you need to become a professional researcher before you can communicate well. It is here because research claims shape what we notice, believe, and do with other people. If we read research through the common-sense approach, we may use it to become more certain while understanding less. If we read research through the (un)common-sense approach, research becomes one way we practice curiosity, context, judgment, and sensemaking.</p>
+<p>The goal is not to distrust research.</p>
+<p>The goal is to stop asking research to do something it was never built to do: hand us final truth without interpretation.</p>
+      </div>
+    </section>
+    <section id="overview-of-reading-research" class="textbook-spread numbered-section" aria-labelledby="overview-of-reading-research-heading">
+      <div class="reading-column">
+        <h2 id="overview-of-reading-research-heading" class="section-heading primary-heading"><span class="section-number">2</span>Overview of Reading Research</h2>
+<p>Research is one of the ways people try to make careful claims about the world.</p>
+<p>That sounds simple, but it is already different from the way research often shows up in everyday life. In ordinary conversation, research often appears as an authority word. "Research says." "Studies show." "Science proves." "According to psychology." "AI found a source."</p>
+<p>The word research starts acting like a person.</p>
+<p>Research is very busy online.</p>
+<p>Research apparently has opinions about your dating life, your sleep schedule, your posture, your productivity, your friendships, your apology style, your childhood, your boss, your brain chemicals, your partner's eye contact, and whether your group project member is lazy or merely "executive dysfunction coded."</p>
+<p>The problem is not that research has nothing to offer those situations. Research can help us understand interpersonal communication more carefully. It can challenge myths about deception. It can help us notice how conflict patterns develop. It can complicate simplistic claims about gender, culture, emotion, listening, power, identity, and relationships. It can give us language for patterns we may have felt but not yet understood.</p>
+<p>The problem is that research is not one voice saying one thing.</p>
+<p>Research is a practice. It is a process of asking questions, gathering evidence, making interpretations, checking those interpretations against methods and limits, and entering a larger conversation with other people who are also asking questions. A single study is not the end of that process. It is one contribution to it.</p>
+<p>One reason peer-reviewed research carries credibility is that it has been checked before publication. In a typical journal process, researchers write a manuscript, submit it to a journal, and an editor decides whether it fits the journal well enough to send out for review. Reviewers with relevant expertise evaluate the manuscript. They may recommend rejection, revision, or acceptance. The editor then makes a decision. Often, the authors revise, respond to reviewer concerns, and resubmit.</p>
+<p>That process matters. It is one reason a peer-reviewed article is usually stronger evidence than a random post, an unsourced claim, or a confident video made by someone selling a supplement and a masterclass.</p>
+<p>But peer review is not a truth stamp.</p>
+<p>It also has a history. Modern editorial peer review did not simply fall from the sky as the natural form of scholarly truth. Historians of science show that editorial peer review developed unevenly over time, becoming more formal and central in relation to changing journal practices, expanding submissions, scientific professionalization, public accountability, and U.S. Cold War science policy.<sup id="fnref2"><a href="#fn2">2</a></sup> That history matters because it helps us see peer review as a human quality-control process, not a magical guarantee.</p>
+<p>Peer review can improve research. It can also be inconsistent, slow, biased, limited, and shaped by disciplinary norms, editorial priorities, reviewer labor, and publishing systems.<sup id="fnref3"><a href="#fn3">3</a></sup> Some flawed work passes peer review. Some good work gets rejected. Some research is hard to publish because it challenges assumptions, uses less familiar methods, or does not fit what a journal expects.</p>
+<p>So we need a both/and understanding:</p>
+<p>Peer review gives research credibility.</p>
+<p>Peer review does not give research perfection.</p>
+<p>That difference is important because students often meet research after it has already traveled. A study becomes a university press release. A press release becomes a headline. A headline becomes a TikTok. A TikTok becomes a group chat explanation. A group chat explanation becomes a relationship argument. By the time someone says "research says," the original study may have been flattened, exaggerated, or moved far beyond what it actually supports.</p>
+<p>Research on science communication gives us reason to take that movement seriously. Studies of health and medical research coverage have found that exaggerations can enter public communication through press releases and then appear in news coverage.<sup id="fnref4"><a href="#fn4">4</a></sup> A separate study of randomized controlled trials found that press releases and news stories sometimes misrepresented the underlying research.<sup id="fnref5"><a href="#fn5">5</a></sup> Social media adds another layer: misinformation about health and related topics can be widespread, varied, and difficult for ordinary users to evaluate quickly.<sup id="fnref6"><a href="#fn6">6</a></sup> On TikTok, for example, researchers studying popular ADHD videos found a large amount of content they classified as misleading, which matters because viewers may use those claims to understand themselves or others.<sup id="fnref7"><a href="#fn7">7</a></sup></p>
+<p>This chapter is not a chapter about health communication specifically. It is a chapter about reading social scientific research for interpersonal communication. But health, psychology, neuroscience, and communication claims travel together in everyday life. Students do not usually sort their feeds into neat disciplinary folders. One scroll might include a breakup theory, a workplace communication tip, an ADHD explanation, a body language claim, an attachment-style quiz, a productivity hack, an AI answer, and a creator saying "studies show" without ever naming the study.</p>
+<p>That is why research literacy belongs here.</p>
+<p>Reading research is not only an academic skill. It is an interpersonal skill because research claims become part of how we judge people. They shape what we call honest, toxic, manipulative, caring, avoidant, professional, needy, confident, biased, normal, healthy, or suspicious.</p>
+<p>If we read badly, we may communicate badly with very impressive footnotes.</p>
+<p>If we read well, research can help us communicate with more humility, precision, curiosity, and care.</p>
+      </div>
+    </section>
+    <section id="approaching-research" class="textbook-spread numbered-section" aria-labelledby="approaching-research-heading">
+      <div class="reading-column">
+        <h2 id="approaching-research-heading" class="section-heading primary-heading"><span class="section-number">3</span>Approaching Research</h2>
+<p>The common-sense approach defines research as a way to get expert facts.</p>
+<p>From this view, the article is a container. The researchers discover something, write it down, and send it into the world. The reader receives the information and now knows the thing. Then the reader can cite it, summarize it, use it in a paper, post it in a comment, or bring it into a conversation as proof.</p>
+<p>The common-sense approach is not wrong because it asks what a study found. That is a good question. If you read a study and have no idea what it found, something has gone sideways.</p>
+<p>The problem is stopping there.</p>
+<p>When the common-sense approach becomes the whole approach, it asks students to locate the correct claim, reduce uncertainty, control interpretation, and prove one side right. It turns research into a knowing problem: What did the study say? What is the answer? What can I cite? What can I use?</p>
+<p>That approach hides a lot.</p>
+<p>It hides method. How was the evidence produced?</p>
+<p>It hides sample. Who or what was studied?</p>
+<p>It hides context. Under what conditions did the finding appear?</p>
+<p>It hides limits. What did the authors say the study could not tell us?</p>
+<p>It hides contradiction. What other research complicates this claim?</p>
+<p>It hides application. What happens when this finding enters a real relationship, workplace, family conversation, friendship, classroom, or online argument?</p>
+<p>Most importantly, it makes one myth feel concrete: if something is research-based, it gives me a rule.</p>
+<p>Rules are tempting. Rules feel efficient. Rules reduce uncertainty. Rules make complicated situations look manageable.</p>
+<p>But interpersonal communication is not a clean rule environment. People have histories. Relationships have patterns. Context changes meaning. Power matters. Emotion matters. Bodies matter. Technology matters. Timing matters. The same behavior can do different things in different situations.</p>
+<p>The (un)common-sense approach defines research differently. Research is a method of understanding. It helps us make sense of questions, patterns, problems, contexts, relationships, and claims by working with partial, contextual evidence.</p>
+<p>The article is not a magic answer machine.</p>
+<p>The reader is not a passive receiver.</p>
+<p>The finding is not a universal rule.</p>
+<p>This approach asks different questions:</p>
+<p>What does this study help me understand?</p>
+<p>Who or what was studied?</p>
+<p>What method shaped the evidence?</p>
+<p>What does this finding explain well?</p>
+<p>Where might it not apply?</p>
+<p>What other research complicates it?</p>
+<p>How can this guide action without becoming a rigid rule?</p>
+<p>Those questions do not make research weaker. They make research more usable.</p>
+<p>The (un)common-sense approach also helps students avoid two opposite mistakes. The first mistake is naive acceptance: "It has a source, so it must be true." The second mistake is cynical rejection: "Research is flawed, so I can ignore it." Both are easier than understanding.</p>
+<p>Understanding asks for more responsibility.</p>
+<p>It asks us to treat research as partial, situated evidence. Partial does not mean useless. Situated does not mean fake. It means the evidence comes from somewhere, through a method, with limits attached. When we keep those limits attached, research can become a flexible guide for judgment rather than a rigid script.</p>
+<p>That flexible guide is called a heuristic.</p>
+<p>A heuristic is not a universal law. It is a practical guide that helps us notice, ask, interpret, and respond more carefully in situations that are too complicated for one-size-fits-all rules.</p>
+<p>So instead of saying, "Research proves people who avoid eye contact are lying," we might say, "Research does not support treating one nonverbal cue as a lie detector. If I am worried about deception, I need to attend to context, patterns, evidence, relationship history, and the possibility that my own anxiety is shaping what I see."</p>
+<p>That is a very different communication practice.</p>
+<p>The first gives us certainty.</p>
+<p>The second gives us responsibility.</p>
+<aside class="callout myth"><strong class="callout-label">Communication Myth: "Research Says"</strong><p>"Research says" is not enough. Ask: Which research? What kind of study? Who was included? What did the authors actually claim? What were the limits? What would I need to know before using this claim in a real interaction?</p></aside>
+      </div>
+    </section>
+    <section id="discontinuous-leaps" class="textbook-spread numbered-section" aria-labelledby="discontinuous-leaps-heading">
+      <div class="reading-column">
+        <h2 id="discontinuous-leaps-heading" class="section-heading primary-heading"><span class="section-number">4</span>Discontinuous Leaps</h2>
+<h3 class="subsubsection-heading">Leap 1: From Reporting to Sense-Making</h3>
+<p>The first leap is from reporting to sense-making.</p>
+<p>The common-sense assumption is that research gives findings to report. A study is a container of expert knowledge, and the reader's job is to extract the finding correctly.</p>
+<p>This is why students often overvalue the abstract and conclusion. Those sections seem to say what the study means. They are efficient. They are tidy. They get to the point.</p>
+<p>Again, useful? Yes.</p>
+<p>But if reading stops there, the myth takes over: if I can report the finding, I understand the research.</p>
+<p>That myth shows up in everyday communication all the time. A student says, "I found a study that says people only get 7 percent of meaning from words." Someone says, "Research proves crossed arms mean someone is defensive." A manager says, "The data says remote workers are less engaged." A creator says, "Studies show dopamine hacks can fix your motivation." An AI tool produces a clean summary of an article, and the reader feels like the hard part has been handled.</p>
+<p>But clean reporting is not the same as understanding.</p>
+<p>A report can be accurate and still be shallow. It can name the finding while missing the method. It can repeat the conclusion while missing the limits. It can quote the source while misusing the claim.</p>
+<p>This is one reason misinformation can be so slippery. Misinformation is not always a totally made-up claim. Sometimes it is a real finding moved into the wrong context. Sometimes it is a careful claim stripped of its caveats. Sometimes it is a study summarized so cleanly that the messiness disappears.</p>
+<p>The (un)common-sense assumption is that research is sensemaking. A study gives readers structured evidence to interpret, connect, contextualize, and question.</p>
+<p>That changes the reader's job. Instead of asking only, "What did the study find?" we ask, "What did the study do?" and "How does what it did shape what it can claim?"</p>
+<p>A survey does one kind of work. An experiment does another. Interviews do another. Ethnography does another. A rhetorical analysis does another. A meta-analysis or systematic review does another. A public summary of research does another thing entirely.</p>
+<p>If a student reads a study about deception, the sensemaking question is not only, "What nonverbal cues were associated with lying?" It is also, "Who was studied? What counted as deception? What situation were participants in? What cues were measured? How accurate were people overall? What did the authors warn readers not to overclaim?"</p>
+<p>That may feel slower. In some ways, it is.</p>
+<p>But it is also the difference between using research and being used by research-shaped language.</p>
+<p>For interpersonal communication, this leap matters because people often use research claims inside relational judgments. "You are avoidant." "You are gaslighting me." "You are lying because you looked away." "Your communication style is toxic." "This study says my reaction is normal, so you are the problem."</p>
+<p>Maybe a concept helps.</p>
+<p>Maybe it does not.</p>
+<p>The (un)common-sense move is to let research open interpretation before it closes judgment.</p>
+<aside class="callout research"><strong class="callout-label">Research Check: What Kind of Evidence Is This?</strong><p>Before using a source, ask what kind of source it is: a single study, meta-analysis, systematic review, theory article, qualitative interview study, survey, experiment, press release, news story, creator summary, or AI summary. Different kinds of evidence do different jobs.</p></aside>
+<h3 class="subsubsection-heading">Leap 2: From Universal Truths to Local Truths</h3>
+<p>The second leap is from universal truths to local truths.</p>
+<p>The common-sense assumption is that good research gives universal answers. If a study is true, it should apply broadly and cleanly. If it does not apply broadly and cleanly, maybe it is not useful.</p>
+<p>You can hear this assumption in familiar critiques:</p>
+<p>"The sample is too small."</p>
+<p>"That is only one study."</p>
+<p>"That does not prove anything."</p>
+<p>"That was not even done on people like me."</p>
+<p>"Correlation is not causation."</p>
+<p>Some of those critiques are important. Please do not leave this chapter thinking sample size, causation, and generalizability do not matter. They do.</p>
+<p>But sometimes those critiques also hide a problem: they assume every study is trying to give the same kind of truth.</p>
+<p>It is not.</p>
+<p>Some research seeks broad patterns across large groups. Some research seeks depth in a smaller number of lives. Some research tests a causal relationship under controlled conditions. Some research studies naturally occurring interaction. Some research interprets messages, texts, histories, or institutions. Some research reviews many studies to ask what pattern seems strongest across the field.</p>
+<p>If we treat every study as if it is trying to produce the same universal truth, we misunderstand a lot of research before we even start reading.</p>
+<p>The (un)common-sense approach gives us a better phrase: local truth.</p>
+<p>A local truth is a supported finding with its conditions still attached. It is not "local" because it is fake. It is local because it has a location: a method, a population, a context, a history, a set of measures, a set of assumptions, a moment in a larger scholarly conversation.</p>
+<p>This idea also appears in the way researchers now talk about generalizing responsibly. Scholars have argued that research articles should be clearer about the conditions under which findings are expected to generalize.<sup id="fnref8"><a href="#fn8">8</a></sup> That is a very (un)common-sense move: do not pretend a finding floats above context. Name the context so readers can use the finding more carefully.</p>
+<p>Local truth is especially important for interpersonal communication because our topic is people in relation to other people. A finding about one group, culture, relationship type, workplace, platform, or historical moment may not travel cleanly into another. It may still help. It may still give us a pattern worth noticing. But it should travel with care.</p>
+<p>Return to the deception example. The common-sense myth says bodies reveal lying if we know what signs to look for. The (un)common-sense move is not to say bodies do not matter. Bodies can matter. Nervous systems matter. Facial expressions matter. Silence matters. Timing matters. Eye contact can mean something.</p>
+<p>The problem is treating one bodily cue as universal truth.</p>
+<p>If someone looks away during a difficult conversation, that could mean deception. It could also mean shame, fear, cultural norms around eye contact, sensory overload, discomfort, anger, an attempt to regulate emotion, a trauma history, or simply that the person is thinking carefully before answering.</p>
+<p>One behavior. Many possible meanings.</p>
+<p>That difference matters because misinformation does not just make people wrong. It can make people unfair. It can turn anxiety into evidence. It can turn a partner's nervousness into guilt. It can turn a student's quietness into disrespect. It can turn a coworker's hesitation into incompetence.</p>
+<p>The changed behavior is this: when students encounter a research claim, they should ask where it is true, not only whether it is true.</p>
+<p>Where was this studied?</p>
+<p>Who was included?</p>
+<p>What kind of evidence is this?</p>
+<p>What does it help me see?</p>
+<p>Where might it not travel well?</p>
+<p>What would be irresponsible to claim from it?</p>
+<p>Those questions do not weaken research. They make research usable.</p>
+<aside class="callout case"><strong class="callout-label">Case in Point: The Eye Contact Problem</strong><p>Common-sense rule: "Avoiding eye contact means someone is lying." (Un)common-sense heuristic: "Do not use one nonverbal cue as a lie detector. If trust is in question, attend to context, patterns, evidence, and the relationship."</p></aside>
+<h3 class="subsubsection-heading">Leap 3: From Summarizing to Synthesizing</h3>
+<p>The third leap is from summarizing to synthesizing.</p>
+<p>The common-sense assumption is that if I can summarize the study, I know the study.</p>
+<p>This assumption has become easier to believe because we now have tools that can summarize almost anything. Paste in an article. Ask for the key points. Get a neat list. Maybe ask for it in simpler language. Maybe ask for examples. Maybe ask for the takeaway.</p>
+<p>That can be useful. I am not anti-AI. I am anti-outsourcing-understanding.</p>
+<p>A summary can help you enter an article. It can help you identify unfamiliar terms. It can give you a first map of the terrain. It can help you decide where to slow down.</p>
+<p>But a summary is not the same as synthesis.</p>
+<p>Summary answers, "What does this source say?"</p>
+<p>Synthesis asks, "How does this source connect to other sources, methods, limits, questions, examples, and lived situations?"</p>
+<p>This leap matters because AI can intensify the common-sense approach. If students read research as knowing, AI becomes a faster fact machine. Ask the question. Get the answer. Copy the summary. Move on.</p>
+<p>Research on automation bias helps explain why that is risky. People can over-rely on automated systems, sometimes accepting automated suggestions while discounting other information or failing to monitor the system carefully.<sup id="fnref9"><a href="#fn9">9</a></sup> Related work on algorithm appreciation shows that people may sometimes prefer algorithmic advice over human advice, especially after seeing algorithms perform well.<sup id="fnref10"><a href="#fn10">10</a></sup> That does not mean people always trust machines too much. It means our relationship with automated information is complicated enough that "the tool gave me an answer" cannot be the end of our thinking.</p>
+<p>AI literacy is part of the response. Long and Magerko describe AI literacy as a set of competencies that helps people understand, use, and critically evaluate AI.<sup id="fnref11"><a href="#fn11">11</a></sup> For this chapter, the important point is simple: AI literacy is not just knowing how to prompt. It is knowing how to ask what a tool can do, what it cannot do, what assumptions shape its output, and what responsibilities still belong to the human user.</p>
+<p>That is why synthesis matters.</p>
+<p>Synthesis means connecting.</p>
+<p>You connect the finding to the method.</p>
+<p>You connect the method to the claim.</p>
+<p>You connect the claim to the limits.</p>
+<p>You connect the source to other sources.</p>
+<p>You connect the research to lived experience without reducing research to "just my opinion."</p>
+<p>You connect what you are reading to the communication situation you are actually trying to understand.</p>
+<p>This is where literacies become practical. Research literacy, information literacy, scientific literacy, data literacy, digital literacy, and AI literacy are not piles of trivia. They are ways of practicing judgment. They are closer to street smarts than flashcards.</p>
+<p>Street smarts do not mean you know everything. They mean you know how to move through a situation. You notice cues. You connect pieces. You recognize when something feels off. You know when to pause, when to investigate, and when to stop pretending you know enough.</p>
+<p>The changed behavior is not "trust yourself instead of research." That would just be another kind of certainty.</p>
+<p>The changed behavior is: connect research to other forms of information without collapsing them into the same thing.</p>
+<p>Lived experience matters. Research matters. Context matters. Methods matter. Limits matter. None of them does all the work alone.</p>
+<aside class="callout uncommonsense"><strong class="callout-label">Collecting vs. Connecting</strong><p>Collecting asks, "What facts can I gather?" Connecting asks, "How do these facts, methods, limits, examples, and contexts change what I understand?" You need some collecting. You just cannot stop there.</p></aside>
+      </div>
+    </section>
+    <section id="practice-bridge" class="textbook-spread numbered-section" aria-labelledby="practice-bridge-heading">
+      <div class="reading-column">
+        <h2 id="practice-bridge-heading" class="section-heading primary-heading"><span class="section-number">5</span>Practice Bridge</h2>
+<p>The common-sense reaction is collecting.</p>
+<p>Collecting treats an article like a locked room full of facts. The reader tries to gather definitions, findings, citations, methods, key terms, and smart-sounding sentences until they feel like they know it.</p>
+<p>This reaction makes sense. Articles do contain information. If you are writing a paper, you do need to know what a source says. If you are building an argument, you do need evidence. If you are reading for class, you do need to track important terms and claims.</p>
+<p>But collecting can become academic hoarding.</p>
+<p>Every unfamiliar word becomes a wall. Every method section becomes a locked basement. Underlining becomes a substitute for understanding. The article becomes an enemy to defeat or a maze to escape.</p>
+<p>The (un)common-sense response is connecting.</p>
+<p>Connecting means developing a workable relationship with the article. You decide why you are reading it. You move around strategically. You ask questions. You connect the article to purpose, methods, limits, other evidence, and lived experience.</p>
+<p>This is where the 6 S's can help: Skim, Scour, Scrawl, Seek, Summarize, Synthesize.</p>
+<p>These are moves, not commandments. You do not always need all six in the same amount. Sometimes you need a quick first pass. Sometimes you need a deep read. Sometimes you need one source to define a concept. Sometimes you need one source to complicate a claim. Sometimes a source becomes central to your thinking. Sometimes it teaches you one useful thing and then you move on with gratitude and mild relief.</p>
+<h3 class="subsubsection-heading">Skim: Get the Shape</h3>
+<p>Skimming is not fake reading.</p>
+<p>Skimming is how you get oriented.</p>
+<p>When you skim, you look at the title, abstract, headings, keywords, tables, figures, conclusion, and reference list. You ask: What kind of article is this? What question is it asking? What field does it come from? What does it seem to be doing?</p>
+<p>Skimming helps you avoid one of the great academic traps: reading every sentence with equal panic.</p>
+<p>Not every sentence needs the same kind of attention. Some sentences give you the main argument. Some define terms. Some describe methods. Some review previous research. Some are there because academic articles have a way of making simple transitions wear formal clothing.</p>
+<p>Skim to get the shape before you decide where to slow down.</p>
+<h3 class="subsubsection-heading">Scour: Slow Down Where It Matters</h3>
+<p>Scouring means reading carefully in the places that matter for your purpose.</p>
+<p>If you are using a study to support a claim about deception, you need to scour the method and limitations. If you are using an article to understand a concept, you need to scour the definition and theory sections. If you are using a meta-analysis, you need to understand what kinds of studies were included and what the overall pattern actually was.</p>
+<p>Scouring is focused attention.</p>
+<p>It does not mean you understand every sentence immediately. It means you know where not to bluff.</p>
+<p>A good scouring question is: What part of this article would change how I can use it?</p>
+<h3 class="subsubsection-heading">Scrawl: Leave Evidence of Interaction</h3>
+<p>Scrawling is annotation.</p>
+<p>Write in the margins. Add comments. Mark confusion. Translate a sentence into your own words. Put a question beside a claim. Draw arrows between ideas. Write "method matters here" or "too broad?" or "good example for conflict" or "do not overclaim."</p>
+<p>The point is not to decorate the PDF until it looks academically injured.</p>
+<p>The point is to leave evidence that you are interacting with the source.</p>
+<p>Scrawling turns reading from receiving into responding. It helps you notice what you understand, what you do not understand, what you need to check, and what might matter later.</p>
+<h3 class="subsubsection-heading">Seek: Find What You Need</h3>
+<p>Seeking means reading with a purpose.</p>
+<p>Sometimes you need the main finding. Sometimes you need a definition. Sometimes you need the study's limits. Sometimes you need a source from the reference list. Sometimes you need to know whether the article actually supports the claim someone attached to it.</p>
+<p>Seeking is especially important in an AI-shaped information world. AI tools can help you locate terms, generate questions, or identify sections to inspect, but they should not replace your judgment. If an AI summary says an article proves something, seek the place where the article actually makes that claim. Then check whether the method can carry it.</p>
+<p>A useful seeking question is: What am I trying to find out, and where would the article show me that?</p>
+<h3 class="subsubsection-heading">Summarize: Put It in Your Own Words for Your Purpose</h3>
+<p>Summarizing means saying what the article does in language you actually understand.</p>
+<p>Not fancy language. Not borrowed abstract language. Your language.</p>
+<p>A strong summary does not only say, "This article is about deception." It says something like: "This article reviews research on deception judgment and helps show why people should be cautious about assuming they can detect lying from simple nonverbal cues. I can use it to complicate body-language myths, but I should not use it to claim bodies never matter."</p>
+<p>Notice the difference. The second version names what the source helps you understand and what it should not be used to overclaim.</p>
+<p>That is summary serving understanding.</p>
+<h3 class="subsubsection-heading">Synthesize: Connect It Beyond Itself</h3>
+<p>Synthesis is where the (un)common-sense approach really shows up.</p>
+<p>To synthesize, ask how this source connects to other sources, examples, experiences, theories, methods, and questions.</p>
+<p>Does it support another source?</p>
+<p>Does it complicate another source?</p>
+<p>Does it offer a different method?</p>
+<p>Does it challenge a common-sense myth?</p>
+<p>Does it help explain an interpersonal situation?</p>
+<p>Does it suggest a heuristic?</p>
+<p>Synthesis is how research becomes usable without becoming simplistic.</p>
+<p>For example, if one source tells you deception detection is hard, you do not leave with the rule "ignore nonverbal behavior." You synthesize. You connect that research to what you know about context, anxiety, relationship history, cultural norms, power, and uncertainty. The heuristic becomes: do not treat one cue as proof; use conversation, context, patterns, and evidence.</p>
+<p>That is better than a rule because it can travel into real life without pretending real life is simple.</p>
+<aside class="callout try-this"><strong class="callout-label">Try This: The 20-Minute First Date With a Research Article</strong><p>Set a timer for 20 minutes. Skim the article's shape. Scrawl three questions. Seek the method, main claim, and limits. Write a two-sentence summary in your own words. End by naming one connection to another source, class concept, lived example, or communication problem. You are not marrying the article. You are finding out what kind of relationship you need with it.</p></aside>
+<p>The 6 S's do not make reading research effortless. They make it less mysterious.</p>
+<p>They also make it more interpersonal. You are learning how to handle claims before those claims become judgments about real people. You are practicing how to slow certainty down long enough for understanding to catch up.</p>
+      </div>
+    </section>
+    <section id="closing-what-to-carry-forward" class="textbook-spread numbered-section" aria-labelledby="closing-what-to-carry-forward-heading">
+      <div class="reading-column">
+        <h2 id="closing-what-to-carry-forward-heading" class="section-heading primary-heading"><span class="section-number">6</span>Closing: What to Carry Forward</h2>
+<p>Let us come back to the thirty-page article.</p>
+<p>The one with the diagram that looked like it needed its own emergency contact.</p>
+<p>The common-sense approach told me the article had the truth and I needed to get it. It made me feel like reading was a transfer problem: the knowledge was over there, inside the article, and my job was to move it into my head without dropping anything important.</p>
+<p>The (un)common-sense approach changes the task.</p>
+<p>The article is not a container of final truth. It is a piece of a conversation. It can help me understand something, but only if I ask what it can support, what it cannot support, where it comes from, what it connects to, and how it should or should not shape what I do with other people.</p>
+<p>That is the big shift of this chapter.</p>
+<p>Research is not certainty.</p>
+<p>Research is disciplined curiosity.</p>
+<p>A study can challenge a myth. It can complicate an assumption. It can give us better questions. It can help us build heuristics for communicating more carefully. But it cannot understand for us.</p>
+<p>A citation cannot understand for us.</p>
+<p>AI cannot understand for us.</p>
+<p>A viral creator cannot understand for us.</p>
+<p>A single study cannot understand for us.</p>
+<p>Understanding is the work of connecting information, context, limits, evidence, lived experience, and judgment. That work matters because research claims shape how we treat people. They shape what we call suspicious, normal, healthy, toxic, objective, biased, credible, or true.</p>
+<p>So the next time someone says "research says," do not automatically believe them and do not automatically roll your eyes.</p>
+<p>Get curious.</p>
+<p>Ask which research.</p>
+<p>Ask what it can tell you.</p>
+<p>Ask what it cannot tell you.</p>
+<p>Ask when it is true, for whom, under what conditions, and what it helps you understand about communicating.</p>
+<p>The goal is not to become certain faster.</p>
+<p>The goal is to become responsible with what we think we know.</p>
+      </div>
+    </section>
+
+    <section class="back-matter references" aria-labelledby="endnotes-heading">
+      <h2 id="endnotes-heading" class="section-heading primary-heading">Endnotes</h2>
+      <ol>
+        <li id="fn1">Charles F. Bond Jr. and Bella M. DePaulo, "Accuracy of Deception Judgments," <em>Personality and Social Psychology Review</em> 10, no. 3 (2006): 214-234, https://doi.org/10.1207/s15327957pspr1003_2. <a href="#fnref1" aria-label="Back to reference 1">Back</a></li>
+        <li id="fn2">John C. Burnham, "The Evolution of Editorial Peer Review," <em>JAMA</em> 263, no. 10 (1990): 1323-1329, https://doi.org/10.1001/jama.1990.03440100023003; Melinda Baldwin, "Scientific Autonomy, Public Accountability, and the Rise of 'Peer Review' in the Cold War United States," <em>Isis</em> 109, no. 3 (2018): 538-558, https://doi.org/10.1086/700070. <a href="#fnref2" aria-label="Back to reference 2">Back</a></li>
+        <li id="fn3">Richard Smith, "Peer Review: A Flawed Process at the Heart of Science and Journals," <em>Journal of the Royal Society of Medicine</em> 99, no. 4 (2006): 178-182, https://pmc.ncbi.nlm.nih.gov/articles/PMC1420798/; Jonathan P. Tennant and Tony Ross-Hellauer, "The Limitations to Our Understanding of Peer Review," <em>Research Integrity and Peer Review</em> 5, Article 6 (2020), https://doi.org/10.1186/s41073-020-00092-1. <a href="#fnref3" aria-label="Back to reference 3">Back</a></li>
+        <li id="fn4">Petroc Sumner et al., "The Association Between Exaggeration in Health Related Science News and Academic Press Releases: Retrospective Observational Study," <em>BMJ</em> 349 (2014): g7015, https://doi.org/10.1136/bmj.g7015. <a href="#fnref4" aria-label="Back to reference 4">Back</a></li>
+        <li id="fn5">A. Yavchitz et al., "Misrepresentation of Randomized Controlled Trials in Press Releases and News Coverage: A Cohort Study," <em>PLoS Medicine</em> 9, no. 9 (2012): e1001308, https://doi.org/10.1371/journal.pmed.1001308. <a href="#fnref5" aria-label="Back to reference 5">Back</a></li>
+        <li id="fn6">Victor Suarez-Lledo and Javier Alvarez-Galvez, "Prevalence of Health Misinformation on Social Media: Systematic Review," <em>Journal of Medical Internet Research</em> 23, no. 1 (2021): e17187, https://doi.org/10.2196/17187. <a href="#fnref6" aria-label="Back to reference 6">Back</a></li>
+        <li id="fn7">Anthony Yeung, Enoch Ng, and Elia Abi-Jaoude, "TikTok and Attention-Deficit/Hyperactivity Disorder: A Cross-Sectional Study of Social Media Content Quality," <em>The Canadian Journal of Psychiatry</em> 67, no. 12 (2022): 899-906, https://doi.org/10.1177/07067437221082854. <a href="#fnref7" aria-label="Back to reference 7">Back</a></li>
+        <li id="fn8">Daniel J. Simons, Yuichi Shoda, and D. Stephen Lindsay, "Constraints on Generality (COG): A Proposed Addition to All Empirical Papers," <em>Perspectives on Psychological Science</em> 12, no. 6 (2017): 1123-1128, https://doi.org/10.1177/1745691617708630. <a href="#fnref8" aria-label="Back to reference 8">Back</a></li>
+        <li id="fn9">Kate Goddard, Abdul Roudsari, and Jeremy C. Wyatt, "Automation Bias: A Systematic Review of Frequency, Effect Mediators, and Mitigators," <em>Journal of the American Medical Informatics Association</em> 19, no. 1 (2012): 121-127, https://doi.org/10.1136/amiajnl-2011-000089. <a href="#fnref9" aria-label="Back to reference 9">Back</a></li>
+        <li id="fn10">Jennifer M. Logg, Julia A. Minson, and Don A. Moore, "Algorithm Appreciation: People Prefer Algorithmic to Human Judgment," <em>Organizational Behavior and Human Decision Processes</em> 151 (2019): 90-103, https://doi.org/10.1016/j.obhdp.2018.12.005. <a href="#fnref10" aria-label="Back to reference 10">Back</a></li>
+        <li id="fn11">Duri Long and Brian Magerko, "What Is AI Literacy? Competencies and Design Considerations," <em>Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems</em> (2020), https://doi.org/10.1145/3313831.3376727. <a href="#fnref11" aria-label="Back to reference 11">Back</a></li>
+        <li id="fn12">Maureen C. Carey, Kevin L. Steiner, Jr., and William A. Petri, Jr., "Ten Simple Rules for Reading a Scientific Paper," <em>PLOS Computational Biology</em> 16, no. 7 (2020): e1008032, https://doi.org/10.1371/journal.pcbi.1008032. <a href="#fnref12" aria-label="Back to reference 12">Back</a></li>
+      </ol>
+    </section>
+
+    <nav id="chapter-navigation" class="chapter-nav" aria-label="Chapter navigation">
+      <a href="chapter-1-populated.html">Previous Chapter</a>
+      <a href="index.html#chapter-directory">Back to Chapters</a>
+    </nav>
+  </main>
+</section>
