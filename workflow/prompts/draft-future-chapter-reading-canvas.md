@@ -40,6 +40,7 @@ Before drafting, complete these checks:
 9. Sync sources: compare section-level source boxes, quote boxes, uploaded source documents, and source maps against the Master Annotated Bibliography. Add or flag any source missing from the master list, including where it appeared, what claim it supports, and what citation details are missing.
 10. Map each source and example to the place it belongs.
 11. List unsupported claims, missing examples, weak source support, terminology risks, and overused Chapter 0 concepts.
+12. Check prose discipline: use author-provided opening narratives when present, add clear transition headers after narratives, bold introduced key terms, avoid unclear "this/that/it" referents, avoid generic AI filler, avoid overusing single-sentence paragraphs, and keep overview/foundation sections topic-centered before applying the framework.
 
 If there are serious gaps, stop and ask specific questions.
 
