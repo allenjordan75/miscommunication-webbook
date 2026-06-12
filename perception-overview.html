@@ -1,0 +1,339 @@
+<style>
+  :root {
+    --cream: #fff1dd;
+    --paper: #fffdf8;
+    --white: #ffffff;
+    --ink: #151515;
+    --muted: #5b514a;
+    --clay: #b85f32;
+    --clay-dark: #8f4525;
+    --orange: #ff8846;
+    --gold: #f5b94f;
+    --green: #34704c;
+    --sage-soft: #eef2e8;
+    --blue: #005f78;
+    --tan: #d8c9b8;
+    --max: 1180px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .miscomm-overview {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(18px, 1.12vw, 20px);
+    line-height: 1.64;
+  }
+
+  .overview-surface {
+    width: min(var(--max), calc(100% - clamp(18px, 5vw, 72px)));
+    margin: 0 auto;
+    padding: clamp(28px, 4.4vw, 62px) clamp(16px, 3vw, 42px);
+  }
+
+  .book-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: clamp(1.1rem, 3vw, 2rem);
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--tan);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .book-header-title {
+    margin: 0;
+    font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+    font-weight: 900;
+    line-height: 1.22;
+  }
+
+  .book-header-author {
+    display: block;
+    margin-top: 0.18rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .overview-hero {
+    position: relative;
+    margin: clamp(10px, 2vw, 18px) 0 clamp(28px, 4vw, 52px);
+    padding: clamp(28px, 4.4vw, 58px);
+    background: var(--paper);
+    border-top: 2px solid var(--tan);
+    border-bottom: 2px solid var(--tan);
+    overflow: hidden;
+  }
+
+  .overview-hero:before {
+    content: "";
+    position: absolute;
+    inset: clamp(12px, 2vw, 22px) auto clamp(12px, 2vw, 22px) 0;
+    width: clamp(10px, 1.6vw, 18px);
+    background: var(--gold);
+  }
+
+  .overview-hero:after {
+    content: "";
+    position: absolute;
+    left: clamp(22px, 4vw, 42px);
+    right: clamp(22px, 4vw, 42px);
+    bottom: clamp(12px, 2vw, 20px);
+    height: 4px;
+    background: var(--orange);
+  }
+
+  .overview-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(108px, 0.26fr) minmax(0, 1fr);
+    align-items: stretch;
+    min-height: clamp(210px, 24vw, 310px);
+    border: 1px solid var(--tan);
+  }
+
+  .module-number {
+    display: grid;
+    align-content: center;
+    padding: clamp(1.2rem, 2.7vw, 1.9rem);
+    background: var(--clay);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.1rem, 4.4vw, 4.4rem);
+    font-weight: 900;
+    line-height: 0.9;
+  }
+
+  .module-number span {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: #ffe4cc;
+    font-size: 0.25em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-title-wrap {
+    z-index: 1;
+    max-width: 900px;
+    padding: clamp(1.6rem, 4.2vw, 3.4rem) clamp(1.4rem, 3.7vw, 3rem);
+    background: var(--white);
+  }
+
+  .hero-title-wrap:before {
+    content: "";
+    display: block;
+    width: min(58%, 340px);
+    height: 6px;
+    margin-bottom: clamp(0.85rem, 2vw, 1.35rem);
+    background: var(--gold);
+  }
+
+  .hero-title-wrap h1 {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.35rem, 5.5vw, 5.2rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 0.98;
+  }
+
+  .overview-subtitle {
+    max-width: 42rem;
+    margin: 1rem 0 0;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+    font-weight: 800;
+    line-height: 1.22;
+  }
+
+  .overview-panel,
+  .module-sequence,
+  .closing-panel {
+    margin: 0 0 clamp(24px, 4.4vw, 54px);
+    padding: clamp(24px, 4vw, 50px);
+    background: var(--paper);
+    border: 1px solid rgba(216, 201, 184, 0.92);
+    box-shadow: 0 14px 34px rgba(21, 21, 21, 0.07);
+  }
+
+  .section-heading {
+    margin: 0 0 0.7rem;
+    padding-top: 0.22rem;
+    color: var(--ink);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+    font-weight: 900;
+    line-height: 1.08;
+  }
+
+  .section-heading:before {
+    content: "";
+    display: block;
+    width: 4.6rem;
+    height: 5px;
+    margin-bottom: 0.38rem;
+    background: var(--clay);
+  }
+
+  .overview-panel p,
+  .closing-panel p {
+    max-width: 68ch;
+    margin: 0 0 0.72em;
+  }
+
+  .sequence-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.4rem 0 0;
+  }
+
+  .sequence-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1rem;
+    padding: clamp(1rem, 2.4vw, 1.35rem);
+    background: var(--white);
+    border: 1px solid rgba(216, 201, 184, 0.95);
+    border-left: 8px solid var(--gold);
+  }
+
+  .sequence-number {
+    display: inline-grid;
+    place-items: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    color: var(--white);
+    background: var(--clay);
+    border-radius: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+  }
+
+  .sequence-item h3 {
+    margin: 0 0 0.25rem;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    font-weight: 900;
+    line-height: 1.15;
+  }
+
+  .sequence-item p {
+    max-width: 66ch;
+    margin: 0;
+  }
+
+  .callout {
+    margin: 1.2rem 0 0;
+    padding: 1rem 1.1rem;
+    background: var(--sage-soft);
+    border-left: 5px solid var(--green);
+    font-size: clamp(1rem, 1.08vw, 1.12rem);
+    line-height: 1.48;
+  }
+
+  .callout-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--green);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(0.78rem, 0.82vw, 0.9rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .book-header,
+    .overview-hero-inner,
+    .sequence-item {
+      grid-template-columns: 1fr;
+    }
+
+    .overview-surface {
+      width: min(100%, calc(100% - 22px));
+    }
+  }
+</style>
+
+<section class="miscomm-overview">
+  <main class="overview-surface">
+    <header class="book-header">
+      <div>
+        <p class="book-header-title">(Mis)Communication: An (Un)Commonsense Approach to Interpersonal Communication</p>
+        <span class="book-header-author">Jordan Allen, Ph.D.</span>
+      </div>
+    </header>
+
+    <header class="overview-hero">
+      <div class="overview-hero-inner">
+        <div class="module-number"><span>Module</span>Perception</div>
+        <div class="hero-title-wrap">
+          <h1>Perception</h1>
+          <p class="overview-subtitle">How we notice, interpret, and respond to interpersonal life</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="overview-panel" aria-labelledby="overview-heading">
+      <h2 id="overview-heading" class="section-heading">Overview</h2>
+      <p>In this module, we will explore how perception shapes interpersonal communicating. Perception is not just a private mental process that happens before communication begins. It is part of how we participate in relationships, interpret other people, make judgments, respond to conflict, and decide what a situation means.</p>
+      <p>The module moves from discussion, to reading, to quiz, to application. Along the way, you will keep returning to a central question: what happens when people are inside the same interaction but are not perceiving the same thing?</p>
+    </section>
+
+    <section class="module-sequence" aria-labelledby="sequence-heading">
+      <h2 id="sequence-heading" class="section-heading">What You Will Do</h2>
+      <div class="sequence-list">
+        <article class="sequence-item">
+          <div class="sequence-number">1</div>
+          <div>
+            <h3>Discussion: Perception and Interpersonal Communicating</h3>
+            <p>First, you will explore how perception shapes interpersonal communicating in a discussion. The goal is to start with ordinary experience: moments when people saw the same situation differently, made different assumptions, or walked away with different meanings.</p>
+          </div>
+        </article>
+
+        <article class="sequence-item">
+          <div class="sequence-number">2</div>
+          <div>
+            <h3>Reading: The Perception Chapter</h3>
+            <p>Next, you will read the perception chapter. The chapter contrasts the common-sense and (un)commonsense models of communicating. Pay attention to how each approach explains perception, misunderstanding, difference, interpretation, and responsibility.</p>
+          </div>
+        </article>
+
+        <article class="sequence-item">
+          <div class="sequence-number">3</div>
+          <div>
+            <h3>Quiz: Perception</h3>
+            <p>After the reading, you will complete a quiz on the perception chapter. The quiz will check your understanding of key terms, major contrasts between the two approaches, and the practical implications of thinking about perception in an (un)commonsense way.</p>
+          </div>
+        </article>
+
+        <article class="sequence-item">
+          <div class="sequence-number">4</div>
+          <div>
+            <h3>Application Assignment: Differences in Perception</h3>
+            <p>Finally, you will complete an application assignment related to perception and how people handle differences in perception within relationships. You will likely be asked to connect chapter ideas to a real or realistic interpersonal situation where people understand the same moment differently.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing-panel" aria-labelledby="focus-heading">
+      <h2 id="focus-heading" class="section-heading">Keep In Mind</h2>
+      <p>This module is not asking you to decide who perceived a situation correctly and who perceived it incorrectly. Sometimes that question matters. But interpersonal communicating often requires a more careful question: how are different perceptions shaping what people can notice, say, hear, repair, or refuse?</p>
+      <aside class="callout">
+        <strong class="callout-label">Module Focus</strong>
+        <p>Perception is not just what happens inside one person. It is part of how people make meaning together, especially when relationships ask them to handle difference without pretending everyone sees the same world.</p>
+      </aside>
+    </section>
+  </main>
+</section>
