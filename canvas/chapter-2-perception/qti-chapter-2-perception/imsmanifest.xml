@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="chapter_2_perception_manifest" xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1" xmlns:lom="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata>
+    <schema>IMS Content</schema>
+    <schemaversion>1.1.0</schemaversion>
+  </metadata>
+  <organizations/>
+  <resources>
+    <resource identifier="chapter_2_perception_quiz_resource" type="imsqti_xmlv1p2" href="chapter_2_perception_quiz.xml">
+      <file href="chapter_2_perception_quiz.xml"/>
+    </resource>
+  </resources>
+</manifest>
