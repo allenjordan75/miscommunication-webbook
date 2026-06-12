@@ -1,0 +1,146 @@
+# Textbook Drafting and Editing Workflow
+
+This workflow is built around two fixed models:
+
+- **Chapter 0 = voice model**
+- **Chapter 2 = structure model for every subsequent chapter**
+
+The workflow keeps AI in the role of developmental editor and drafting assistant. AI should organize, test, map, and draft from the author's material. It should not invent the book.
+
+## Files To Use
+
+- `workflow/TEXTBOOK_GUIDE.md`: standing project memory, terminology rules, Chapter 0 voice rules, and Chapter 2 structure rules.
+- `workflow/templates/chapter-intake-template.md`: packet for gathering messy chapter material.
+- `workflow/templates/future-chapter-reading-canvas-template.md`: exact Chapter 2-style structure for future chapters.
+- `workflow/templates/section-drafting-template.md`: packet for drafting one section or one part of the reading canvas.
+- `workflow/templates/source-map-template.md`: source/example mapping table.
+- `workflow/templates/consistency-checklist.md`: final review before publishing.
+- `workflow/prompts/draft-future-chapter-reading-canvas.md`: reusable prompt for turning a packet into a Chapter 2-style canvas.
+
+## Stage 1: Capture
+
+Put raw material into `chapter-intake-template.md`:
+
+- Voice notes or transcripts
+- Typed notes and fragments
+- Source notes
+- Annotated bibliography notes
+- Examples
+- Illustration ideas
+- Questions or uncertainties
+
+Do not polish too early. The goal is to preserve the author's thinking before asking AI to organize it.
+
+## Stage 2: Organize Into The Chapter 2 Shape
+
+Before drafting prose, sort the material into the Chapter 2 structure:
+
+- Chapter title and subtitle
+- Before You Read
+- Big Idea
+- Read For These Moves
+- The Three Named Leaps
+- Key Terms To Track
+- After You Read
+- Quick Check
+
+Rule: if the packet does not support one of these parts, AI should flag the gap instead of filling it in.
+
+## Stage 3: Map Sources And Examples
+
+Use `source-map-template.md`.
+
+Every source or example should have:
+
+- A target part of the reading canvas
+- The claim it supports
+- Support strength: strong, medium, or light
+- Whether it needs citation
+- What it does not support
+
+Do not let sources sit in a general pile. Each source needs a job.
+
+## Stage 4: Framework Alignment
+
+Run the alignment check from `TEXTBOOK_GUIDE.md`.
+
+Ask:
+
+- What is the central common-sense assumption in this chapter?
+- What does that assumption help students see?
+- What does it hide, flatten, or make too certain?
+- What is the (un)commonsense reframing?
+- Which Chapter 0 concepts are useful here?
+- Which Chapter 0 concepts should stay in the background?
+- Are the three named leaps actually distinct?
+
+Do not force the communication paradox into later chapters unless it directly helps the current topic.
+
+## Stage 5: Draft The Reading Canvas
+
+Use `future-chapter-reading-canvas-template.md`.
+
+Draft in this order:
+
+1. Before You Read
+2. Big Idea
+3. Read For These Moves
+4. The Three Named Leaps
+5. Key Terms To Track
+6. After You Read
+7. Quick Check
+
+The draft should sound like Chapter 0 but use the compact structure of Chapter 2.
+
+## Stage 6: Check Consistency
+
+Use `consistency-checklist.md`.
+
+The review should catch:
+
+- Terminology drift
+- Generic AI prose
+- Unsupported generalizations
+- Missing examples
+- Weak source grounding
+- Overuse of Chapter 0 concepts
+- Leaps that are not really leaps
+- Key terms that are only dictionary definitions
+- A Big Idea that does not carry the chapter
+- Chapter 2 structure gaps
+
+## Stage 7: Publish
+
+Open `edit-textbook.html` from the published site or repository.
+
+For small edits:
+
+1. Click the relevant "Edit in GitHub" button.
+2. Revise the page.
+3. Commit to `main`.
+4. Refresh the published page after GitHub Pages finishes.
+
+For major edits:
+
+1. Draft in the workflow templates first.
+2. Run the consistency checklist.
+3. Paste the approved section into the chapter HTML.
+4. Commit to `main`.
+5. Check the published page.
+
+## Recommended Tool Roles
+
+- Voice notes: capture raw ideas quickly.
+- NotebookLM: query PDFs and generate source summaries.
+- ChatGPT/Codex: organize packets, map sources, create drafting plans, draft Chapter 2-style reading canvases, and run consistency checks.
+- GitHub: browser-based editing and version history.
+- GitHub Pages: public textbook publishing.
+
+## Non-Negotiable AI Rules
+
+- Do not invent claims, examples, citations, transitions, or terms.
+- Do not rename the common-sense approach or the (un)commonsense approach.
+- Do not use Chapter 0 concepts just because they are available.
+- Do not draft before source/example mapping.
+- Do not turn the chapter into generic interpersonal communication textbook prose.
+- If the packet is thin, ask specific questions before drafting.
