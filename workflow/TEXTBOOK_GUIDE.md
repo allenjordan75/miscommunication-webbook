@@ -150,6 +150,8 @@ Avoid:
 - Keep informal voice concentrated in the opening narrative and occasional author-note moments. After the introduction, let the tone become more explanatory, grounded, and content-forward.
 - Overview or foundations sections should establish the topic, stakes, definitions, and needed background before leaning heavily on the common-sense/(un)commonsense contrast.
 - When the chapter is about peer-reviewed research, use **peer-reviewed research** or **peer-reviewed article** when that is the actual object of discussion. Do not slide into generic "research" if the distinction matters.
+- Do not add a "how claims travel," "how research travels," circulation, pipeline, press-release, headline, or social-media distortion framing unless the worksheet explicitly asks for that framing. If related sources appear in the bibliography, use them only where the worksheet gives them a clear job.
+- For Chapter 3-style research sections, prefer phrasing such as "The common-sense approach approaches peer-reviewed research as..." over detached constructions such as "From the common-sense approach, research is..." so the sentence names the approach as the active interpretive frame.
 
 ## Paragraph Pattern
 

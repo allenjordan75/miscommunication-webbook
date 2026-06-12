@@ -41,6 +41,7 @@ Before drafting, complete these checks:
 10. Map each source and example to the place it belongs.
 11. List unsupported claims, missing examples, weak source support, terminology risks, and overused Chapter 0 concepts.
 12. Check prose discipline: use author-provided opening narratives when present, add clear transition headers after narratives, bold introduced key terms, avoid unclear "this/that/it" referents, avoid generic AI filler, avoid overusing single-sentence paragraphs, and keep overview/foundation sections topic-centered before applying the framework.
+13. Do not invent a circulation, "claims travel," press-release, headline, social-media distortion, or public-communication pathway unless the chapter packet explicitly includes that pathway as a section goal, framing note, source-map instruction, or drafting note.
 
 If there are serious gaps, stop and ask specific questions.
 
