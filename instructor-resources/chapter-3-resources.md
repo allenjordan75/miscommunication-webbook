@@ -1,8 +1,8 @@
 # Chapter 3 Instructor Resources
 
-## Supplemental Video
+## Psychology Myths Video
 
-Use this video as an instructor-facing resource, not as the embedded student-facing Chapter 3 video.
+This video is now embedded in the student-facing Chapter 3 body near the 93% nonverbal myth. Instructors can also use it as a supplemental discussion resource.
 
 ```html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IrReVmf0u5I?si=AysrDcEYwED0Akc2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -13,10 +13,12 @@ Teaching use: Pair this with Chapter 3 conversations about source-to-claim fit, 
 ## Student-Facing Resources Already Integrated
 
 - Chapter 3 worksheet: `assets/chapter-3-research/chapter-3-worksheet.pdf`
-- Reading and note-taking guide: `resource/reading-notetaking/`
+- How to Read a Research Article / Notes That Think guide: `resource/reading-notetaking/`
+- Reading Research Like a Constellation map: `resource/reading-notetaking/assets/research-constellation-map.svg`
 - Example peer-reviewed article: `assets/reading-notetaking/allen-moore-functional-family-estrangement.pdf`
 - Research article anatomy figure: `resource/reading-notetaking/assets/research_article_anatomy_full_page.png`
 - Chapter 3 image: `assets/chapter-3-research/research-proves-family-table.png`
 - Chapter 3 image: `assets/chapter-3-research/common-sense-obvious-truth.png`
 - Chapter 3 resource image: `assets/chapter-3-research/instagram-research-misinformation-posts.png`
+- Student-facing psychology myths video: `https://www.youtube.com/embed/IrReVmf0u5I?si=AysrDcEYwED0Akc2`
 - Student-facing Chapter 3 video: `https://www.youtube.com/embed/xq7tSzfjolE?si=u2OieSmlTbOoB_N7`
