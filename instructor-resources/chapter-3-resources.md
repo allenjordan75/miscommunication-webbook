@@ -18,4 +18,5 @@ Teaching use: Pair this with Chapter 3 conversations about source-to-claim fit, 
 - Research article anatomy figure: `resource/reading-notetaking/assets/research_article_anatomy_full_page.png`
 - Chapter 3 image: `assets/chapter-3-research/research-proves-family-table.png`
 - Chapter 3 image: `assets/chapter-3-research/common-sense-obvious-truth.png`
+- Chapter 3 resource image: `assets/chapter-3-research/instagram-research-misinformation-posts.png`
 - Student-facing Chapter 3 video: `https://www.youtube.com/embed/xq7tSzfjolE?si=u2OieSmlTbOoB_N7`

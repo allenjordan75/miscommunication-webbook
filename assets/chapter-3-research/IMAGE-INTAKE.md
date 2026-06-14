@@ -18,6 +18,14 @@ Use these images when formatting the revised Chapter 3 webbook page.
 - Teaching purpose: visualizes the common-sense habit of treating the obvious as the truth.
 - Draft alt text: Illustration of a confident student with crossed arms saying, "It's just common sense." The caption says the common-sense approach treats the obvious like the truth, while what feels obvious is shaped by context, history, and relationships.
 
+## instagram-research-misinformation-posts.png
+
+- Source file saved from Jordan's provided image: `ChatGPT Image Jun 13, 2026, 10_18_48 PM.png`.
+- Working asset path: `assets/chapter-3-research/instagram-research-misinformation-posts.png`.
+- Suggested placement: Chapter 3 resources, with possible teaching use near the section on how research claims leave articles and become social media advice.
+- Teaching purpose: gives students a concrete visual example of how science-sounding social media posts can borrow the authority of research while leaving out evidence, context, and limits.
+- Draft alt text: Two fake Instagram-style posts from "communication.charlaton" claim that science can make people more persuasive and detect lying through eye contact. A caption below explains that posts like these spread misinformation by sounding scientific without linking to credible peer-reviewed research.
+
 ## Placement Rule
 
 Use these as chapter-supporting figures, not decorative filler. Place them only where the revised manuscript introduces the relevant packet ideas.
