@@ -2,7 +2,7 @@
 
 Use this before drafting so sources and examples are attached to specific chapter jobs instead of floating around as general background.
 
-| Item | Type | Chapter 2 Part | Claim It Supports | Support Strength | Citation Needed? | Limits / Cautions |
+| Item | Type | Chapter Part | Claim It Supports | Support Strength | Citation Needed? | Limits / Cautions |
 |---|---|---|---|---|---|---|
 |  | Source |  |  | Strong / Medium / Light | Yes / No |  |
 |  | Example |  |  | Strong / Medium / Light | Yes / No |  |
@@ -21,15 +21,20 @@ Use only metaphors already present in the packet unless Jordan explicitly approv
 - Medium: helps explain or contextualize the claim but does not prove it by itself.
 - Light: useful as background, illustration, or contrast only.
 
-## Chapter 2 Part Guide
+## Chapter Part Guide
 
-- Before You Read: needs an opening common-sense framing and a clear (un)commonsense reframing.
-- Big Idea: needs the chapter's central claim.
-- Read For These Moves: needs examples or concepts students can track while reading.
-- The Three Named Leaps: needs distinct conceptual shifts.
-- Key Terms To Track: needs definitions that serve the chapter argument.
-- After You Read: needs a concrete application prompt.
-- Quick Check: needs the central contrast students should be able to explain.
+- Review Before You Begin: needs a brief callback to the prior framework.
+- Chapter Overview: needs the chapter map and central movement.
+- Opening Story / Opening Case: needs the packet's concrete anchor.
+- Preview: The Bigger Question: needs the story-to-problem transition.
+- Why This Topic Belongs in Interpersonal Communicating: needs everyday interpersonal stakes.
+- Foundations: needs core definitions and process.
+- Types / Forms / Major Variations: needs distinctions, examples, and student takeaways.
+- Common-Sense Approach: needs the useful but too-small assumption.
+- (Un)Commonsense Approach: needs the alternative as a practice.
+- Discontinuous Leaps: needs distinct conceptual shifts.
+- Practice Framework / Application Moves: needs concrete student actions.
+- Key Terms At A Glance: needs definitions that serve the chapter argument.
 
 ## Gap Notes
 

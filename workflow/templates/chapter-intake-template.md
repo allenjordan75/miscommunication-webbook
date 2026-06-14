@@ -8,7 +8,7 @@
 
 ## Subtitle
 
-Use the Chapter 2 pattern when possible: `From [common-sense framing] to [uncommonsense reframing]`.
+Use the chapter movement pattern when possible: `From [common-sense framing] to [uncommonsense reframing]`.
 
 ## Chapter Purpose
 
@@ -38,17 +38,28 @@ What familiar assumption, advice, myth, or default framing does this chapter beg
 
 What better question or framing should students practice by the end?
 
-## Chapter 2 Structure Map
+## Full Chapter Structure Map
 
-| Chapter 2 Part | Draft Content / Notes | Support Status |
+| Chapter Part | Draft Content / Notes | Support Status |
 |---|---|---|
-| Before You Read |  | Thin / Usable / Strong |
-| Big Idea |  | Thin / Usable / Strong |
-| Read For These Moves |  | Thin / Usable / Strong |
-| The Three Named Leaps |  | Thin / Usable / Strong |
-| Key Terms To Track |  | Thin / Usable / Strong |
-| After You Read |  | Thin / Usable / Strong |
-| Quick Check |  | Thin / Usable / Strong |
+| Review Before You Begin |  | Thin / Usable / Strong |
+| Chapter Overview |  | Thin / Usable / Strong |
+| Learning Objectives |  | Thin / Usable / Strong |
+| Opening Story / Opening Case |  | Thin / Usable / Strong |
+| Preview: The Bigger Question |  | Thin / Usable / Strong |
+| Why This Topic Belongs in Interpersonal Communicating |  | Thin / Usable / Strong |
+| Foundations |  | Thin / Usable / Strong |
+| Types / Forms / Major Variations |  | Thin / Usable / Strong |
+| How The Topic Moves Into Everyday Life |  | Thin / Usable / Strong |
+| Chapter Movement Header |  | Thin / Usable / Strong |
+| Common-Sense Approach |  | Thin / Usable / Strong |
+| (Un)Commonsense Approach |  | Thin / Usable / Strong |
+| Discontinuous Leaps |  | Thin / Usable / Strong |
+| Practice Framework / Application Moves |  | Thin / Usable / Strong |
+| Chapter Recap |  | Thin / Usable / Strong |
+| Key Terms At A Glance |  | Thin / Usable / Strong |
+| Discussion Questions |  | Thin / Usable / Strong |
+| Endnotes / References |  | Thin / Usable / Strong |
 
 ## Messy Notes
 
@@ -56,7 +67,7 @@ Paste voice notes, fragments, freewrites, or rough ideas here.
 
 ## Master Annotated Bibliography
 
-Add the chapter's full source pool here before mapping sources into individual sections. For each source, include citation, 2-4 sentence summary, key concepts/findings, what claim it supports, what it does not support, and which Chapter 2 section(s) it may belong in.
+Add the chapter's full source pool here before mapping sources into individual sections. For each source, include citation, 2-4 sentence summary, key concepts/findings, what claim it supports, what it does not support, and which full chapter section(s) it may belong in.
 
 Source sync rule: if a source appears in a section-level source box, quote box, uploaded source document, or source map but is missing here, add it here too. Include where the source appeared, what claim it supports, and what citation details are still missing.
 
@@ -64,7 +75,7 @@ Source sync rule: if a source appears in a section-level source box, quote box, 
 
 List each source with a short note about what it can support.
 
-| Source | Chapter 2 Part | Claim Supported | Must Cite? | Limits / Cautions |
+| Source | Chapter Part | Claim Supported | Must Cite? | Limits / Cautions |
 |---|---|---|---|---|
 |  |  |  |  |  |
 
@@ -72,20 +83,9 @@ List each source with a short note about what it can support.
 
 List lived experience examples, student examples, family examples, workplace examples, media examples, research examples, or hypothetical examples.
 
-| Example | Chapter 2 Part | What It Demonstrates | Keep / Revise / Maybe |
+| Example | Chapter Part | What It Demonstrates | Keep / Revise / Maybe |
 |---|---|---|---|
 |  |  |  |  |
-
-## Read For These Moves
-
-List four to six moves students should track.
-
-| Move Label | What Students Should Notice | Source / Example Support |
-|---|---|---|
-|  |  |  |
-|  |  |  |
-| Common sense vs. (un)commonsense |  |  |
-|  |  |  |
 
 ## The Three Named Leaps
 
@@ -97,7 +97,7 @@ Each leap should use the form `From X to Y`.
 | Leap 2 | From  to  |  |  |
 | Leap 3 | From  to  |  |  |
 
-## Key Terms To Track
+## Key Terms At A Glance
 
 | Term | Student-Facing Definition | Why It Matters |
 |---|---|---|
@@ -156,4 +156,4 @@ What should AI ask before drafting?
 
 ## Drafting Instructions
 
-AI should act as a developmental editor and drafting assistant, not as the author. Use `workflow/TEXTBOOK_GUIDE.md`. Treat Chapter 0 as the voice model and Chapter 2 as the structure model. Stay close to this packet. Do not invent examples, claims, citations, or terminology. If a claim lacks support, flag it before drafting.
+AI should act as a developmental editor and drafting assistant, not as the author. Use `workflow/TEXTBOOK_GUIDE.md`. Treat Chapter 0 as the voice model and `workflow/templates/full-chapter-structure-template.md` as the full-chapter structure model. Stay close to this packet. Do not invent examples, claims, citations, terminology, metaphors, or frameworks. If a claim lacks support, flag it before drafting.

@@ -1,9 +1,10 @@
 # Textbook Drafting and Editing Workflow
 
-This workflow is built around two fixed models:
+This workflow is built around three fixed models:
 
 - **Chapter 0 = voice model**
-- **Chapter 2 = structure model for every subsequent chapter**
+- **Chapter 2 = architecture model for cumulative chapter movement**
+- **Full chapter structure template = default structure for every subsequent full chapter**
 
 The workflow keeps AI in the role of developmental editor and drafting assistant. AI should organize, test, map, and draft from the author's material. It should not invent the book.
 
@@ -12,8 +13,9 @@ The workflow keeps AI in the role of developmental editor and drafting assistant
 - `workflow/TEXTBOOK_GUIDE.md`: standing project memory, terminology rules, Chapter 0 voice rules, and Chapter 2 structure rules.
 - `workflow/templates/chapter-intake-template.md`: packet for gathering messy chapter material.
 - `workflow/templates/packet-fidelity-map-template.md`: pre-draft packet inventory, term ledger, allowed examples/metaphors, and fidelity gates.
+- `workflow/templates/full-chapter-structure-template.md`: default structure template for Chapter 3 and future full chapters.
 - `workflow/templates/future-chapter-reading-canvas-template.md`: exact Chapter 2-style structure for future chapters.
-- `workflow/templates/section-drafting-template.md`: packet for drafting one section or one part of the reading canvas.
+- `workflow/templates/section-drafting-template.md`: packet for drafting one section or one part of the full chapter.
 - `workflow/templates/source-map-template.md`: source/example mapping table.
 - `workflow/templates/consistency-checklist.md`: final review before publishing.
 - `workflow/prompts/draft-future-chapter-reading-canvas.md`: reusable prompt for turning a packet into a Chapter 2-style canvas.
@@ -49,16 +51,26 @@ The packet fidelity map must identify:
 
 Rule: no prose drafting happens until the packet fidelity map is complete.
 
-Before drafting prose, sort the material into the Chapter 2 structure:
+Before drafting prose, sort the material into the full chapter structure:
 
-- Chapter title and subtitle
-- Before You Read
-- Big Idea
-- Read For These Moves
-- The Three Named Leaps
-- Key Terms To Track
-- After You Read
-- Quick Check
+- Review Before You Begin
+- Chapter Overview
+- Learning Objectives
+- Opening Story / Opening Case
+- Preview: The Bigger Question
+- Why This Topic Belongs in Interpersonal Communicating
+- Foundations: What The Core Concept Is And How It Works
+- Types / Forms / Major Variations, when the packet calls for them
+- How The Topic Moves Into Everyday Life
+- Chapter Movement Header
+- The Common-Sense Approach To The Topic
+- The (Un)Commonsense Approach To The Topic
+- Discontinuous Leaps
+- Practice Framework / Application Moves
+- Chapter Recap
+- Key Terms At A Glance
+- Discussion Questions
+- Endnotes / References
 
 Rule: if the packet does not support one of these parts, AI should flag the gap instead of filling it in.
 
@@ -70,7 +82,7 @@ Use `source-map-template.md`.
 
 Every source or example should have:
 
-- A target part of the reading canvas
+- A target part of the full chapter
 - The claim it supports
 - Support strength: strong, medium, or light
 - Whether it needs citation
@@ -110,21 +122,29 @@ Ask:
 
 Do not force the communication paradox into later chapters unless it directly helps the current topic.
 
-## Stage 5: Draft The Reading Canvas
+## Stage 5: Draft The Full Chapter
 
-Use `future-chapter-reading-canvas-template.md`.
+Use `full-chapter-structure-template.md` for full chapters.
 
 Draft in this order:
 
-1. Before You Read
-2. Big Idea
-3. Read For These Moves
-4. The Three Named Leaps
-5. Key Terms To Track
-6. After You Read
-7. Quick Check
+1. Review Before You Begin
+2. Chapter Overview
+3. Learning Objectives
+4. Opening Story / Opening Case
+5. Preview: The Bigger Question
+6. Why This Topic Belongs in Interpersonal Communicating
+7. Foundations
+8. Types / Forms / Major Variations
+9. How The Topic Moves Into Everyday Life
+10. Chapter Movement Header
+11. Common-Sense Approach
+12. (Un)Commonsense Approach
+13. Discontinuous Leaps
+14. Practice Framework / Application Moves
+15. Recap materials
 
-The draft should sound like Chapter 0 but use the compact structure of Chapter 2.
+The draft should sound like Chapter 0 but use the full chapter structure modeled on Chapter 2 architecture.
 
 The draft must stay inside the packet. If a transition requires a claim not in the packet, write a simpler transition instead of inventing content.
 
@@ -168,7 +188,7 @@ For major edits:
 
 - Voice notes: capture raw ideas quickly.
 - NotebookLM: query PDFs and generate source summaries.
-- ChatGPT/Codex: organize packets, map sources, create drafting plans, draft Chapter 2-style reading canvases, and run consistency checks.
+- ChatGPT/Codex: organize packets, map sources, create drafting plans, draft full chapters from the approved structure, and run consistency checks.
 - GitHub: browser-based editing and version history.
 - GitHub Pages: public textbook publishing.
 

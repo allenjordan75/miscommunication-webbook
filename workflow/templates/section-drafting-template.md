@@ -3,17 +3,28 @@
 ## Chapter
 
 
-## Chapter 2 Part
+## Full Chapter Part
 
 Choose one:
 
-- Before You Read
-- Big Idea
-- Read For These Moves
-- The Three Named Leaps
-- Key Terms To Track
-- After You Read
-- Quick Check
+- Review Before You Begin
+- Chapter Overview
+- Learning Objectives
+- Opening Story / Opening Case
+- Preview: The Bigger Question
+- Why This Topic Belongs in Interpersonal Communicating
+- Foundations
+- Types / Forms / Major Variations
+- How The Topic Moves Into Everyday Life
+- Chapter Movement Header
+- Common-Sense Approach
+- (Un)Commonsense Approach
+- Discontinuous Leaps
+- Practice Framework / Application Moves
+- Chapter Recap
+- Key Terms At A Glance
+- Discussion Questions
+- Endnotes / References
 
 ## Section Working Heading
 
@@ -30,17 +41,22 @@ What is the one main idea students should understand by the end of the section?
 
 What came before, and why does this section come next?
 
-## Chapter 2 Structure Requirement
+## Full Chapter Structure Requirement
 
 What does this part need to do structurally?
 
-- Before You Read: introduce the common-sense framing and the (un)commonsense reframing.
-- Big Idea: state the chapter's central claim in student-facing language.
-- Read For These Moves: name four to six moves students should track.
-- The Three Named Leaps: name exactly three shifts using `From X to Y`.
-- Key Terms To Track: define five to eight chapter-specific terms.
-- After You Read: ask for concrete application.
-- Quick Check: test the chapter's central contrast.
+- Review Before You Begin: reconnect only the prior framework needed for this chapter.
+- Chapter Overview: give students the map before the story.
+- Opening Story / Opening Case: make the chapter problem felt before defining it.
+- Preview: The Bigger Question: turn the story into the chapter problem.
+- Why This Topic Belongs in Interpersonal Communicating: show everyday interpersonal stakes.
+- Foundations: define the core concept and explain the needed process.
+- Types / Forms / Major Variations: explain differences without ranking them unless the packet does.
+- Common-Sense Approach: define the useful but too-small assumption.
+- (Un)Commonsense Approach: define the alternative as a practice.
+- Discontinuous Leaps: name exactly three shifts using `From X to Y` unless Jordan approves otherwise.
+- Practice Framework / Application Moves: give students concrete moves they can use.
+- Key Terms At A Glance: define required packet terms and why each matters.
 
 ## Must-Use Notes
 
@@ -89,7 +105,7 @@ Student-facing, warm, clear, conceptually rigorous, conversational, concrete, oc
 
 ## Drafting Boundaries
 
-Use `workflow/TEXTBOOK_GUIDE.md`. Treat Chapter 0 as the voice model and Chapter 2 as the structure model. Do not add unsupported claims. Do not rename key terms. Do not invent examples. Ask questions if the section goal, source support, or framework role is unclear.
+Use `workflow/TEXTBOOK_GUIDE.md`. Treat Chapter 0 as the voice model and `workflow/templates/full-chapter-structure-template.md` as the full-chapter structure model. Do not add unsupported claims. Do not rename key terms. Do not invent examples, metaphors, terminology, or frameworks. Ask questions if the section goal, source support, or framework role is unclear.
 
 ## Requested Output
 

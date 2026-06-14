@@ -5,7 +5,8 @@ This is the standing memory file for drafting future chapters of **(Mis)Communic
 ## Source Models
 
 - **Chapter 0 is the voice model.** Use it to preserve the author's student-facing, warm, rigorous, conversational style.
-- **Chapter 2 is the structure model for subsequent chapters.** Future chapter reading canvases should follow the Chapter 2 pattern unless the author explicitly changes it.
+- **Chapter 2 is the architecture model for subsequent chapters.** Future full chapters should follow `workflow/templates/full-chapter-structure-template.md` unless the author explicitly changes it.
+- **The reading-canvas template is a planning artifact.** Use it for compact previews or planning, not as the default full-chapter structure.
 - **The chapter packet is the content authority.** Voice and structure models do not authorize new ideas. The packet controls what the chapter can say.
 
 ## Book Purpose
@@ -102,9 +103,52 @@ These are foundational but should not be re-explained in every chapter:
 
 Do not force Chapter 0 concepts into later chapters. A future chapter should sound like it remembers Chapter 0, not like it is rewriting Chapter 0.
 
-## Chapter 2 Structure For Future Chapters
+## Full Chapter Structure For Future Chapters
 
-Each subsequent chapter reading canvas should use this structure:
+Use `workflow/templates/full-chapter-structure-template.md` for Chapter 3 and later full chapters unless Jordan provides a chapter-specific structure.
+
+Default full-chapter sequence:
+
+1. Review Before You Begin
+2. Chapter Overview
+3. Learning Objectives
+4. Opening Story / Opening Case
+5. Preview: The Bigger Question
+6. Why This Topic Belongs in Interpersonal Communicating
+7. Foundations: What The Core Concept Is And How It Works
+8. Types / Forms / Major Variations, when the packet calls for them
+9. How The Topic Moves Into Everyday Life
+10. Chapter Movement Header
+11. The Common-Sense Approach To The Topic
+12. The (Un)Commonsense Approach To The Topic
+13. Discontinuous Leaps
+14. Practice Framework / Application Moves
+15. Chapter Recap
+16. Key Terms At A Glance
+17. Discussion Questions
+18. Endnotes / References
+
+For each type/form/process subsection, use the packet-supported pattern:
+
+- What it is
+- What it accomplishes
+- Interpersonal example
+- Student hook or takeaway
+
+For each discontinuous leap, use the packet-supported pattern:
+
+- Common-sense assumption
+- Core myth or tempting mistake
+- (Un)commonsense alternative
+- Behavioral shift
+- Examples
+- What this section accomplishes
+
+## Reading Canvas Structure For Planning
+
+Use the reading canvas only for compact planning or a short chapter preview. It is not the default full-chapter structure.
+
+Each reading canvas may use this structure:
 
 1. **Chapter Header**
    - Chapter number or chapter label

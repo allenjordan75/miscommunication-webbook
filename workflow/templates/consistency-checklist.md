@@ -5,10 +5,11 @@ Use this before publishing a chapter or major section revision.
 ## Required Models
 
 - [ ] Chapter 0 was used as the voice model.
-- [ ] Chapter 2 was used as the structure model.
+- [ ] The full chapter structure template was used for a full chapter draft.
+- [ ] Chapter 2 was used as the architecture model.
 - [ ] The chapter packet/course packet/voice notes were used as the controlling content source.
 - [ ] The draft refines and develops packet material rather than creating new material.
-- [ ] The draft uses the Chapter 2 sequence: Before You Read, Big Idea, Read For These Moves, The Three Named Leaps, Key Terms To Track, After You Read, Quick Check.
+- [ ] The draft uses the required full chapter sequence unless Jordan supplied a chapter-specific structure.
 - [ ] The draft sounds like the same author, not a generic textbook summary.
 
 ## Packet Fidelity Gate
@@ -23,20 +24,26 @@ Use this before publishing a chapter or major section revision.
 - [ ] Packet "do not say" cautions were followed.
 - [ ] Missing support was flagged instead of filled in.
 
-## Chapter 2 Structure
+## Full Chapter Structure
 
 - [ ] The title and subtitle name the chapter's central shift.
-- [ ] Before You Read begins with a common-sense framing.
-- [ ] Before You Read clearly names the (un)commonsense reframing.
-- [ ] Big Idea gives the chapter's central claim in student-facing language.
-- [ ] Read For These Moves has four to six trackable moves.
-- [ ] At least one move explicitly compares the common-sense and (un)commonsense approaches.
-- [ ] The Three Named Leaps uses exactly three `From X to Y` shifts.
+- [ ] Review Before You Begin reconnects only the prior framework needed for this chapter.
+- [ ] Chapter Overview gives students the map before the opening story.
+- [ ] Learning Objectives are student-facing and chapter-specific.
+- [ ] Opening Story / Opening Case makes the chapter problem felt before defining it.
+- [ ] Preview: The Bigger Question turns the story into the chapter problem.
+- [ ] The chapter explains why the topic belongs in interpersonal communicating.
+- [ ] Foundations define the core concept and explain the needed process.
+- [ ] Types / Forms / Major Variations are included when the packet calls for them.
+- [ ] The chapter includes a movement header such as `From X to Y`.
+- [ ] The common-sense approach is defined before the leaps.
+- [ ] The (un)commonsense approach is defined before the leaps.
+- [ ] Discontinuous Leaps uses exactly three `From X to Y` shifts unless Jordan approved otherwise.
 - [ ] The three leaps are distinct, not three versions of the same move.
-- [ ] Key Terms To Track includes five to eight terms.
-- [ ] Key term definitions explain why the term matters for this chapter.
-- [ ] After You Read asks for a concrete application.
-- [ ] Quick Check tests the central contrast of the chapter.
+- [ ] Practice Framework / Application Moves give students something they can do.
+- [ ] Chapter Recap uses the established recap style.
+- [ ] Key Terms At A Glance includes all required packet terms.
+- [ ] Discussion Questions are practical and reflective.
 
 ## Framework
 

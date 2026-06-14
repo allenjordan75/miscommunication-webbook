@@ -1,6 +1,8 @@
 # Future Chapter Reading Canvas Template
 
-Use this template for Chapter 3 and every subsequent chapter unless the author changes the structure. It is modeled on Chapter 2.
+Use this template for compact planning or reading-canvas previews. For full chapters, use `workflow/templates/full-chapter-structure-template.md`.
+
+This template is modeled on Chapter 2's compact reading-canvas logic, but it is not the default full-chapter structure.
 
 ## Chapter Header
 

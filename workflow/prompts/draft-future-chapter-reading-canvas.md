@@ -1,4 +1,4 @@
-# Prompt: Draft A Future Chapter Reading Canvas
+# Prompt: Draft A Future Full Chapter
 
 Use this prompt with a completed chapter packet.
 
@@ -8,7 +8,8 @@ You are a developmental editor and drafting assistant for (Mis)Communication: An
 Use:
 - workflow/TEXTBOOK_GUIDE.md as the standing project memory.
 - Chapter 0 as the authorial voice model.
-- Chapter 2 as the structure model for subsequent chapters.
+- workflow/templates/full-chapter-structure-template.md as the default full-chapter structure.
+- Chapter 2 as the architecture model for how stories, foundations, approaches, leaps, and practice build cumulatively.
 - The chapter packet below as the only source of new chapter content.
 
 Your job is not to invent the chapter. Your job is to help organize, test, define, sequence, and draft from the materials provided. The chapter packet is the controlling manuscript source, not background inspiration.
@@ -57,27 +58,39 @@ Only after these gates are complete, continue with these checks:
 2. Identify the chapter's (un)commonsense reframing.
 3. Identify what students think the topic is before the chapter.
 4. Identify what this chapter offers as an alternative to students' current assumptions, habits, or attitudes.
-5. Identify the Big Idea.
-6. Identify the four to six "Read For These Moves" items.
-7. Identify the Three Named Leaps.
-8. Identify five to eight Key Terms To Track.
-9. Sync sources: compare section-level source boxes, quote boxes, uploaded source documents, and source maps against the Master Annotated Bibliography. Add or flag any source missing from the master list, including where it appeared, what claim it supports, and what citation details are missing.
-10. Map each source and example to the place it belongs.
-11. List unsupported claims, missing examples, weak source support, terminology risks, and overused Chapter 0 concepts.
-12. Check prose discipline: use author-provided opening narratives when present, add clear transition headers after narratives, bold introduced key terms, avoid unclear "this/that/it" referents, avoid generic AI filler, avoid overusing single-sentence paragraphs, and keep overview/foundation sections topic-centered before applying the framework.
-13. Do not invent a circulation, "claims travel," press-release, headline, social-media distortion, or public-communication pathway unless the chapter packet explicitly includes that pathway as a section goal, framing note, source-map instruction, or drafting note.
+5. Identify the chapter movement header.
+6. Identify the foundation/process sections the packet requires.
+7. Identify any types/forms/variations section the packet requires.
+8. Identify the Three Named Leaps.
+9. Identify the practice framework or application moves.
+10. Identify all required key terms for Key Terms At A Glance.
+11. Sync sources: compare section-level source boxes, quote boxes, uploaded source documents, and source maps against the Master Annotated Bibliography. Add or flag any source missing from the master list, including where it appeared, what claim it supports, and what citation details are missing.
+12. Map each source and example to the place it belongs.
+13. List unsupported claims, missing examples, weak source support, terminology risks, and overused Chapter 0 concepts.
+14. Check prose discipline: use author-provided opening narratives when present, add clear transition headers after narratives, bold introduced key terms, avoid unclear "this/that/it" referents, avoid generic AI filler, avoid overusing single-sentence paragraphs, and keep overview/foundation sections topic-centered before applying the framework.
+15. Do not invent a circulation, "claims travel," press-release, headline, social-media distortion, or public-communication pathway unless the chapter packet explicitly includes that pathway as a section goal, framing note, source-map instruction, or drafting note.
 
 If there are serious gaps, stop and ask specific questions. Do not fill gaps with general knowledge.
 
-If the packet is strong enough, draft the Chapter 2-style reading canvas:
-- Chapter Header
-- Before You Read
-- Big Idea
-- Read For These Moves
-- The Three Named Leaps
-- Key Terms To Track
-- After You Read
-- Quick Check
+If the packet is strong enough, draft the full chapter using this structure:
+- Review Before You Begin
+- Chapter Overview
+- Learning Objectives
+- Opening Story / Opening Case
+- Preview: The Bigger Question
+- Why This Topic Belongs in Interpersonal Communicating
+- Foundations: What The Core Concept Is And How It Works
+- Types / Forms / Major Variations, when the packet calls for them
+- How The Topic Moves Into Everyday Life
+- Chapter Movement Header
+- The Common-Sense Approach To The Topic
+- The (Un)Commonsense Approach To The Topic
+- Discontinuous Leaps
+- Practice Framework / Application Moves
+- Chapter Recap
+- Key Terms At A Glance
+- Discussion Questions
+- Endnotes / References
 
 Voice requirements:
 - student-facing
