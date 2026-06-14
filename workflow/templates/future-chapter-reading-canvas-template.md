@@ -14,6 +14,22 @@ Example pattern: `From [common-sense framing] to [uncommonsense reframing]`
 
 ## Chapter Setup
 
+### Packet Fidelity Gate
+
+Complete `workflow/templates/packet-fidelity-map-template.md` before drafting this canvas.
+
+Do not draft from this template until:
+
+- the required chapter movement is identified
+- section goals are mapped
+- required examples are mapped
+- allowed metaphors and phrases are listed
+- the key-term ledger is complete
+- source/example jobs are mapped
+- missing support is flagged
+
+The packet is the content authority. This template organizes packet material; it does not authorize new content.
+
 ### What Students Think The Topic Is
 
 What will students likely assume about this topic before the chapter?
@@ -105,6 +121,7 @@ Definition rules:
 - Define the term in plain language.
 - Connect the term to the chapter's argument.
 - Do not use dictionary definitions unless the history of the word matters.
+- Use packet-based definitions only. If the packet does not define a required term, write `[MISSING PACKET DEFINITION: term]`.
 
 ## After You Read
 
@@ -126,6 +143,6 @@ Prompt:
 
 ## AI Drafting Command
 
-Use this command after filling the packet:
+Use this command after filling the packet and completing the packet fidelity map:
 
-> Using `workflow/TEXTBOOK_GUIDE.md`, Chapter 0 as the voice model, and Chapter 2 as the structure model, turn this packet into a reading canvas. Do not invent sources, claims, or examples. First list missing support, unclear claims, terminology risks, and places where the structure is incomplete. Then draft only the parts that are fully supported by the packet.
+> Using `workflow/TEXTBOOK_GUIDE.md`, Chapter 0 as the voice model, Chapter 2 as the structure model, and the completed packet fidelity map as the content boundary, turn this packet into a reading canvas. Do not invent sources, claims, examples, vocabulary, metaphors, or frameworks. First list missing support, missing packet definitions, unclear claims, terminology risks, and places where the structure is incomplete. Then draft only the parts that are fully supported by the packet.

@@ -6,8 +6,22 @@ Use this before publishing a chapter or major section revision.
 
 - [ ] Chapter 0 was used as the voice model.
 - [ ] Chapter 2 was used as the structure model.
+- [ ] The chapter packet/course packet/voice notes were used as the controlling content source.
+- [ ] The draft refines and develops packet material rather than creating new material.
 - [ ] The draft uses the Chapter 2 sequence: Before You Read, Big Idea, Read For These Moves, The Three Named Leaps, Key Terms To Track, After You Read, Quick Check.
 - [ ] The draft sounds like the same author, not a generic textbook summary.
+
+## Packet Fidelity Gate
+
+- [ ] A packet fidelity map was completed before drafting.
+- [ ] Required chapter movement from the packet is present.
+- [ ] Required section goals from the packet are present.
+- [ ] Required examples from the packet are used before any new examples are considered.
+- [ ] Required metaphors and phrases from the packet are preserved where useful.
+- [ ] No new metaphors were introduced without explicit approval.
+- [ ] No new vocabulary or framework was introduced without explicit approval.
+- [ ] Packet "do not say" cautions were followed.
+- [ ] Missing support was flagged instead of filled in.
 
 ## Chapter 2 Structure
 
@@ -38,13 +52,21 @@ Use this before publishing a chapter or major section revision.
 - [ ] Uses "the (un)commonsense approach" exactly.
 - [ ] Does not use unapproved shorthand.
 - [ ] Key terms match earlier chapters.
+- [ ] A key-term ledger was completed before drafting.
+- [ ] Every required key term has a packet-based definition.
+- [ ] Every required key term explains why the term matters for this chapter.
+- [ ] No key term relies on a generic dictionary definition unless the packet asks for that.
+- [ ] Terms with missing packet definitions are flagged.
 
 ## Sources
 
+- [ ] A source/example map was completed before drafting.
 - [ ] Research claims are supported by provided sources.
 - [ ] Citations are attached where needed.
 - [ ] No source is stretched beyond what it can support.
 - [ ] Unsupported claims are flagged or removed.
+- [ ] Every source has a specific chapter job.
+- [ ] Every source includes a note about what it does not support.
 
 ## Examples
 
@@ -52,6 +74,8 @@ Use this before publishing a chapter or major section revision.
 - [ ] Examples fit the section's purpose.
 - [ ] Examples are specific enough for first-year students.
 - [ ] Hypothetical examples are not confused with research findings.
+- [ ] Examples come from the packet unless explicitly approved by Jordan.
+- [ ] If a needed example was missing, the draft flags `[MISSING PACKET EXAMPLE: ...]` instead of inventing one.
 
 ## Voice
 

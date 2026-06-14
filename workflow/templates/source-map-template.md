@@ -7,6 +7,14 @@ Use this before drafting so sources and examples are attached to specific chapte
 |  | Source |  |  | Strong / Medium / Light | Yes / No |  |
 |  | Example |  |  | Strong / Medium / Light | Yes / No |  |
 
+## Example Source Rule
+
+Use packet examples first. If a section needs an example and the packet does not provide one, flag `[MISSING PACKET EXAMPLE: section/claim]` instead of inventing one.
+
+## Metaphor Rule
+
+Use only metaphors already present in the packet unless Jordan explicitly approves a new metaphor. If the prose feels thin, clarify the packet idea rather than adding a new image.
+
 ## Support Strength Guide
 
 - Strong: directly supports the claim with a relevant finding, concept, theory, example, or quotation.

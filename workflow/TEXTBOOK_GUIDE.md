@@ -6,6 +6,7 @@ This is the standing memory file for drafting future chapters of **(Mis)Communic
 
 - **Chapter 0 is the voice model.** Use it to preserve the author's student-facing, warm, rigorous, conversational style.
 - **Chapter 2 is the structure model for subsequent chapters.** Future chapter reading canvases should follow the Chapter 2 pattern unless the author explicitly changes it.
+- **The chapter packet is the content authority.** Voice and structure models do not authorize new ideas. The packet controls what the chapter can say.
 
 ## Book Purpose
 
@@ -18,6 +19,32 @@ The book's recurring move is:
 3. Show what it hides, flattens, or makes too certain.
 4. Offer an (un)commonsense approach that gives students better questions, more context, and more responsibility.
 5. End with practical, concrete ways to notice and respond differently.
+
+## Packet-First Drafting Rule
+
+The packet is the chapter. The draft is an organized, clarified, student-facing version of the packet.
+
+Before any prose drafting, complete three gates:
+
+1. **Packet Fidelity Map**
+   - List the required chapter movement.
+   - List section goals and required section order.
+   - List required examples and metaphors.
+   - List required terms.
+   - List source cautions and "do not say" rules.
+   - List production notes.
+
+2. **Key-Term Ledger**
+   - Every required term must have a packet-based definition.
+   - Every definition must include why the term matters for the chapter.
+   - If the packet does not define the term, flag `[MISSING PACKET DEFINITION: term]` instead of writing a dictionary definition.
+
+3. **Source And Example Map**
+   - Every source and example must have a specific chapter job.
+   - Every source and example must identify what claim it supports.
+   - Every source and example must identify what it does not support.
+
+No full chapter drafting should happen before these three gates are complete. If a gate fails, stop and ask Jordan for missing material.
 
 ## Required Terminology
 
@@ -143,6 +170,7 @@ Avoid:
 ## Prose Clarity And Source-Specific Drafting Rules
 
 - Use the opening narrative, preferred language, and revised-language boxes as controlling content when they are present. Do not replace the author's narrative with a looser paraphrase unless the author asks for a rewrite.
+- Treat author-provided worksheet language as source text, not inspiration. Revise it for clarity and sequence, but do not replace it with newly invented frameworks, metaphors, or examples.
 - After a long opening narrative, add a clear transition header that tells students the chapter is moving from story into chapter preview, overview, or foundations.
 - Use subheaders between major ideas inside each main section so students can see the chapter's logic while reading.
 - Bold key terms when they are introduced and when emphasis helps students track the chapter's vocabulary.
@@ -152,6 +180,28 @@ Avoid:
 - When the chapter is about peer-reviewed research, use **peer-reviewed research** or **peer-reviewed article** when that is the actual object of discussion. Do not slide into generic "research" if the distinction matters.
 - Do not add a "how claims travel," "how research travels," circulation, pipeline, press-release, headline, or social-media distortion framing unless the worksheet explicitly asks for that framing. If related sources appear in the bibliography, use them only where the worksheet gives them a clear job.
 - For Chapter 3-style research sections, prefer phrasing such as "The common-sense approach approaches peer-reviewed research as..." over detached constructions such as "From the common-sense approach, research is..." so the sentence names the approach as the active interpretive frame.
+
+## Refining Versus Inventing
+
+Allowed editorial moves:
+
+- organize packet material into a teachable sequence
+- clarify packet language for students
+- define terms using packet language
+- connect two packet ideas already present
+- develop an example already present in the packet
+- smooth transitions without adding new claims
+- flag missing support or missing definitions
+
+Disallowed editorial moves:
+
+- adding a new concept because it seems useful
+- adding a new metaphor because the prose wants energy
+- adding a new example because the paragraph feels thin
+- adding vocabulary not present in the packet
+- adding source claims from general knowledge
+- replacing author-provided language with generic textbook language
+- treating the packet as background instead of source
 
 ## Paragraph Pattern
 
@@ -194,8 +244,12 @@ AI should act as a developmental editor and drafting assistant. It should not be
 
 Before drafting, AI must identify:
 
+- the packet fidelity map
+- the key-term ledger
+- the source/example map
 - unsupported claims
 - missing examples
+- missing packet definitions
 - unclear source relationships
 - terminology risks
 - framework overuse

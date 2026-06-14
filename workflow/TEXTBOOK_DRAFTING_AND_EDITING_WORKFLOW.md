@@ -11,6 +11,7 @@ The workflow keeps AI in the role of developmental editor and drafting assistant
 
 - `workflow/TEXTBOOK_GUIDE.md`: standing project memory, terminology rules, Chapter 0 voice rules, and Chapter 2 structure rules.
 - `workflow/templates/chapter-intake-template.md`: packet for gathering messy chapter material.
+- `workflow/templates/packet-fidelity-map-template.md`: pre-draft packet inventory, term ledger, allowed examples/metaphors, and fidelity gates.
 - `workflow/templates/future-chapter-reading-canvas-template.md`: exact Chapter 2-style structure for future chapters.
 - `workflow/templates/section-drafting-template.md`: packet for drafting one section or one part of the reading canvas.
 - `workflow/templates/source-map-template.md`: source/example mapping table.
@@ -33,6 +34,21 @@ Do not polish too early. The goal is to preserve the author's thinking before as
 
 ## Stage 2: Organize Into The Chapter 2 Shape
 
+Before organizing structure, complete `packet-fidelity-map-template.md`.
+
+The packet fidelity map must identify:
+
+- required chapter movement
+- required section goals
+- required terms and definitions
+- required examples
+- allowed metaphors and phrases
+- source cautions
+- "do not say" rules
+- missing support or missing definitions
+
+Rule: no prose drafting happens until the packet fidelity map is complete.
+
 Before drafting prose, sort the material into the Chapter 2 structure:
 
 - Chapter title and subtitle
@@ -45,6 +61,8 @@ Before drafting prose, sort the material into the Chapter 2 structure:
 - Quick Check
 
 Rule: if the packet does not support one of these parts, AI should flag the gap instead of filling it in.
+
+Rule: if the packet contains a full section goal, voice-note draft, or revised-language box, use that material as controlling source text. Do not paraphrase around it or replace it with new framing.
 
 ## Stage 3: Map Sources And Examples
 
@@ -59,6 +77,22 @@ Every source or example should have:
 - What it does not support
 
 Do not let sources sit in a general pile. Each source needs a job.
+
+Examples also need a job. Do not invent new examples when the packet already contains examples. If a section needs an example and the packet does not provide one, flag `[MISSING PACKET EXAMPLE: section/claim]`.
+
+## Stage 3.5: Build The Key-Term Ledger
+
+Before drafting prose, list every required term.
+
+For each term, record:
+
+- packet-based definition
+- why the term matters for the chapter
+- planned section location
+- whether it needs a callout
+- whether the definition is missing or incomplete
+
+Do not draft with undefined key terms. Do not use dictionary definitions unless the packet specifically asks for one.
 
 ## Stage 4: Framework Alignment
 
@@ -91,6 +125,8 @@ Draft in this order:
 7. Quick Check
 
 The draft should sound like Chapter 0 but use the compact structure of Chapter 2.
+
+The draft must stay inside the packet. If a transition requires a claim not in the packet, write a simpler transition instead of inventing content.
 
 ## Stage 6: Check Consistency
 
@@ -138,9 +174,12 @@ For major edits:
 
 ## Non-Negotiable AI Rules
 
-- Do not invent claims, examples, citations, transitions, or terms.
+- Do not invent claims, examples, citations, transitions, metaphors, frameworks, or terms.
 - Do not rename the common-sense approach or the (un)commonsense approach.
 - Do not use Chapter 0 concepts just because they are available.
+- Do not draft before packet fidelity mapping.
+- Do not draft before key-term ledger completion.
 - Do not draft before source/example mapping.
 - Do not turn the chapter into generic interpersonal communication textbook prose.
+- Do not treat the packet as background. Treat it as the manuscript source.
 - If the packet is thin, ask specific questions before drafting.
