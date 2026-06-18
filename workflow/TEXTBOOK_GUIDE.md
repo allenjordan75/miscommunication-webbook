@@ -218,6 +218,7 @@ Avoid:
 - After a long opening narrative, add a clear transition header that tells students the chapter is moving from story into chapter preview, overview, or foundations.
 - Use subheaders between major ideas inside each main section so students can see the chapter's logic while reading.
 - Bold key terms when they are introduced and when emphasis helps students track the chapter's vocabulary.
+- In published webbook chapters, turn key terms into clickable definition buttons using the Chapter 2 pattern. The Key Terms At A Glance section should remain the single source for the definition text.
 - Make pronoun reference explicit. Revise sentences that use "this," "that," "it," or "the problem" without a clear noun nearby.
 - Keep informal voice concentrated in the opening narrative and occasional author-note moments. After the introduction, let the tone become more explanatory, grounded, and content-forward.
 - Overview or foundations sections should establish the topic, stakes, definitions, and needed background before leaning heavily on the common-sense/(un)commonsense contrast.

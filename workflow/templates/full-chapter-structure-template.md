@@ -194,6 +194,8 @@ Include required terms from the packet. Define them in first-year language using
 
 Each definition should explain why the term matters for this chapter.
 
+Publication standard: key terms introduced in the chapter body should function as clickable definition buttons, following the Chapter 2 pattern. Use the Key Terms At A Glance section as the single source for definitions so students can click terms in context without duplicating or drifting definitions.
+
 ## 11. Discussion Questions
 
 Keep discussion questions practical and reflective. Ask students to apply the chapter to everyday interactions, advice, social media claims, classroom/workplace situations, relationships, or chapter-specific examples.

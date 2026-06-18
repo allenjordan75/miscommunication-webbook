@@ -56,12 +56,13 @@ Use this before publishing a chapter or major section revision.
 ## Terminology
 
 - [ ] Uses "the common-sense approach" exactly.
-- [ ] Uses "the (un)commonsense approach" exactly.
+- [ ] Uses "the (un)common-sense approach" exactly.
 - [ ] Does not use unapproved shorthand.
 - [ ] Key terms match earlier chapters.
 - [ ] A key-term ledger was completed before drafting.
 - [ ] Every required key term has a packet-based definition.
 - [ ] Every required key term explains why the term matters for this chapter.
+- [ ] Published webbook key terms are clickable definition buttons using Key Terms At A Glance as the single source for definitions.
 - [ ] No key term relies on a generic dictionary definition unless the packet asks for that.
 - [ ] Terms with missing packet definitions are flagged.
 
